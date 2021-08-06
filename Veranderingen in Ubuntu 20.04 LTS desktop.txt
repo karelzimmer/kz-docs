@@ -1,0 +1,72 @@
+###############################################################################
+# Tekstbestand met veranderingen in Ubuntu 20.04 LTS desktp t.o.v. 18.04 LTS.
+#
+# Geschreven door Karel Zimmer <info@karelzimmer.nl>.
+#
+# Auteursrecht (c) 2020-2021 Karel Zimmer.
+# Creative Commons Naamsvermelding-GelijkDelen Internationaal-licentie
+# <https://creativecommons.org/licenses/by-sa/4.0/>.
+###############################################################################
+
+Gewijzigd
+---------
+Aanmeldscherm
+    Sessiewisselaar verplaatst naar rechtsonder
+Sneller opstarten
+Diavoorstelling tijdens het installeren
+Thema
+    Kleurschema (meer paars)
+    Uiterlijk gemoderniseerd
+Bureaubladomgeving GNOME V.3.36
+    Apps
+    Sneller werken
+    Drie standaard-thema's
+    Meer controle over privacy
+    Makkelijker schermen schalen
+    Aangepast Details-scherm
+    Uitgebreider Instellingen-scherm
+    Makkelijker achtergrondafbeelding instellen
+    Snelkoppelingen Thuismap en Prullenbak op het bureaublad
+        (kunnen verborgen worden)
+    Zoekresultataten nu makkelijker te lezen en gegroepeerd per bron
+    Rekenmachine, Tekens en symbolen, en Logboeken nu uit repo (geen snaps meer) 
+    Mededelingengebied/statusmenu duidelijker door scheidingsstreepjes
+    Favoriete bestanden (Met ster) in Bestanden (Nautilus)
+    Dynamische aanpassing grootte van mappen en bestanden in een Nautilus-venster
+    Veelzijdige padbalk bovenin een Nautilus-venster (meer acties mogelijk, zoals
+        Nieuwe map, Toevoegen aan Bladwijzers, Alles selecteren, In terminal openen)
+    Toegang tot schijven vanuit het Ubuntu-dock 
+    Ondersteuning voor Thunderbolt aansluitingen
+    Terminalvenster gemoderniseerd
+    Sneller toegang tot mappen en bestanden in Google Drive via Nautilus
+"Verificatie vereist"-schermen
+"Over"-keuze op Instellingen-scherm
+Vergrendelscherm gebruikt dezelfde (zwaar vervaagde) achtergrond als het bureaublad
+Software is nu een snap-toepassing, wardoor snaps sneller en makkelijk kunnen
+    worden geïnstalleerd
+
+
+Nieuw
+-----
+Beeldbestand (.iso) ook voor 64-bit ARM-processoren
+Opstartscherm laat (OEM) logo zien
+Niet storen-optie bij mededelingen
+Apps zijn te combineren tot een map in het Activiteiten-overzicht
+App om GNOME-uitbreidingen in te stellen
+App toestemmingen uitgebreid in te stellen
+Donker thema (via Instellingen > Uiterlijk)
+Fractionele schaling voor hoge-resolutie schemen (via Instellingen > Schermen)
+Pauzestand (via statusmenu)
+Experimentele ondersteuning voor ZFS bestandssysteem
+
+
+Verwijderd
+Amazon-app uit de Starter
+Evolution (E-mail en Agenda)
+    Vervangen door Geary (E-mail) en GNOME Agenda
+
+
+Zie ook hhttps://wiki.ubuntu.com/Releases
+
+
+# EOF

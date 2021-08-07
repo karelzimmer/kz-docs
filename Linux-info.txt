@@ -1990,5 +1990,13 @@ git push
 Username for 'https://github.com': <username>
 Password for 'https://<username>@github.com': <password>
 
+# Informatie:
+git log
+git log -10
+git log --oneline
+
+git diff # working <-> staged
+git diff '<SHA-1 hash references>' '<SHA-1 hash reference #2>' # log --oneline
+
 
 # EOF

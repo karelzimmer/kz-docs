@@ -1991,12 +1991,17 @@ Username for 'https://github.com': <username>
 Password for 'https://<username>@github.com': <password>
 
 # Informatie:
+git config --list
+
 git log
 git log -10
 git log --oneline
 
 git diff # working <-> staged
 git diff '<SHA-1 hash references>' '<SHA-1 hash reference #2>' # log --oneline
+
+# fatal: CRLF would be replaced by LF in companies.txt
+git config --global core.autocrlf false
 
 
 # EOF

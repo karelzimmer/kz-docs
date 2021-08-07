@@ -1369,11 +1369,11 @@ xinput enable 13    # Dell WMI hotkeys
 #cThe ways below show you the most direct method to download YouTube videos by
 #cchanging URL without any software. Try any of them as you need.
 
-# Tip #1: Change YouTube to ssyoutube
-youtube.com/watch?v=C6MVEwl0ceI&t=2s -> ssyoutube.com/watch?v=C6MVEwl0ceI&t=2s
-
-# Tip #2: Change YouTube to youpak
+# Tip #1: Change YouTube to youpak
 youtube.com/watch?v=C6MVEwl0ceI&t=2s -> youpak.com/watch?v=C6MVEwl0ceI&t=2s
+
+# Tip #2: Change YouTube to ssyoutube
+youtube.com/watch?v=C6MVEwl0ceI&t=2s -> ssyoutube.com/watch?v=C6MVEwl0ceI&t=2s
 
 # Tip #3: Insert "pp" after "youtube"
 youtube.com/watch?v=C6MVEwl0ceI&t=2s -> youtubepp.com/watch?v=C6MVEwl0ceI&t=2s

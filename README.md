@@ -1,4 +1,9 @@
 # Checklists
-Checklists for installing Ubuntu and Debian GNU/Linux (Dutch)
+Documenten voor het installeren en onderhouden van Ubuntu en Debian Linux.
 
-More info at https://karelzimmer.nl (Dutch)
+Meer informatie op https://karelzimmer.nl.
+
+Documents for installing and maintaining Ubuntu and Debian Linux.
+
+More info at https://karelzimmer.nl (Dutch).
+

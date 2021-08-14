@@ -623,6 +623,10 @@ gsettings range [<schema>[:<path>]]
 gsettings get <schema>[:<path>] <key>
 gsettings reset <schema>[:<path>] <key>  (naar default waarde gaan)
 gsettings describe <schema>[:<path>] <key>  (beschrijving)
+Als root:
+dbus-launch gsettings get org.gnome.shell favorite-apps
+dbus-launch gsettings reset org.gnome.shell favorite-apps
+etc.
 
 dconf reset -f /    reset ALLES !! VOORZICHTIG !!
 gconftool-2 --get /apps/gedit-2/plugins/active-plugins

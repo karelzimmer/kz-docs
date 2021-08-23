@@ -2,11 +2,8 @@
 # Tekstbestand met Ubuntu codenamen en hun betekenis.
 #
 # Geschreven door Karel Zimmer <info@karelzimmer.nl>.
-#
-# Auteursrecht (c) 2004-2021 Karel Zimmer.
-# Creative Commons Naamsvermelding-GelijkDelen Internationaal-licentie
-# <https://creativecommons.org/licenses/by-sa/4.0/>.
 ###############################################################################
+# RELEASE_YEAR=2004
 
 Codenames zijn te vinden via Terminalvenster:
 $ lsb_release --codename --short

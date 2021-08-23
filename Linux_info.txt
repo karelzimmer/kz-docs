@@ -2,11 +2,8 @@
 # Tekstbestand met Linux opdrachten en informatie.
 #
 # Geschreven door Karel Zimmer <info@karelzimmer.nl>.
-#
-# Auteursrecht (c) 2010-2021 Karel Zimmer.
-# Creative Commons Naamsvermelding-GelijkDelen Internationaal-licentie
-# <https://creativecommons.org/licenses/by-sa/4.0/>.
 ###############################################################################
+# RELEASE_YEAR=2010
 
 # ALGEMEEN
 # --------

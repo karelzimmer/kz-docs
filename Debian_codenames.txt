@@ -2,11 +2,8 @@
 # Tekstbestand met Debain codenamen en hun betekenis.
 #
 # Geschreven door Karel Zimmer <info@karelzimmer.nl>.
-#
-# Auteursrecht (c) 2015-2021 Karel Zimmer.
-# Creative Commons Naamsvermelding-GelijkDelen Internationaal-licentie
-# <https://creativecommons.org/licenses/by-sa/4.0/>.
 ###############################################################################
+# RELEASE_YEAR=2015
 
 Codenames zijn te vinden via Terminalvenster:
 $ lsb_release --codename --short
@@ -30,7 +27,7 @@ Versie  Codenaam    Betekenis                                       Releasdatum
  8.0    jessie      was de naam van de jolende cowgirl              2015-04-25
  9.0    stretch     was de paarse rubberachtige octopus             2017-06-17
 10.0    buster      was de teckel                                   2019-07-06
-11.0    bullseye    was de speelgoedpaard
+11.0    bullseye    was de speelgoedpaard                           2021-08-14
 12.0    bookworm    was de groene speelgoedworm die een bril draagt 
 13.0    trixie      was de blauwe speelgoed dinosaurus
 

@@ -2,11 +2,8 @@
 # Tekstbestand met met sneltoetsen voor Ubuntu.
 #
 # Geschreven door Karel Zimmer <info@karelzimmer.nl>.
-#
-# Auteursrecht (c) 2015-2021 Karel Zimmer.
-# Creative Commons Naamsvermelding-GelijkDelen Internationaal-licentie
-# <https://creativecommons.org/licenses/by-sa/4.0/>.
 ###############################################################################
+# RELEASE_YEAR=2015
 
 [Linker Shift] . . . . . GRUB bootmenu
 [Rechter Shift]  . . . . GRUB bootmenu

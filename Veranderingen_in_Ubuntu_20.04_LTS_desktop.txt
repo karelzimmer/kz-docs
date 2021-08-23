@@ -2,11 +2,8 @@
 # Tekstbestand met veranderingen in Ubuntu 20.04 LTS desktp t.o.v. 18.04 LTS.
 #
 # Geschreven door Karel Zimmer <info@karelzimmer.nl>.
-#
-# Auteursrecht (c) 2020-2021 Karel Zimmer.
-# Creative Commons Naamsvermelding-GelijkDelen Internationaal-licentie
-# <https://creativecommons.org/licenses/by-sa/4.0/>.
 ###############################################################################
+# RELEASE_YEAR=2020
 
 Gewijzigd
 ---------

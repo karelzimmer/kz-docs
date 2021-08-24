@@ -15,7 +15,8 @@ sudo apt-get update && sudo apt-get upgrade --yes &&
 # -OF-
 kzgo
 
-gnome-session-quit --no-prompt
+gnome-session-quit              # 60 sec. bedenktijd
+gnome-session-quit --no-prompt  # onmiddelijk afloggen
 
 # VM:
 sudo apt-get install --yes spice-vdagent && sudo reboot

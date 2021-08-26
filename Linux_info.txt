@@ -1999,8 +1999,10 @@ git log
 git log -10
 git log --oneline
 
+git show <sha1>
+
 git diff # working <-> staged
-git diff '<SHA-1 hash references>' '<SHA-1 hash reference #2>' # log --oneline
+git diff '<sha1-1>' '<sha1-2>' # log --oneline
 
 # fatal: CRLF would be replaced by LF in companies.txt
 git config --global core.autocrlf false

@@ -1560,16 +1560,18 @@ https://www.ventoy.net/en/index.html
 https://github.com/ventoy/Ventoy/releases
 
 # Download, e.g. into ~/Downloads
-
 tar -xf ~/Downloads/ventoy-*-linux.tar.gz -C ~/Downloads
 lsblk
+
 # usb-stick is sdb:
 sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -i -s /dev/sdb [Install Secure B...
 # umount /dev/sdb1 {If: /dev/sdb is already mounted, please umount it first!]
 # sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -l /dev/sdb [Ventoy Information]
 # sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -i /dev/sdb [Install]
-# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -I /dev/sdb [re-Install]
+# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -i -s /dev/sdb [id.+Secure Boot]
 # sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -u /dev/sdb [Update]
+# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -I /dev/sdb [re-Install]
+# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -I -S /dev/sdb [id.+Secure Boot]
 rm -fr ~/Downloads/ventoy-*
 
 

@@ -18,6 +18,10 @@ kzgo
 gnome-session-quit              # 60 sec. bedenktijd
 gnome-session-quit --no-prompt  # onmiddelijk afloggen
 
+# Boot/recovery menu:
+# bIOS: Shift-toets ingedrukt houden
+# UEFI: Esc-toets meerdere malen indrukken
+
 # VM:
 sudo apt-get install --yes spice-vdagent && sudo reboot
 

@@ -80,6 +80,8 @@ journalctl --list-boots:
 #    0 589f45bf8c4a432da15c14083770533c vr 2016-08-12 19:10:18 CEST-vr 2016-...
 # Gebruiken bepaalde log via:
 journalctl -k -b -1 # Alleen kernelboodschappen uit log 5cfbda4c9e0543659894...
+# Alleen error (prio 3), extra info (x), en huidige boot (b):
+journalctl -p 3 -xb
 # Zie voor verdere mogelijkheden:
 man journalctl
 #   Terugdraaien systemd journal te bewaren na een reboot:

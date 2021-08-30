@@ -2001,6 +2001,58 @@ git push
 Username for 'https://github.com': <username>
 Password for 'https://<username>@github.com': <password>
 
+# Git Branching & Merging:
+# main                   # standard branch na 'git init'
+# -OF-
+# master                 # < oktober 2020, gewijzigd naar main ivm culturele
+                         # aspecten zoals master/slave
+# <branch>               # branch is in feite een verwijzing naar een
+                         # momentopname van je wijzigingen
+# HEAD                   # verwijst naar de huidige commit die je aan het
+                         # bekijken bent ("pointer")
+
+git switch -c <branch>   # --create en switch naar <branch> (HEAD master ->
+# -OF-                   #   <branch>)
+git branch <branch>      # < Git 2.23 maak <branch>
+git checkout <branch>    # < Git 2.23 switch naar <branch>
+git checkout -b <branch> # < Git 2.23 --branch en switch naar <branch>
+git branch               # list active (*) and other branches
+
+git status               # Wijzigingen zijn zichtbaar in main & <branch>
+git add .                # Wijzigingen zijn zichtbaar in main & <branch>
+git commit -m <message>  # Wijzigingen zijn zichtbaar in <branch> alleen
+
+git switch main          # switch naar main (HEAD <branch> -> main)
+# -OF-
+git checkout main        # < Git 2.23 switch naar main
+
+git merge <branch>       # maak main gelijk aan de <branch>
+git branch -d <branch>   # --delete <branch>
+
+git status
+git add .
+git commit -m <message>
+
+# Git Branching & Merging voorbeeld:
+git switch dev
+git branch
+# * dev
+#   master
+
+# <change files>
+
+git status
+git add .
+git commit -m 'File added'
+
+git switch main
+git branch
+#   dev
+# * main
+
+git merge dev
+git branch -d dev
+
 # Informatie:
 git config --list
 

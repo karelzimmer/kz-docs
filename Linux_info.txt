@@ -1985,6 +1985,7 @@ git init
 git add .
 git status
 git commit -m "Initial version of article"
+git commit --amend -m "First version of article"
 #
 # Remote git repo voor teksten of scripts (e.g. GitHub)....
 # Maak repo op website.

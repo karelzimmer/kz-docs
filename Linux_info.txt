@@ -2040,7 +2040,6 @@ git branch
 #   master
 
 # <change files>
-
 git status
 git add .
 git commit -m 'File added'

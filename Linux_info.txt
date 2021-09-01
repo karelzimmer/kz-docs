@@ -388,7 +388,7 @@ sudo apt install spice-vdagent
 
 # Herstel Bestanden thumbnails
 # ----------------------------
-rm $HOME/.cache/thumbnails/fail
+rm -fr $HOME/.cache/thumbnails/*
 
 
 # Linux performance monitoring tools

@@ -2016,11 +2016,12 @@ git switch -c <branch>   # --create en switch naar <branch> (HEAD master ->
 git branch <branch>      # < Git 2.23 maak <branch>
 git checkout <branch>    # < Git 2.23 switch naar <branch>
 git checkout -b <branch> # < Git 2.23 --branch en switch naar <branch>
+
 git branch               # list active (*) and other branches
 
 git status               # Wijzigingen zijn zichtbaar in main & <branch>
 git add .                # Wijzigingen zijn zichtbaar in main & <branch>
-git commit -m <message>  # Wijzigingen zijn zichtbaar in <branch> alleen
+git commit -m <message>  # Wijzigingen zijn zichtbaar alleen in <branch>
 
 git switch main          # switch naar main (HEAD <branch> -> main)
 # -OF-
@@ -2030,8 +2031,7 @@ git merge <branch>       # maak main gelijk aan de <branch>
 git branch -d <branch>   # --delete <branch>
 
 git status
-git add .
-git commit -m <message>
+git push
 
 # Git Branching & Merging voorbeeld:
 git switch dev
@@ -2050,6 +2050,7 @@ git branch
 # * main
 
 git merge dev
+git push
 git branch -d dev
 
 # Informatie:

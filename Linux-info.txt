@@ -2015,7 +2015,7 @@ git switch -c <branch>   # --create en switch naar <branch> (HEAD master ->
 # -OF-                   #   <branch>)
 git branch <branch>      # < Git 2.23 maak <branch>
 git checkout <branch>    # < Git 2.23 switch naar <branch>
-git checkout -b <branch> # < Git 2.23 --branch en switch naar <branch>
+git checkout -b <branch> # < Git 2.23 --branch, maak en switch naar <branch>
 
 git branch               # list active (*) and other branches
 

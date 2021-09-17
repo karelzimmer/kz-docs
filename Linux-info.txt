@@ -2070,5 +2070,11 @@ git diff '<sha1-1>' '<sha1-2>' # log --oneline
 # fatal: CRLF would be replaced by LF in companies.txt
 git config --global core.autocrlf false
 
+# Rename branch master to main
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+
 
 # EOF

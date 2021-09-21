@@ -2079,5 +2079,9 @@ git remote set-head origin -a
 # Empty dirs in repo? Execute in empty dir before push:
 touch .gitignore
 
+git pull
+git config pull.ff only
+git config --global pull.ff only
+
 
 # EOF

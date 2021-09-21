@@ -1996,7 +1996,7 @@ git config --global user.name "Karel Zimmer"
 git config --global user.email "info@karelzimmer.nl"
 # Upload:
 git config credential.helper store
-# Hirna geen username/password meer nodig.
+# Hierna geen username/password meer nodig.
 git push
 Username for 'https://github.com': <username>
 Password for 'https://<username>@github.com': <password>

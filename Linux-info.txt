@@ -694,6 +694,11 @@ exit
 # NB Er kan ook een andere map staan in /sys/class/backlight/, bijv. radeon_bl0
 
 
+# Grappige Linux-opdrachten
+# -------------------------
+# Zie site https://itsfoss.com/funny-linux-commands/
+
+
 # Paaseieren
 # ----------
 apt-get moo

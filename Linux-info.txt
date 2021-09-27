@@ -2081,9 +2081,15 @@ git fetch origin
 git branch -u origin/main main
 git remote set-head origin -a
 
-# Empty dirs in repo? Execute in empty dir before push:
+# Git-ignore
+vi .gitignore   # In root van de repo.
+# <file> add/commit wat daarna onder /gitignore valt?
+git rm --chached <file>
+
+# Persé lege dirs in repo? Doe in lege map voor de push:
 touch .gitignore
 
+# Meldinge over git pull en fast-forward?
 git pull
 git config pull.ff only
 git config --global pull.ff only

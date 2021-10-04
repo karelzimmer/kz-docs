@@ -2046,7 +2046,9 @@ git branch
 
 # <change files>
 git status
+# git restore <file>  # Undo changes
 git add .
+# git restore --staged <file> # Reverse add
 git commit -m 'File added'
 
 git switch main

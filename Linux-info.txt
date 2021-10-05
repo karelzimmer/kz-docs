@@ -499,7 +499,8 @@ scangearmp-mp495series-pkgconfig.sh     # ScanGear MP for Linux (mp495-series)
 scanimage -L                            # Scanner zoeken
 Apparaat-URI:
 cnijnet:/<MAC-address>                  # cnijnet = protocol 
-
+driverless list # PPD generator utility for driverless printing
+ippfind         # find internet printing protocol printers
 
 # NVIDIA repareren
 # ----------------

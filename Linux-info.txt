@@ -2064,7 +2064,8 @@ git branch -d dev
 # Informatie:
 gitk [<filename>]
 
-git config --list
+git config --list                   # raadplegen
+git remote set-url origin <new_url> # wijzigen
 
 git log
 git log -10

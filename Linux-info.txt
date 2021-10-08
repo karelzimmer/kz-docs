@@ -2088,7 +2088,8 @@ git remote set-head origin -a
 # Git-ignore
 vi .gitignore   # In root van de repo.
 # Verwijder <file> uit repo, maar houd hem in werkmap als ignored file.
-git rm --chached <file>
+git rm --cached <file>
+git rm -r --cached <dir>
 
 # Persé lege dirs in repo? Doe in lege map voor de push:
 touch .gitignore

@@ -406,7 +406,7 @@ sar             # verzamel en rapporteer systeemactiviteit
 mpstat          # multiproccesorgebruik
 numastat        # NUMA-gerelateerde statistieken (Non-Uniform Memory Access)
 pmap            # proces gehuegen gebruik
-netstat         # netwerkstatistieken
+netstat         # netwerkstatistieken, gebruik optie -tulpn of -plant
 iptraf          # real-time netwerkstatistieken
 tcpdump         # gedetaileerde netwerverkeer analyse
 ethereal        # gedetaileerde netwerverkeer analyse

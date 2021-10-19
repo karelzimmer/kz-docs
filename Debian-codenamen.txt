@@ -1,0 +1,41 @@
+###############################################################################
+# Tekstbestand met Debain codenamen en hun betekenis.
+#
+# Geschreven door Karel Zimmer <info@karelzimmer.nl>.
+###############################################################################
+# RELEASE_YEAR=2015
+
+Codenames zijn te vinden via Terminalvenster:
+$ lsb_release --codename --short
+
+De namen van de versies zijn namen van karakters uit de animatiefilm Toy Story.
+
+Versie  Codenaam    Betekenis                                       Releasdatum
+------  --------    ----------------------------------------------  -----------
+ 1.1    buzz        Buzz Lightyear, was de ruimteman                1996-06-17
+ 1.2    rex         was de tyrannosaurus                            1996-12-12
+ 1.3    bo          Bo Peep, was het meisje die op de schapen past  1997-06-02
+ 2.0    hamm        was het spaarvarken                             1998-07-24
+ 2.1    slink       Slinky Dog, was de speelgoed hond the toy dog   1999-03-19
+ 2.2    potato      was, natuurlijk, Meneer Potato                  2000-08-15
+ 3.0    woody       was de cowboy                                   2002-07-19
+ 3.1    sarge       was de sergeant van de Green Plastic Army Men   2005-06-06
+ 4.0    etch        was de speelgoed schrijfbord (Etch-a-Sketch)    2007-04--8
+ 5.0    lenny       was de speelgoed verrekijker                    2009-02-14
+ 6.0    squeeze     was de naam voor de drieogige alien             2011-02-06
+ 7.0    wheezy      was de naam van de rubberen speelgoed pinguïn   2013-05-04
+ 8.0    jessie      was de naam van de jolende cowgirl              2015-04-25
+ 9.0    stretch     was de paarse rubberachtige octopus             2017-06-17
+10.0    buster      was de teckel                                   2019-07-06
+11.0    bullseye    was de speelgoedpaard                           2021-08-14
+12.0    bookworm    was de groene speelgoedworm die een bril draagt 
+13.0    trixie      was de blauwe speelgoed dinosaurus
+
+xyz     sid         was de buurjongen die speelgoed stuk maakte     <unstable>
+
+Zie ook: http://nl.wikipedia.org/wiki/Debian
+
+Codenaam is ook te vinden via:
+$ cat /etc/*-release | grep DISTRIB_CODENAME
+
+# EOF

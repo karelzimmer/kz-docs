@@ -1,0 +1,78 @@
+###############################################################################
+# Tekstbestand met met sneltoetsen voor Ubuntu.
+#
+# Geschreven door Karel Zimmer <info@karelzimmer.nl>.
+###############################################################################
+# RELEASE_YEAR=2015
+
+[Linker Shift] . . . . . GRUB bootmenu
+[Rechter Shift]  . . . . GRUB bootmenu
+
+[F2] . . . . . . . . . . hernoem map/bestand
+[F3] . . . . . . . . . . extra paneel in Nautilus
+[F9] . . . . . . . . . . wel/geen zijpaneel in Nautilus
+
+[Alt]+[F1] . . . . . . . klap menu Toepassingen open
+[Alt]+[F2] . . . . . . . Toepassing uitvoeren
+[Alt]+[F2], xkill  . . . toepassing geforceerd afsluiten
+[Alt]+[F4] . . . . . . . sluit venster
+[Alt]+[Home] . . . . . . open naar thuismap
+[Alt]+[Enter]  . . . . . toon map/bestand eigenschappen
+[Alt]+[Links]  . . . . . ga een mapnivo terug in Nautilus
+[Alt]+[Rechts] . . . . . ga een mapnivo verder in Nautilus
+[Alt]+[Omhoog] . . . . . ga een mapnivo omhoog in Nautilus
+[Alt]+[Beneden]  . . . . ga een mapnivo beneden in Nautilus
+[Alt]+[Tab]  . . . . . . blader door de open vensters
+[Spatiebalk] . . . . . . na selecteren v.e. bestand een preview (Std. Debian)
+
+[Shift]+[Delete] . . . . verwijder map/bestand definitief; niet in Prullenbak
+
+[Super]+[M]  . . . . . . inverteer alle kleuren
+
+[Control]+[Alt]+[F1] . . van X-windows-sessie naar terminal-sessie nr.1
+[Control]+[Alt]+[F2] . . van X-windows-sessie naar terminal-sessie nr.2
+[Control]+[Alt]+[F3] . . van X-windows-sessie naar terminal-sessie nr.3
+[Control]+[Alt]+[F4] . . van X-windows-sessie naar terminal-sessie nr.4
+[Control]+[Alt]+[F5] . . van X-windows-sessie naar terminal-sessie nr.5
+[Control]+[Alt]+[F6] . . van X-windows-sessie naar terminal-sessie nr.6
+[Control]+[Alt]+[F7] . . van terminal-sessie naar X-windows-sessie
+
+[Control]+[H]  . . . . . toon/verberg verborgen mappen/bestanden
+[Control]+[L]  . . . . . bekijk/wijzig volledig pad
+[Control]+[N]  . . . . . nieuw venster/tabblad
+[Control]+[A]  . . . . . alles selecteren
+[Control]+[C]  . . . . . kopiëren
+[Control]+[X]  . . . . . knippen
+[Control]+[V]  . . . . . plakken
+[Control]+[+]  . . . . . letters vergroten
+[Control]+[-]  . . . . . letters verkleinen
+
+[PrtSc]  . . . . . . . . . . Schermafdruk maken van heel het scherm
+[Alt]+[PrtSc]  . . . . . . . Schermafdruk maken van het actieve venster
+[Shift]+[PrtSc]  . . . . . . Schermafdruk maken van deel van het scherm
+[Control]+[Alt]+[Shift]+[R]  Screencast recording
+
+
+[Control]+[Alt]+[L] . . . . . . . . scherm vergrendelen
+[Super]+[L] . . . . . . . . . . . . scherm vergrendelen
+[Control]+[Alt]+[Backspace] . . . . X window server opnieuw starten 
+[Control]+[Shift]+[N] . . . . . . . nieuwe map
+[Control]+[Alt]+[Tab] . . . . . . . accessibility switcher
+
+[Super]+[h] . . . . . . . . . . . . minimaliseer venster
+[Super]+[m] . . . . . . . . . . . . berichten
+[Super]+[s] . . . . . . . . . . . . expo-switcher
+[Super]+[w] . . . . . . . . . . . . verdeel vensters over het scherm
+
+Terminalvenster:
+[Tab]  . . . . . . . invoer completeren (zgn. tab-completion)
+[Control]+[R]  . . . zoek in commando-geschiedenis
+dubbelkik woord  . . selecteer het hele woord
+klik op muiswiel . . plakken
+
+Firefox:
+klik op muiswiel . . koppeling openen in nieuw tabblad
+
+[Super] = [Windows toets]
+
+# EOF

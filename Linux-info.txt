@@ -2064,6 +2064,8 @@ git branch -d dev
 # Informatie:
 gitk [<filename>]
 
+git reflog
+
 git config --list                   # raadplegen
 git remote set-url origin <new_url> # wijzigen
 

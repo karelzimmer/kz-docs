@@ -393,27 +393,27 @@ rm -fr $HOME/.cache/thumbnails/*
 
 # Linux performance monitoring tools
 # ----------------------------------
-top             # welk proces gebruikt meeste CPU, geheugen en swapruimte
-vmstat          # systeemactiviteit, hardware- en systeeminformatie
-uptime, w       # gemiddelde systeembelasting
-w               # gemiddelde systeembelasting en wie is aangelogd
-systemctl status --all
-                # toon volledige informatie over alle processen
-pstree          # hele boom van alle processen
+ethereal        # gedetaileerde netwerverkeer analyse
 free -m         # beschikbaar en in-gebruikt geheugen (megabytes)
 iostat          # gemiddelde CPU-belasting en schijfactiviteit
-sar             # verzamel en rapporteer systeemactiviteit
+iptraf          # real-time netwerkstatistieken
 mpstat          # multiproccesorgebruik
+nc|netcat       # willekeurige TCP- en UDP-verbindingen en luistert
+netstat         # netwerkstatistieken, -tulpn, -plant (TCP) of -planu (UDP)
+nmon            # verzamel en rapporteer systeemactiviteit
 numastat        # NUMA-gerelateerde statistieken (Non-Uniform Memory Access)
 pmap            # proces gehuegen gebruik
-netstat         # netwerkstatistieken, gebruik optie -tulpn of -plant
-iptraf          # real-time netwerkstatistieken
-tcpdump         # gedetaileerde netwerverkeer analyse
-ethereal        # gedetaileerde netwerverkeer analyse
-nmon            # verzamel en rapporteer systeemactiviteit
+/proc           # diverse kernelstatistieken
+pstree          # hele boom van alle processen
+sar             # verzamel en rapporteer systeemactiviteit
 stat            # toon status bestanden/bestandssysteem (ook octaal!)
 strace          # system calls tracen, voorbeeld: strace ls 2> strace.out
-/proc           # diverse kernelstatistieken
+systemctl status --all # toon volledige informatie over alle processen
+tcpdump         # gedetaileerde netwerverkeer analyse
+top             # welk proces gebruikt meeste CPU, geheugen en swapruimte
+uptime, w       # gemiddelde systeembelasting
+vmstat          # systeemactiviteit, hardware- en systeeminformatie
+w               # gemiddelde systeembelasting en wie is aangelogd
 
 
 # Linux benchmark tools

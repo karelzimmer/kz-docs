@@ -397,9 +397,14 @@ ethereal        # gedetaileerde netwerverkeer analyse
 free -m         # beschikbaar en in-gebruikt geheugen (megabytes)
 iostat          # gemiddelde CPU-belasting en schijfactiviteit
 iptraf          # real-time netwerkstatistieken
-mpstat          # multiproccesorgebruik
-nc|netcat       # willekeurige TCP- en UDP-verbindingen en luistert
-netstat         # netwerkstatistieken, -tulpn, -plant (TCP) of -planu (UDP)
+mpstat          # multiproccesorgebruik (local)
+nc|netcat HOST PORT -vvvt   # TCP-verbindingen (remote)
+nc|netcat HOST PORT -vvvu   # UDP-verbindingen (remote)
+nc|netcat       # willekeurige TCP- en UDP-verbindingen en luistert (remote)
+netstat         # netwerkstatistieken (local)
+netstat -plant  # netwerkstatistieken, TCP (local)
+netstat -planu  # netwerkstatistieken, UDP (local)
+netstat -tulpn  # netwerkstatistieken (local)
 nmon            # verzamel en rapporteer systeemactiviteit
 numastat        # NUMA-gerelateerde statistieken (Non-Uniform Memory Access)
 pmap            # proces gehuegen gebruik

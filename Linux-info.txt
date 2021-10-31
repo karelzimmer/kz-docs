@@ -2006,11 +2006,16 @@ git clone https://github.com/karelzimmer/Checklists.git ~/Documenten/Checklists
 git config --global user.name "Karel Zimmer"
 git config --global user.email "info@karelzimmer.nl"
 # Upload:
-git config credential.helper store
+git config --global credential.helper store
 # Hierna geen username/password meer nodig.
 git push
 Username for 'https://github.com': <username>
 Password for 'https://<username>@github.com': <password>
+
+# Git config levels and files
+# --local   # lokaal,  settings in repo's .git directory: .git/config
+# --global  # globaal, settings in user's home directory. ~ /.gitconfig
+# --system  # systeem, settings in system root path: $(prefix)/etc/gitconfig
 
 # Git Branching & Merging:
 # main                   # standard branch na 'git init'
@@ -2101,7 +2106,7 @@ git rm -r --cached <dir>
 # Persé lege dirs in repo? Doe in lege map voor de push:
 touch .gitignore
 
-# Meldinge over git pull en fast-forward?
+# Meldingen over git pull en fast-forward?
 git pull
 git config pull.ff only
 git config --global pull.ff only

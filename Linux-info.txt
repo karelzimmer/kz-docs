@@ -2008,14 +2008,16 @@ git config --global user.email "info@karelzimmer.nl"
 # Upload:
 git config --global credential.helper store
 # Hierna geen username/password meer nodig.
+# Terugdraaien:
+# git config --global --unset credential.helper
 git push
 Username for 'https://github.com': <username>
 Password for 'https://<username>@github.com': <password>
 
 # Git config levels and files
-# --local   # lokaal,  settings in repo's .git directory: .git/config
-# --global  # globaal, settings in user's home directory. ~ /.gitconfig
-# --system  # systeem, settings in system root path: $(prefix)/etc/gitconfig
+# --local   # lokaal configuratiebestand in repo's .git directory: .git/config
+# --global  # globaal configuratiebestand in ~ /.gitconfig
+# --system  # systeem configuratiebestand in $(prefix)/etc/gitconfig
 
 # Git Branching & Merging:
 # main                   # standard branch na 'git init'

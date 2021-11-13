@@ -2121,4 +2121,30 @@ sudo systemctl disable fwupd.service    # Disable automatic start upon boot
 sudo systemctl mask fwupd.service       # Disable manual invoking
 
 
+# Visual Studio Code (vscode)
+# install:
+# --------
+# Registreer vscode:
+sudo update-alternatives --install /usr/bin/editor editor $(which code) 10
+# Muteer standaard editor:
+sudo update-alternatives --set editor $(which code)
+# Raadpleeg standaard editor:
+sudo update-alternatives --display editor
+
+# setup:
+# ------
+# Raadpleet mime-type:
+mimetype <file>
+# Muteer standaard editor:
+xdg-mime default code_code.desktop <mimetype>
+# Raadpleeg standaard editor:
+xdg-mime query default <mimetype>
+
+# Voorbeeld shell-script:
+mimetype ~/bin/backup
+# /home/karel/bin/backup: application/x-shellscript
+xdg-mime default code_code.desktop application/x-shellscript
+xdg-mime query default application/x-shellscript
+
+
 # EOF

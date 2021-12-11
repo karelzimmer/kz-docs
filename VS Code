@@ -1,0 +1,17 @@
+VS Code:
+Shift-Ctrl-P    Command Palette
+    >sort           Sorteer
+    >transform      kleine>GROOT en vv
+    >toggle         vert/hor editten  
+
+Ctrl-J          Terminal
+Ctrl-`          Terminal
+
+Shift-Alt       Vertical edit
+
+
+Code Runner:
+Right click > Run Code  Start script
+Ctrl-Alt-N              Start script
+Right click > Stop Code Stop script 
+Ctrl-Alt-M              Stop script

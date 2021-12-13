@@ -1,4 +1,5 @@
-VS Code:
+VS Code toetscombinaties
+------------------------
 Shift-Ctrl-P    Command Palette
     >sort           Sorteer
     >transform      kleine>GROOT en vv
@@ -10,7 +11,19 @@ Ctrl-`          Terminal
 Shift-Alt       Vertical edit
 
 
-Code Runner:
+Geïnstalleerder extensies
+-------------------------
+Code Runner
+HTML Preview
+Linux Desktop File Support
+Live Server
+Markdown Preview Enahnced
+ShellCheck
+TROFF Syntax
+
+
+Code Runner
+-----------
 Right click > Run Code  Start script
 Ctrl-Alt-N              Start script
 Right click > Stop Code Stop script 

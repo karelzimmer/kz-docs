@@ -2149,4 +2149,11 @@ xdg-mime default code_code.desktop application/x-shellscript
 xdg-mime query default application/x-shellscript
 
 
+# Epoch <> DateTime:
+date +%s
+# 1639767205
+date -date @1639767205
+# vr 17 dec 2021 19:53:25 CET
+
+
 # EOF

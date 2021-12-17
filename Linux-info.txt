@@ -413,7 +413,9 @@ pstree          # hele boom van alle processen
 sar             # verzamel en rapporteer systeemactiviteit
 stat            # toon status bestanden/bestandssysteem (ook octaal!)
 strace          # system calls tracen, voorbeeld: strace ls 2> strace.out
-systemctl status --all # toon volledige informatie over alle processen
+ltrace          # library calls tracen, voorbeeld: ltrace ls 2> ltrace.out
+systemctl status --all
+                # toon volledige informatie over alle processen
 tcpdump         # gedetaileerde netwerverkeer analyse
 top             # welk proces gebruikt meeste CPU, geheugen en swapruimte
 uptime, w       # gemiddelde systeembelasting

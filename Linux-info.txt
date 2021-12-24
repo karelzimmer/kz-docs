@@ -2156,4 +2156,11 @@ date -date @1639767205
 # vr 17 dec 2021 19:53:25 CET
 
 
+# Pop!_OS dual-boot
+# Start from Live distro
+sudo apt install os-prober
+sudo os-prober
+sudo update-grub
+
+
 # EOF

@@ -10,10 +10,8 @@
 sudo apt-get update && sudo apt-get upgrade --yes &&
     sudo apt-get autoremove --yes &&
     sudo apt-get autoclean --yes &&
-    if command -v snap 1> /dev/null; then sudo snap refresh; fi &&
-    if [[ -f /var/run/reboot-required ]]; then echo REBOOT; fi
-# -OF-
-kzgo
+if command -v snap 1> /dev/null; then sudo snap refresh; fi &&
+if [[ -f /var/run/reboot-required ]]; then echo REBOOT; fi
 
 gnome-session-quit              # 60 sec. bedenktijd
 gnome-session-quit --no-prompt  # onmiddelijk afloggen

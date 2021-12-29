@@ -2159,6 +2159,3 @@ date -date @1639767205
 sudo apt install os-prober
 sudo os-prober
 sudo update-grub
-
-
-# EOF

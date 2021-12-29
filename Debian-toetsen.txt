@@ -74,5 +74,3 @@ Firefox:
 klik op muiswiel . . koppeling openen in nieuw tabblad
 
 [Super] = [Windows toets]
-
-# EOF

@@ -64,6 +64,3 @@ Evolution (E-mail en Agenda)
 
 
 Zie ook hhttps://wiki.ubuntu.com/Releases
-
-
-# EOF

@@ -37,5 +37,3 @@ Zie ook: http://nl.wikipedia.org/wiki/Debian
 
 Codenaam is ook te vinden via:
 $ cat /etc/*-release | grep DISTRIB_CODENAME
-
-# EOF

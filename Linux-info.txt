@@ -1509,8 +1509,7 @@ if (n == 1)
 # ----------------------------
 sudo apt install w3c-linkchecker
 # Local:
-checklink --broken --summary \
-    /home/karel/uploads/karelzimmer.nl/httpdocs/html/linux.html
+checklink --broken --summary /home/karel/kz-uploads/dist/html/linux.html
 # Remote:
 checklink https://karelzimmer.nl/html/linux.html
 # -OF-

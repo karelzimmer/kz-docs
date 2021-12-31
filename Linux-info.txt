@@ -1508,8 +1508,10 @@ if (n == 1)
 # Find broken-links on website
 # ----------------------------
 sudo apt install w3c-linkchecker
+# Local:
 checklink --broken --summary \
     /home/karel/uploads/karelzimmer.nl/httpdocs/html/linux.html
+# Remote:
 checklink https://karelzimmer.nl/html/linux.html
 # -OF-
 wget --spider -r -nd -nv -H -l 1 -w 2 -o /tmp/wget.log https://karelzimmer.nl

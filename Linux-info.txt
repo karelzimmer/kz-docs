@@ -2164,7 +2164,8 @@ sudo update-grub
 
 # Bulk rename dirs/files
 sudo apt install detox
-detox --dry-run *
+detox -r --dry-run *        # dry-run recursively
 
 sudo apt install rename
-rename --nono 's/ /-/g' *
+rename --nono 's/ /-/g' *   # dry-run (no recurse option)
+rename 's/ /-/g' *          # rename  (no recurse option)

@@ -2165,21 +2165,6 @@ sudo update-grub
 # Bulk rename dirs/files
 sudo apt install detox
 detox -nr *             # dry-run recursively
-# Wijzig standaard een SP in USCOREW (_).
-# Dit aanspassen:
-cp /usr/share/detox/safe.tbl ~/mysafe.tbl
-vi vi ~/.detoxrc
-# Voeg toe:
-# sequence hyphenated {
-#    safe {filename "/home/karel/.mysafe.tbl";};
-#    #wipeup {remove_trailing;};
-# };
-vi .mysafe.tabl
-# Wijzig bij # space de uscore is dash.
-detox -nrs hyphenated * # dry-run recursively
-detox -s hyphenated *   # rename
-detox -sr hyphenated *  # rename recursively
-# Nu spaces -> dashes :-)
 
 sudo apt install rename
 rename 's/ /-/g' * -n   # dry-run (no recurse option)

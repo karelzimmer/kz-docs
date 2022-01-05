@@ -2167,5 +2167,8 @@ sudo apt install detox
 detox -nr *             # dry-run recursively
 
 sudo apt install rename
-rename 's/ /-/g' * -n   # dry-run (no recurse option)
-rename 's/ /-/g' *      # rename  (no recurse option)
+rename 's/ /-/g' * -n   # Space2dash  dry-run (no recurse option)
+rename 's/_/-/g' * -n   # Uscore2dash dry-run (no recurse option)
+
+rename 's/ /-/g' *      # Space2dash  rename (no recurse option)
+rename 's/_/-/g' *      # Uscore2dash rename (no recurse option)

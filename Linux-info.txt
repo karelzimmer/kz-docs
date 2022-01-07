@@ -2164,6 +2164,7 @@ sudo update-grub
 
 # Bulk rename dirs/files
 find . -name '*_*' -print -or -name '* *' -print | sort
+find . -name ? -not -path './.*' -print | sort
 
 sudo apt install detox
 detox -nr *             # dry-run recursively

@@ -1993,7 +1993,7 @@ git config --list
 mkdir article
 cd article
 git init
-# Aanmaken/wijzigen/verwijdereb documenten.
+# Aanmaken/wijzigen/verwijderen documenten.
 git add .
 git status
 git commit -m "Initial version of article"

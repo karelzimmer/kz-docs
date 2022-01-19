@@ -39,8 +39,10 @@ gksudo OPDRACHT     # is vervangen door opdracht: sudo -i
 sudo -i OPDRACHT    # voer OPDRACHT als root uit (vervanger van gksu/gksudo)
 history             # overizcht laatst uitgevoerde opdrachten
 # ! NUMMER          # voer history-opdrachtnummer NUMMER uit
-grep '^#1' ./*        # vind bestanden met #1 aan het begin van de regel
-grep '\ \ $' ./*      # vind bestanden met twee spaties aan het einde v.d. regel
+grep '^#1' ./*      # vind bestanden met #1 aan het begin van de regel
+grep '\ \ $' ./*    # vind bestanden met twee spaties aan het einde v.d. regel
+(.*)\(\) \{         # Wijzig 'FUNCION() {'
+function $1 {       # naar   'function FUNCTION {'
 \OPDRACHT           # "unalias" OPDRACHT, voer niet alias uit, maar de opdracht
 sudo fdisk -l       # overzicht schijven uit partitietabel
 df -h               # filesysteem disk ruimte gebruik (human readable)

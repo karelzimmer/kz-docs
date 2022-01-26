@@ -2182,3 +2182,9 @@ rename 's/_/-/g' ./* -n # Uscore2dash dry-run (no recurse option)
 
 rename 's/ /-/g' ./*    # Space2dash  rename (no recurse option)
 rename 's/_/-/g' ./*    # Uscore2dash rename (no recurse option)
+
+
+# Copy/move home-dirs including hidden (.) files
+shopt -s dotglob
+cp /home/USER-OLD/* /home/USER-NEW/*
+mv /home/USER-OLD/* /home/USER-NEW/*

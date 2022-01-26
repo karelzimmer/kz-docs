@@ -41,6 +41,7 @@ history             # overizcht laatst uitgevoerde opdrachten
 # ! NUMMER          # voer history-opdrachtnummer NUMMER uit
 grep '^#1' ./*      # vind bestanden met #1 aan het begin van de regel
 grep '\ \ $' ./*    # vind bestanden met twee spaties aan het einde v.d. regel
+grep -e'A' -e'B' ./*# Ook kan dan: grep -E {A|B} * (of egrep {A|B} *)
 (.*)\(\) \{         # Wijzig 'FUNCION() {'
 function $1 {       # naar   'function FUNCTION {'
 \OPDRACHT           # "unalias" OPDRACHT, voer niet alias uit, maar de opdracht

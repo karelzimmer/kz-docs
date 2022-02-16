@@ -1,0 +1,163 @@
+###############################################################################
+# Tekstbestand met met sneltoetsen voor Ubuntu.
+#
+# Geschreven door Karel Zimmer <info@karelzimmer.nl>.
+###############################################################################
+# RELEASE_YEAR=2010
+
+Opstarten
+---------
+[Linker Shift] . . . . . GRUB bootmenu
+[Rechter Shift]  . . . . GRUB bootmenu
+
+
+GNOME
+-----
+Standaard start GNOME met een leeg bureaublad.
+
+Het bovenste paneel geeft meldingen en een klok weer, en een systeemmenu om onder andere van
+gebruiker te wisselen, een netwerkverbinding te maken, en de gebruiker af te melden of de computer
+uit te zetten.
+
+GNOME heeft twee "standen", normaal- en activiteitenoverzicht.
+In het normaaloverzicht wordt er in een venster gewerkt.
+In het activiteitenoverzicht kunnen andere vensters worden geactiveerd:
+  - links  met de favorietenbalk (dash), in het
+  - midden door op het gewenste venster te klikken of door te zoeken, en
+  - rechts met de werkbladenbalk (workspace selector).
+Het activiteitenoverzicht komt tevoorschijn door:
+  - (kort) op de Supertoets te drukken, of
+  - linksboven op Activiteiten te klikken, of
+  - de muisaanwijzer naar de linkerbovenhoek te bewegen.
+
+Ter voorkoming van verdubbeling van functionaliteit zijn er standaard geen minimaliseer en
+maximaliseer knoppen aanwezig.  Deze zijn eventueel aan te zetten met de Instelhulp.
+Minimaliseren zorgt er alleen maar voor dat het venster 'verdwijnt' (in het activiteitenoverzicht),
+maximaliseren is mogelijk door het venster naar een rand te verslepen of door dubbelkikken op de
+bovenrand van het venster.
+
+GNOME is geheel naar uw hand te zetten (modding).
+GNOME is toetsenbord-vriendelijk en muis-vriendelijk; alles is via de muis en/of toetesenbord
+mogelijk !
+
+Bron: http://emblemparade.com/blog/in-praise-of-gnome3
+
+Zie GNOME help voor een introductie van GNOME, op het internet via adres:
+https://help.gnome.org/users/gnome-help/stable/index.html.nl
+
+
+Bureaublad
+----------
+[Super]  . . . . . . . . activiteitenoverzicht
+[Super]+[Tab]  . . . . . vensterwisselaar
+[Super]+[`]  . . . . . . vensterwisselaar, gegroepeerde vensters tonen
+        [`] = boven [Tab]
+[Super]+[Page Up]  . . . verplaats werkblad naar boven
+[Super]+[Page Down]  . . verplaats werkblad naar beneden
+
+[Ctrl]+[Alt]+[Shift]+[R]  . . . . . . schermopname starten of stoppen
+
+[Super]+[Shift]+[Page Up] . . . . . . verplaats venster naar werkblad erboven
+[Super]+[Shift]+[Page Down] . . . . . verplaats venster naar werkblad eronder
+
+[Super]+[M]  . . . . . . berichten
+
+[Ctrl]+[Alt]+[Omhoog]  . naar werkblad hoger
+[Ctrl]+[Alt]+[Beneden] . naar werkblad lager
+[Ctrl]+[Alt]+[T] . . . . terminalvenster openen
+
+[Alt]+[Tab]  . . . . . . vensterwisselaar
+[Alt]+[`] .  . . . . . . vensterwisselaar, gegroepeerde vensters tonen
+      [`] = boven [Tab]
+
+[Alt]+[F1] . . . . . . . activiteitenoverzicht
+[Alt]+[F2] . . . . . . . opdracht uitvoeren
+[Alt]+[F2], r  . . . . . GNOME shell herstarten
+[Alt]+[F2], xkill  . . . toepassing geforceerd afsluiten
+[Alt]+[F4] . . . . . . . sluit venster
+
+[Spatiebalk] . . . . . . na selecteren v.e. bestand een preview (GNOME Sushi)
+
+
+Bestanden
+---------
+[Alt]+[Home] . . . . . . open naar thuismap
+[Alt]+[Enter]  . . . . . toon map/bestand eigenschappen
+[Alt]+[Links]  . . . . . ga een mapnivo terug
+[Alt]+[Rechts] . . . . . ga een mapnivo verder
+[Alt]+[Omhoog] . . . . . ga een mapnivo hoger
+[Alt]+[Beneden]  . . . . ga een mapnivo lager
+[F2] . . . . . . . . . . hernoem map/bestand
+[F9] . . . . . . . . . . wel/geen zijpaneel in Bestanden
+[Shift]+[Delete] . . . . verwijder map/bestand definitief; niet in Prullenbak
+[Control]+[H]  . . . . . toon/verberg verborgen mappen/bestanden
+[Control]+[L]  . . . . . bekijk/wijzig volledig pad
+[Control]+[N]  . . . . . nieuw venster/tabblad
+[Control]+[A]  . . . . . alles selecteren
+[Control]+[C]  . . . . . kopiëren
+[Control]+[X]  . . . . . knippen
+[Control]+[V]  . . . . . plakken
+[Control]+[+]  . . . . . letters vergroten
+[Control]+[-]  . . . . . letters verkleinen
+[Control]+[Shift]+[N]  . nieuwe map
+[Control]+[Shift] & drag symlink
+
+
+Terminalvenster
+---------------
+[Tab]  . . . . . . . . . invoer completeren (zgn. tab-completion)
+[Shift]+[Control]+[X]  . knippen
+[Shift]+[Control]+[C]  . kopiëren
+dubbelkik woord  . . . . selecteer het hele woord
+klik op muiswiel . . . . plakken
+[Ctrl]+[A] . . . . . . . begin regel
+[Ctrl]+[E] . . . . . . . einde regel
+[Ctrl]+[L] . . . . . . . scherm leegmaken
+[Ctrl]+[P] . . . . . . . vorige opdracht
+[Ctrl]+[N] . . . . . . . volgende opdracht
+[Control]+[R]  . . . . . zoek in commando-geschiedenis
+
+
+Schermvergrendeling
+-------------------
+[Esc]  . . . . . . . . . hef schermvergrendeling op
+[Enter]  . . . . . . . . hef schermvergrendeling op
+
+
+Firefox
+-------
+[Alt]  . . . . . . . . . toon menubalk
+klik op muiswiel . . . . koppeling openen in nieuw tabblad
+
+
+Afdrukken
+---------
+[PrintScreen]  . . . . . schermafdruk maken van heel het scherm
+[Alt]+[PrintScreen]  . . schermafdruk maken van het actieve venster
+[Shift]+[PrintScreen]  . schermafdruk maken van deel van het scherm
+
+
+Beveilging
+----------
+[Super]+[L] . . . . . .  scherm vergrendelen
+
+
+Citrix
+------
+[Ctrl]+[F2]  . . . . . . geen toetsen afvangen, weg uit full-screen
+[Ctrl]+[Alt]+[Omhoog]  . naar werkblad hoger
+[Ctrl]+[Alt]+[Beneden] . naar werkblad lager
+ 
+
+Virtuele terminal
+-----------------
+[Ctrl]+[Alt]+[F1]  . . . Login scherm
+[Ctrl]+[Alt]+[F2]  . . . GUI
+[Ctrl]+[Alt]+[F3]  . . . van GUI naar terminal-sessie en v.v.
+[Ctrl]+[Alt]+[F4]  . . . van GUI naar terminal-sessie en v.v.
+[Ctrl]+[Alt]+[F5]  . . . van GUI naar terminal-sessie en v.v.
+[Ctrl]+[Alt]+[F6]  . . . van GUI naar terminal-sessie en v.v.
+[Ctrl]+[Alt]+[F7]  . . . van GUI naar terminal-sessie en v.v.
+
+
+[Super] = [Windows toets] of [Apple-toets]

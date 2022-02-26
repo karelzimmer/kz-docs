@@ -14,11 +14,15 @@ sudo apt-get update && sudo apt-get upgrade --yes &&
 if command -v snap 1> /dev/null; then sudo snap refresh; fi &&
 if [[ -f /var/run/reboot-required ]]; then echo REBOOT; fi
 
-gnome-session-quit              # 60 sec. bedenktijd
-gnome-session-quit --no-prompt  # onmiddelijk afloggen
+gnome-session-quit              # Afmelden met 60 sec. bedenktijd
+gnome-session-quit --no-prompt  # Geen bevestiging van gebruiker vragen
+gnome-session-quit --logout     # Afmelden (standaard)
+gnome-session-quit --power-off  # Computer uitzetten
+gnome-session-quit --reboot     # Opnieuw opstarten
+
 
 # Boot/recovery menu:
-# bIOS: Shift-toets ingedrukt houden
+# BIOS: Shift-toets ingedrukt houden
 # UEFI: Esc-toets meerdere malen indrukken
 
 # VM:

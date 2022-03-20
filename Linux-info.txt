@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 # shellcheck shell=bash
 ###############################################################################
 # Tekstbestand met Linux opdrachten en informatie.
@@ -45,9 +46,10 @@ history             # overizcht laatst uitgevoerde opdrachten
 # ! NUMMER          # voer history-opdrachtnummer NUMMER uit
 grep '^#1' ./*      # vind bestanden met #1 aan het begin van de regel
 grep '\ \ $' ./*    # vind bestanden met twee spaties aan het einde v.d. regel
-grep -e'A' -e'B' ./*# Ook kan dan: grep -E {A|B} * (of egrep {A|B} *)
-(.*)\(\) \{         # Wijzig 'FUNCION() {'
-function $1 {       # naar   'function FUNCTION {'
+# grep -e'A' -e'B' ./*
+                    # Ook kan dan: grep -E {A|B} * (of egrep {A|B} *)
+# (.*)\(\) \{       # Wijzig 'FUNCTION() {'
+# function $1 {     # naar   'function FUNCTION {'
 \OPDRACHT           # "unalias" OPDRACHT, voer niet alias uit, maar de opdracht
 sudo fdisk -l       # overzicht schijven uit partitietabel
 df -h               # filesysteem disk ruimte gebruik (human readable)
@@ -2193,3 +2195,75 @@ rename 's/_/-/g' ./*    # Uscore2dash rename (no recurse option)
 shopt -s dotglob
 cp /home/USER-OLD/* /home/USER-NEW/*
 mv /home/USER-OLD/* /home/USER-NEW/*
+
+# apt hardening 3rd party packages / apt versterken 3e partij pakketten
+# apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT
+# "Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d#
+#   instead (see apt-key(8))"
+# Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat
+# AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
+# Als een van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen
+# hebben voor andere repositories.
+# Zie:
+# https://blog.cloudflare.com/dont-use-apt-key/
+# https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html
+#
+# Oplossing is om de gpg-sleutels te plaatsen op een andere plek, en deze plek
+# opnemen in de source-list, zie voor voorbeelden hieronder, een voorbeeld met
+# de gpg-sleutel opgenomen in /etc/apt/trusted.gpg door 'apt-key add' en een
+# voorbeeld met de sleutel in /etc/apt/trusted.gpg.d.
+# Dan gaan we van ALLE sleustels voor ALLE respositories
+# naar EEN sleutel voor EEN repository.
+#
+# *************
+# **** IST ****
+# *************
+# TeamViewer:
+cat /etc/apt/sources.list.d/teamviewer.list
+# deb https://linux.teamviewer.com/deb stable main
+apt-key list
+# /etc/apt/trusted.gpg
+# --------------------
+# pub   rsa4096 2017-03-13 [SC]
+#       8CAE 012E BFAC 38B1 7A93  7CD8 C5E2 2450 0C12 89C0
+# uid           [onbekend] TeamViewer GmbH (TeamViewer Linux 2017) <support@...
+# sub   rsa4096 2017-03-13 [E]
+
+# pub   rsa4096 2020-01-29 [SC]
+#       D2A5 FEB3 4881 60F0 28CC  1791 8DA8 4BE5 DEB4 9217
+# uid           [onbekend] TeamViewer Germany GmbH (TeamViewer Linux 2020) <...
+#
+# Google Chrome:
+cat /etc/apt/sources.list.d/google-chrome.list
+# deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+apt-key list
+# /etc/apt/trusted.gpg.d/google-chrome.gpg
+# ----------------------------------------
+# pub   rsa4096 2016-04-12 [SC]
+#       EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
+# uid           [onbekend] Google Inc. (Linux Packages Signing Authority) <l...
+# sub   rsa4096 2019-07-22 [S] [vervaldatum: 2022-07-21]
+# sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
+#
+# **************
+# **** SOLL ****
+# **************
+# TeamViewer:
+cat /etc/apt/sources.list.d/teamviewer.list
+# deb [signed-by=/usr/share/keyrings/teamviewer.gpg] https://linux.teamviewe...
+apt-key list
+# /etc/apt/trusted.gpg
+# --------------------
+# <No keys for TeamViewer>
+file /usr/share/keyrings/teamviewer.gpg
+# PGP/GPG key public ring (v4) created...
+#
+# Google Chrome:
+cat /etc/apt/sources.list.d/google-chrome.list
+# deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome] https://dl.go...
+apt-key list
+# /etc/apt/trusted.gpg
+# --------------------
+# <No keys for Google Chrome>
+file /usr/share/keyrings/google-chrome.gpg
+# PGP/GPG key public ring (v4) created...

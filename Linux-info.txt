@@ -2198,22 +2198,37 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 
 # apt hardening 3rd party packages / apt versterken 3e partij pakketten
 # apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT
-# "Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d#
-#   instead (see apt-key(8))"
-# Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat
-# AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
-# Als een van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen
-# hebben voor andere repositories.
+# "Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d
+#  instead (see apt-key(8))"
 # Zie:
 # https://blog.cloudflare.com/dont-use-apt-key/
 # https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html
 #
-# Oplossing is om de gpg-sleutels te plaatsen op een andere plek, en deze plek
-# opnemen in de source-list, zie voor voorbeelden hieronder, een voorbeeld met
-# de gpg-sleutel opgenomen in /etc/apt/trusted.gpg door 'apt-key add' en een
-# voorbeeld met de sleutel in /etc/apt/trusted.gpg.d.
-# Dan gaan we van ALLE sleustels voor ALLE respositories
-# naar EEN sleutel voor EEN repository.
+# De instructies om een apt-sleutel toe te voegen zijn vaak:
+# wget ... | sudo tee /etc/apt/trusted.gpg.d/...
+# -of-
+# wget ... | sudo apt-key add .. (toegevoegen aan /etc/apt/trusted.gpg)
+#
+# Zie voorbeelden hieronder, een voorbeeld met de gpg-sleutel opgenomen in
+# /etc/apt/trusted.gpg door 'apt-key add' en een voorbeeld met de sleutel in
+# /etc/apt/trusted.gpg.d, IST.
+#
+# Dit zijn vaak asc-sleutels (ASCII-armored signature with or without wrapped
+# document, plain text format./ASCII-gepantserde handtekening met of zonder
+# ingepakt document, platte tekst.)
+# Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat
+# AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
+# Als een van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen
+# hebben voor andere repositories.
+#
+# Oplossing is om gpg-sleutels (GNU Privacy Guard public keyring file, binary
+# format./GNU Privacy Guard openbaar sleutelringbestand, binair formaat.) te
+# plaatsen op een andere plek, en deze plek opnemen in de source-list, zie
+# voorbeelden hieronder, SOLL.
+# Dan gaan we van ALLE sleutels voor ALLE respositories naar EEN sleutel voor
+# EEN repository.
+#
+# gpgc-sleutels 
 #
 # *************
 # **** IST ****

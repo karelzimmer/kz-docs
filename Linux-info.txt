@@ -2213,9 +2213,8 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 # /etc/apt/trusted.gpg door 'apt-key add' en een voorbeeld met de sleutel in
 # /etc/apt/trusted.gpg.d, IST.
 #
-# Dit zijn vaak asc-sleutels (ASCII-armored signature with or without wrapped
-# document, plain text format./ASCII-gepantserde handtekening met of zonder
-# ingepakt document, platte tekst.)
+# Dit zijn vaak asc-sleutels (ASCII-armored keyrings, plain text format/
+# ASCII-gepantserde handtekening, platte tekst).
 # Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat
 # AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
 # Als een van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen

@@ -2228,7 +2228,7 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 # Dan gaan we van ALLE sleutels voor ALLE respositories naar EEN sleutel voor
 # EEN repository.
 #
-# gpgc-sleutels 
+# gpg-sleutels 
 #
 # *************
 # **** IST ****

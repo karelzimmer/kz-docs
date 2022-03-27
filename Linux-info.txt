@@ -2281,3 +2281,6 @@ apt-key list
 # <No keys for Google Chrome>
 file /usr/share/keyrings/google-chrome.gpg
 # PGP/GPG key public ring (v4) created...
+#
+# Irritant dat bij een reinstall/upgrade van Google Chrome alsnog de key
+# opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/.

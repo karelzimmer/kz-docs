@@ -64,6 +64,8 @@ Bureaublad
 
 [Ctrl]+[Alt]+[Omhoog]  . naar werkblad hoger
 [Ctrl]+[Alt]+[Beneden] . naar werkblad lager
+[Ctrl]+[Alt]+[Links] . . naar werkblad links
+[Ctrl]+[Alt]+[Rechts]  . naar werkblad rechts
 [Ctrl]+[Alt]+[T] . . . . terminalvenster openen
 
 [Alt]+[Tab]  . . . . . . vensterwisselaar

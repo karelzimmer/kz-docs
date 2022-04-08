@@ -60,7 +60,11 @@ Bureaublad
 [Super]+[Shift]+[Page Up] . . . . . . verplaats venster naar werkblad erboven
 [Super]+[Shift]+[Page Down] . . . . . verplaats venster naar werkblad eronder
 
+[Super]+[L]  . . . . . . vergrendel scherm
+[Super]+[D]  . . . . . . toon bureaublad
+[Super]+[A]  . . . . . . toon applicaties
 [Super]+[M]  . . . . . . berichten
+[Super]+[Space]  . . . . wijzig toetsenbordindeling (voor meertalige setup)
 
 [Ctrl]+[Alt]+[Omhoog]  . naar werkblad hoger
 [Ctrl]+[Alt]+[Beneden] . naar werkblad lager
@@ -162,4 +166,4 @@ Virtuele terminal
 [Ctrl]+[Alt]+[F7]  . . . van GUI naar terminal-sessie en v.v.
 
 
-[Super] = [Windows toets] of [Apple-toets]
+[Super] = [Windows toets] of [Command-toets], of [Vergrootglas-toets].

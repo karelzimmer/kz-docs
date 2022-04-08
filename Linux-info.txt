@@ -1342,7 +1342,7 @@ https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
 # Veiligheid
 # -----------
 ubuntu-security-status  # Retourneer informatie over beveiligingsondersteuning
-                        # voor pakketten
+                        # voor pakketten (v/h ubuntu-support-status)
 # Gebruik Uncomplicated FireWall (UFW), zie hierboven
 # Gebruik Tor (The Onion Router) browser (www.torproject.org)
 ./start-tor-browser.desktop

@@ -2127,6 +2127,7 @@ touch .gitignore
 git pull
 git config pull.ff only
 git config --global pull.ff only
+git clean -d  -f .
 
 
 # Disable the BIOS/firmware update

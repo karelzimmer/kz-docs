@@ -2373,6 +2373,7 @@ file /usr/share/keyrings/google-chrome.gpg
 # 1. Start Standaardtoepassingen.
 # 2. Kies bij E-mail voor Gnome Gmail.
 
+
 # thunderbird (e-mail) instellen:
 # Voeg de extenstie voor Google Agenda toe via:
 # 1. Start Thunderbird.
@@ -2380,17 +2381,6 @@ file /usr/share/keyrings/google-chrome.gpg
 # 3. Zoek 'Google Agenda'
 # 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
 # 5. Volg de aanwijzingen op het scherm.
-
-#1 terminal (terminalvenster)
-kz-gset --addfavbef=org.gnome.Terminal
-#2 1. Start Terminalvenster.
-#2 2. Maximaliseer het Terminalvenster.
-#2 3. Voer de volgende opdracht uit:
-#2    echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
-#2 4. Ga naar ☰  > Voorkeuren.
-#2 5. Onder Profielen klik op Naamloos.
-#2 6. Vul in achter Oorspronkelijke afmeting van de terminal:
-#2    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
 
 
 # terminal (terminalvenster) altijd maximale grootte instellen:

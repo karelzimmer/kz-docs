@@ -397,6 +397,8 @@ virsh edit Ubuntu16.04      # wijzig naar
 qemu-system-x86_64 -enable-kvm -m 1024 -hda /dev/...
 # Kopieer van gastheer naar gast (gedeeld klembord), installeer in de gast:
 sudo apt install spice-vdagent
+# Met een AMD-processor zal AMD-V wel aanstaan, maar bij Intel moet vaak VT-x
+# aangezet worden in het BIOS of UEFI-firmware!
 
 
 # Herstel Bestanden thumbnails
@@ -1357,8 +1359,21 @@ sudo apt-get install --yes torbrowser-launcher
 #    Duck Duck Go    https://3g2upl4pq6kufc4m.onion/
 #    Fcabook         https://www.facebookcorewwwi.onion/
 
-# Gebruik AdGuard browser-extensie  www.adguard.com
-# Gebruik AdGuard DNS               www.tiny.cc/ag-dns
+# Gebruik AdGuard browser-extensie  www.adguard.com. Instellen:
+# Voor Chrome:
+# ~~~~~~~~~~~~
+# 1. Start Google Chrome webbrowser.
+# 2. Ga naar https://adguard.com/nl/download-extension/chrome.html
+# 3. Klik op Toev. aan Chrome.
+# 4. Klik op Extensie toevoegen.
+#
+# Voor Firefox:
+# ~~~~~~~~~~~~~
+# 1. Start Firefox webbrowser.
+# 2. Ga naar https://adguard.com/nl/download-extension/firefox.html
+# 3. Klik op Toevoegen aan Firefox.
+# 4. Klik op Toevoegen.
+# 5. Klik op Oké, begrepen.
 
 
 # Hoe apparaten in te schakelen met Xinput
@@ -1797,18 +1812,7 @@ touch --date='2011-09-10' 2011-09-10\ elst.jpg
 
 # LEZEN
 # Exif-datum:
-exiftool -ModifyDate BESTAND
-exiftool -ModifyDate "$PWD"
-exiftool -ModifyDate -recurse "$PWD"
-
-# Wijzigingsdatum:
-exiftool -FileModifyDate BESTAND
-exiftool -FileModifyDate "$PWD"
-exiftool -FileModifyDate -recurse "$PWD"
-
-# ALLE Exif-datums zijn er drie; Date/Time Original, Create Date, Modify Date:
-exiftool -DateTimeOriginal -CreateDate -ModifyDate BESTAND
-exiftool -DateTimeOriginal -CreateDate -ModifyDate "$PWD"
+exiftool -ModifyDate BESTANDTerminalve "$PWD"
 exiftool -DateTimeOriginal -CreateDate -ModifyDate-recurse "$PWD"
 # -OF-
 exiftool -AllDates BESTAND
@@ -1888,20 +1892,7 @@ exiftool -restore_original "$PWD"
 # jjjj--jjjj                    # 2015--2016        (2015 t/m 2016)
 # jjjj-mm--mm                   # 2015-01---02      (jan + feb 2015)
 # jjjj-mm--jjjj-mm              # 2015-01--2016-02  (jan 2015 t/m feb 2016)
-# jjjj-mm-dd--jjjj-mm-dd        # 2015-01-01--2016-02-25
-#
-# mm-dd 00-00 als onbekend (als map/bestand-naam) of 01-01 (als geldige datum).
-
-# Zoek mappen/bestanden met jaartallen e.d.
-# Voeg '-type f' toe om alleen naar files te zoeken,
-# voeg '-type d' toe om alleen naar dir's te zoeken.
-# *jjjj*
-find "$PWD" -name '*[0-9][0-9][0-9][0-9]*' -print 2> /dev/null
-# *jjjj-*
-find "$PWD" -name '*[0-9][0-9][0-9][0-9]-*' -print 2> /dev/null
-# *-jjjj*
-find "$PWD" -name '*-[0-9][0-9][0-9][0-9]*' -print 2> /dev/null
-# * jjjj *
+# jjjj-mm-dd--jjjj-mm-dd        # 2015-01-01--2016-Terminalv
 find "$PWD" -name '* [0-9][0-9][0-9][0-9] *' -print 2> /dev/null
 
 
@@ -2162,6 +2153,23 @@ mimetype ~/bin/backup
 xdg-mime default code_code.desktop application/x-shellscript
 xdg-mime query default application/x-shellscript
 
+# 1. Start Visual Studio Code.
+# 2. Ga naar File > Preferences > Settings (Ctrl+,).
+# 3. Zoek 'ruler'
+# 4. Klik op 'Text Editor'.
+# 5. Klik op 'Edit in settings.json'
+# 6. Klik op 'User' - tab).
+# 7. Voeg toe, of wijzig, tussen de { en }: "editor.rulers": [79]
+# 8. Sluit Settings.
+# 9. Installeer de volgende extensies:
+#    Code Runner
+#    HTML Preview
+#    Linux Desktop File Support
+#    Live Server
+#    Markdown Preview Enahnced
+#    ShellCheck
+#    TROFF Syntax
+
 
 # Epoch <> DateTime:
 date +%s
@@ -2286,3 +2294,111 @@ file /usr/share/keyrings/google-chrome.gpg
 # Irritant dat bij een reinstall/upgrade van Google Chrome alsnog de key
 # opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie
 # /var/lib/dpkg/info/google-chrome-stable.postinst.
+
+
+# citrix (telewerken) instellen:
+# Aka Citrix Workspace app, Citrix Receiver, ICA Client.
+# Voegt gebruiker citrixlog toe!
+# Mocht de <2e gebruiker> problemen hebben met het aanmelden of het gebruik
+# van /home, start dan het Terminalvenster en voer uit:
+#    id <2e gebruiker>
+#    id citrixlog
+# Als gebruiker <2e gebruiker> UID 1002 heeft en gebruiker citrixlog UID=1001,
+# dan is gebruiker citrixlog (met de installatie van citrix) eerder aangemaakt
+# dan gebruiker <2e gebruiker>.
+# Dit is op te lossen met:
+#    sudo usermod  --uid 1003 citrixlog
+#    sudo groupmod --gid 1003 citrixlog
+#    sudo usermod  --uid 1001 <2e gebruiker>
+#    sudo groupmod --gid 1001 <2e gebruiker>
+#    sudo usermod  --uid 1002 citrixlog
+#    sudo groupmod --gid 1002 citrixlog
+
+
+# bitwarden (wachtwoordbeheer) instellen:
+# Ingebruikname van Bitwarden bestaat uit de volgende stappen:
+# 1. Start Bitwarden.
+# 2. Maak een account aan met een sterk(!) Hoofdwachtwoord.
+# 3. Exporteer de opgeslagen wachtwoorden uit de bestaande wachtwoordbeheerder.
+# 4. Importeer de opgeslagen wachtwoorden in Bitwarden.
+# 5. Verwijder de uit de oude wachtwoordbeheerder geëxporteerde wachtwoorden.
+# 6. Verwijder de oude wachtwoordbeheerder.
+# -----------------------------------------------
+# Met het gebruik van Bitwarden wordt het opslaan
+# van wachtwoorden in de browser sterk afgeraden.
+# -----------------------------------------------
+# Dit betekent voor de browser:
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 1. Stop het (automatisch) opslaan van wachtwoorden.
+# 2. Verwijder opgeslagen wachtwoorden.
+# 3. Voeg de Bitwarden-extensie toe.
+#
+# Voor Chrome betekent dit:
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+# 1. Stop het (automatisch) opslaan van wachtwoorden.
+#    1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account beheren.
+#    2. Klik aan de linkerkant op Beveiliging.
+#    3. Scroll naar beneden en klik op Wachtwoordmanager.
+#    4. Klik rechtsboven op tandwielsymbool.
+#    5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
+# 2. Verwijder opgeslagen wachtwoorden.
+#    1. Klik rechtsboven op Meer⋮.
+#    2. Klik op Instellingen.
+#    3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
+#    4. Klik op Geavanceerd (tab).
+#    5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op Gegevens wissen.
+# 3. Voeg de Bitwarden-extensie toe.
+#    1. Ga naar https://bitwarden.com/download/.
+#    2. Scroll naar beneden en rechts van WEB BROWSER klik op Google Chrome.
+#    3. Klik op Toev. aan Chrome.
+#    4. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
+#    5. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
+#       1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING op
+#          'Time-out van de kluis' en selecteer Nooit.
+#       2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
+#          Opties en vink aan Automatisch invullen bij laden van pagina.
+
+
+# google-chrome (webbrowser) instellen:
+# 1. Start Google Chrome.
+# 2. Indien nodig importeer Firefox bladwijzers via klik op Meer⋮.
+# 3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
+# 4. Ga naar https://chrome.google.com/webstore/category/extensions
+# 5. Zoek naar gnome en klik op gnome-shell integration
+# 6. Klik op Gnome-shell-integratie
+# 7. Klik op Toev. aan Chrome.
+# 8. Klik op Extensie toevoegen.
+#
+# Om standaard te mailen met Gmail en Google Chrome voer uit:
+# 1. Start Standaardtoepassingen.
+# 2. Kies bij E-mail voor Gnome Gmail.
+
+# thunderbird (e-mail) instellen:
+# Voeg de extenstie voor Google Agenda toe via:
+# 1. Start Thunderbird.
+# 2. Ga naar Menu openen ☰  > Add-ons.
+# 3. Zoek 'Google Agenda'
+# 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
+# 5. Volg de aanwijzingen op het scherm.
+
+#1 terminal (terminalvenster)
+kz-gset --addfavbef=org.gnome.Terminal
+#2 1. Start Terminalvenster.
+#2 2. Maximaliseer het Terminalvenster.
+#2 3. Voer de volgende opdracht uit:
+#2    echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
+#2 4. Ga naar ☰  > Voorkeuren.
+#2 5. Onder Profielen klik op Naamloos.
+#2 6. Vul in achter Oorspronkelijke afmeting van de terminal:
+#2    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
+
+
+# terminal (terminalvenster) altijd maximale grootte instellen:
+# 1. Start Terminalvenster.
+# 2. Maximaliseer het Terminalvenster.
+# 3. Voer de volgende opdracht uit:
+#    echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
+# 4. Ga naar ☰  > Voorkeuren.
+# 5. Onder Profielen klik op Naamloos.
+# 6. Vul in achter Oorspronkelijke afmeting van de terminal:
+#    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.

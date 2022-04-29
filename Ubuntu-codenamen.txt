@@ -48,6 +48,7 @@ Versie    Codenaam  Voluit              Nederlandse vertaling
 21.04     hirsute   Hirsute Hippo       Harige hippo
 21.10     impish    Impish Idri         Ondeugende Madagaskische maki
 22.04 LTS jammy     Jammy Jellyfish     Gelukkige kwal
+22.10     kinetic   Kinetic Kudu        Kinetische antilope
 
 
 Zie ook: https://wiki.ubuntu.com/Releases en

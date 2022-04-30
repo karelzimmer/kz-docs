@@ -43,6 +43,8 @@ gksu OPDRACHT       # is vervangen door opdracht: sudo -i
 gksudo OPDRACHT     # is vervangen door opdracht: sudo -i
 sudo -i OPDRACHT    # voer OPDRACHT als root uit (vervanger van gksu/gksudo)
 history             # overizcht laatst uitgevoerde opdrachten
+history -d NUMMER   # verwijder history-opdrachtnummer NUMMER
+history -w          # schijf naar $HISTFILE als NUMMER er al in stond
 # ! NUMMER          # voer history-opdrachtnummer NUMMER uit
 grep '^#1' ./*      # vind bestanden met #1 aan het begin van de regel
 grep '\ \ $' ./*    # vind bestanden met twee spaties aan het einde v.d. regel

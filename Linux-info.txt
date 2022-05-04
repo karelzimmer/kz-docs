@@ -2354,7 +2354,7 @@ file /usr/share/keyrings/google-chrome.gpg
 #
 # Citrix (telewerken) instellen:
 # Aka Citrix Workspace app, Citrix Receiver, ICA Client.
-# Voegt gebruiker citrixlog toe!
+# Voegt gebruiker citrixlog toe vanaf versie 2009!
 # Mocht de <2e gebruiker> problemen hebben met het aanmelden of het gebruik
 # van /home, start dan het Terminalvenster en voer uit:
 #    id <2e gebruiker>

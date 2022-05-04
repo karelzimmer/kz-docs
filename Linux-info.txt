@@ -2354,6 +2354,9 @@ file /usr/share/keyrings/google-chrome.gpg
 #
 # Citrix (telewerken) installeren:
 # Aka Citrix Workspace app, Citrix Receiver, ICA Client.
+# LET OP -----------------------------------------------------------------------------
+# LET OP Gebruik bij voorkeur de Google Chrome app Citrix Workspace-app voor Chrome OS
+# LET OP -----------------------------------------------------------------------------
 # Tijdelijk?, icaclient_VERSION_amd64.deb is afhankelijk van libidn11 (Ubuntu 22.04 LTS levert libidn12).
 wget --no-verbose --output-document=/tmp/libidn11.deb "https://karelzimmer.nl/downloads/icaclient/libidn11_1.33-2.2ubuntu2_amd64.deb"
 sudo apt-get install --yes /tmp/libidn11.deb

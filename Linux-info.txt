@@ -2224,9 +2224,9 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 #
 # gpg-sleutels 
 #
-# *************
-# **** IST ****
-# *************
+# ::::::::::::::
+# IST
+# ::::::::::::::
 # TeamViewer:
 cat /etc/apt/sources.list.d/teamviewer.list
 # deb https://linux.teamviewer.com/deb stable main
@@ -2254,9 +2254,9 @@ apt-key list
 # sub   rsa4096 2019-07-22 [S] [vervaldatum: 2022-07-21]
 # sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
 #
-# **************
-# **** SOLL ****
-# **************
+# ::::::::::::::
+# SOLL
+# ::::::::::::::
 # TeamViewer:
 cat /etc/apt/sources.list.d/teamviewer.list
 # deb [signed-by=/usr/share/keyrings/teamviewer.gpg] https://linux.teamviewe...
@@ -2280,139 +2280,4 @@ file /usr/share/keyrings/google-chrome.gpg
 # Irritant dat bij een reinstall/upgrade van Google Chrome alsnog de key
 # opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie
 # /var/lib/dpkg/info/google-chrome-stable.postinst.
-
-
-# Installeer Google Chrome extensies.
-# Ref: https://developer.chrome.com/docs/extensions/mv3/external_extensions/#preference-linux
-# Plaats bestand extension-ID.json in /opt/google/chrome/extensions/ met als inhoud:
-# {
-#   "external_update_url": "https://clients2.google.com/service/update2/crx"
-# }
-# Gnome-shell-integratie extension-ID=gphhapmejobijbbhgpjhcjognlahblep 
-
-
-# Apps instellen.
-#
-# AdGuard (adblocker) instellen (extension-ID=bgnkhhnnamicmpeenaelnjfhikgbkllg):
-# Voor Chrome:
-# ~~~~~~~~~~~~
-# 1. Start Google Chrome webbrowser.
-# 2. Ga naar https://adguard.com/nl/download-extension/chrome.html
-# 3. Klik op Toev. aan Chrome.
-# 4. Klik op Extensie toevoegen.
-#
-# Voor Firefox:
-# ~~~~~~~~~~~~~
-# 1. Start Firefox webbrowser.
-# 2. Ga naar https://adguard.com/nl/download-extension/firefox.html
-# 3. Klik op Toevoegen aan Firefox.
-# 4. Klik op Toevoegen.
-# 5. Klik op Oké, begrepen.
-#
-# Bitwarden (wachtwoordbeheer) instellen (extension-ID=nngceckbapebfimnlniiiahkandclblb):
-# Ingebruikname van Bitwarden bestaat uit de volgende stappen:
-# 1. Start Bitwarden.
-# 2. Maak een account aan met een sterk(!) Hoofdwachtwoord.
-# 3. Exporteer de opgeslagen wachtwoorden uit de bestaande wachtwoordbeheerder.
-# 4. Importeer de opgeslagen wachtwoorden in Bitwarden.
-# 5. Verwijder de uit de oude wachtwoordbeheerder geëxporteerde wachtwoorden.
-# 6. Verwijder de oude wachtwoordbeheerder.
-# -----------------------------------------------
-# Met het gebruik van Bitwarden wordt het opslaan
-# van wachtwoorden in de browser sterk afgeraden.
-# -----------------------------------------------
-# Dit betekent voor de browser:
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# 1. Stop het (automatisch) opslaan van wachtwoorden.
-# 2. Verwijder opgeslagen wachtwoorden.
-# 3. Voeg de Bitwarden-extensie toe.
-#
-# Voor Chrome betekent dit:
-# ~~~~~~~~~~~~~~~~~~~~~~~~~
-# 1. Stop het (automatisch) opslaan van wachtwoorden.
-#    1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account beheren.
-#    2. Klik aan de linkerkant op Beveiliging.
-#    3. Scroll naar beneden en klik op Wachtwoordmanager.
-#    4. Klik rechtsboven op tandwielsymbool.
-#    5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
-# 2. Verwijder opgeslagen wachtwoorden.
-#    1. Klik rechtsboven op Meer⋮.
-#    2. Klik op Instellingen.
-#    3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
-#    4. Klik op Geavanceerd (tab).
-#    5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op Gegevens wissen.
-# 3. Voeg de Bitwarden-extensie toe.
-#    1. Ga naar https://bitwarden.com/download/.
-#    2. Scroll naar beneden en rechts van WEB BROWSER klik op Google Chrome.
-#    3. Klik op Toev. aan Chrome.
-#    4. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
-#    5. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
-#       1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING op
-#          'Time-out van de kluis' en selecteer Nooit.
-#       2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
-#          Opties en vink aan Automatisch invullen bij laden van pagina.
-#
-# Citrix (telewerken) installeren:
-# Aka Citrix Workspace app, Citrix Receiver, ICA Client.
-# LET OP -----------------------------------------------------------------------------
-# LET OP Gebruik bij voorkeur de Google Chrome app Citrix Workspace-app voor Chrome OS
-# LET OP -----------------------------------------------------------------------------
-# Tijdelijk?, icaclient_VERSION_amd64.deb is afhankelijk van libidn11 (Ubuntu 22.04 LTS levert libidn12).
-wget --no-verbose --output-document=/tmp/libidn11.deb "https://karelzimmer.nl/downloads/icaclient/libidn11_1.33-2.2ubuntu2_amd64.deb"
-sudo apt-get install --yes /tmp/libidn11.deb
-wget --no-verbose --output-document=/tmp/icaclient.deb "https://karelzimmer.nl/downloads/icaclient/icaclient_20.04.0.21_amd64.deb"
-sudo DEBIAN_FRONTEND=noninteractive apt-get install --yes /tmp/icaclient.deb
-sudo ln --symbolic --force /usr/share/ca-certificates/mozilla/* /opt/Citrix/ICAClient/keystore/cacerts
-sudo c_rehash /opt/Citrix/ICAClient/keystore/cacerts
-rm /tmp/libidn11.deb /tmp/icaclient.deb
-# sudo apt remove --yes icaclient
-#
-# Citrix (telewerken) instellen:
-# Aka Citrix Workspace app, Citrix Receiver, ICA Client.
-# Voegt gebruiker citrixlog toe vanaf versie 2009!
-# Mocht de <2e gebruiker> problemen hebben met het aanmelden of het gebruik
-# van /home, start dan het Terminalvenster en voer uit:
-#    id <2e gebruiker>
-#    id citrixlog
-# Als gebruiker <2e gebruiker> UID 1002 heeft en gebruiker citrixlog UID=1001,
-# dan is gebruiker citrixlog (met de installatie van citrix) eerder aangemaakt
-# dan gebruiker <2e gebruiker>.
-# Dit is op te lossen met:
-#    sudo usermod  --uid 1003 citrixlog
-#    sudo groupmod --gid 1003 citrixlog
-#    sudo usermod  --uid 1001 <2e gebruiker>
-#    sudo groupmod --gid 1001 <2e gebruiker>
-#    sudo usermod  --uid 1002 citrixlog
-#    sudo groupmod --gid 1002 citrixlog
-#
-# Google Chrome (webbrowser) instellen:
-# 1. Start Google Chrome.
-# 2. Indien nodig importeer Firefox bladwijzers via klik op Meer⋮.
-# 3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
-# 4. Ga naar https://chrome.google.com/webstore/category/extensions
-# 5. Zoek naar gnome en klik op gnome-shell integration
-# 6. Klik op Gnome-shell-integratie
-# 7. Klik op Toev. aan Chrome.
-# 8. Klik op Extensie toevoegen.
-#
-# Om standaard te mailen met Gmail en Google Chrome voer uit:
-# 1. Start Standaardtoepassingen.
-# 2. Kies bij E-mail voor Gnome Gmail.
-#
-# thunderbird (e-mail) instellen:
-# Voeg de extenstie voor Google Agenda toe via:
-# 1. Start Thunderbird.
-# 2. Ga naar Menu openen ☰  > Add-ons.
-# 3. Zoek 'Google Agenda'
-# 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
-# 5. Volg de aanwijzingen op het scherm.
-#
-# terminal (terminalvenster) altijd maximale grootte instellen:
-# 1. Start Terminalvenster.
-# 2. Maximaliseer het Terminalvenster.
-# 3. Voer de volgende opdracht uit:
-#    echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
-# 4. Ga naar ☰  > Voorkeuren.
-# 5. Onder Profielen klik op Naamloos.
-# 6. Vul in achter Oorspronkelijke afmeting van de terminal:
-#    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
+# Dit kan worden opgelost met het uitvoeren van 'kz update'.

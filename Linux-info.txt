@@ -2281,3 +2281,13 @@ file /usr/share/keyrings/google-chrome.gpg
 # opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie
 # /var/lib/dpkg/info/google-chrome-stable.postinst.
 # Dit kan worden opgelost met het uitvoeren van 'kz update'.
+
+# Terminal (terminalvenster) altijd maximale grootte instellen:
+# 1. Start Terminalvenster.
+# 2. Maximaliseer het Terminalvenster.
+# 3. Voer de volgende opdracht uit:
+#    echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
+# 4. Ga naar ☰  > Voorkeuren.
+# 5. Onder Profielen klik op Naamloos.
+# 6. Vul in achter Oorspronkelijke afmeting van de terminal:
+#    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.

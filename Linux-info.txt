@@ -2306,9 +2306,8 @@ ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
 
-echo '[target]
-localhost' > ~/ansible/inventory/localhost
-ansible localhost -a 'ls -l'
+echo 'localhost' > ~/ansible/inventory/localhost
+ansible localhost -a 'echo Hello World!'
 
 echo '---
 - hosts: all

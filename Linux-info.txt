@@ -2223,6 +2223,15 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 # EEN repository.
 #
 # gpg-sleutels 
+# Een OpenPGP sleutel kan bekeken worden met opdracht:
+file repo-key.gpg
+# Als de output is als 'repo-key.gpg: PGP public key block Public-Key (old)',
+# moet deze ascii-armored OpenPGP sleutel worden omgezet met de opdracht
+gpg --dearmor
+# Voorbeeld:
+wget --no-verbose --output-document=- \
+https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc |
+sudo gpg --dearmor --yes --output=/usr/share/keyrings/teamviewer.gpg
 #
 # ::::::::::::::
 # IST
@@ -2237,7 +2246,7 @@ apt-key list
 #       8CAE 012E BFAC 38B1 7A93  7CD8 C5E2 2450 0C12 89C0
 # uid           [onbekend] TeamViewer GmbH (TeamViewer Linux 2017) <support@...
 # sub   rsa4096 2017-03-13 [E]
-
+#
 # pub   rsa4096 2020-01-29 [SC]
 #       D2A5 FEB3 4881 60F0 28CC  1791 8DA8 4BE5 DEB4 9217
 # uid           [onbekend] TeamViewer Germany GmbH (TeamViewer Linux 2020) <...

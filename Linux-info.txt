@@ -2300,3 +2300,13 @@ file /usr/share/keyrings/google-chrome.gpg
 # 5. Onder Profielen klik op Naamloos.
 # 6. Vul in achter Oorspronkelijke afmeting van de terminal:
 #    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
+
+# Ansible lokaal gebruiken
+ssh-keygen
+ssh-copy-id "$USER"@localhost
+ssh "$USER"@localhost
+
+echo '[target]
+localhost' > ~/ansible/inventory/localhost
+
+ansible localhost -a 'ls -l'

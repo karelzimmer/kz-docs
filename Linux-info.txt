@@ -2308,5 +2308,12 @@ ssh "$USER"@localhost
 
 echo '[target]
 localhost' > ~/ansible/inventory/localhost
-
 ansible localhost -a 'ls -l'
+
+echo '---
+- hosts: all
+  tasks:
+  - name: Hello World!
+    debug:
+      msg: "Hello World!"' > ~/ansible/hello-world.yml
+ansible-playbook -i inventory/localhost hello-world.yml

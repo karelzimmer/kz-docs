@@ -2198,6 +2198,7 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 # Zie:
 # https://blog.cloudflare.com/dont-use-apt-key/
 # https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html
+# https://unix.stackexchange.com/questions/332672/
 #
 # De instructies om een apt-sleutel toe te voegen zijn vaak:
 # wget ... | sudo tee /etc/apt/trusted.gpg.d/...
@@ -2225,7 +2226,8 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 # gpg-sleutels 
 # Een OpenPGP sleutel kan bekeken worden met opdracht:
 file repo-key.gpg
-# Als de output is als 'repo-key.gpg: PGP public key block Public-Key (old)',
+# Als de output is als 'repo-key.gpg: PGP public key block Public-Key (old)' of
+# de inhoud toont zich als '-----BEGIN PGP PUBLIC KEY BLOCK-----', dan
 # moet deze ascii-armored OpenPGP sleutel worden omgezet met de opdracht
 gpg --dearmor
 # Voorbeeld:

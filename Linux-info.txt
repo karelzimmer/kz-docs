@@ -2301,7 +2301,7 @@ file /usr/share/keyrings/google-chrome.gpg
 # 6. Vul in achter Oorspronkelijke afmeting van de terminal:
 #    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
 
-# Ansible lokaal gebruiken
+# Ansible lokaal gebruiken non-root
 ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
@@ -2316,3 +2316,25 @@ echo '---
     debug:
       msg: "Hello World!"' > ~/ansible/hello-world.yml
 ansible-playbook -i inventory/localhost hello-world.yml
+
+# Ansible lokaal gebruiken root
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+sudo systemctl restart ssh
+
+sudo passwd
+sudo ssh-keygen
+sudo ssh-copy-id root@localhost
+sudo ssh root@localhost
+
+# Controleer of 'sudo ssh root@localhost' werkt alvorens deze opdrachten !!
+sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+sudo systemctl restart ssh
+
+echo '---
+- hosts: all
+  become: true
+  tasks:
+  - name: Hello World!
+    debug:
+      msg: "Hello World!"' > ~/ansible/hello-world-root.yml
+ansible-playbook -i inventory/localhost hello-world-root.yml -K

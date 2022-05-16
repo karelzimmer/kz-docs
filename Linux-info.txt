@@ -2340,3 +2340,9 @@ echo '---
     debug:
       msg: "Hello World!"' > ~/ansible/hello-world-root.yml
 ansible-playbook -i inventory/localhost hello-world-root.yml -K
+# BECOME password:
+
+# Geen _K meer te gebruiken.
+sudo visudo /etc/sudoers
+# Allow members of group sudo to execute any command
+# %sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL

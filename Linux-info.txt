@@ -2322,7 +2322,7 @@ echo '---
       msg: "Hello World!"' > ~/ansible/hello-world.yml
 ansible-playbook -i inventory/localhost hello-world.yml
 
-# Ansible lokaal gebruiken root
+# Ansible lokaal gebruiken root (enable root access)
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 sudo systemctl restart ssh
 
@@ -2334,7 +2334,7 @@ sudo ssh root@localhost
 sudo ssh-copy-id localhost
 sudo ssh localhost
 
-# Controleer of 'sudo ssh root@localhost' werkt alvorens deze opdrachten !!
+# Controleer eerst of 'sudo ssh root@localhost' werkt (disable password auth)!
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 sudo systemctl restart ssh
 
@@ -2346,7 +2346,7 @@ echo '---
     debug:
       msg: "Hello World!"' > ~/ansible/hello-world-root.yml
 ansible-playbook -i inventory/localhost hello-world-root.yml -K
-# BECOME password:
+# BECOME password: (-k: SSH password)
 
 # Geen _K meer te gebruiken.
 sudo visudo /etc/sudoers

@@ -2307,6 +2307,9 @@ file /usr/share/keyrings/google-chrome.gpg
 ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
+# of
+ssh-copy-id localhost
+ssh localhost
 
 echo 'localhost' > ~/ansible/inventory/localhost
 ansible localhost -a 'echo Hello World!'
@@ -2327,6 +2330,9 @@ sudo passwd
 sudo ssh-keygen
 sudo ssh-copy-id root@localhost
 sudo ssh root@localhost
+# of
+sudo ssh-copy-id localhost
+sudo ssh localhost
 
 # Controleer of 'sudo ssh root@localhost' werkt alvorens deze opdrachten !!
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config

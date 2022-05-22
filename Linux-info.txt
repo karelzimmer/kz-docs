@@ -2352,3 +2352,40 @@ ansible-playbook -i inventory/localhost hello-world-root.yml -K
 sudo visudo /etc/sudoers
 # Allow members of group sudo to execute any command
 # %sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
+
+
+# Google Chrome extensies en apps automatisch installeren.
+
+# Ref https://support.google.com/chrome/a/answer/7517525?hl=nl
+
+# Voeg json toe aan /etc/opt/chrome/policies/managed/.
+
+# In het voorbeeld zie je hoe je het volgende doet:
+# Google Hangouts (nckgahadagoaajjgafhacjanaoiihapd) en
+# Google Keep (lpcaedmchfhocbbapmcbpinfpgnhiddi) automatisch installeren op
+# gebruikersapparaten.
+# Gebruikers toestaan Keep uit te schakelen (normal_installed), maar Hangouts
+# niet (force_installed).
+# Gebruikers toestaan Google Agenda (gmbgaklkmjakoegficnlkhebmhkjfich) te
+# installeren uit de Chrome Web Store (allowed).
+# Voorkomen dat gebruikers andere apps of extensies installeren (blocked).
+# {
+#   "ExtensionSettings": {
+#     "*": {
+#       "installation_mode": "blocked"
+#     },
+#     "nckgahadagoaajjgafhacjanaoiihapd": {
+#       "installation_mode": "force_installed",
+#       "update_url":
+#         "https://clients2.google.com/service/update2/crx"
+#     },
+#     "lpcaedmchfhocbbapmcbpinfpgnhiddi": {
+#       "installation_mode": "normal_installed",
+#       "update_url":
+#          "https://clients2.google.com/service/update2/crx"
+#     },
+#     "gmbgaklkmjakoegficnlkhebmhkjfich": {
+#       "installation_mode": "allowed"
+#     }
+#   }
+# }

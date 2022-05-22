@@ -2203,7 +2203,8 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 #    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
 
 
-# apt hardening 3rd party packages / apt versterken 3e partij pakketten
+# APT-hardening
+# For third-party packages / Voor 3e-partij pakketten via source-lists of PPAs.
 # apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT
 # "Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d
 #  instead (see apt-key(8))"

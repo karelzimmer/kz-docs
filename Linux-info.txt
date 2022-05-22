@@ -2389,3 +2389,8 @@ sudo visudo /etc/sudoers
 #     }
 #   }
 # }
+# AdGuard extensie               : bgnkhhnnamicmpeenaelnjfhikgbkllg
+# Bitwarden extensie             : nngceckbapebfimnlniiiahkandclblb
+# Chrome Remote Desktop extensie : inomeogfingihgjfjlpeplalcfajhgai
+# Gnome-shell-integratie extensie: gphhapmejobijbbhgpjhcjognlahblep
+# Citrix Workspace app           : haiffjcadagjlijoggckpgfnoeiflnem

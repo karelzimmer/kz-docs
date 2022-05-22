@@ -2389,8 +2389,11 @@ sudo visudo /etc/sudoers
 #     }
 #   }
 # }
-# AdGuard extensie               : bgnkhhnnamicmpeenaelnjfhikgbkllg
-# Bitwarden extensie             : nngceckbapebfimnlniiiahkandclblb
-# Chrome Remote Desktop extensie : inomeogfingihgjfjlpeplalcfajhgai
-# Gnome-shell-integratie extensie: gphhapmejobijbbhgpjhcjognlahblep
-# Citrix Workspace app           : haiffjcadagjlijoggckpgfnoeiflnem
+# AdGuard extensie ID               : bgnkhhnnamicmpeenaelnjfhikgbkllg
+# Bitwarden extensie  ID            : nngceckbapebfimnlniiiahkandclblb
+# Chrome Remote Desktop extensie ID : inomeogfingihgjfjlpeplalcfajhgai
+# Gnome-shell-integratie extensie ID: gphhapmejobijbbhgpjhcjognlahblep
+# Citrix Workspace app ID           : haiffjcadagjlijoggckpgfnoeiflnem
+#
+# Maakt starters aan:
+"$HOME"/.local/share/applications/chrome-ID-Default.desktop

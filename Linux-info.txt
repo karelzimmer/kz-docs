@@ -2400,24 +2400,8 @@ sudo visudo /etc/sudoers
 "$HOME"/.local/share/applications/chrome-ID-Default.desktop
 
 # Apps instellen na installatie.
-#
-# AdGuard (adblocker) instellen #
-# Voor Chrome:
-# ~~~~~~~~~~~~
-# 1. Start Google Chrome webbrowser.
-# 2. Ga naar https://adguard.com/nl/download-extension/chrome.html
-# 3. Klik op Toev. aan Chrome.
-# 4. Klik op Extensie toevoegen.
-#
-# Voor Firefox:
-# ~~~~~~~~~~~~~
-# 1. Start Firefox webbrowser.
-# 2. Ga naar https://adguard.com/nl/download-extension/firefox.html
-# 3. Klik op Toevoegen aan Firefox.
-# 4. Klik op Toevoegen.
-# 5. Klik op Oké, begrepen.
-#
-# Bitwarden (wachtwoordbeheer) instellen ##
+
+# Bitwarden (wachtwoordbeheer) instellen #
 # Ingebruikname van Bitwarden bestaat uit de volgende stappen:
 # 1. Start Bitwarden.
 # 2. Maak een account aan met een sterk(!) Hoofdwachtwoord.
@@ -2449,17 +2433,14 @@ sudo visudo /etc/sudoers
 #    3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
 #    4. Klik op Geavanceerd (tab).
 #    5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op Gegevens wissen.
-# 3. Voeg de Bitwarden-extensie toe.
-#    1. Ga naar https://bitwarden.com/download/.
-#    2. Scroll naar beneden en rechts van WEB BROWSER klik op Google Chrome.
-#    3. Klik op Toev. aan Chrome.
-#    4. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
-#    5. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
+# 3. Gebruik de Bitwarden-extensie.
+#    1. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
+#    2. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
 #       1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING op
 #          'Time-out van de kluis' en selecteer Nooit.
 #       2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
 #          Opties en vink aan Automatisch invullen bij laden van pagina.
-#
+
 # Google Chrome (webbrowser) instellen #
 # 1. Start Google Chrome.
 # 2. Indien nodig importeer Firefox bladwijzers via klik op Meer⋮.
@@ -2473,15 +2454,15 @@ sudo visudo /etc/sudoers
 # Om standaard te mailen met Gmail en Google Chrome voer uit:
 # 1. Start Standaardtoepassingen.
 # 2. Kies bij E-mail voor Gnome Gmail.
-#
-# thunderbird (e-mail) instellen #
+
+# Thunderbird (e-mail) instellen #
 # Voeg de extenstie voor Google Agenda toe via:
 # 1. Start Thunderbird.
 # 2. Ga naar Menu openen ☰  > Add-ons.
 # 3. Zoek 'Google Agenda'
 # 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
 # 5. Volg de aanwijzingen op het scherm.
-#
+
 # Terminal (terminalvenster) instellen (altijd maximale grootte) #
 # 1. Start Terminalvenster.
 # 2. Maximaliseer het Terminalvenster.

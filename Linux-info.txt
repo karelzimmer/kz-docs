@@ -2472,3 +2472,11 @@ sudo visudo /etc/sudoers
 # 5. Onder Profielen klik op Naamloos.
 # 6. Vul in achter Oorspronkelijke afmeting van de terminal:
 #    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
+
+
+# AWK and its versions, some don't support long-option --field-separator:
+file /etc/alternatives/awk
+# /usr/bin/awk
+# /usr/bin/mawk (awk -W help: only -F)
+# /usr/bin/nawk
+# /usr/bin/gawk

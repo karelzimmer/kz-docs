@@ -2480,3 +2480,8 @@ file /etc/alternatives/awk
 # /usr/bin/mawk (awk -W help: only -F)
 # /usr/bin/nawk
 # /usr/bin/gawk
+
+
+# Firmware
+# Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
+fwupdmgr get-devices 

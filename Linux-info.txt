@@ -2313,6 +2313,7 @@ ssh-copy-id localhost
 ssh localhost
 
 echo 'localhost' > ~/ansible/inventory/localhost
+ansible-inventory --inventory ~/ansible/inventory/localhost --list
 ansible localhost -a 'echo Hello World!'
 
 echo '---

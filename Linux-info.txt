@@ -1328,7 +1328,7 @@ sudo ufw allow OpenSSH      # toegang toestaan van overal voor IPv4 en IPv6
 sudo ufw status numbered    # firewaalregels met hun volgnummer
 sudo ufw delete 1           # verwijder de twee OpenSSH-firewallregels
 sudo ufw delete 2           # hebben hier nummer 1 en 2
-sudo ufw reset              # verwijder alle firewallregels
+sudo ufw reset              # verwijder alle toegevoegde firewallregels
                             # reset ufw naar standaardwaarden:
 sudo ufw default deny incoming
 sudo ufw default allow outgoing

@@ -116,10 +116,12 @@ ldd NAME-OF-EXECUTABLE   # Opdracht ldd drukt de gedeelde objecten (gedeelde
 sudo /sbin/ldconfig -v      # Configureren van de dynamische linker, -v is
     # --verbose, gedetailleerde uitvoer produceren.
 
-efibootmgr      # Toon UEFI-bootvariabelen
+efibootmgr                                          # Toon UEFI-bootvariabelen
+[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS  # UEFI of BIOS?
+sudo mokutil --sb-state                             # Secure Boot?
 sudo dmidecode  # DMI (Desktop Management Interface) table decoder (aka SMBIOS,
-    # System Management BIOS)
-sudo dmidecode -t 16        #max RAM, aantal slots
+                # System Management BIOS)
+sudo dmidecode -t 16        # max RAM, aantal slots
 sudo dmidecode -t memory    # max RAM, aantal slots, RAM aanwezig
 lsb_release -a              # distributie informatie (Linux Standard Base -all)
 cat /etc/*release           # id.

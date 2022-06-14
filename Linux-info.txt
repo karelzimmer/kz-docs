@@ -397,8 +397,9 @@ kvm-ok  # INFO: /dev/kvm exists, KVM acceleration can be used
 sudo mv /var/lib/libvirt/images/Ubuntu16.05 /home/karel/libvirt/images
 virsh edit Ubuntu16.04      # wijzig naar
     # <source file='/home/karel/libvirt/images/Ubuntu16.04.img'/>)
-# Test Live USB-stick:
-sudo qemu-system-x86_64 -enable-kvm -m 2048 -hda /dev/...
+# Controleer USB-stick met KVM
+sudo qemu-system-x86_64 -enable-kvm -m 2048 -hda /dev/sdb
+sudo qemu-system-i386   -enable-kvm -m 2048 -hda /dev/sdb
 # Kopieer van gastheer naar gast (gedeeld klembord), installeer in de gast:
 sudo apt install spice-vdagent
 # Met een AMD-processor zal AMD-V wel aanstaan, maar bij Intel moet vaak VT-x
@@ -809,12 +810,6 @@ http://freedesktop.org/wiki/Specifications/icon-theme-spec
 # /usr/share/icons/gnome/
 
 http://www.iconarchive.com/show/multipurpose-alphabet-icons-by-hydrattz.1.html
-
-
-# Controleer USB-stick met KVM
-# ----------------------------
-sudo qemu-system-x86_64 -enable-kvm -m 2048 -hda /dev/sdb
-sudo qemu-system-i386   -enable-kvm -m 2048 -hda /dev/sdb
 
 
 # Herstel verwijderde "Locaties" Afbeeldingen, Documenten, Downloads, etc.

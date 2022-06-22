@@ -2084,7 +2084,7 @@ git show SHA1
 git diff # working <-> staged
 git diff 'SHA1-A' 'SHA1-B' # log --oneline
 
-# fatal: CRLF would be replaced by LF in companies.txt
+# fatal: CRLF would be replaced by LF in file.txt
 git config --global core.autocrlf false
 
 # Rename branch master to main

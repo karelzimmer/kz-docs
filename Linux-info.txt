@@ -49,7 +49,7 @@ history -w          # schijf naar $HISTFILE als NUMMER er al in stond
 grep '^#1' ./*      # vind bestanden met #1 aan het begin van de regel
 grep '\ \ $' ./*    # vind bestanden met twee spaties aan het einde v.d. regel
 # grep -e'A' -e'B' ./*
-                    # Ook kan dan: grep -E {A|B} * (of egrep {A|B} *)
+                    # Ook kan dan: grep -E {A|B} *
 # (.*)\(\) \{       # Wijzig 'FUNCTION() {'
 # function $1 {     # naar   'function FUNCTION {'
 \OPDRACHT           # "unalias" OPDRACHT, voer niet alias uit, maar de opdracht
@@ -66,7 +66,7 @@ ip r                # IP-route tonen
 ip -br -c r         # id. met kleur
 ip l                # IP-link tonen
 ip -br -c l         # id. met kleur
-arp                 # toon IP-adressen (lokaal) netwerk
+ip n                # toon IP-adressen (lokaal) netwerk, voorheen arp
 ssh user@ip         # remote login van user op ip
 nmap -sP 192.168.1.0/24     # toon welke host up is
 nmap -sn 192.168.1.0/24     # toon welke machine up is
@@ -421,10 +421,10 @@ mpstat          # multiproccesorgebruik (local)
 nc|netcat HOST PORT -vvvt   # TCP-verbindingen (remote)
 nc|netcat HOST PORT -vvvu   # UDP-verbindingen (remote)
 nc|netcat       # willekeurige TCP- en UDP-verbindingen en luistert (remote)
-netstat         # netwerkstatistieken (local)
-netstat -plant  # netwerkstatistieken, TCP (local)
-netstat -planu  # netwerkstatistieken, UDP (local)
-netstat -tulpn  # netwerkstatistieken (local)
+ss              # netwerkstatistieken (local), voorheen netstat
+ss -plant  # netwerkstatistieken, TCP (local)
+ss -planu  # netwerkstatistieken, UDP (local)
+ss -tulpn  # netwerkstatistieken (local)
 nmon            # verzamel en rapporteer systeemactiviteit
 numastat        # NUMA-gerelateerde statistieken (Non-Uniform Memory Access)
 pmap            # proces gehuegen gebruik
@@ -464,8 +464,7 @@ lsinitramfs     # modules in initrd.img
 # Netwerk
 # -------
 ip              # configureer netwerk interface
-iwconfig        # configureer wireless network interface
-iwlist scan     # zoek naar draaloze netwerken
+iw scan         # zoek naar draaloze netwerken, voorheen iwconfig
 rfkill list all # toon draadloze apparaten
 sudo systemctl restart NetworkManager.service   # Netwerk herstarten
 host HOST       # look up hostnames using DNS

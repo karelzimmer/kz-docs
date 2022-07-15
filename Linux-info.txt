@@ -2517,15 +2517,12 @@ apt install sudo gpg lsb-release
 #
 # Debian
 # MAKEN
-# Download vanaf debian.org/cd/live, blader naar beneden en klik op
-# unofficial live images for stable with firmware included. Klik vervolgens
-# door naar amd64 en iso-hybrid. Daar aangekomen kies
-# debian-live-11...-amd-64-gnome+non-free.iso
-# In terminal voer uit:
+cd /tmp
+wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current-live/amd64/iso-hybrid/debian-live-11.4.0-amd64-gnome+nonfree.iso
 LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /'   \
-    <debian-live-11.4.0-amd64-gnome.iso \
-    >debian-live-11.4.0-amd64-gnome-persist.iso 
-sudo dd if=/home/karel/Downloads/debian-live-11.4.0-amd64-gnome-persist.iso \
+    </tmp/debian-live-11.4.0-amd64-gnome+nonfree.iso \
+    >/tmp/debian-live-11.4.0-amd64-gnome+nonfree-persist.iso 
+sudo dd if=/tmp/debian-live-11.4.0-amd64-gnome+nonfree-persist.iso \
     of=/dev/sdb
 sudo fdisk /dev/sdb <<<$'n\np\n\n\n\nw'
 sudo mkfs.ext4 -L persistence /dev/sdb3

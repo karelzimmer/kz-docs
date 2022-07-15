@@ -32,9 +32,9 @@ sudo apt-get install --yes spice-vdagent && sudo reboot
 FILE=/home/karel/script.sh
 dirname $FILE       # directory /home/karel
 ${FILE%/*}          # alternatief
-                    
+
 basename $FILE      # bestandsnaam script.sh
-${FILE##*/}         # alternatief 
+${FILE##*/}         # alternatief
 
 ${FILE##*.}         # sh, "suffix" $FILE ("extensie")
 ${FILE%.*}          # /home/karel/script, "z/suffix" $FILE (naam zonder suffix)
@@ -213,7 +213,7 @@ gnome-session-save --logout     # afmelden
 sudo systemctl reboot           # herstarten
 sudo systemctl poweroff         # uitschakelen
 # /var/run/reboot-required        # reboot nodig als aanwezig
- 
+
 id                                  # Gebruikersinformatie
 
 sudo deluser --remove-all-files U   # Gebruiker U verwijderen incl. pers.mappen
@@ -248,7 +248,7 @@ patch ORIG.BEST. PATCHBEST.
 # parameter. Ref: http://askubuntu.com/questions/162075/
 
 loginctl                        # Login-manager
-loginctl show-session 2         # Login-manager sessieinfo 
+loginctl show-session 2         # Login-manager sessieinfo
 loginctl show-session 2 -p Type # id, alleen Type, x11|wayland|...
 
 
@@ -295,7 +295,7 @@ IP-HOST-B HOST-B
 ssh HOST-B:
 # Enter passphrase for key '/home/USER/.ssh/id_rsa': ?
 # HOST-A:
-ssh-add /home/USER/.ssh/id_rsa ! 
+ssh-add /home/USER/.ssh/id_rsa !
 
 ssh-keygen -Bfid_rsa        # Toon bubblebabble digest private/public key file
 ssh-keygen -lf id_rsa.pub   # Toon fingerprint public key file.)
@@ -487,7 +487,7 @@ ss              # another utility to investigate sockets
 
 # MAC address spoofing
 # --------------------
-ip link show INTERFACE  # INTERFACE zie iwlist scan 
+ip link show INTERFACE  # INTERFACE zie iwlist scan
 #    voorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
 ip link set dev INTERFACE down
 ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
@@ -525,7 +525,7 @@ scangearmp                              # Scannerprogramma
 scangearmp-mp495series-pkgconfig.sh     # ScanGear MP for Linux (mp495-series)
 scanimage -L                            # Scanner zoeken
 Apparaat-URI:
-cnijnet:/MAC-ADDRESS                    # cnijnet = protocol 
+cnijnet:/MAC-ADDRESS                    # cnijnet = protocol
 driverless list # PPD generator utility for driverless printing
 ippfind         # find internet printing protocol printers
 
@@ -1188,11 +1188,11 @@ sudo systemctl restart sysstat
 # ---------------------------------------------
 # Bepaal welke partitie LUKS bevat, voorbeeld:
 lsblk
-# sda                     8:0    0 232,9G  0 disk  
+# sda                     8:0    0 232,9G  0 disk
 # ├─sda1                  8:1    0   512M  0 part  /boot/efi
 # ├─sda2                  8:2    0   732M  0 part  /boot
-# └─sda3                  8:3    0 231,7G  0 part  
-#   └─sda3_crypt        253:0    0 231,7G  0 crypt 
+# └─sda3                  8:3    0 231,7G  0 part
+#   └─sda3_crypt        253:0    0 231,7G  0 crypt
 #     ├─vgubuntu-root   253:1    0 230,7G  0 lvm   /
 #     └─vgubuntu-swap_1 253:2    0   976M  0 lvm   [SWAP]
 # In bovenstaand geval dus /dev/sda3.
@@ -1301,7 +1301,7 @@ man sudoers
 sudo lsusb -v | grep -i blue
 # of
 sudo udevadm info -a -p /sys/class/bluetooth/hci0
-# Bus 001 Device 003: ID 413c:8187 Dell Computer Corp. DW375 Bluetooth Module    
+# Bus 001 Device 003: ID 413c:8187 Dell Computer Corp. DW375 Bluetooth Module
 sudo -H gedit /etc/udev/rules.d/81-bluetooth-hci.rules
 # SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="8187",ATTR{aut\
 # horized}="0"
@@ -1384,8 +1384,8 @@ xinput -list
 #     ↳ AT Translated Set 2 keyboard       id=14	[slave  keyboard (3)]
 
 xinput disable 13   # Dell WMI hotkeys
-xinput enable 13    # Dell WMI hotkeys    
-    
+xinput enable 13    # Dell WMI hotkeys
+
 
 # Youtube video's downloaden
 # --------------------------
@@ -1887,7 +1887,7 @@ find "$PWD" -name '* [0-9][0-9][0-9][0-9] *' -print 2> /dev/null
 # ---------
 # 0.
 lscpu
-# 1. 
+# 1.
 sudo apt install neofetch
 neofetch
 # 2.
@@ -1911,7 +1911,7 @@ make
 #
 # experimenteel ~~~~~~~~~~~~~> stabiel ~~~~~~~~~~~~> stabiel
 #
-# Upstream:   distributeur experimenteert met updates voordat die in een 
+# Upstream:   distributeur experimenteert met updates voordat die in een
 #             stabiele release komen
 # Downstream: patches en updates worden pas worden uitgerold nadat een
 #             distributeur dat heeft gedaan
@@ -2050,7 +2050,7 @@ git branch
 # * dev
 #   master
 
-# Change files 
+# Change files
 git status
 # git restore FILE  # Undo changes
 git add .
@@ -2110,7 +2110,7 @@ git clean -d  -f .
 
 # Disable the BIOS/firmware update
 # --------------------------------
-sudo systemctl stop fwupd.service       # Stop the service  
+sudo systemctl stop fwupd.service       # Stop the service
 sudo systemctl disable fwupd.service    # Disable automatic start upon boot
 sudo systemctl mask fwupd.service       # Disable manual invoking
 
@@ -2232,7 +2232,7 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 # Dan gaan we van ALLE sleutels voor ALLE respositories naar EEN sleutel voor
 # EEN repository.
 #
-# gpg-sleutels 
+# gpg-sleutels
 # Een OpenPGP sleutel kan bekeken worden met opdracht:
 file repo-key.gpg
 # Als de output is als 'repo-key.gpg: PGP public key block Public-Key (old)',
@@ -2403,7 +2403,7 @@ sudo visudo /etc/sudoers
 
 # Apps instellen na installatie
 # -----------------------------
-#
+
 # Bitwarden (wachtwoordbeheer) instellen
 # Ingebruikname van Bitwarden bestaat uit de volgende stappen:
 # 1. Start Bitwarden.
@@ -2443,7 +2443,7 @@ sudo visudo /etc/sudoers
 #          'Time-out van de kluis' en selecteer Nooit.
 #       2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
 #          Opties en vink aan Automatisch invullen bij laden van pagina.
-#
+
 # Google Chrome (webbrowser) instellen
 # 1. Start Google Chrome.
 # 2. Indien nodig importeer Firefox bladwijzers via klik op Meer⋮.
@@ -2453,11 +2453,11 @@ sudo visudo /etc/sudoers
 # 6. Klik op Gnome-shell-integratie
 # 7. Klik op Toev. aan Chrome.
 # 8. Klik op Extensie toevoegen.
-#
+
 # Om standaard te mailen met Gmail en Google Chrome voer uit:
 # 1. Start Standaardtoepassingen.
 # 2. Kies bij E-mail voor Gnome Gmail.
-#
+
 # Thunderbird (e-mail) instellen
 # Voeg de extenstie voor Google Agenda toe via:
 # 1. Start Thunderbird.
@@ -2465,7 +2465,7 @@ sudo visudo /etc/sudoers
 # 3. Zoek 'Google Agenda'
 # 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
 # 5. Volg de aanwijzingen op het scherm.
-#
+
 # Terminal (terminalvenster) instellen (altijd maximale grootte)
 # 1. Start Terminalvenster.
 # 2. Maximaliseer het Terminalvenster.
@@ -2489,17 +2489,18 @@ file /etc/alternatives/awk
 # Firmware
 # --------
 # Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
-fwupdmgr get-devices 
+fwupdmgr get-devices
 
 # Uncomplicated FireWall (UFW)
 # ----------------------------
 # Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
-fwupdmgr get-devices 
+fwupdmgr get-devices
 
 
 # Live Persistent USB
 # -------------------
 # Slax
+
 # MAKEN
 # Download vanaf https://www.slax.org/?lang=es///en/download.php
 # Koppel iso aan
@@ -2508,27 +2509,48 @@ fwupdmgr get-devices
 # Kopieer map slax van iso naar USB-stick
 # In terminal ga naar USB-stick/slax/boot en voer uit:
 sudo bash bootinst.sh
+
 # GEBRUIKEN
 # computernaam: slax, gebruiker: root, wachtwoord: toor
+# Debian met FluxBox window manager.
 # Om kz.deb te kunnen installeren:
 apt update
 apt install sudo gpg lsb-release
 # Timezone klopt niet.
-#
+# Traag!
+
 # Debian
 # MAKEN
-cd /tmp
-wget https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current-live/amd64/iso-hybrid/debian-live-11.4.0-amd64-gnome+nonfree.iso
-LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /'   \
-    </tmp/debian-live-11.4.0-amd64-gnome+nonfree.iso \
-    >/tmp/debian-live-11.4.0-amd64-gnome+nonfree-persist.iso 
-sudo dd if=/tmp/debian-live-11.4.0-amd64-gnome+nonfree-persist.iso \
-    of=/dev/sdb
+# Download image.
+wget --output-document=/tmp/debian.iso https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current-live/amd64/iso-hybrid/debian-live-11.4.0-amd64-gnome+nonfree.iso
+
+# Controleer iso.
+sha256sum /tmp/debian.iso
+
+# Replace strings.
+LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /' < /tmp/debian.iso > /tmp/debian-persist.iso
+
+# Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
+# Kopieer naar USB-stick.
+sudo dd if=/tmp/debian-persist.iso of=/dev/sdb
+
+# Maak 3e partitie.
 sudo fdisk /dev/sdb <<<$'n\np\n\n\n\nw'
+
+# Formatteer 3e partitie.
 sudo mkfs.ext4 -L persistence /dev/sdb3
+
+# Bereid persistentie voor met union.
 sudo mount /dev/sdb3 /mnt
 echo '/ union' | sudo tee /mnt/persistence.conf
 sudo sync
 sudo umount /mnt
+
 GEBRUIKEN
 # computernaam: debian, gebruiker: user, wachtwoord: <geen>
+# Debian met GNOME.
+
+# Disable the BIOS/firmware update
+sudo systemctl stop fwupd.service
+sudo systemctl disable fwupd.service
+sudo systemctl mask fwupd.service

@@ -2116,6 +2116,8 @@ sudo systemctl mask fwupd.service       # Disable manual invoking
 
 
 # Visual Studio Code (vscode)
+# ---------------------------
+#
 # install:
 # --------
 # Registreer vscode:
@@ -2158,7 +2160,8 @@ xdg-mime query default application/x-shellscript
 #    TROFF Syntax
 
 
-# Epoch <> DateTime:
+# Epoch <> DateTime
+# -----------------
 date +%s
 # 1639767205
 date -date @1639767205
@@ -2166,6 +2169,7 @@ date -date @1639767205
 
 
 # Pop!_OS dual-boot
+# -----------------
 # Start from Live distro
 sudo apt install os-prober
 sudo os-prober
@@ -2173,6 +2177,7 @@ sudo update-grub
 
 
 # Bulk rename dirs/files
+# ----------------------
 find . -name '*_*' -print -or -name '* *' -print | sort
 find . -name README.md -not -path './.*' -print
 
@@ -2188,23 +2193,14 @@ rename 's/_/-/g' ./*    # Uscore2dash rename (no recurse option)
 
 
 # Copy/move home-dirs including hidden (.) files
+# ----------------------------------------------
 shopt -s dotglob
 cp /home/USER-OLD/* /home/USER-NEW/*
 mv /home/USER-OLD/* /home/USER-NEW/*
 
 
-# Terminal (terminalvenster) altijd maximale grootte instellen:
-# 1. Start Terminalvenster.
-# 2. Maximaliseer het Terminalvenster.
-# 3. Voer de volgende opdracht uit:
-#    echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
-# 4. Ga naar ☰  > Voorkeuren.
-# 5. Onder Profielen klik op Naamloos.
-# 6. Vul in achter Oorspronkelijke afmeting van de terminal:
-#    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
-
-
 # APT-hardening
+# -------------
 # For third-party packages / Voor derde-partij pakketten source-lists of PPAs.
 # apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT
 # "Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d
@@ -2305,6 +2301,9 @@ file /usr/share/keyrings/google-chrome.gpg
 # /var/lib/dpkg/info/google-chrome-stable.postinst.
 
 
+# Ansible
+# -------
+#
 # Ansible lokaal gebruiken non-root
 ssh-keygen
 ssh-copy-id "$USER"@localhost
@@ -2358,12 +2357,12 @@ sudo visudo /etc/sudoers
 # %sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
 
 
-# Google Chrome extensies en apps automatisch installeren.
-
+# Google Chrome extensies en apps automatisch installeren
+# -------------------------------------------------------
 # Ref https://support.google.com/chrome/a/answer/7517525?hl=nl
-
+#
 # Voeg json toe aan /etc/opt/chrome/policies/managed/.
-
+#
 # In het voorbeeld zie je hoe je het volgende doet:
 # Google Hangouts (nckgahadagoaajjgafhacjanaoiihapd) en
 # Google Keep (lpcaedmchfhocbbapmcbpinfpgnhiddi) automatisch installeren op
@@ -2402,9 +2401,10 @@ sudo visudo /etc/sudoers
 # Maakt starters aan:
 "$HOME"/.local/share/applications/chrome-ID-Default.desktop
 
-# Apps instellen na installatie.
-
-# Bitwarden (wachtwoordbeheer) instellen #
+# Apps instellen na installatie
+# -----------------------------
+#
+# Bitwarden (wachtwoordbeheer) instellen
 # Ingebruikname van Bitwarden bestaat uit de volgende stappen:
 # 1. Start Bitwarden.
 # 2. Maak een account aan met een sterk(!) Hoofdwachtwoord.
@@ -2443,8 +2443,8 @@ sudo visudo /etc/sudoers
 #          'Time-out van de kluis' en selecteer Nooit.
 #       2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
 #          Opties en vink aan Automatisch invullen bij laden van pagina.
-
-# Google Chrome (webbrowser) instellen #
+#
+# Google Chrome (webbrowser) instellen
 # 1. Start Google Chrome.
 # 2. Indien nodig importeer Firefox bladwijzers via klik op Meer⋮.
 # 3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
@@ -2457,16 +2457,16 @@ sudo visudo /etc/sudoers
 # Om standaard te mailen met Gmail en Google Chrome voer uit:
 # 1. Start Standaardtoepassingen.
 # 2. Kies bij E-mail voor Gnome Gmail.
-
-# Thunderbird (e-mail) instellen #
+#
+# Thunderbird (e-mail) instellen
 # Voeg de extenstie voor Google Agenda toe via:
 # 1. Start Thunderbird.
 # 2. Ga naar Menu openen ☰  > Add-ons.
 # 3. Zoek 'Google Agenda'
 # 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
 # 5. Volg de aanwijzingen op het scherm.
-
-# Terminal (terminalvenster) instellen (altijd maximale grootte) #
+#
+# Terminal (terminalvenster) instellen (altijd maximale grootte)
 # 1. Start Terminalvenster.
 # 2. Maximaliseer het Terminalvenster.
 # 3. Voer de volgende opdracht uit:
@@ -2477,7 +2477,8 @@ sudo visudo /etc/sudoers
 #    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
 
 
-# AWK and its versions, some don't support long-option --field-separator:
+# AWK and its versions, some don't support long-option --field-separator
+# ----------------------------------------------------------------------
 file /etc/alternatives/awk
 # /usr/bin/awk
 # /usr/bin/mawk (awk -W help: only -F)
@@ -2486,5 +2487,51 @@ file /etc/alternatives/awk
 
 
 # Firmware
+# --------
 # Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
 fwupdmgr get-devices 
+
+# Uncomplicated FireWall (UFW)
+# ----------------------------
+# Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
+fwupdmgr get-devices 
+
+
+# Live Persistent USB
+# -------------------
+# Slax
+# MAKEN
+# Download vanaf https://www.slax.org/?lang=es///en/download.php
+# Koppel iso aan
+# Plaats USB-stick
+# Formatteer USB stick als FAT
+# Kopieer map slax van iso naar USB-stick
+# In terminal ga naar USB-stick/slax/boot en voer uit:
+sudo bash bootinst.sh
+# GEBRUIKEN
+# computernaam: slax, gebruiker: root, wachtwoord: toor
+# Om kz.deb te kunnen installeren:
+apt update
+apt install sudo gpg lsb-release
+# Timezone klopt niet.
+#
+# Debian
+# MAKEN
+# Download vanaf debian.org/cd/live, blader naar beneden en klik op
+# unofficial live images for stable with firmware included. Klik vervolgens
+# door naar amd64 en iso-hybrid. Daar aangekomen kies
+# debian-live-11...-amd-64-gnome+non-free.iso
+# In terminal voer uit:
+LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /'   \
+    <debian-live-11.4.0-amd64-gnome.iso \
+    >debian-live-11.4.0-amd64-gnome-persist.iso 
+sudo dd if=/home/karel/Downloads/debian-live-11.4.0-amd64-gnome-persist.iso \
+    of=/dev/sdb
+sudo fdisk /dev/sdb <<<$'n\np\n\n\n\nw'
+sudo mkfs.ext4 -L persistence /dev/sdb3
+sudo mount /dev/sdb3 /mnt
+echo '/ union' | sudo tee /mnt/persistence.conf
+sudo sync
+sudo umount /mnt
+GEBRUIKEN
+# computernaam: debian, gebruiker: user, wachtwoord: <geen>

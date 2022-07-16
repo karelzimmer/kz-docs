@@ -2534,10 +2534,8 @@ LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /' < /tmp/de
 # Kopieer naar USB-stick.
 sudo dd if=/tmp/debian-persist.iso of=/dev/sdb
 
-# Maak 3e partitie.
+# Maak en formatteer 3e partitie.
 sudo fdisk /dev/sdb <<<$'n\np\n\n\n\nw'
-
-# Formatteer 3e partitie.
 sudo mkfs.ext4 -L persistence /dev/sdb3
 
 # Bereid persistentie voor met union.
@@ -2550,7 +2548,7 @@ GEBRUIKEN
 # computernaam: debian, gebruiker: user, wachtwoord: <geen>
 # Debian met GNOME.
 
-# Disable the BIOS/firmware update
+# Disable the BIOS/firmware update.
 sudo systemctl stop fwupd.service
 sudo systemctl disable fwupd.service
 sudo systemctl mask fwupd.service

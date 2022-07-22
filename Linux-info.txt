@@ -2531,6 +2531,11 @@ sha256sum /tmp/debian.iso
 LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /' < /tmp/debian.iso > /tmp/debian-persist.iso
 
 # Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
+lsblk
+
+# Unmount partities indien nodig
+sudo umount /dev/sdb1
+
 # Kopieer naar USB-stick.
 sudo dd if=/tmp/debian-persist.iso of=/dev/sdb
 

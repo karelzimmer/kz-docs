@@ -2544,7 +2544,7 @@ echo '/ union' | sudo tee /mnt/persistence.conf
 sudo sync
 sudo umount /mnt
 
-GEBRUIKEN
+# GEBRUIKEN
 # computernaam: debian, gebruiker: user, wachtwoord: <geen>
 # Debian met GNOME.
 
@@ -2552,3 +2552,34 @@ GEBRUIKEN
 sudo systemctl stop fwupd.service
 sudo systemctl disable fwupd.service
 sudo systemctl mask fwupd.service
+
+
+# Bootloader herstellen met Super Grub2 Disk
+# ------------------------------------------
+# MAKEN
+# Download image.
+# https://www.supergrubdisk.org/category/download/supergrub2diskdownload/super-grub2-disk-stable/
+wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourceforge.net/project/supergrub2/2.04s1/super_grub2_disk_2.04s1/super_grub2_disk_hybrid_2.04s1.iso
+
+# Controleer iso.
+sha256sum /tmp/super_grub2_disk.iso
+
+# GEBRUIKEN
+# Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
+# Kopieer naar USB-stick.
+# Start Schijven/Gnome Disks
+# Selecteer de USB-stick in de lijst van schijven aan de linkerkant en klik op⋮.
+# Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
+# Klik op Terugzeten starten/Start Restoring en vervolgens op Terugzetten/Restore.
+# Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
+# Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
+# Herinstalleer de bootloader na
+lsblk
+# als mountpoint / bij sda staat, met
+sudo grub-install /dev/sda
+# Controleer of de computer nu correct boot, en Windows en Linux weer bruikbaar
+# zijn, zonder de Super Grub2 Disk.
+
+# Als Windows niet zichtbaar is in het GRUB boot menu is de work-around:
+# Voeg GRUB_DISABLE_OS_PROBER=false toe aan /etc/default/grub en voer uit
+sudo update-grub

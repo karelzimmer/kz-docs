@@ -2500,6 +2500,7 @@ fwupdmgr get-devices
 # Live Persistent USB
 # -------------------
 # Slax
+# https://www.slax.org/starting.php
 
 # MAKEN
 # Download vanaf https://www.slax.org/?lang=es///en/download.php
@@ -2520,6 +2521,8 @@ apt install sudo gpg lsb-release
 # Traag!
 
 # Debian
+# https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-with-persistence
+
 # MAKEN
 # Download image.
 wget --output-document=/tmp/debian.iso https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current-live/amd64/iso-hybrid/debian-live-11.4.0-amd64-gnome+nonfree.iso
@@ -2533,7 +2536,7 @@ LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /' < /tmp/de
 # Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
 lsblk
 
-# Unmount partities indien nodig
+# Unmount mounted partities!
 sudo umount /dev/sdb1
 
 # Kopieer naar USB-stick.

@@ -2431,7 +2431,7 @@ sudo visudo /etc/sudoers
 #    4. Klik rechtsboven op tandwielsymbool.
 #    5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
 # 2. Verwijder opgeslagen wachtwoorden.
-#    1. Klik rechtsboven op Meer⋮.
+#    1. Klik rechtsboven op Meer (icoontje met drie puntjes).
 #    2. Klik op Instellingen.
 #    3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
 #    4. Klik op Geavanceerd (tab).
@@ -2446,7 +2446,7 @@ sudo visudo /etc/sudoers
 
 # Google Chrome (webbrowser) instellen
 # 1. Start Google Chrome.
-# 2. Indien nodig importeer Firefox bladwijzers via klik op Meer⋮.
+# 2. Indien nodig importeer Firefox bladwijzers via klik op Meer (icoontje met drie puntjes).
 # 3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
 # 4. Ga naar https://chrome.google.com/webstore/category/extensions
 # 5. Zoek naar gnome en klik op gnome-shell integration
@@ -2461,7 +2461,7 @@ sudo visudo /etc/sudoers
 # Thunderbird (e-mail) instellen
 # Voeg de extenstie voor Google Agenda toe via:
 # 1. Start Thunderbird.
-# 2. Ga naar Menu openen ☰  > Add-ons.
+# 2. Ga naar Menu openen (icoontje met drie streepjes) > Add-ons.
 # 3. Zoek 'Google Agenda'
 # 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
 # 5. Volg de aanwijzingen op het scherm.
@@ -2471,7 +2471,7 @@ sudo visudo /etc/sudoers
 # 2. Maximaliseer het Terminalvenster.
 # 3. Voer de volgende opdracht uit:
 #    echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
-# 4. Ga naar ☰  > Voorkeuren.
+# 4. Ga naar Menu (icoontje met drie streepjes) > Voorkeuren.
 # 5. Onder Profielen klik op Naamloos.
 # 6. Vul in achter Oorspronkelijke afmeting van de terminal:
 #    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
@@ -2572,13 +2572,14 @@ wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourcefor
 # Controleer iso.
 sha256sum /tmp/super_grub2_disk.iso
 
-# GEBRUIKEN
 # Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
-# Kopieer naar USB-stick.
-# Start Schijven/Gnome Disks
-# Selecteer de USB-stick in de lijst van schijven aan de linkerkant en klik op⋮.
+# Start Schijven/Gnome Disks.
+# Selecteer de USB-stick in de lijst van schijven aan de linkerkant en
+# klik op Schijfinstellingen (icoontje met de drie puntjes rechtsboven).
 # Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
-# Klik op Terugzeten starten/Start Restoring en vervolgens op Terugzetten/Restore.
+# Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
+
+# GEBRUIKEN
 # Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
 # Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
 # Herinstalleer de bootloader na

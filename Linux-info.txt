@@ -2591,3 +2591,28 @@ sudo grub-install /dev/sda
 # Als Windows niet zichtbaar is in het GRUB boot menu is de work-around:
 # Voeg GRUB_DISABLE_OS_PROBER=false toe aan /etc/default/grub en voer uit
 sudo update-grub
+
+# gpg
+# ---
+/usr/share/keyrings$ gpg --show-keys google-chrome.gpg 
+# gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg'
+# pub   dsa1024 2007-03-08 [SC]
+#       4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
+# uid                      Google, Inc. Linux Package Signing Key <linux-packages-keymaster@google.com>
+# sub   elg2048 2007-03-08 [E]
+
+# pub   rsa4096 2016-04-12 [SC]
+#       EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
+# uid                      Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>
+# sub   rsa4096 2016-04-12 [S] [verlopen op: 2019-04-12]
+# sub   rsa4096 2017-01-24 [S] [verlopen op: 2020-01-24]
+# sub   rsa4096 2019-07-22 [S] [verlopen op: 2022-07-21]
+# sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
+
+# To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
+# Make sure that the .gnupg directory and its contents is accessibile by your user.
+chown -R "$(whoami)" ~/.gnupg/
+
+# Also correct the permissions and access rights on the directory
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg

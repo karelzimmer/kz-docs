@@ -2431,7 +2431,7 @@ sudo visudo /etc/sudoers
 #    4. Klik rechtsboven op tandwielsymbool.
 #    5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
 # 2. Verwijder opgeslagen wachtwoorden.
-#    1. Klik rechtsboven op Google Chrome aanpassen en beheren⋮(icoontje met de drie puntjes)
+#    1. Klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes)
 #    2. Klik op Instellingen.
 #    3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
 #    4. Klik op Geavanceerd (tab).
@@ -2447,7 +2447,7 @@ sudo visudo /etc/sudoers
 # Google Chrome (webbrowser) instellen
 # 1. Start Google Chrome.
 # 2. Indien nodig importeer Firefox bladwijzers via klik rechtsboven op
-#    Google Chrome aanpassen en beheren⋮(icoontje met de drie puntjes).
+#    Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes).
 # 3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
 # 4. Ga naar https://chrome.google.com/webstore/category/extensions
 # 5. Zoek naar gnome en klik op gnome-shell integration
@@ -2576,7 +2576,7 @@ sha256sum /tmp/super_grub2_disk.iso
 # Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
 # Start Schijven/Gnome Disks.
 # Selecteer de USB-stick in de lijst van schijven aan de linkerkant en
-# klik rechtsboven op Schijfinstellingen⋮(icoontje met de drie puntjes).
+# klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
 # Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
 # Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
 

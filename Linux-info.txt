@@ -592,7 +592,7 @@ apt-cache policy PAKKET             # toon prio-keuze pakket
 dpkg --status PAKKET                # overzicht van de status van een pakket
 dpkg --listfiles PAKKET             # overzicht van bestanden in een pakket
 dpkg --search BESTAND               # welk pakket gebruikt een bestand
-dpkg --search "$(which OPDRACHT)"   # welk pakket heeft bestand geinstalleerd
+dpkg --search "$(which OPDRACHT)"   # welk pakket heeft bestand geïnstalleerd
 dpkg --info BESTAND                 # informatie over een pakketbestand
 dpkg --install BESTAND              # installeer bestand
 
@@ -616,11 +616,9 @@ sudo debconf-show --listowners
     echo 'icaclient icaclient/accepteula select true' |
         sudo debconf-set-selections
 # +en
-    echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula se\
-lect true" | sudo debconf-set-selections
+    echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | sudo debconf-set-selections
 +en
-    echo "devolo-dlan-cockpit devolo-dlan-cockpit/data_collection_allowed sele\
-ct false" | sudo debconf-set-selections
+    echo "devolo-dlan-cockpit devolo-dlan-cockpit/data_collection_allowed select false" | sudo debconf-set-selections
 # -Of-
 sudo DEBIAN_FRONTEND=noninteractive ...
 
@@ -628,8 +626,7 @@ apt-file update;apt-file search BESTAND   # welk pakket zorgt voor bestand
 
 # Welke pakketten zijn door de gebruiker geïnstalleerd:
 http://askubuntu.com/questions/32007/how-to-find-manually-installed-packages
-http://askubuntu.com/questions/2389/generating-list-of-manually-installed-pack\
-ages-and-querying-individual-packages
+http://askubuntu.com/questions/2389/generating-list-of-manually-installed-packages-and-querying-individual-packages
 
 
 # Pakketbeheerder herstellen
@@ -946,28 +943,28 @@ sudo rm -rf /home/.ecryptfs
 # Als swap ook is versleuteld:
 # 21.
 sudo swapoff -a
-#22.
+# 22.
 sudo cryptsetup remove /dev/mapper/cryptswap1
-#23.
+# 23.
 sudo vi /etc/crypttab
 #    *Verwijder de /dev/sda5 regel*
-#24.
+# 24.
 sudo /sbin/mkswap /dev/sda5
-#25.
+# 25.
 sudo swapon /dev/sda5
-#26.
+# 26.
 sudo vi /etc/fstab
 #    *vervang /dev/mapper/cryptswap1 door /dev/sda5*
 
-#Maak een back-up:
-#21.
+# Maak een back-up:
+# 27.
 wget karelzimmer.nl/s;bash s
-#22.
+# 28.
 kzbackup
 #    Volg de aanwijzingen van het script.
 
 # Afronden:
-# 23. Verwijder opgeslagen passphrases (papier -hoop van niet-, Sleutelkluis)
+# 29. Verwijder opgeslagen passphrases (papier -hoop van niet-, Sleutelkluis)
 
 # KLAAR
 
@@ -2222,15 +2219,15 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 # ASCII-gepantserde handtekening, platte tekst).
 # Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat
 # AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
-# Als een van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen
+# Als één van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen
 # hebben voor andere repositories.
 #
 # Oplossing is om gpg-sleutels (GNU Privacy Guard public keyring file, binary
 # format./GNU Privacy Guard openbaar sleutelringbestand, binair formaat.) te
 # plaatsen op een andere plek, en deze plek opnemen in de source-list, zie
 # voorbeelden hieronder, SOLL.
-# Dan gaan we van ALLE sleutels voor ALLE respositories naar EEN sleutel voor
-# EEN repository.
+# Dan gaan we van ALLE sleutels voor ALLE respositories naar ÉÉN sleutel voor
+# ÉÉN repository.
 #
 # gpg-sleutels
 # Een OpenPGP sleutel kan bekeken worden met opdracht:

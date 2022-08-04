@@ -2615,3 +2615,21 @@ chown -R "$(whoami)" ~/.gnupg/
 # Also correct the permissions and access rights on the directory
 chmod 600 ~/.gnupg/*
 chmod 700 ~/.gnupg
+
+
+# mnt-nas.mount systemd service file
+# ----------------------------------
+[Mount]
+What=//<NAS_IP_ADRES>/<NAS_SHARENAAM>
+Where=/mnt/nas
+Type=cifs
+Options=credentials=<NAS_LOGIN>,sec=ntlm,vers=1.0,rw,noperm,iocharset=utf8,dir_mode=0777,file_mode=0777
+
+[Install]
+WantedBy=multi-user.target"
+
+systemctl enable mnt-nas.mount
+systemctl start mnt-nas.mount
+systemctl daemon-reload 
+
+sudo systemctl disable mnt-nas.mount

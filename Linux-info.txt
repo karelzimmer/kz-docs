@@ -2619,6 +2619,7 @@ chmod 700 ~/.gnupg
 
 # mnt-nas.mount systemd service file
 # ----------------------------------
+/etc/systemd/system/mnt-nas.mount:
 [Mount]
 What=//<NAS_IP_ADRES>/<NAS_SHARENAAM>
 Where=/mnt/nas
@@ -2627,7 +2628,7 @@ Options=credentials=<NAS_LOGIN>,sec=ntlm,vers=1.0,rw,noperm,iocharset=utf8,dir_m
 
 [Install]
 WantedBy=multi-user.target"
-
+# ----------------------------------
 systemctl enable mnt-nas.mount
 systemctl start mnt-nas.mount
 systemctl daemon-reload 

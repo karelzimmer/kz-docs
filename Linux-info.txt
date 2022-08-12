@@ -1016,16 +1016,6 @@ id karel
 #    oude locaties (file:///home/beheerder/... ...).
 
 
-# Lubuntu automatisch aanmelden
-# -----------------------------
-sudo leafpad /etc/lightdm/lightdm.conf
-# [SeatDefaults]
-# autologin-user=GEBRUIKERSNAAM
-# autologin-user-timeout=0
-# user-session=Lubuntu
-# greeter-session=lightdm-gtk-greeter
-
-
 # Bestanden terughalen
 # --------------------
 sudo apt install foremost
@@ -1410,6 +1400,21 @@ ffmpeg -i input-video-file output-audio-file
 
 # Automatisch aanmelden
 # ---------------------
+
+# Ubuntu automatisch aanmelden
+sudo vi /etc/gdm3/custom.conf
+# Enabling automatic login
+AutomaticLoginEnable=True
+AutomaticLogin=<USER>
+
+# Lubuntu automatisch aanmelden
+sudo leafpad /etc/lightdm/lightdm.conf
+# [SeatDefaults]
+# autologin-user=GEBRUIKERSNAAM
+# autologin-user-timeout=0
+# user-session=Lubuntu
+# greeter-session=lightdm-gtk-greeter
+
 # De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
 # 1. Start Wachtwoorden en sleutels.
 # 2. Onder Wachtwoorden voer uit voor iedere sleutelbos:

@@ -7,19 +7,26 @@
 ###############################################################################
 # RELEASE_YEAR=2010
 
-# ALGEMEEN
-# --------
+# Update
+# ------
 sudo apt-get update && sudo apt-get upgrade --yes &&
     sudo apt-get autoremove --yes &&
     sudo apt-get autoclean --yes &&
 if command -v snap 1> /dev/null; then sudo snap refresh; fi &&
 if [[ -f /var/run/reboot-required ]]; then echo REBOOT; fi
 
+
+# Afmelden via command line
+# -------------------------
 gnome-session-quit              # Afmelden met 60 sec. bedenktijd
-gnome-session-quit --no-prompt  # Geen bevestiging van gebruiker vragen
+gnome-session-quit --no-prompt  # Geen bevestiging van vragen bij --logout
 gnome-session-quit --logout     # Afmelden (standaard)
-gnome-session-quit --power-off  # Computer uitzetten
-gnome-session-quit --reboot     # Opnieuw opstarten
+gnome-session-quit --power-off  # Computer uitzetten (met bevestiging)
+gnome-session-quit --reboot     # Opnieuw opstarten (met bevestiging)
+gnome-session-quit --logout     # afmelden
+sudo systemctl reboot           # herstarten
+sudo systemctl poweroff         # uitschakelen
+# /var/run/reboot-required      # reboot nodig als aanwezig
 
 
 # Boot/recovery menu:
@@ -207,12 +214,7 @@ watch CMD   # Herhaal CMD volledig-scherm, std. iedere 2 sec.
 
 sudo apt install alien
 
-sudo alien --to-deb --scripts ./*.rpm     # rpm omzetten naar deb
-
-gnome-session-save --logout     # afmelden
-sudo systemctl reboot           # herstarten
-sudo systemctl poweroff         # uitschakelen
-# /var/run/reboot-required        # reboot nodig als aanwezig
+sudo alien --to-deb --scripts ./*.rpm   # rpm omzetten naar deb
 
 id                                  # Gebruikersinformatie
 
@@ -856,11 +858,6 @@ about:logo          # Afbeelding logo
 about:robots        # Welcome Humans!
 about:mozilla       # ... from The Book of Mozilla
 about:plugins       # Geïnstalleerde plug-ins
-
-
-# Afmelden via command line
-# -------------------------
-gnome-session-quit --no-prompts
 
 
 # Suffix toevoegen aan bestanden

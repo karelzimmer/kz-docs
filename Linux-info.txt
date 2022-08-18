@@ -1395,45 +1395,43 @@ xinput enable 13    # Dell WMI hotkeys
 ffmpeg -i input-video-file output-audio-file
 
 
-# Automatisch aanmelden
-# ---------------------
-Om de harddisk te versleutelen, vink aan:
-De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
-LVM gebruiken bij de nieuwe installatievan Ubuntu wordt dan aangevinkt.
-Klik op Verder.
-
-Dan:
-1. Gebruiker automatisch aanmelden.
-2. Wachtwoord verwijderen sleutelbos.
-
-# Ubuntu automatisch aanmelden
+# De nieuwe installatie van Ubuntu versleutelen voor de veiligheid (LUKS)
+# -----------------------------------------------------------------------
+# Om de harddisk te versleutelen, vink aan:
+# De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
+# LVM gebruiken bij de nieuwe installatievan Ubuntu wordt dan aangevinkt.
+# Klik op Verder.
+# 
+# Daarnn:
+# 1. Gebruiker automatisch aanmelden.
+# 2. Wachtwoord verwijderen sleutelbossen.
+# 3. Extra LUKS-wachtwoord toevoegen.
+#
+# 1. Gebruiker automatisch aanmelden.
+# Voeg eventuele extra Standaard of Beheerder gebruikers toe via een druk op
+# de Super-toets, typ gebr en klik achter Instellingen op Gebruikers.
+# Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
+# Of:
 sudo vi /etc/gdm3/custom.conf
 # Enabling automatic login
 AutomaticLoginEnable=True
 AutomaticLogin=<USER>
-
-# Lubuntu automatisch aanmelden
-sudo leafpad /etc/lightdm/lightdm.conf
-# [SeatDefaults]
-# autologin-user=GEBRUIKERSNAAM
-# autologin-user-timeout=0
-# user-session=Lubuntu
-# greeter-session=lightdm-gtk-greeter
-
-# De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
-# 1. Start Wachtwoorden en sleutels.
-# 2. Onder Wachtwoorden voer uit voor iedere sleutelbos:
-#    1. Rechtsklik op Sleutelbos.
-#    2. Kies Wachtwoord wijzigen.
-#    3. Geef het oude wachtwoord op en klik op Doorgaan.
-#    4. Geef als nieuw wachtwoord tweemaal niets op en klik op Doorgaan.
-# 6. Sluit Wachtwoorden en sleutels af.
-# https://itsfoss.com/ubuntu-automatic-logon/ (aanzetten) &
-# https://itsfoss.com/ubuntu-keyring/ (security-issue)
-# (Configuratie: /etc/gdm3/custom.conf,
-# GNOME keyring: ~/.local/share/keyrings/login.keyring)
+#
+# 2. De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
+#    1. Start Wachtwoorden en sleutels.
+#    2. Onder Wachtwoorden voer uit voor iedere sleutelbos:
+#       1. Rechtsklik op Sleutelbos.
+#       2. Kies Wachtwoord wijzigen.
+#       3. Geef het oude wachtwoord op en klik op Doorgaan.
+#       4. Geef als nieuw wachtwoord tweemaal niets op en klik op Doorgaan.
+#   3. Sluit Wachtwoorden en sleutels af.
 # Security-issue speelt niet/minder als tijdens de installatie gekozen is voor
 # "De nieuwe installatie van Ubuntu versleutelen voor de veiligheid" (LUKS).
+#
+# 3. Extra LUKS-wachtwoord toevoegen.
+# Bepaal welke partitie LUKS bevat:
+lsblk
+sudo cryptsetup luksAddKey /dev/sdaX
 
 
 # Printers installeren

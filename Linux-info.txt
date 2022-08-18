@@ -9,10 +9,10 @@
 
 # Update
 # ------
-sudo apt-get update && sudo apt-get upgrade --yes &&
-    sudo apt-get autoremove --yes &&
-    sudo apt-get autoclean --yes &&
-if command -v snap 1> /dev/null; then sudo snap refresh; fi &&
+sudo apt-get update
+sudo apt-get upgrade --yes
+sudo apt-get autoremove --yes
+if command -v snap 1> /dev/null; then sudo snap refresh; fi
 if [[ -f /var/run/reboot-required ]]; then echo REBOOT; fi
 
 
@@ -1402,7 +1402,7 @@ ffmpeg -i input-video-file output-audio-file
 # LVM gebruiken bij de nieuwe installatievan Ubuntu wordt dan aangevinkt.
 # Klik op Verder.
 # 
-# Daarnn:
+# Daarna:
 # 1. Gebruiker automatisch aanmelden.
 # 2. Wachtwoord verwijderen sleutelbossen.
 # 3. Extra LUKS-wachtwoord toevoegen.
@@ -1411,11 +1411,6 @@ ffmpeg -i input-video-file output-audio-file
 # Voeg eventuele extra Standaard of Beheerder gebruikers toe via een druk op
 # de Super-toets, typ gebr en klik achter Instellingen op Gebruikers.
 # Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
-# Of:
-sudo vi /etc/gdm3/custom.conf
-# Enabling automatic login
-AutomaticLoginEnable=True
-AutomaticLogin=<USER>
 #
 # 2. De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
 #    1. Start Wachtwoorden en sleutels.

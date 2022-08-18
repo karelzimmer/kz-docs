@@ -7,6 +7,40 @@
 ###############################################################################
 # RELEASE_YEAR=2010
 
+# De nieuwe installatie van Ubuntu versleutelen voor de veiligheid (LUKS)
+# -----------------------------------------------------------------------
+# Om de harddisk te versleutelen, vink aan:
+# De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
+# LVM gebruiken bij de nieuwe installatievan Ubuntu wordt dan aangevinkt.
+# Klik op Verder.
+# 
+# Daarna:
+# 1. Gebruiker automatisch aanmelden.
+# 2. Wachtwoord verwijderen sleutelbossen.
+# 3. Extra LUKS-wachtwoord toevoegen.
+#
+# 1. Gebruiker automatisch aanmelden.
+# Voeg eventuele extra Standaard of Beheerder gebruikers toe via een druk op
+# de Super-toets, typ gebr en klik achter Instellingen op Gebruikers.
+# Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
+#
+# 2. De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
+#    1. Start Wachtwoorden en sleutels.
+#    2. Onder Wachtwoorden voer uit voor iedere sleutelbos:
+#       1. Rechtsklik op Sleutelbos.
+#       2. Kies Wachtwoord wijzigen.
+#       3. Geef het oude wachtwoord op en klik op Doorgaan.
+#       4. Geef als nieuw wachtwoord tweemaal niets op en klik op Doorgaan.
+#   3. Sluit Wachtwoorden en sleutels af.
+# Security-issue speelt niet/minder als tijdens de installatie gekozen is voor
+# "De nieuwe installatie van Ubuntu versleutelen voor de veiligheid" (LUKS).
+#
+# 3. Extra LUKS-wachtwoord toevoegen.
+# Bepaal welke partitie LUKS bevat:
+lsblk
+sudo cryptsetup luksAddKey /dev/sdaX
+
+
 # Update
 # ------
 sudo apt-get update
@@ -29,13 +63,17 @@ sudo systemctl poweroff         # uitschakelen
 # /var/run/reboot-required      # reboot nodig als aanwezig
 
 
-# Boot/recovery menu:
+# Boot/recovery menu
+#-------------------
 # BIOS: Shift-toets ingedrukt houden
 # UEFI: Esc-toets meerdere malen indrukken
 
-# VM:
+# VM
+#---
 sudo apt-get install --yes spice-vdagent && sudo reboot
 
+# ALGEMEEN
+#---------
 FILE=/home/karel/script.sh
 dirname $FILE       # directory /home/karel
 ${FILE%/*}          # alternatief
@@ -234,20 +272,27 @@ cat -Ante BESTAND # Toon LF als '$' (Linux-std), CR als '^M', TAB als '^I'
 tac                                 # omgekeerde van cat
 strings                             # Toon leesbare/printbare tekens in een
                                     # (binair) bestand
-# shell script SCRIPT debuggen:
+
+
+# shell script SCRIPT debuggen
+#-----------------------------
 bash -vx ./SCRIPT
 #                       v = verbose (elke invoerregel tonen)
 #                       x = xtrace  (elke opdracht tonen)
 #                       n = noexec  (opdrachten lezen maar niet uitvoeren)
 readelf # Toon info over Executable and Linking Format uitvoerbare programma's
 
-diff
+# diff
+#-----
 diff --context ORIG.BEST. GEWIJZ.BEST. PATCHBEST.
 patch
 patch ORIG.BEST. PATCHBEST.
 
-# Zwart scherm bij opstarten? Probeer een 'nomodeset' op te geven als opstart-
-# parameter. Ref: http://askubuntu.com/questions/162075/
+
+# Zwart scherm bij opstarten
+#---------------------------
+# Probeer een 'nomodeset' op te geven als opstartparameter.
+# Ref: http://askubuntu.com/questions/162075/
 
 loginctl                        # Login-manager
 loginctl show-session 2         # Login-manager sessieinfo
@@ -264,11 +309,11 @@ sudo useradd -m -s /bin/bash -c 'USERNAME' -G EXTRAGROUP,... USER
 # -OF-
 # Gebruiker is NIET zichtbaar op aanmeldscherm, systeemgebruiker:
 sudo useradd -m -r -s /bin/bash -c 'USERNAME (systeemgebruiker)' \
-    -G EXTRAGROUP USER
+    -G EXTRAGROUP,... USER
 
 # lange opties:
 sudo useradd --create-home --system --shell /bin/bash \
---comment 'USERNAME (systeemgebruiker)' --groups EXTRAGROUP USER
+--comment 'USERNAME (systeemgebruiker)' --groups EXTRAGROUP,... USER
 
 # Voorbeeld:
 sudo useradd -m -r -s /bin/bash -c 'Testuser (systeemgebruiker)' -G sudo test
@@ -1393,40 +1438,6 @@ xinput enable 13    # Dell WMI hotkeys
 # Extract mp3 uit mp4
 # -------------------
 ffmpeg -i input-video-file output-audio-file
-
-
-# De nieuwe installatie van Ubuntu versleutelen voor de veiligheid (LUKS)
-# -----------------------------------------------------------------------
-# Om de harddisk te versleutelen, vink aan:
-# De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
-# LVM gebruiken bij de nieuwe installatievan Ubuntu wordt dan aangevinkt.
-# Klik op Verder.
-# 
-# Daarna:
-# 1. Gebruiker automatisch aanmelden.
-# 2. Wachtwoord verwijderen sleutelbossen.
-# 3. Extra LUKS-wachtwoord toevoegen.
-#
-# 1. Gebruiker automatisch aanmelden.
-# Voeg eventuele extra Standaard of Beheerder gebruikers toe via een druk op
-# de Super-toets, typ gebr en klik achter Instellingen op Gebruikers.
-# Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
-#
-# 2. De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
-#    1. Start Wachtwoorden en sleutels.
-#    2. Onder Wachtwoorden voer uit voor iedere sleutelbos:
-#       1. Rechtsklik op Sleutelbos.
-#       2. Kies Wachtwoord wijzigen.
-#       3. Geef het oude wachtwoord op en klik op Doorgaan.
-#       4. Geef als nieuw wachtwoord tweemaal niets op en klik op Doorgaan.
-#   3. Sluit Wachtwoorden en sleutels af.
-# Security-issue speelt niet/minder als tijdens de installatie gekozen is voor
-# "De nieuwe installatie van Ubuntu versleutelen voor de veiligheid" (LUKS).
-#
-# 3. Extra LUKS-wachtwoord toevoegen.
-# Bepaal welke partitie LUKS bevat:
-lsblk
-sudo cryptsetup luksAddKey /dev/sdaX
 
 
 # Printers installeren

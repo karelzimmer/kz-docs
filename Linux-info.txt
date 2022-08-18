@@ -11,8 +11,7 @@
 # -----------------------------------------------------------------------
 # Om de harddisk te versleutelen, vink aan:
 # De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
-# LVM gebruiken bij de nieuwe installatievan Ubuntu wordt dan aangevinkt.
-# Klik op Verder.
+# LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt.
 # 
 # Daarna:
 # 1. Gebruiker automatisch aanmelden.
@@ -64,16 +63,16 @@ sudo systemctl poweroff         # uitschakelen
 
 
 # Boot/recovery menu
-#-------------------
+# ------------------
 # BIOS: Shift-toets ingedrukt houden
 # UEFI: Esc-toets meerdere malen indrukken
 
 # VM
-#---
+# --
 sudo apt-get install --yes spice-vdagent && sudo reboot
 
 # ALGEMEEN
-#---------
+# --------
 FILE=/home/karel/script.sh
 dirname $FILE       # directory /home/karel
 ${FILE%/*}          # alternatief
@@ -132,7 +131,9 @@ tail -F /var/log/messages   # idem, ook na logrotate
 journalctl                  # lees systemd journal (log)
 systemd-analyze plot > "$HOME/$HOSTNAME"-plot.html    # bootchart
 
-# Om systemd journal te bewaren na een reboot:
+
+# Om systemd journal te bewaren na een reboot
+# -------------------------------------------
 sudo mkdir -p /var/log/journal
 sudo systemctl reboot
 journalctl --list-boots:
@@ -238,7 +239,6 @@ zgrep   # is id. zonder de z maar dan op gzip-bestanden
 zcat    # is id. zonder de z maar dan op gzip-bestanden
 zless   # is id. zonder de z maar dan op gzip-bestanden
 
-# shellcheck disable=SC2024
 sudo lshw -html > "$HOSTNAME"-lshw.html   # Hardwareoverzicht in een webpagina
 
 sudo apt install hardinfo
@@ -275,22 +275,23 @@ strings                             # Toon leesbare/printbare tekens in een
 
 
 # shell script SCRIPT debuggen
-#-----------------------------
+# ----------------------------
 bash -vx ./SCRIPT
 #                       v = verbose (elke invoerregel tonen)
 #                       x = xtrace  (elke opdracht tonen)
 #                       n = noexec  (opdrachten lezen maar niet uitvoeren)
 readelf # Toon info over Executable and Linking Format uitvoerbare programma's
 
+
 # diff
-#-----
+# ----
 diff --context ORIG.BEST. GEWIJZ.BEST. PATCHBEST.
 patch
 patch ORIG.BEST. PATCHBEST.
 
 
 # Zwart scherm bij opstarten
-#---------------------------
+# --------------------------
 # Probeer een 'nomodeset' op te geven als opstartparameter.
 # Ref: http://askubuntu.com/questions/162075/
 
@@ -310,11 +311,9 @@ sudo useradd -m -s /bin/bash -c 'USERNAME' -G EXTRAGROUP,... USER
 # Gebruiker is NIET zichtbaar op aanmeldscherm, systeemgebruiker:
 sudo useradd -m -r -s /bin/bash -c 'USERNAME (systeemgebruiker)' \
     -G EXTRAGROUP,... USER
-
 # lange opties:
 sudo useradd --create-home --system --shell /bin/bash \
 --comment 'USERNAME (systeemgebruiker)' --groups EXTRAGROUP,... USER
-
 # Voorbeeld:
 sudo useradd -m -r -s /bin/bash -c 'Testuser (systeemgebruiker)' -G sudo test
 

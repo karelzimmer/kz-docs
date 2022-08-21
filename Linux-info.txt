@@ -280,6 +280,8 @@ bash -vx ./SCRIPT
 #                       v = verbose (elke invoerregel tonen)
 #                       x = xtrace  (elke opdracht tonen)
 #                       n = noexec  (opdrachten lezen maar niet uitvoeren)
+# Enable code-stepping:
+trap '(read -p "[$BASH_SOURCE:$LINENO] $BASH_COMMAND?")' DEBUG
 readelf # Toon info over Executable and Linking Format uitvoerbare programma's
 
 

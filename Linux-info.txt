@@ -40,6 +40,11 @@ lsblk
 sudo cryptsetup luksAddKey /dev/sdaX
 
 
+# WiFi
+# ----
+nmcli device wifi show-password
+
+
 # Update
 # ------
 sudo apt-get update
@@ -519,6 +524,21 @@ host HOST       # look up hostnames using DNS
 nslookup HOST   # look up name servers interactively
 dig HOST        # look up domain name information from nameserver
 ss              # another utility to investigate sockets
+lspci | grep -i netw
+# 00:19.0 Ethernet controller: Intel Corporation 82579LM Gigabit Network
+#     Connection (Lewisville) (rev 04)
+# 03:00.0 Network controller: Intel Corporation Centrino Advanced-N 6205
+#     [Taylor Peak] (rev 34)
+lspci -vv -s 03:00.0
+sudo lshw -C network
+nmcli dev wifi
+watch -n 1 cat /proc/net/wireless
+
+sudo apt install wavemon
+wavemon
+
+iwevent
+iwgetid
 
 
 # Netwerkverbinding vóór het aanmelden?
@@ -1284,25 +1304,6 @@ snap changes                # toon historie van recente wijzigingen aan het
                             # systeem door snap
 sudo snap revert SNAP       # val terug op een oude versie
 sudo snap remove SNAP       # verwijder SNAP
-
-
-# Wifi
-# ----
-lspci | grep -i netw
-# 00:19.0 Ethernet controller: Intel Corporation 82579LM Gigabit Network
-#     Connection (Lewisville) (rev 04)
-# 03:00.0 Network controller: Intel Corporation Centrino Advanced-N 6205
-#     [Taylor Peak] (rev 34)
-lspci -vv -s 03:00.0
-sudo lshw -C network
-nmcli dev wifi
-watch -n 1 cat /proc/net/wireless
-
-sudo apt install wavemon
-wavemon
-
-iwevent
-iwgetid
 
 
 # visudo

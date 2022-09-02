@@ -1264,7 +1264,7 @@ GEBRUIKEN
 computernaam: debian, gebruiker: user, wachtwoord: <geen>
 Debian met GNOME.
 
-Disable the BIOS/firmware update.
+Stop BIOS/firmware updates (met name voor laptops met BitLocker).
 sudo systemctl stop fwupd.service
 sudo systemctl disable fwupd.service
 sudo systemctl mask fwupd.service

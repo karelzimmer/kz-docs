@@ -1269,6 +1269,8 @@ sudo systemctl stop fwupd.service
 sudo systemctl disable fwupd.service
 sudo systemctl mask fwupd.service
 
+Verwijder starter Install Debian.
+
 
 Bootloader herstellen met Super Grub2 Disk
 ------------------------------------------

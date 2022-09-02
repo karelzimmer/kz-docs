@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# shellcheck shell=bash
+shellcheck shell=bash
 ###############################################################################
 # Tekstbestand met Linux opdrachten en informatie.
 #
@@ -7,46 +7,123 @@
 ###############################################################################
 # RELEASE_YEAR=2010
 
-# De nieuwe installatie van Ubuntu versleutelen voor de veiligheid (LUKS)
-# -----------------------------------------------------------------------
-# Om de harddisk te versleutelen, vink aan:
-# De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
-# LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt.
-# 
-# Daarna:
-# 1. Gebruiker automatisch aanmelden.
-# 2. Wachtwoord verwijderen sleutelbossen.
-# 3. Extra LUKS-wachtwoord toevoegen.
-#
-# 1. Gebruiker automatisch aanmelden.
-# Voeg eventuele extra Standaard of Beheerder gebruikers toe via een druk op
-# de Super-toets, typ gebr en klik achter Instellingen op Gebruikers.
-# Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
-#
-# 2. De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
-#    1. Start Wachtwoorden en sleutels.
-#    2. Onder Wachtwoorden voer uit voor iedere sleutelbos:
-#       1. Rechtsklik op Sleutelbos.
-#       2. Kies Wachtwoord wijzigen.
-#       3. Geef het oude wachtwoord op en klik op Doorgaan.
-#       4. Geef als nieuw wachtwoord tweemaal niets op en klik op Doorgaan.
-#   3. Sluit Wachtwoorden en sleutels af.
-# Security-issue speelt niet/minder als tijdens de installatie gekozen is voor
-# "De nieuwe installatie van Ubuntu versleutelen voor de veiligheid" (LUKS).
-#
-# 3. Extra LUKS-wachtwoord toevoegen.
-# Bepaal welke partitie LUKS bevat:
+De nieuwe installatie van Ubuntu versleutelen voor de veiligheid (LUKS)
+-----------------------------------------------------------------------
+Om de harddisk te versleutelen, vink aan:
+De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
+LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt.
+
+Daarna:
+1. Gebruiker automatisch aanmelden.
+2. Wachtwoord verwijderen sleutelbossen.
+3. Extra LUKS-wachtwoord toevoegen.
+
+1. Gebruiker automatisch aanmelden.
+Voeg eventuele extra Standaard of Beheerder gebruikers toe via een druk op
+de Super-toets, typ gebr en klik achter Instellingen op Gebruikers.
+Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
+
+2. De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
+   1. Start Wachtwoorden en sleutels.
+   2. Onder Wachtwoorden voer uit voor iedere sleutelbos:
+      1. Rechtsklik op Sleutelbos.
+      2. Kies Wachtwoord wijzigen.
+      3. Geef het oude wachtwoord op en klik op Doorgaan.
+      4. Geef als nieuw wachtwoord tweemaal niets op en klik op Doorgaan.
+  3. Sluit Wachtwoorden en sleutels af.
+Security-issue speelt niet/minder als tijdens de installatie gekozen is voor
+"De nieuwe installatie van Ubuntu versleutelen voor de veiligheid" (LUKS).
+
+3. Extra LUKS-wachtwoord toevoegen.
+Bepaal welke partitie LUKS bevat:
 lsblk
 sudo cryptsetup luksAddKey /dev/sdaX
 
 
-# WiFi
-# ----
+Apps instellen na installatie
+-----------------------------
+
+Bitwarden (wachtwoordbeheer) instellen
+Ingebruikname van Bitwarden bestaat uit de volgende stappen:
+1. Start Bitwarden.
+2. Maak een account aan met een sterk(!) Hoofdwachtwoord.
+3. Exporteer de opgeslagen wachtwoorden uit de bestaande wachtwoordbeheerder.
+4. Importeer de opgeslagen wachtwoorden in Bitwarden.
+5. Verwijder de uit de oude wachtwoordbeheerder geëxporteerde wachtwoorden.
+6. Verwijder de oude wachtwoordbeheerder.
+-----------------------------------------------
+Met het gebruik van Bitwarden wordt het opslaan
+van wachtwoorden in de browser sterk afgeraden.
+-----------------------------------------------
+Dit betekent voor de browser:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Stop het (automatisch) opslaan van wachtwoorden.
+2. Verwijder opgeslagen wachtwoorden.
+3. Voeg de Bitwarden-extensie toe.
+
+Voor Chrome betekent dit:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Stop het (automatisch) opslaan van wachtwoorden.
+   1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account beheren.
+   2. Klik aan de linkerkant op Beveiliging.
+   3. Scroll naar beneden en klik op Wachtwoordmanager.
+   4. Klik rechtsboven op tandwielsymbool.
+   5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
+2. Verwijder opgeslagen wachtwoorden.
+   1. Klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes)
+   2. Klik op Instellingen.
+   3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
+   4. Klik op Geavanceerd (tab).
+   5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op Gegevens wissen.
+3. Gebruik de Bitwarden-extensie.
+   1. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
+   2. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
+      1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING op
+         'Time-out van de kluis' en selecteer Nooit.
+      2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
+         Opties en vink aan Automatisch invullen bij laden van pagina.
+
+Google Chrome (webbrowser) instellen
+1. Start Google Chrome.
+2. Indien nodig importeer Firefox bladwijzers via klik rechtsboven op
+   Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes).
+3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
+4. Ga naar https://chrome.google.com/webstore/category/extensions
+5. Zoek naar gnome en klik op gnome-shell integration
+6. Klik op Gnome-shell-integratie
+7. Klik op Toev. aan Chrome.
+8. Klik op Extensie toevoegen.
+
+Om standaard te mailen met Gmail en Google Chrome voer uit:
+1. Start Standaardtoepassingen.
+2. Kies bij E-mail voor Gnome Gmail.
+
+Thunderbird (e-mail) instellen
+Voeg de extenstie voor Google Agenda toe via:
+1. Start Thunderbird.
+2. Ga rechtsboven naar Het Thunderbird-menu weergeven ☰ (icoontje met drie streepjes) > Add-ons.
+3. Zoek 'Google Agenda'
+4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
+5. Volg de aanwijzingen op het scherm.
+
+Terminal (terminalvenster) instellen (altijd maximale grootte)
+1. Start Terminalvenster.
+2. Maximaliseer het Terminalvenster.
+3. Voer de volgende opdracht uit:
+   echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
+4. Ga rechtsboven naar Menu ☰ (icoontje met drie streepjes) > Voorkeuren.
+5. Onder Profielen klik op Naamloos.
+6. Vul in achter Oorspronkelijke afmeting van de terminal:
+   COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
+
+
+WiFi
+----
 nmcli device wifi show-password
 
 
-# Update
-# ------
+Update
+------
 sudo apt-get update
 sudo apt-get upgrade --yes
 sudo apt-get autoremove --yes
@@ -54,838 +131,200 @@ if command -v snap 1> /dev/null; then sudo snap refresh; fi
 if [[ -f /var/run/reboot-required ]]; then echo REBOOT; fi
 
 
-# Afmelden via command line
-# -------------------------
-gnome-session-quit              # Afmelden met 60 sec. bedenktijd
-gnome-session-quit --no-prompt  # Geen bevestiging van vragen bij --logout
-gnome-session-quit --logout     # Afmelden (standaard)
-gnome-session-quit --power-off  # Computer uitzetten (met bevestiging)
-gnome-session-quit --reboot     # Opnieuw opstarten (met bevestiging)
-gnome-session-quit --logout     # afmelden
-sudo systemctl reboot           # herstarten
-sudo systemctl poweroff         # uitschakelen
-# /var/run/reboot-required      # reboot nodig als aanwezig
+Afmelden via command line
+-------------------------
+gnome-session-quit              Afmelden met 60 sec. bedenktijd
+gnome-session-quit --no-prompt  Geen bevestiging van vragen bij --logout
+gnome-session-quit --logout     Afmelden (standaard)
+gnome-session-quit --power-off  Computer uitzetten (met bevestiging)
+gnome-session-quit --reboot     Opnieuw opstarten (met bevestiging)
+gnome-session-quit --logout     afmelden
+sudo systemctl reboot           herstarten
+sudo systemctl poweroff         uitschakelen
+/var/run/reboot-required      reboot nodig als aanwezig
 
 
-# Boot/recovery menu
-# ------------------
-# BIOS: Shift-toets ingedrukt houden
-# UEFI: Esc-toets meerdere malen indrukken
+Boot/recovery menu
+------------------
+BIOS: Shift-toets ingedrukt houden
+UEFI: Esc-toets meerdere malen indrukken
 
-# VM
-# --
+VM
+--
 sudo apt-get install --yes spice-vdagent && sudo reboot
 
-# ALGEMEEN
-# --------
-FILE=/home/karel/script.sh
-dirname $FILE       # directory /home/karel
-${FILE%/*}          # alternatief
 
-basename $FILE      # bestandsnaam script.sh
-${FILE##*/}         # alternatief
-
-${FILE##*.}         # sh, "suffix" $FILE ("extensie")
-${FILE%.*}          # /home/karel/script, "z/suffix" $FILE (naam zonder suffix)
-sudo !!             # herhaal de vorige opdracht als root
-gksu OPDRACHT       # is vervangen door opdracht: sudo -i
-gksudo OPDRACHT     # is vervangen door opdracht: sudo -i
-sudo -i OPDRACHT    # voer OPDRACHT als root uit (vervanger van gksu/gksudo)
-history             # overizcht laatst uitgevoerde opdrachten
-history -d NUMMER   # verwijder history-opdrachtnummer NUMMER
-history -w          # schijf naar $HISTFILE als NUMMER er al in stond
-# ! NUMMER          # voer history-opdrachtnummer NUMMER uit
-grep '^#1' ./*      # vind bestanden met #1 aan het begin van de regel
-grep '\ \ $' ./*    # vind bestanden met twee spaties aan het einde v.d. regel
-# grep -e'A' -e'B' ./*
-                    # Ook kan dan: grep -E {A|B} *
-# (.*)\(\) \{       # Wijzig 'FUNCTION() {'
-# function $1 {     # naar   'function FUNCTION {'
-\OPDRACHT           # "unalias" OPDRACHT, voer niet alias uit, maar de opdracht
-sudo fdisk -l       # overzicht schijven uit partitietabel
-df -h               # filesysteem disk ruimte gebruik (human readable)
-sudo blkid          # print block device attributes
-sudo vol_id /dev/?  # probe filesystem type and read label and uuid
-du -h               # schijfgebruik
-du -hs              # schijfgebruik samenvatten
-
-ip a                # IP-address tonen
-ip -br -c a         # id. met kleur, -br = brief, -c  = color
-ip r                # IP-route tonen
-ip -br -c r         # id. met kleur
-ip l                # IP-link tonen
-ip -br -c l         # id. met kleur
-ip n                # toon IP-adressen (lokaal) netwerk, voorheen arp
-ssh user@ip         # remote login van user op ip
-nmap -sP 192.168.1.0/24     # toon welke host up is
-nmap -sn 192.168.1.0/24     # toon welke machine up is
-curl https://ipinfo.io/ip   # publiek IP-nummer
-
-hostname --all-ip-addresses # Vraag IP-address
-# Bepaal eerste drie octets:
-# echo "$(hostname --all-ip-addresses)" | awk -F. '{print $1"."$2"."$3".*"}'
-# Start nmap met in 2. gevonden drie octets + .*:
-sudo nmap -sn echo "$(hostname --all-ip-addresses)" |
-    awk -F. '{print $1"."$2"."$3".*"}'
-
-sudo arp-scan -l    # id, met MAC-address (sudo apt install apt-scan)
-sudo dd if=/dev/zero of=/dev/sd? bs=512 count=1  # partitiegegevens verwijderen
-
-tail -f /var/log/messages   # alle nieuwe logging-regels komen voorbij
-tail -F /var/log/messages   # idem, ook na logrotate
-journalctl                  # lees systemd journal (log)
-systemd-analyze plot > "$HOME/$HOSTNAME"-plot.html    # bootchart
-
-
-# Om systemd journal te bewaren na een reboot
-# -------------------------------------------
-sudo mkdir -p /var/log/journal
-sudo systemctl reboot
-journalctl --list-boots:
-#   -1 5cfbda4c9e054365989466fefa396995 vr 2016-08-12 19:03:12 CEST-vr 2016-...
-#    0 589f45bf8c4a432da15c14083770533c vr 2016-08-12 19:10:18 CEST-vr 2016-...
-# Gebruiken bepaalde log via:
-journalctl -k -b -1 # Alleen kernelboodschappen uit log 5cfbda4c9e0543659894...
-# Alleen error (prio 3), extra info (x), en huidige boot (b):
-journalctl -p 3 -xb
-# Zie voor verdere mogelijkheden:
-man journalctl
-#   Terugdraaien systemd journal te bewaren na een reboot:
-sudo rm -fr /var/log/journal
-
-systemd-analyze         # Analyze and debug system manager
-systemd-analyze blame   # id, list of all running units, ordered by the time
-                        # they took to initialize
-systemd-analyze plot > ~/boot.html
-                        # prints an SVG graphic detailing which system services
-    # have been started at what time, highlighting the time they spent on
-    # initialization
-
-ldd NAME-OF-EXECUTABLE   # Opdracht ldd drukt de gedeelde objecten (gedeelde
-    # bibliotheken) af die vereist zijn voor elk programma of gedeeld object
-    # gespecificeerd op de opdrachtregel.
-sudo /sbin/ldconfig -v      # Configureren van de dynamische linker, -v is
-    # --verbose, gedetailleerde uitvoer produceren.
-
-efibootmgr                                          # Toon UEFI-bootvariabelen
-[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS  # UEFI of BIOS?
-sudo mokutil --sb-state                             # Secure Boot?
-sudo dmidecode  # DMI (Desktop Management Interface) table decoder (aka SMBIOS,
-                # System Management BIOS)
-sudo dmidecode -t 16        # max RAM, aantal slots
-sudo dmidecode -t memory    # max RAM, aantal slots, RAM aanwezig
-lsb_release -a              # distributie informatie (Linux Standard Base -all)
-cat /etc/*release           # id.
-uname -r                    # toon de release van de kernel
-
-env                 # toon omgevingsvariabelen
-declare -p          # toon van elke variabele de eigenschappen en waarde
-xargs --show-limits # toon limieten argumentlengte
-
-sudo fuser FILESYSTEM       # wie heeft FILESYSTEM in gebruik
-sudo fuser -v -n tcp 22     # welk proces gebruikt welke poortnummer
-sudo fuser -v -n tcp ssh    # welk proces gebruikt welke poortnaam
-type [-a] COMMAND           # wat voor type COMMAND en waar bevindt deze zich
-which [-a] COMMAND          # waar bevindt COMMAND zich
-find . -type f -print0 | xargs -0 chmod PERM
-                            # wijzig rechten files, niet directories
-locate BESTAND              # vind bestand BESTAND, gebruik ervoor:
-sudo updatedb
-whereis COMMAND             # waar binary, source, en man page files COMMAND
-file BESTAND                # wat voor bestand is BESTAND
-stat BESTAND                # toon bestand status van BESTAND
-stat -f BESTAND             # toon bestandssysteem status van BESTAND
-gnomevfs2-info BESTAND      # uitgebreide info over bestand BESTAND, vereist
-    # pakket libgnomevfs2-bin
-
-help COMMAND    # alle interne shell-opdrachten opgesomd
-info COMMAND    # lees documentatie in Info formaat (info page = GNU style)
-                # http://www.gnu.org/software/texinfo/
-man COMMAND     # lees on-line reference manuals    (manpage = UNIX style)
-man SECTIE COMMAND
-    #       1   Executable programs or shell commands
-    #       2   System calls (functions provided by the kernel)
-    #       3   Library calls (functions within program libraries)
-    #       4   Special files (usually found in /dev)
-    #       5   File formats and conventions eg /etc/passwd
-    #       6   Games
-    #       7   Miscellaneous (including macro packages and conventions)
-    #       8   System administration commands (usually only for root)
-    #       9   Kernel routines [Non standard]
-man hier            # beschrijving van filesysteem-hiërarchie
-whatis kzinstall    # toont inhoud NAME van man-pagina
-man -k zoekarg      # vind manual pages met keyword zoekarg, voorheen:
-    apropos -r zoekarg
-man -f zoekarg      # vind manual pages met referenties naar zoekarg, voorheen:
-    whatis -r zoekarg
-man -K zoekarg      # vind manual pages met tekst zoekarg
-xman                # Handleidingpaginaweergaveprogr. voor het X Window-systeem
-man -t command | ps2pdf - filename.pdf  # maak PDF filename.pdf van man command
-pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf
-                    # PDFs combineren
-enscript -p output.ps ./scripts/deploy
-# +
-ps2pdf output.ps output.pdf
-                    # Text naar PDF
-
-sudo apt install chkrootkit
-sudo apt install rkhunter
-sudo /usr/bin/rkhunter -c   # check op sporen van rootkits
-sudo /usr/sbin/chkrootkit   # check op sporen van rootkits
-less    # spatiebalk, PageUp, PageDown blader per scherm
-        # enter, pijltje naar beneden  regel omlaag
-        # b, pijltje omhoog            regel omhoog
-        # /xyz                         zoek xyz
-        #                              n = zoek volgende
-        # q                            quit
-        # h                            help
-
-zgrep   # is id. zonder de z maar dan op gzip-bestanden
-zcat    # is id. zonder de z maar dan op gzip-bestanden
-zless   # is id. zonder de z maar dan op gzip-bestanden
-
-sudo lshw -html > "$HOSTNAME"-lshw.html   # Hardwareoverzicht in een webpagina
-
-sudo apt install hardinfo
-hardinfo                                # Als lshw maar uitgebreider
-
-sudo apt install hwinfo
-hwinfo                                  # idem hardinfo
-
-sudo dmidecode                          # Dump DMI/SMBIOS hardware-tabel
-watch CMD   # Herhaal CMD volledig-scherm, std. iedere 2 sec.
-
-sudo apt install alien
-
-sudo alien --to-deb --scripts ./*.rpm   # rpm omzetten naar deb
-
-id                                  # Gebruikersinformatie
-
-sudo deluser --remove-all-files U   # Gebruiker U verwijderen incl. pers.mappen
-sudo usermod --uid UID U            # Wijzig gebruiker U naar numerieke user ID
-chage                               # Wijzig wachtwoord verval informatie
-# Voorbeelden:
-chage -l USER                       # toon gebruiker wachtwoord verval info
-chage -M DAY USER                   # wachtwoord vervalt na DAY dagen
-chage -E "jjjj-mm-dd" USER          # gebruiker vervalt op jjjj-mm-dd
-
-sudo chown -R USER:USER .*          # Rechten zetten voor gebruiker en groep
-
-shred --verbose --zero /dev/hda     # Schijf /dev/hda leegmaken (zie ook DBAN)
-
-cat -Ante BESTAND # Toon LF als '$' (Linux-std), CR als '^M', TAB als '^I'
-tac                                 # omgekeerde van cat
-strings                             # Toon leesbare/printbare tekens in een
-                                    # (binair) bestand
-
-
-# shell script SCRIPT debuggen
-# ----------------------------
+shell script SCRIPT debuggen
+----------------------------
 bash -vx ./SCRIPT
-#                       v = verbose (elke invoerregel tonen)
-#                       x = xtrace  (elke opdracht tonen)
-#                       n = noexec  (opdrachten lezen maar niet uitvoeren)
-# Enable code-stepping:
+                      v = verbose (elke invoerregel tonen)
+                      x = xtrace  (elke opdracht tonen)
+                      n = noexec  (opdrachten lezen maar niet uitvoeren)
+Enable code-stepping:
 trap '(read -p "[$BASH_SOURCE:$LINENO] $BASH_COMMAND?")' DEBUG
-readelf # Toon info over Executable and Linking Format uitvoerbare programma's
+readelf Toon info over Executable and Linking Format uitvoerbare programma's
 
 
-# diff
-# ----
+diff
+----
 diff --context ORIG.BEST. GEWIJZ.BEST. PATCHBEST.
 patch
 patch ORIG.BEST. PATCHBEST.
 
 
-# Zwart scherm bij opstarten
-# --------------------------
-# Probeer een 'nomodeset' op te geven als opstartparameter.
-# Ref: http://askubuntu.com/questions/162075/
-
-loginctl                        # Login-manager
-loginctl show-session 2         # Login-manager sessieinfo
-loginctl show-session 2 -p Type # id, alleen Type, x11|wayland|...
+Zwart scherm bij opstarten
+--------------------------
+Probeer een 'nomodeset' op te geven als opstartparameter.
+Ref: http://askubuntu.com/questions/162075/
 
 
-# ssh
-# ---
-# HOST-B:
-# Indien nodig maak remote gebruiker aan.
-
-# Gebruiker is WEL zichtbaar op aanmeldscherm, normale gebruiker:
-sudo useradd -m -s /bin/bash -c 'USERNAME' -G EXTRAGROUP,... USER
-# -OF-
-# Gebruiker is NIET zichtbaar op aanmeldscherm, systeemgebruiker:
-sudo useradd -m -r -s /bin/bash -c 'USERNAME (systeemgebruiker)' \
-    -G EXTRAGROUP,... USER
-# lange opties:
-sudo useradd --create-home --system --shell /bin/bash \
---comment 'USERNAME (systeemgebruiker)' --groups EXTRAGROUP,... USER
-# Voorbeeld:
-sudo useradd -m -r -s /bin/bash -c 'Testuser (systeemgebruiker)' -G sudo test
-
-sudo passwd USER
-
-# opruimen:
-sudo userdel -r test
-
-# HOST-A:
-cd /home/USER/.ssh
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-# Enter passphrase (empty for no passphrase): [Type a passphrase]
-# Enter same passphrase again: [Type passphrase again]
-
-# /usr/bin/ssh-copy-id -i  /home/USER/.ssh/id_rsa.pub HOST-B
-# Voorbeeld:
-# /usr/bin/ssh-copy-id -i  /home/test/.ssh/id_rsa.pub 92.168.178.181
-
-ssh HOST-B
-
-# ALG:
-sudo vi /etc/hosts
-IP-HOST-B HOST-B
-
-ssh HOST-B:
-# Enter passphrase for key '/home/USER/.ssh/id_rsa': ?
-# HOST-A:
-ssh-add /home/USER/.ssh/id_rsa !
-
-ssh-keygen -Bfid_rsa        # Toon bubblebabble digest private/public key file
-ssh-keygen -lf id_rsa.pub   # Toon fingerprint public key file.)
-
-openssl rsa -text -in id_rsa            # Toon de private key in text
-openssl rsa -text -pubout -in id_rsa    # Toon de public key in text
-
-sudu aot install rename
-rename 's/:/ -/' ./*
-
-
-# mail
-# ----
-# E-mail vanaf cmdline!
-
-# INSTALLEER
-# Installeer NSS-tools/mailtools/BSD mail
-sudo apt install libnss3-tools mailutils s-nail
-sudo update-alternatives --set mailx /usr/bin/s-nail
-
-# STEL IN
-grep --quiet --regexp='mailx' "$HOME"/.bash_aliases ||
-    echo "alias mailx='/usr/bin/s-nail'" >> "$HOME"/.bash_aliases
-
-mkdir "$HOME"/.certs
-
-certutil -N -d "$HOME"/.certs
-# Geeft tweemaal ww
-
-echo -n | openssl s_client -connect smtp.gmail.com:465 |
-    sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > \
-    "$HOME"/.certs/gmail.crt
-
-certutil -A -n "GOOGLE INTERNET AUTHORITY" -t "C,," -d "$HOME"/.certs -i \
-    "$HOME"/.certs/gmail.crt
-
-# Verstuur e-mail met cmd:
-echo -e "EMAIL CONTENT" | mailx|s-nail -s "EMAIL SUBJECT" \
-    -S smtp-use-starttls -S ssl-verify=ignore -S smtp-auth=login \
-    -S smtp=smtp://smtp.gmail.com:587 -S from="GMAIL MAIL ADDRESS" \
-    -S smtp-auth-user="GMAIL MAIL ADDRESS" \
-    -S smtp-auth-password="GOOGLE APP PASSWORD" \
-    -S ssl-verify=ignore -S nss-config-dir="$HOME"/.certs TO-EMAIL-ADDRESS
-# -OF-
-# Maak mailconfigbestand
-touch "$HOME"/.mailrc
-# Inhoud:
-# set smtp-use-starttls
-# set ssl-verify=ignore
-# set smtp-auth=login
-# set smtp=smtp://smtp.gmail.com:587
-# set from="GMAIL MAIL ADDRESS"
-# set smtp-auth-user="GMAIL MAIL ADDRESS"
-# set smtp-auth-password=GOOGLE-APP-PASSWORD
-# set ssl-verify=ignore
-# set nss-config-dir="$HOME"/.certs
-
-chmod 600 "$HOME"/.mailrc
-
-# Mail dan met:
-echo -e "EMAIL-CONTENT" |
-    mailx|s-nail -s "EMAIL-SUBJECT" TO-EMAIL-ADDRESS
-
-
-# systemd operatie                          systemd opdracht
-# -------------------------------           ----------------------------------
-# Start service                             systemctl start $unit
-# Stop service                              systemctl stop $unit
-# Restart service                           systemctl restart $unit
-# See status of services                    systemctl [status]
-# Check configuration is valid              systemd-analyze verify UNIT_FILE
-# Show job environment                      systemctl show-environment
-# Set job environment variable              systemctl set-environment foo=bar
-# Remove job environment variable           systemctl unset-environment foo
-# View job log                              sudo journalctl [-u $unit]
-# tail -f job log                           sudo journalctl -u $unit -f
-# Show rel.ship between services            systemctl list-dependencies --all
-# systemctl list-units --type=target        list loaded units
-# systemctl list-units --type=target –all   list all loaded inactive units too
-
-
-# KVM (Kernel-based Virtual Machine)
-# ----------------------------------
-# Ref:
-#   https://help.ubuntu.com/community/KVM
-#   http://www-01.ibm.com/support/knowledgecenter/linuxonibm/liaat/liaatkvm.htm
-# Virtualisatie CPU:
-#    VT-x (code name Vanderpool) and AMD-V (code name Pacifica)
-# Controleer virtualisatie-ondersteuning CPU:
-grep -E '(vmx|svm)' /proc/cpuinfo  # 0 = niet, >=1 - OK, maar check BIOS
-# Controleer 64-bit CPU:
-grep -E ' lm ' /proc/cpuinfo       # 0 = geen 64-bit CPU, >=1 - OK
-# Controleer KVM-ondersteuning:
-kvm-ok  # INFO: /dev/kvm exists, KVM acceleration can be used
-# Opslagplekken:
-# /etc/libvirt/qemu/        # Configuratie
-# /var/lib/libvirt/images/  # VDIs
-# Wijzig opslagplek:
-sudo mv /var/lib/libvirt/images/Ubuntu16.05 /home/karel/libvirt/images
-virsh edit Ubuntu16.04      # wijzig naar
-    # <source file='/home/karel/libvirt/images/Ubuntu16.04.img'/>)
-# Controleer USB-stick met KVM
-sudo qemu-system-x86_64 -enable-kvm -m 2048 -hda /dev/sdb
-sudo qemu-system-i386   -enable-kvm -m 2048 -hda /dev/sdb
-# Kopieer van gastheer naar gast (gedeeld klembord), installeer in de gast:
-sudo apt install spice-vdagent
-# Met een AMD-processor zal AMD-V wel aanstaan, maar bij Intel moet vaak VT-x
-# aangezet worden in het BIOS of UEFI-firmware!
-
-
-# Herstel Bestanden thumbnails
-# ----------------------------
+Herstel Bestanden thumbnails
+----------------------------
 rm -fr "$HOME"/.cache/thumbnails/
 
 
-# Linux performance monitoring tools
-# ----------------------------------
-ethereal        # gedetaileerde netwerverkeer analyse
-free -m         # beschikbaar en in-gebruikt geheugen (megabytes)
-iostat          # gemiddelde CPU-belasting en schijfactiviteit
-iptraf          # real-time netwerkstatistieken
-mpstat          # multiproccesorgebruik (local)
-nc|netcat HOST PORT -vvvt   # TCP-verbindingen (remote)
-nc|netcat HOST PORT -vvvu   # UDP-verbindingen (remote)
-nc|netcat       # willekeurige TCP- en UDP-verbindingen en luistert (remote)
-ss              # netwerkstatistieken (local), voorheen netstat
-ss -plant  # netwerkstatistieken, TCP (local)
-ss -planu  # netwerkstatistieken, UDP (local)
-ss -tulpn  # netwerkstatistieken (local)
-nmon            # verzamel en rapporteer systeemactiviteit
-numastat        # NUMA-gerelateerde statistieken (Non-Uniform Memory Access)
-pmap            # proces gehuegen gebruik
-# /proc         # diverse kernelstatistieken
-pstree          # hele boom van alle processen
-sar             # verzamel en rapporteer systeemactiviteit
-stat            # toon status bestanden/bestandssysteem (ook octaal!)
-strace          # system calls tracen, voorbeeld: strace ls 2> strace.out
-ltrace          # library calls tracen, voorbeeld: ltrace ls 2> ltrace.out
-systemctl status --all
-                # toon volledige informatie over alle processen
-tcpdump         # gedetaileerde netwerverkeer analyse
-top             # welk proces gebruikt meeste CPU, geheugen en swapruimte
-uptime
-w       # gemiddelde systeembelasting
-vmstat          # systeemactiviteit, hardware- en systeeminformatie
-w               # gemiddelde systeembelasting en wie is aangelogd
+Netwerkverbinding vóór het aanmelden?
+-------------------------------------
+Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op
+gewenste verbinding en vervolgens op Bewerken.
+Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken
+met dit netwerk. Klik op Opslaan.
+-of-
+Ga naar /etc/NetworkManager/system-connections.
+Edit gewenste verbinding en haal alles weg achter permissions=
+Klaar.
 
 
-# Linux benchmark tools
-# ---------------------
-lmbench         # Microbenchmark voor besturingssyteemfuncties
-iozone          # Bestandssysteem benchmark
-netperf         # Netwerkprestatie benchmark
-
-
-# ls-familie
-# ----------
-lspci           # PCI
-lsusb           # USB
-lshw            # hardware
-lsof            # open files
-lsblk           # hele boom van alle block-devices (opslag)
-lsinitramfs     # modules in initrd.img
-
-
-# Netwerk
-# -------
-ip              # configureer netwerk interface
-iw scan         # zoek naar draaloze netwerken, voorheen iwconfig
-rfkill list all # toon draadloze apparaten
-sudo systemctl restart NetworkManager.service   # Netwerk herstarten
-host HOST       # look up hostnames using DNS
-nslookup HOST   # look up name servers interactively
-dig HOST        # look up domain name information from nameserver
-ss              # another utility to investigate sockets
-lspci | grep -i netw
-# 00:19.0 Ethernet controller: Intel Corporation 82579LM Gigabit Network
-#     Connection (Lewisville) (rev 04)
-# 03:00.0 Network controller: Intel Corporation Centrino Advanced-N 6205
-#     [Taylor Peak] (rev 34)
-lspci -vv -s 03:00.0
-sudo lshw -C network
-nmcli dev wifi
-watch -n 1 cat /proc/net/wireless
-
-sudo apt install wavemon
-wavemon
-
-iwevent
-iwgetid
-
-
-# Netwerkverbinding vóór het aanmelden?
-# -------------------------------------
-# Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op
-# gewenste verbinding en vervolgens op Bewerken.
-# Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken
-# met dit netwerk. Klik op Opslaan.
-# -of-
-# Ga naar /etc/NetworkManager/system-connections.
-# Edit gewenste verbinding en haal alles weg achter permissions=
-# Klaar.
-
-
-# MAC address spoofing
-# --------------------
-ip link show INTERFACE  # INTERFACE zie iwlist scan
-#    voorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
+MAC address spoofing
+--------------------
+ip link show INTERFACE  INTERFACE zie iwlist scan
+   voorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
 ip link set dev INTERFACE down
 ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
 ip link set dev INTERFACE up
 
 
-# Canon MG3500/MP495-serie netwerkprinter/scanner op WiFi aansluiten
-# ------------------------------------------------------------------
-# 1.  Sluit de computer bedraad aan op de router.
-# 2.  Leg beveiligingsinstellingen router vast (schermafdruk via Shift-PrtSc)
-# 3.  Druk 11x op Onderhoud tot omgekeerde U en druk dan op Zwart (Black) of
-#     Kleur (Color) om een netwerkconfiguratieoverzicht te printen, let op
-#     MAC Address.
-# 4.  Druk 14x op Onderhoud tot t en druk dan op Zwart (Black) of Kleur (Color)
-#     om de printer WiFi-deel te resetten (WiFi-lampje gaat uit).
-# 5.  Druk 13x op onderhoud tot G en druk dan op zwart (black) of kleur (color)
-#     om WiFi aan te zetten (WiFi-lampje brandt blauw).
-# 6.  Login op de router en zet SSID op BJNPSETUP zonder beveiliging en wacht
-#     tot het IP-adres van de printer verschijnt, zie MAC Address op afdruk
-#     netwerkconfiguratieoverzicht.
-# 7.  Ga met de bowser naar dat IP-adres, log in op de printer, en klik op
-#     Network Settings.
-# 8.  Wijzig eerst de beveiliging naar de gewenste waarde via een klik op
-#     Modify (achter Encryption Method), en wijzig daarna het SSID naar de
-#     gewenste waarde
-# 9.  Login op de router en wijzig SSID en beveiliging naar de gewenste waarden
-#10.  Verwijder de netwerkkabel.
-#11.  Stuur een printje naar de printer en maak een scan.
-# Gebruikte opdrachten:
-cngpij -P PRINTERNAAM                 # Printerinstellingen
-cngpijmonmp495                          # Printermonitor (mp495-series)
-cnijfilter-mp495series-pkgconfig.sh     # Canon Inkjet Printer Driver for Linux
-cnijnetprn --search auto                # Printer zoeken
-scangearmp                              # Scannerprogramma
-scangearmp-mp495series-pkgconfig.sh     # ScanGear MP for Linux (mp495-series)
-scanimage -L                            # Scanner zoeken
-Apparaat-URI:
-cnijnet:/MAC-ADDRESS                    # cnijnet = protocol
-driverless list # PPD generator utility for driverless printing
-ippfind         # find internet printing protocol printers
-
-# NVIDIA repareren
-# ----------------
-sudo apt-get remove nvidia-173 nvidia-current nvidia-current-updates
-sudo apt-get autoclean
-sudo apt-get autoremove
-sudo apt install nvidia-current-updates
-
-
-# boot-repair (ook vanaf live-CD)
-# -------------------------------
+boot-repair (ook vanaf live-CD)
+-------------------------------
 sudo add-apt-repository ppa:yannubuntu/boot-repair
 sudo apt-get update
-sudo apt install boot-repair    # voor repareren GRUB: Boot-reparatie
+sudo apt install boot-repair    voor repareren GRUB: Boot-reparatie
 sudo boot-repair
-sudo apt install startupmanager # evt voor aanpassen GRUB: Opstart-Manager
+sudo apt install startupmanager evt voor aanpassen GRUB: Opstart-Manager
 sudo startupmanager
 
 
-# GRUB-menu zichtbaar maken
-# -------------------------
+GRUB-menu zichtbaar maken
+-------------------------
 sudo -i
 gedit /etc/default/grub
-#  Wijzig: #GRUB_HIDDEN_TIMEOUT=0
+ Wijzig: #GRUB_HIDDEN_TIMEOUT=0
            #GRUB_HIDDEN_TIMEOUT_QUIET=true
 sudo update-grub
 exit
 
 
-# GRUB-menu ander menuitem starten
-# --------------------------------
+GRUB-menu ander menuitem starten
+--------------------------------
 sudo -i
 gedit /etc/default/grub
-# Wijzig: GRUB_DEFAULT=0 -> GRUB_DEFAULT=1 (of 2, 3, etc.)
+Wijzig: GRUB_DEFAULT=0 -> GRUB_DEFAULT=1 (of 2, 3, etc.)
 sudo update-grub
 exit
 
 
-# Pakketinformatie
-# ----------------
-sudo add-apt-repository --remove ppa:PPA
-                                    # verwijder PPA. behoud pakketten
-sudo apt install ppa-purge          # installeer pakket om PPAs te verwijderen
-sudo ppa-purge ppa:PPA              # verwijder PPA incl. pakketten
-
-sudo apt-get update                 # werk pakketlijsten bij
-sudo apt-get upgrade                # installeer geupdate pakketten
-# Reboot nodig? Check bestaan file /var/run/reboot-required
-sudo apt-get dist-upgrade           # installeer nieuwe distributie
-sudo apt-get install PAKKET         # installeer pakket
-sudo apt-get remove PAKKET          # verwijder pakket (excl. config.best.)
-sudo apt-get purge PAKKET           # verwijder pakket volledig
-sudo apt-get --purge remove PAKKET  # verwijder pakket volledig
-sudo apt-get autoremove             # verwijder pakketten die automatisch zijn
-#    gedownload maar niet meer nodig
-sudo apt-get source PAKKET          # download source pakket
-apt-get changelog PAKKET            # download en toon changelog pakket
-apt-cache search "zoekstring"       # zoek naar pakket
-apt-cache show PAKKET               # toon informatie over pakket
-apt-cache policy                    # toon prio pakketbronnen
-apt-cache policy PAKKET             # toon prio-keuze pakket
-dpkg --status PAKKET                # overzicht van de status van een pakket
-dpkg --listfiles PAKKET             # overzicht van bestanden in een pakket
-dpkg --search BESTAND               # welk pakket gebruikt een bestand
-dpkg --search "$(which OPDRACHT)"   # welk pakket heeft bestand geïnstalleerd
-dpkg --info BESTAND                 # informatie over een pakketbestand
-dpkg --install BESTAND              # installeer bestand
-
-dpkg --add-architecture ARCH        # voeg architectuur ARCH toe
-# Architectuur i386 toevoegen is nodig voor 64-bit Debian, 64-bit Ubuntu is
-# reeds "multi-arch":
-sudo dpkg --add-architecture i386; sudo apt-get update
-# Controle op 64-bit systeem:
-dpkg --print-foreign-architectures  # geeft: i386
-dpkg --print-architecture           # toon basis-architectuur
-dpkg --print-foreign-architecture   # toon toegevoegde architectuur
-
-sudo debconf-show --listowners
-# via
-    sudo debconf-show icaclient
-# -en
-    sudo debconf-show ttf-mscorefonts-installer
-# -en
-    sudo debconf-show devolo-dlan-cockpit
-# dan
-    echo 'icaclient icaclient/accepteula select true' |
-        sudo debconf-set-selections
-# +en
-    echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | sudo debconf-set-selections
-+en
-    echo "devolo-dlan-cockpit devolo-dlan-cockpit/data_collection_allowed select false" | sudo debconf-set-selections
-# -Of-
-sudo DEBIAN_FRONTEND=noninteractive ...
-
-apt-file update;apt-file search BESTAND   # welk pakket zorgt voor bestand
-
-# Welke pakketten zijn door de gebruiker geïnstalleerd:
-http://askubuntu.com/questions/32007/how-to-find-manually-installed-packages
-http://askubuntu.com/questions/2389/generating-list-of-manually-installed-packages-and-querying-individual-packages
-
-
-# Pakketbeheerder herstellen
-# --------------------------
-sudo apt-get update --fix-missing
-sudo dpkg --configure --pending
-sudo apt-get install --fix-broken
-
-
-# Gebruikersinstellingen opzoeken GNOME/Unity
-# -------------------------------------------
-#CLI:
-gsettings list-schemas
-gsettings list-keys SCHEMA[:PATH]
-gsettings list-recursively [SCHEMA[:PATH]]
-gsettings range [SCHEMA[:PATH]]
-gsettings get SCHEMA[:PATH] KEY
-gsettings reset SCHEMA[:PATH] KEY       # naar default waarde gaan
-gsettings describe SCHEMA[:PATH] KEY    # beschrijving
-Als root:
-dbus-launch gsettings get org.gnome.shell favorite-apps
-dbus-launch gsettings reset org.gnome.shell favorite-apps
-
-dconf reset -f /    reset ALLES !! VOORZICHTIG !!
-gconftool-2 --get /apps/gedit-2/plugins/active-plugins
-#GUI:
-dconf-editor    # GNOME 3
-gconf-editor    # GNOME 2
-
-# Als je wilt weten wat er wijzigt na een handeling in de GUI:
-gsettings list-recursively > /tmp/before
-# Wijzig bijvoorbeeld de schaal via Systeeminstellingen > Schermen
-gsettings list-recursively > /tmp/after
-diff /tmp/before /tmp/after | grep '[>|<]'
-# -Of-
-kzgset
-
-gnome-shell-extension-prefs UUID
-gnome-shell-extension-tool
-
-
-# Gebruikersinstellingen opzoeken LXDE en Xfce
-# --------------------------------------------
-xfconf-query --list     # xfconf = Command line utility for xfconf system
-# Kanalen:
-#  xfce4-keyboard-shortcuts
-#  xfce4-power-manager
-xconf-query --channel xfce4-power-manager --monitor --verbose
-# Open menu > Voorkeuren > Energiebeheer > Algemeen (tab) > laptopdeksel,
-# wijzig instellingen:
-# /xfce4-power-manager/lid-action-on-battery
-# /xfce4-power-manager/lid-action-on-ac
-# (0) = Beeldscherm uitschakelen
-# (1) = Pauzestand (gewenst)
-# (2) = Scherm vergrendelen
-xfconf-query --channel xfce4-power-manager --list --verbose
-# Properties:
-# /xfce4-power-manager/brightness-switch                  # 0
-# /xfce4-power-manager/brightness-switch-restore-on-exit  # 1
-# /xfce4-power-manager/lid-action-on-ac                   # 1
-# /xfce4-power-manager/lid-action-on-battery              # 1
-# /xfce4-power-manager/logind-handle-lid-switch           # true
-# /xfce4-power-manager/power-button-action                # 3
-# /xfce4-power-manager/show-tray-icon                     # 1
-xfconf-query --channel xfce4-power-manager \
-    --property /xfce4-power-manager/lid-action-on-battery --set 1
-xfconf-query --channel xfce4-power-manager \
-    --property /xfce4-power-manager/lid-action-on-ac --set 1
-# Voeg '--create' toe!!
-
-
-# Zorg dat de helderheid van laptopscherm correct is bij het opstarten
-# --------------------------------------------------------------------
-# 1. Zet helderheid op de gewenste waarde.
-# 2. Vraag helderheid op met:
+Zorg dat de helderheid van laptopscherm correct is bij het opstarten
+--------------------------------------------------------------------
+1. Zet helderheid op de gewenste waarde.
+2. Vraag helderheid op met:
 cat /sys/class/backlight/acpi_video0/brightness,
-#    zeg dat hier N gemeld wordt.
+   zeg dat hier N gemeld wordt.
 sudo -i
 gedit /etc/rc.local
-# Voeg regel toe:
+Voeg regel toe:
 echo N > /sys/class/backlight/acpi_video0/brightness
 exit
-# NB Er kan ook een andere map staan in /sys/class/backlight/, bijv. radeon_bl0
+NB Er kan ook een andere map staan in /sys/class/backlight/, bijv. radeon_bl0
 
 
-# Grappige Linux-opdrachten
-# -------------------------
-# Zie site https://itsfoss.com/funny-linux-commands/
+Grappige Linux-opdrachten
+-------------------------
+Zie site https://itsfoss.com/funny-linux-commands/
 
 
-# Paaseieren
-# ----------
+Paaseieren
+----------
 apt-get moo
 aptitude moo
 aptitude -v moo
 aptitude -vv moo
-aptitude -vvv moo   # etc.
+aptitude -vvv moo   etc.
 
 
-# Rechten
-# -------
-# Octaal (achttallig stelsel, 0 t/m 7):
-# +--2²=4
-# |+-2¹=2
-# ||+2⁰=1
-# |||
-# VVV
-# 421
-# rwx
-# 000 --- 0
-# 001 --x 1 <==
-# 010 -w- 2 <==
-# 011 -wx 3
-# 100 r-- 4 <==
-# 101 r-x 5
-# 110 rw- 6
-# 111 rwx 7
-# rwx
-# DUUUGGGOOO = Directory (map, - is gewoon bestamd), User (gebruiker),
-#     Group (groep), en Other (rest).
-# Bestandsrechten, de betekenis van de r, w, en x attributen:
-#     r - Bestand lezen.
-#     w - Bestand wijzigen.
-#     x - Bestand uitvoeren.
-# Maprechten, de betekenis van de r, w, en x attributen:
-#     r - Inhoud van map opvragen (ls MAPNAAM) als ook het x-attribuut is
-#         aangezet.
-#     w - Bestanden aanmaken, verwijderen, of hernoemen als ook het x-attribuut
-#         is aangezet.
-#     x - Toegang tot de map (cd MAPNAAM), "zoeken".
-# Basisrechten (base permissions):
-# dirs    777 (rwxrwxrwx)
-# files   666 (rw-rw-rw-)
-# Umask (user mask):
-# normal 0002 (dan zijn u=rwx, g=rwx, en o=rx de maximaal toegestane
-#             standaardwaarden)
-# root   0022 (dan zijn u=rwx, g=rx,  en o=rx de maximaal toegestane
-#             standaardwaarden)
-# Standaard wordt een bestand of map aangemaakt met de rechten van
-# Basisrechten -/- Umask.
-# Resultaat als een normale user een map of bestand aanmaakt:
-mkdir   # 775 (rwxrwxr-x) (777 -/- 002)
-touch   # 664 (rw-rw-r--) (666 -/- 002)
-# Resultaat als de beheerder (superuser of root) een map of bestand aanmaakt:
-mkdir   # 755 (rwxr-xr-x) (777 -/- 022)
-touch   # 644 (rw-r--r--) (666 -/- 022)
+Rechten
+-------
+Octaal (achttallig stelsel, 0 t/m 7):
++--2²=4
+|+-2¹=2
+||+2⁰=1
+|||
+VVV
+421
+rwx
+000 --- 0
+001 --x 1 <==
+010 -w- 2 <==
+011 -wx 3
+100 r-- 4 <==
+101 r-x 5
+110 rw- 6
+111 rwx 7
+rwx
+DUUUGGGOOO = Directory (map, - is gewoon bestamd), User (gebruiker),
+    Group (groep), en Other (rest).
+Bestandsrechten, de betekenis van de r, w, en x attributen:
+    r - Bestand lezen.
+    w - Bestand wijzigen.
+    x - Bestand uitvoeren.
+Maprechten, de betekenis van de r, w, en x attributen:
+    r - Inhoud van map opvragen (ls MAPNAAM) als ook het x-attribuut is
+        aangezet.
+    w - Bestanden aanmaken, verwijderen, of hernoemen als ook het x-attribuut
+        is aangezet.
+    x - Toegang tot de map (cd MAPNAAM), "zoeken".
+Basisrechten (base permissions):
+dirs    777 (rwxrwxrwx)
+files   666 (rw-rw-rw-)
+Umask (user mask):
+normal 0002 (dan zijn u=rwx, g=rwx, en o=rx de maximaal toegestane
+            standaardwaarden)
+root   0022 (dan zijn u=rwx, g=rx,  en o=rx de maximaal toegestane
+            standaardwaarden)
+Standaard wordt een bestand of map aangemaakt met de rechten van
+Basisrechten -/- Umask.
+Resultaat als een normale user een map of bestand aanmaakt:
+mkdir   775 (rwxrwxr-x) (777 -/- 002)
+touch   664 (rw-rw-r--) (666 -/- 002)
+Resultaat als de beheerder (superuser of root) een map of bestand aanmaakt:
+mkdir   755 (rwxr-xr-x) (777 -/- 022)
+touch   644 (rw-r--r--) (666 -/- 022)
 
 
-# Draai 90 graden iPhone film
-# ---------------------------
+Draai 90 graden iPhone film
+---------------------------
 mencoder -vf rotate -o Input.MOV -oac lavc -ovc lavc Output.MOV
 
 
-# Starters
-# --------
-# Starters, "launchers", zijn zogenaamde bureaublad-configuratiebestanden,
-# .desktop-bestanden of "desktop entries". In gebruik bij KDE- en GNOME-
-# gebaseerde systemen en opgeslagen in:
-#    per gebruiker (lokaal)
-#        "$HOME"/.local/share/applications
-#    per systeem (globaal)
-#        /usr/share/applications
-#        /usr/share/app-install/desktop
-# In deze lokatie geplaatst kan de starter gevonden worden met de Snelzoeker.
-# Zie de opdrachten
-desktop-file-install
-desktop-file-edit
-desktop-file-validate
-update-desktop-database
-# Zie ook
-http://standards.freedesktop.org/desktop-entry-spec
-http://freedesktop.org/wiki/Specifications/icon-theme-spec
-# Icons:
-#    per gebruiker (lokaal)
-"$HOME"/.local/share/icons
-#    per systeem (globaal)
-# /usr/share/icons/gnome/
-
-http://www.iconarchive.com/show/multipurpose-alphabet-icons-by-hydrattz.1.html
-
-
-# Herstel verwijderde "Locaties" Afbeeldingen, Documenten, Downloads, etc.
-# ------------------------------------------------------------------------
-# Maak Afbeeldingen, Documenten, Downloads, etc. map aan in Persoonlijke map
+Herstel verwijderde "Locaties" Afbeeldingen, Documenten, Downloads, etc.
+------------------------------------------------------------------------
+Maak Afbeeldingen, Documenten, Downloads, etc. map aan in Persoonlijke map
 gedit "$HOME"/.config/user-dirs.dirs
-# Wijzig XDG_PICTURES_DIR="$HOME/"  naar XDG_PICTURES_DIR="$HOME/Afbeeldingen"
-# Wijzig XDG_DOCUMENTS_DIR="$HOME/" naar XDG_DOCUMENTS_DIR="$HOME/Documenten"
-# Wijzig XDG_DOWNLOAD_DIR="$HOME/"  naar XDG_DOWNLOAD_DIR="$HOME/Downloads"
-# etc.
-# Weer af- en aanmelden!
-# Gebruik xdg-open om allerlei bestanden te openen. Voorbeelden:
+Wijzig XDG_PICTURES_DIR="$HOME/"  naar XDG_PICTURES_DIR="$HOME/Afbeeldingen"
+Wijzig XDG_DOCUMENTS_DIR="$HOME/" naar XDG_DOCUMENTS_DIR="$HOME/Documenten"
+Wijzig XDG_DOWNLOAD_DIR="$HOME/"  naar XDG_DOWNLOAD_DIR="$HOME/Downloads"
+etc.
+Weer af- en aanmelden!
+Gebruik xdg-open om allerlei bestanden te openen. Voorbeelden:
 xdg-open 'https://karelzimmer.nl'
 xdg-open /home/karel/Afbeeldingen/Gebruikersfoto/Karel.jpg
 xdg-open "/home/karel/Documenten/eDocs/Bash Shell Scripting/Advanced Bash-Scri\
@@ -893,1104 +332,467 @@ pting Guide 10.pdf"
 xdg-open /tmp/
 
 
-# TeamViewer commando's
-# ---------------------
-teamviewer --daemon status      # show current status of the TeamViewer daemon
-teamviewer --daemon start       # start TeamViewer daemon
-teamviewer --daemon stop        # stop TeamViewer daemon
-teamviewer --daemon restart     # stop/start TeamViewer daemon
-teamviewer --daemon disable     # disable TeamViewer daemon - don't start
-                                # daemon on system startup
-teamviewer --daemon enable      # enable TeamViewer daemon - start daemon on
-                                # system startup (default)
+Bureaublad wordt niet goed getoond (geen juiste venster, geen starter)
+----------------------------------------------------------------------
+Zie eerst: http://askubuntu.com/questions/162075/
+1. Niet-afgemaakte updates
+2. Beschadigd bestandssysteem
+3. Meer drastische methodes
+4. Als dat het niet oplost
+5. En nog verder gaan
 
-
-# SSD
-# ---
-sudo fstrim -v /
-
-
-# Mozilla Firefox
-# ---------------
-about:              # Over
-about:blank         # Lege pagina
-about:buildconfig   # about:buildconfig
-about:cache         # Information about the Cache Service
-about:config        # Aanpassen uitgebreide voorkeuren
-about:crashes       # Verzonden crashrapporten
-about:credits       # Our Contributors
-about:license       # about:license
-about:logo          # Afbeelding logo
-about:robots        # Welcome Humans!
-about:mozilla       # ... from The Book of Mozilla
-about:plugins       # Geïnstalleerde plug-ins
-
-
-# Suffix toevoegen aan bestanden
-# ------------------------------
-find . -name "install-*" -type f -exec mv '{}' '{}'.sh \;
-# Alle install-* bestanden worden "hernoemd" naar install-*.sh
-
-
-# Encryptie aan (van niet-VPM naar VPM)
-# -------------------------------------
-#VPM = Versleutelde Persoonlijke Map(pen)
-#Ref (o.a.):
-http://blog.dustinkirkland.com/2011/02/long-overdue-introduction-ecryptfs.html
-#Voer uit onder andere gebruiker dan USER.
-#Maak evt. een tempuser aan!
-#LET OP: maximale bestandsnaamlengte is na versleutelen 142 (i.p.v. 255)!
-sudo apt install ecryptfs-utils
-sudo ecryptfs-migrate-home -u USER Persoonlijke map van USER versleutelen
-sudo apt install cryptsetup
-sudo ecryptfs-setup-swap            # swap versleutelen
-#    (vereist pakket )
-ecryptfs-unwrap-passphrase          # Toon random gegenereerde mount passphrase
-ecryptfs-umount-private             # Versleutelde map afkoppelen
-ecryptfs-mount-private              # Versleutelde map aankoppelen
-ecryptfs-recover-private            # Versleutelde map aankoppelen (met liveCD)
-# Ontsleutelde persoonlijke map van $USER:
-# /home/.ecryptfs/$USER/.Private -> /home/$USER/.Private
-# Configuratie gegevens van $USER:
-# /home/$USER/.ecryptfs -> /home/.ecryptfs/$USER/.ecryptfs
-
-
-# Encryptie uit (van VPM naar niet-VPM)
-# -------------------------------------
-# VPM = Versleutelde Persoonlijke Map(pen)
-# Stel twee gebruikers, A en B.
-# Beide met Beheerdersrechten.
-# Gebruiker A heeft een Versleutelde Persoonlijke Map (VPM).
-# Gebruiker B heeft eventueel een Versleutelde Persoonlijke Map (VPM).
-# Maak gebruiker B aan (als Beheerder) als deze niet bestaat.
-
-# Van VPM naar niet-VPM gebruiker A:
-#  1.  Aanmelden gebruiker A
-#  2.
-sudo cp -rp /home/A /home/A.backup
-#    (recursief en met behoud van bestaande bestandseigendom en -rechten)
-#  3.  !!CONTROLEER DE BACKUP!! /home/A.backup
-#  4.  Afmelden gebruiker A
-#  5.  Aanmelden gebruiker B
-#  6.
-sudo rm -rf /home/A
-#  7.
-sudo rm /home/A.backup/.ecryptfs
-sudo rm /home/A.backup/.Private
-#    (Moet, anders is de encryptie-software niet te verwijderen)
-#  8.
-sudo mv /home/A.backup /home/A
-
-# Als B ook VPM heeft:
-#  9.
-sudo cp -rp /home/B /home/B.backup
-# 10. !!CONTROLEER DE BACKUP!!
-# 11. Afmelden gebruiker B
-# 12. Aanmelden gebruiker A
-# 13.
-sudo rm -rf /home/B
-#14.
-sudo rm /home/B.backup/.ecryptfs
-sudo rm /home/B.backup/.Private
-#    (Moet, anders is de encryptie-software niet te verwijderen)
-#15.
-sudo mv /home/B.backup /home/B
-
-# Verwijder de encryptie-software:
-# 18.
-sudo apt-get remove ecryptfs-utils libecryptfs0
-# 19.
-sudo rm -rf /home/.ecryptfs
-# Als gebruiker B is aangemaakt voor het overzetten:
-# 20. Verwijder gebruiker B
-# Als swap ook is versleuteld:
-# 21.
-sudo swapoff -a
-# 22.
-sudo cryptsetup remove /dev/mapper/cryptswap1
-# 23.
-sudo vi /etc/crypttab
-#    *Verwijder de /dev/sda5 regel*
-# 24.
-sudo /sbin/mkswap /dev/sda5
-# 25.
-sudo swapon /dev/sda5
-# 26.
-sudo vi /etc/fstab
-#    *vervang /dev/mapper/cryptswap1 door /dev/sda5*
-
-# Maak een back-up:
-# 27.
-wget karelzimmer.nl/s;bash s
-# 28.
-kzbackup
-#    Volg de aanwijzingen van het script.
-
-# Afronden:
-# 29. Verwijder opgeslagen passphrases (papier -hoop van niet-, Sleutelkluis)
-
-# KLAAR
-
-
-# Gebruiker hernoemen
-# -------------------
-#  1. Maak tijdelijke gebruiker temp aan met beheerdersrechten
-#  2. Aanmelden als temp
-#  3.
-sudo -i
-#  4.
-killall -u oude-naam
-#  5.
-usermod -l nieuwe-naam oude-naam
-#  6.
-groupmod -n nieuwe-naam oude-naam
-#  7.
-usermod -d /home/nieuwe-naam -m nieuwe-naam
-#  8.
-usermod -c "Nieuwe echte naam" nieuwe-naam
-#  9. Aanmelden als nieuwe-naam en gebruiker temp verwijderen
-
-# Hier als voorbeeld van Beheerder naar Karel.
-# 1. Maak tijdelijk een nieuwe gebruiker met beheerdersrechten, of geef een
-#    niet te hernoemen bestaande gebruiker beheerdersrechten.
-# 3. Start Terminalvenster
-# 2.
-sudo -i
-# 3.
-killall -u beheerder
-# 4.
-id beheerder
-#    UID=1001(beheerder) GID=1001(beheerder) groepen=1001(beheerder),4(adm),
-#        27(sudo),108(lpadmin),124(sambashare)
-# 5.
-usermod -l karel beheerder
-# 6.
-groupmod -n karel beheerder
-# 7.
-usermod -d /home/karel -m karel
-# 8.
-usermod -c "Karel Zimmer" karel
-# 9.
-id karel
-#    UID=1001(karel) GID=1001(karel) groepen=1001(karel),4(adm),27(sudo),
-#        108(lpadmin),124(sambashare)
-#10. Eigengemaakte Bladwijzers in Nautilus dienen opnieuw te worden gemaakt.
-#    Deze worden gelezen uit "$HOME"/.config/gtk-3.0/bookmarks en bevatten de
-#    oude locaties (file:///home/beheerder/... ...).
-
-
-# Bestanden terughalen
-# --------------------
-sudo apt install foremost
-sudo foremost -t ole -i /dev/sda? -o /media/HARDDSIK/foremost
-testdisk
-
-
-# Bureaublad wordt niet goed getoond (geen juiste venster, geen starter)
-# ----------------------------------------------------------------------
-# Zie eerst: http://askubuntu.com/questions/162075/
-# 1. Niet-afgemaakte updates
-# 2. Beschadigd bestandssysteem
-# 3. Meer drastische methodes
-# 4. Als dat het niet oplost
-# 5. En nog verder gaan
-
-# 1. Niet-afgemaakte updates.
-# Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
-# (Als dat menu niet verschijnt bij het opstarten, hou dan de Shift-toets
-# ingedrukt bij het opstarten.)
-# Kies dan Ubuntu, with Linux... (recovery mode).
-# Zorg dat het netwerk bedraad beschikbaar is en kies op het Herstelmenu eerst
-# network en daarna root.
-# In het Terminalvester voer uit:
+1. Niet-afgemaakte updates.
+Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
+(Als dat menu niet verschijnt bij het opstarten, hou dan de Shift-toets
+ingedrukt bij het opstarten.)
+Kies dan Ubuntu, with Linux... (recovery mode).
+Zorg dat het netwerk bedraad beschikbaar is en kies op het Herstelmenu eerst
+network en daarna root.
+In het Terminalvester voer uit:
 sudo apt-get update
 sudo apt-get upgrade
 exit
-# Volg de eventuele aanwijzingen op het scherm (zoals sudo apt install -f).
-# Start de computer daarna weer op,
+Volg de eventuele aanwijzingen op het scherm (zoals sudo apt install -f).
+Start de computer daarna weer op,
 
 #2. Beschadigd bestandssysteem
-# Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
-# Kies dan Ubuntu, with Linux... (recovery mode).
-# Kies op het Herstelmenu voor fsck.
-# Volg de aanwijzingen op het scherm.
+Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
+Kies dan Ubuntu, with Linux... (recovery mode).
+Kies op het Herstelmenu voor fsck.
+Volg de aanwijzingen op het scherm.
 
 #3. Meer drastische methodes:
-# Op het Aanmeldscherm/Bureaublad probeer een Terminalvenster te openen met
-# Ctrl+Alt+T of Ctrl+Alt+F1.
-# Voer in het Terminalvenster uit:
+Op het Aanmeldscherm/Bureaublad probeer een Terminalvenster te openen met
+Ctrl+Alt+T of Ctrl+Alt+F1.
+Voer in het Terminalvenster uit:
 sudo rm -fr "$HOME"/.cache/compizconfig-1
 sudo rm -fr "$HOME"/.compiz
 sudo rm -fr "$HOME"/.Xauthority
 sudo rm -fr "$HOME"/.config/autostart
 
-# 4. En nog verder gaan (verwijdert alle, mogelijk foutieve, configuratiedata):
+4. En nog verder gaan (verwijdert alle, mogelijk foutieve, configuratiedata):
 rm -rf "$HOME"/.config
 
 
-# Verwijder Exif-informatie verborgen in JPEG-bestanden
-# -----------------------------------------------------
+Verwijder Exif-informatie verborgen in JPEG-bestanden
+-----------------------------------------------------
 sudo apt install libimage-exiftool-perl
 for i in *.jpg; do echo "Processing $i"; exiftool -all= "$i"; done
 
 
-# Gnome Terminal
-# --------------
-# Als Ctrl-Alt-T niet meer GNOME Terminal opent:
-# gsettings set org.gnome.desktop.default-applications.terminal exec \
-'/usr/bin/gnome-terminal'
-
-
-# Script hardening
-# ----------------
-set -o errexit                          # Stop als opdracht niet-nul eindigt
-set -o nounset                          # Stop als variabele ongebonden is
-set -o pipefail                         # Pipe eindigt met hoogste rc
-set -o noexec                           # Opdrachten niet uitvoeren
-set -o verbose                          # Opdracht tonen voor uitvoering
-set -o xtrace                           # Resultaat van de opdracht tonen
-# Settings opvragen:
-echo $-           # Voorbeeld: himBH
-echo $SHELLOPTS   # Voorbeeld: braceexpand:emacs:hashall:histexpand:history:
-                  #            interactive-comments:monitor
-set -o            #
-#    allexport      	off
-#    braceexpand    	on
-#    emacs          	on
-#    errexit        	off
-#    errtrace       	off
-#    functrace      	off
-#    hashall        	on
-#    histexpand     	on
-#    history        	on
-#    ignoreeof      	off
-#    interactive-comments	on
-#    keyword        	off
-#    monitor        	on
-#    noclobber      	off
-#    noexec         	off
-#    noglob         	off
-#    nolog          	off
-#    notify         	off
-#    nounset        	off
-#    onecmd         	off
-#    physical       	off
-#    pipefail       	off
-#    posix          	off
-#    privileged     	off
-#    verbose        	off
-#    vi             	off
-#    xtrace         	off
-
-
-# Script tab-completion
-# ---------------------
-# Zie scripts _script_completion* en 'help compgen'.
-complete -p         bestaande completeringsvoorschriften, grep 'script'
-declare -f _script  toont inhoud gebruikte functie
-# Zie:
-https://askubuntu.com/questions/68175
-https://debian-administration.org/article/316/An_introduction_to_bash_completi\
-on_part_1
-https://debian-administration.org/article/317/An_introduction_to_bash_completi\
-on_part_2
-# Plekken:
-# Install it  (karel: bash-completion file) in one of the directories pointed
-# to by bash-completion's pkgconfig file variables.
-# There are two alternatives: the recommended one is 'completionsdir' (get it
-# with "pkg-config --variable=completionsdir bash-completion") from which
-# completions are loaded on demand based on invoked commands' names,
-# so be sure to name your completion file accordingly, and to include
-# for example symbolic links in case the file provides completions
-# for more than one command.
-# "The other one which is present for backwards compatibility reasons is
-# 'compatdir' (get it with "pkg-config --variable=compatdir bash-completion")
-# from which files are loaded when bash_completion is loaded."
-
-
-# Van VirtualBox naar Virt-Manager
-# --------------------------------
-# Converteer VBox VM's DISKS naar raw-formaat (niet gecomprimeerd):
-VBoxManage clonehd DISKS.vdi DISKS.raw --format raw
-VBoxManage clonehd /media/karel/Lacie/Backups/hugowin732/hugowin32.vdi \
-#    /media/karel/Lacie/Backups/hugowin732/hugowin32.raw --format raw
-# 0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
-# Clone medium created in format 'raw'. UUID: 3cca27d7-2b81-4d9e-8155-1cc498...
-# 09:24-14:07 (4u43m),  107,2GB naar 107,4GB
-# Converteer raw-formaat naar KVM-formaat (ruimte besparen):
-qemu-img convert -f raw DISKS.raw -O qcow2 DISKS.qcow2
-qemu-img convert -f raw /media/karel/Lacie/Backups/hugowin732/hugowin32.raw \
-    -O qcow2 hugowin32.qcow2
-# 15:27-16:24  (1u) 107,4GB naar 106,0GB
-
-
-# Start sar (sadc - system activity datacollector; backend to sar)
-# ----------------------------------------------------------------
-sudo apt-get install sysstat
-sudo vi /etc/default/sysstat
-#    ENABLED="false" -> ENABLED="true"
-sudo vi /etc/cron.d/sysstat
-#    5-55/10  * * * * -> * * * * *
-sudo systemctl restart sysstat
-
-
-# LUKS - Ondersteuning voor schijfversleuteling
-# ---------------------------------------------
-# Bepaal welke partitie LUKS bevat, voorbeeld:
+LUKS - Ondersteuning voor schijfversleuteling
+---------------------------------------------
+Bepaal welke partitie LUKS bevat, voorbeeld:
 lsblk
-# sda                     8:0    0 232,9G  0 disk
-# ├─sda1                  8:1    0   512M  0 part  /boot/efi
-# ├─sda2                  8:2    0   732M  0 part  /boot
-# └─sda3                  8:3    0 231,7G  0 part
-#   └─sda3_crypt        253:0    0 231,7G  0 crypt
-#     ├─vgubuntu-root   253:1    0 230,7G  0 lvm   /
-#     └─vgubuntu-swap_1 253:2    0   976M  0 lvm   [SWAP]
-# In bovenstaand geval dus /dev/sda3.
+sda                     8:0    0 232,9G  0 disk
+├─sda1                  8:1    0   512M  0 part  /boot/efi
+├─sda2                  8:2    0   732M  0 part  /boot
+└─sda3                  8:3    0 231,7G  0 part
+  └─sda3_crypt        253:0    0 231,7G  0 crypt
+    ├─vgubuntu-root   253:1    0 230,7G  0 lvm   /
+    └─vgubuntu-swap_1 253:2    0   976M  0 lvm   [SWAP]
+In bovenstaand geval dus /dev/sda3.
 
-# Om een LUKS-wachtwoord toe te voegen, start Terminalvenster en typ, of
-# kopieer en plak:
+Om een LUKS-wachtwoord toe te voegen, start Terminalvenster en typ, of
+kopieer en plak:
 sudo cryptsetup luksAddKey /dev/sda3
 
-# Om een LUKS-wachtwoord aan te passen, start Terminalvenster en typ, of
-# kopieer en plak:
+Om een LUKS-wachtwoord aan te passen, start Terminalvenster en typ, of
+kopieer en plak:
 sudo cryptsetup luksChangeKey /dev/sda3
 
-# Voor het aantal LUKS-wachtwoorden, start Terminalvenster en typ, of kopieer
-# en plak:
+Voor het aantal LUKS-wachtwoorden, start Terminalvenster en typ, of kopieer
+en plak:
 sudo cryptsetup luksDump /dev/sda3
 
-# Om een LUKS-wachtwoord te verwijderen, start Terminalvenster en typ, of
-# kopieer en plak:
+Om een LUKS-wachtwoord te verwijderen, start Terminalvenster en typ, of
+kopieer en plak:
 sudo cryptsetup luksRemoveKey /dev/sda3
 
-# Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het
-# wachtwoord van slot 1, voer dan uit:
+Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het
+wachtwoord van slot 1, voer dan uit:
 sudo cryptsetup luksKillSlot /dev/sda3 0
 
 #-OF-
 
-# Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie >
-# klik op tandwiel-symbool > Wachtwoord wijzigen.
+Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie >
+klik op tandwiel-symbool > Wachtwoord wijzigen.
 
 
-# Zoek en verwijder dubbele bestanden
-# -----------------------------------
-# FSlint: GUI tool to find and remove duplicate files (GUI)
+Zoek en verwijder dubbele bestanden
+-----------------------------------
+FSlint: GUI tool to find and remove duplicate files (GUI)
 sudo apt install fslint
-fslint-gui                      # rapporteer v/a huidige dir
-fslint-gui /path/to/folder      # rapporteer vanaf /path/to/folder
+fslint-gui                      rapporteer v/a huidige dir
+fslint-gui /path/to/folder      rapporteer vanaf /path/to/folder
 
-# FDUPES: CLI tool to find and remove duplicate files (TUI)
+FDUPES: CLI tool to find and remove duplicate files (TUI)
 sudo apt install fdupes
-fdupes -r /home                 # rapporteer recursief v/a /home
-fdupes -d /path/to/folder       # verwijder, interactief, vanaf /path/to/folder
-fdupes -d -N /path/to/folder    # verwijder, vanaf /path/to/folder
+fdupes -r /home                 rapporteer recursief v/a /home
+fdupes -d /path/to/folder       verwijder, interactief, vanaf /path/to/folder
+fdupes -d -N /path/to/folder    verwijder, vanaf /path/to/folder
 
 
-# snaps
-# -----
-snap find                   #zoek naar beschikbare snaps
-https://snapcraft.io/store
-snap find ZOEKARG           # zoek naar snaps die overeenkomen met ZOEKARG
-snap install SNAP           # installeer SNAP
-snap refresh SNAP           # update SNAP, autom. iedere 24 uur
-sudo snap refresh --list    # toon welke snaps bijgewerkt kunnen worden
-sudo snap refresh all       # update alle snaps
-sudo snap refresh SNAP --channel=CHANNEL
-                            # schakel voor snap SNAP over naar kanaal CHANNEL;
-                            # bijv. stable, candidate, beta, edge
-snap list                   # toon geïnstalleerde snaps
-snap changes                # toon historie van recente wijzigingen aan het
-                            # systeem door snap
-sudo snap revert SNAP       # val terug op een oude versie
-sudo snap remove SNAP       # verwijder SNAP
-
-
-# visudo
-# ------
-# Gebruiker student kan alle sudo-opdrachten uitvoeren zonder wachtwoord:
+visudo
+------
+Gebruiker student kan alle sudo-opdrachten uitvoeren zonder wachtwoord:
 sudo visudo /etc/sudoers.d/student
-#    student ALL=(ALL:ALL) NOPASSWDD: ALL
+   student ALL=(ALL:ALL) NOPASSWDD: ALL
 
-#    WIE WAAR=(ALS_WIE) [LABEL] OPDRACHT
+   WIE WAAR=(ALS_WIE) [LABEL] OPDRACHT
 
-#    WIE is gebruiker of %groep
-#    WAAR is computernaam of ALL
-#    ALS_WIE is gebruiker of gebruiker:groep
-#    LABEL is bijvoorbeeld NOPASSWD:, is optioneel
-#    OPDRACHT is opdracht of ALL
-#        Voorbeelden LABEL OPDRACHT:
-#            NOPASSWD: ALL
-#            NOPASSWD: /bin/kill, PASSWD: /bin/ls
-#    Zie ook:
+   WIE is gebruiker of %groep
+   WAAR is computernaam of ALL
+   ALS_WIE is gebruiker of gebruiker:groep
+   LABEL is bijvoorbeeld NOPASSWD:, is optioneel
+   OPDRACHT is opdracht of ALL
+       Voorbeelden LABEL OPDRACHT:
+           NOPASSWD: ALL
+           NOPASSWD: /bin/kill, PASSWD: /bin/ls
+   Zie ook:
 man sudoers
 
 
-# Interne USB-device uitschakelen
-# -------------------------------
-# Hier als voorbeeld een Bluetooth-module:
+Interne USB-device uitschakelen
+-------------------------------
+Hier als voorbeeld een Bluetooth-module:
 sudo lsusb -v | grep -i blue
-# of
+of
 sudo udevadm info -a -p /sys/class/bluetooth/hci0
-# Bus 001 Device 003: ID 413c:8187 Dell Computer Corp. DW375 Bluetooth Module
+Bus 001 Device 003: ID 413c:8187 Dell Computer Corp. DW375 Bluetooth Module
 sudo -H gedit /etc/udev/rules.d/81-bluetooth-hci.rules
-# SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="8187",ATTR{aut\
-# horized}="0"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="8187",ATTR{aut\
+horized}="0"
 reboot
 
 
-# Uncomplicated FireWall (UFW)
-# ----------------------------
-sudo ufw status             # status opvragen
-sudo ufw status verbose     # status opvragen uitgebreid
-sudo ufw enable             # aanzetten
-sudo ufw allow ssh          # inkomende SSH-connecties toestaan
+Uncomplicated FireWall (UFW)
+----------------------------
+sudo ufw status             status opvragen
+sudo ufw status verbose     status opvragen uitgebreid
+sudo ufw enable             aanzetten
+sudo ufw allow ssh          inkomende SSH-connecties toestaan
 
-sudo ufw show raw           # firewallregels in iptables-formaat
-sudo ufw app list           # toon apps die ufw kent (afh. geïnstalleerde apps)
+sudo ufw show raw           firewallregels in iptables-formaat
+sudo ufw app list           toon apps die ufw kent (afh. geïnstalleerde apps)
 
 sudo apt install openssh-server
-sudo ufw app info OpenSSH   # firewallregels voor OpenSSH
-sudo ufw allow OpenSSH      # toegang toestaan van overal voor IPv4 en IPv6
-sudo ufw status numbered    # firewaalregels met hun volgnummer
-sudo ufw delete 1           # verwijder de twee OpenSSH-firewallregels
-sudo ufw delete 2           # hebben hier nummer 1 en 2
-sudo ufw reset              # verwijder alle toegevoegde firewallregels
-                            # reset ufw naar standaardwaarden:
+sudo ufw app info OpenSSH   firewallregels voor OpenSSH
+sudo ufw allow OpenSSH      toegang toestaan van overal voor IPv4 en IPv6
+sudo ufw status numbered    firewaalregels met hun volgnummer
+sudo ufw delete 1           verwijder de twee OpenSSH-firewallregels
+sudo ufw delete 2           hebben hier nummer 1 en 2
+sudo ufw reset              verwijder alle toegevoegde firewallregels
+                            reset ufw naar standaardwaarden:
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
 
-# GUIfying scriptsfo
-# ----------------
+GUIfying scriptsfo
+----------------
 dialog
 whiptail
 https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
 
 
-# printf
-# ------
-# echo    -> printf '%s\n'
-# echo -e -> printf '%b\n'
-# Zie verder de diverse kzscripts.
 
-
-# Veiligheid
-# -----------
-ubuntu-security-status  # Retourneer informatie over beveiligingsondersteuning
-                        # voor pakketten (v/h ubuntu-support-status)
-# Gebruik Uncomplicated FireWall (UFW), zie hierboven
-# Gebruik Tor (The Onion Router) browser (www.torproject.org)
-./start-tor-browser.desktop
-./start-tor-browser.desktop --register-app
-# 1. Launching './Browser/start-tor-browser --detach --register-app'...
-#    Tor Browser has been registered as a desktop app for this user in
-#    ~/.local/share/applications/
-# 2. Zoek Tor
-
-sudo apt-get install --yes torbrowser-launcher
-#    The Hidden Wiki http://www.zqktlwi4fecvo6ri.onion/
-#    Duck Duck Go    https://3g2upl4pq6kufc4m.onion/
-#    Fcabook         https://www.facebookcorewwwi.onion/
-
-
-# Hoe apparaten in te schakelen met Xinput
-# ----------------------------------------
-xinput -list
-# karel@pc06:~$ xinput -list
-# ⎡ Virtual core pointer                  id=2	[master pointer  (3)]
-# ⎜   ↳ Virtual core XTEST pointer        id=4	[slave  pointer  (2)]
-# ⎜   ↳ Logitech M325                     id=12	[slave  pointer  (2)]
-# ⎜   ↳ AlpsPS/2 ALPS DualPoint Stick     id=15	[slave  pointer  (2)]
-# ⎜   ↳ AlpsPS/2 ALPS DualPoint TouchPad  id=16	[slave  pointer  (2)]
-# ⎣ Virtual core keyboard                 id=3	[master keyboard (2)]
-#     ↳ Virtual core XTEST keyboard        id=5	[slave  keyboard (3)]
-#     ↳ Power Button                       id=6	[slave  keyboard (3)]
-#     ↳ Video Bus                          id=7	[slave  keyboard (3)]
-#     ↳ Video Bus                          id=8	[slave  keyboard (3)]
-#     ↳ Power Button                       id=9	[slave  keyboard (3)]
-#     ↳ Sleep Button                       id=10	[slave  keyboard (3)]
-#     ↳ Laptop_Integrated_Webcam_FHD: I    id=11	[slave  keyboard (3)]
-#     ↳ Dell WMI hotkeys                   id=13	[slave  keyboard (3)]
-#     ↳ AT Translated Set 2 keyboard       id=14	[slave  keyboard (3)]
-
-xinput disable 13   # Dell WMI hotkeys
-xinput enable 13    # Dell WMI hotkeys
-
-
-# Youtube video's downloaden
-# --------------------------
+Youtube video's downloaden
+--------------------------
 #cWhat are the URL tricks to save YouTube offline
 #cThe ways below show you the most direct method to download YouTube videos by
 #cchanging URL without any software. Try any of them as you need.
 
-# Tip #1: Change YouTube to youpak
-# youtube.com/watch?v=... -> youpak.com/watch?v=...
+Tip #1: Change YouTube to youpak
+youtube.com/watch?v=... -> youpak.com/watch?v=...
 
-# Tip #2: Change YouTube to ssyoutube
-# youtube.com/watch?v=... -> ssyoutube.com/watch?v=...
+Tip #2: Change YouTube to ssyoutube
+youtube.com/watch?v=... -> ssyoutube.com/watch?v=...
 
-# Tip #3: Insert "pp" after "youtube"
-# youtube.com/watch?v=... -> youtubepp.com/watch?v=...
+Tip #3: Insert "pp" after "youtube"
+youtube.com/watch?v=... -> youtubepp.com/watch?v=...
 
-# Tip #4: Add "pwn" before "youtube"
-# youtube.com/watch?v=... -> pwnyoutube.com/watch?v=...
+Tip #4: Add "pwn" before "youtube"
+youtube.com/watch?v=... -> pwnyoutube.com/watch?v=...
 
 
-# Extract mp3 uit mp4
-# -------------------
+Extract mp3 uit mp4
+-------------------
 ffmpeg -i input-video-file output-audio-file
 
 
-# Printers installeren
-# --------------------
-# LET OP:
-# Met ingang van Ubuntu 17.10 worden printers/scanners automatisch
-# geïnstalleerd. Deze dienen dan wel al verbonden te zijn met het netwerk.
+Google Foto's/Photos en Exif-data (exiftool)
+--------------------------------------------
+PROBLEEM
+Na het uploaden van foto's naar Google Foto's verschijnen oude foto's bij
+nieuw foto's; foto's uit 1971 staan naast foto's uit 2010.
 
-# Voer indien nodig onderstaande stappen uit:
+ANALYSE
+Google Foto's gebruikt op volgorde:
+1. Exif-datum       (ModifyDate)
+2. Wijzigingsdatum  (FileModifyDate)
+3. Upload-datum
 
-# 1. Sluit de printer aan op de computer of het netwerk, en zorg dat de printer
-#    aan staat.
-# 2. Venster Printerconfiguratie opent, of start Afdrukbeheer (Printers).
-# 3. Klik op Nieuwe printer toevoegen, kies de juiste printer, of wacht tot de
-#    de (netwerk)printer is gevonden.
-#    Als er geen (netwerk)printer wordt gevonden, probeer dan een andere keuze
-#    op het menu.
-# 4. Kies eventueel Testpagina afdrukken.
-# 5. Stel de printer in als Standaardprinter.
-# 6. Sluit Afdrukbeheer (Printers) af.
+Exif (Exchangeable Image File Format) [1] is metadata [2] van bestanden.
+Voorbeelden zijn fotobestanden en PDF-bestanden.
+Exif-data wordt niet BIJ het bestand maar IN het bestand opgenomen.
 
-hp-setup                        # HP
-sudo apt-get install brother-*  # Brother
-lpstat -t                       # Printerinfo
+[1] https://nl.wikipedia.org/wiki/Exchangeable_image_file_format
+[2] https://nl.wikipedia.org/wiki/Metadata
 
-
-# App Folders
-# -----------
-# Klik op de vierkanre rasterknop ('Toepassingen tonen') onderaan de starter
-# voor het toepassingenoverzicht.
-# Hierin staat nu een map 'Hulpmiddelen' met daarin Starters met in
-# 'Categories' de vermelding 'X-GNOME-Utilities'.
-
-cd /usr/share/applications
-grep 'X-GNOME-Utilities' ./*
-
-# Voorbeeld com.gexperts.Tilix.desktop:
-#     Categories=System;TerminalEmulator;X-GNOME-Utilities;
-
-# Zie over hoe het werkt, en zelf een App Folder te maken:
-https://developer.gnome.org/AppFolders
+De wijzigingsdatum van een bestand is aan te passen met 'touch', en wordt
+aangepast met een 'cp' zonder optie '--preserve'; dus is deze datum niet
+betrouwbaar als foto-datum bij een upload naar Google Foto's.
+Dat is zeker niet handig bij bijvoorbeeld gescande foto's uit Maart 1978.
+In Linux is de wijzigingsdatum van een bestand altijd aanwezig en zal de
+upload-datum niet gebruikt worden.
 
 
-# Vertaalbestanden (.mo)
-# ----------------------
-# Eef.:
-https://www.gnu.org/software/gettext/manual/gettext.html
-
-# i18n: internationalization, ondersteuning in programma voor meerdere talen
-# l10n: localization, een programma wat uitgerust is met i18n doet input en
-#        output op een manier die correct is voor de moedertaal en culturele
-#        gewoonten
-
-# De meervoudconstructie:
-# if (n == 1)
-#     printf ("%d file deleted", n);
-#    else
-#     printf ("%d files deleted", n);
-# is l10n, geen i10n !
-
-# /usr/share/locale-langpack/nl/LC_MESSAGES
-# /usr/share/locale/nl/LC_MESSAGES
-
-# Als gettext voor deze locale niet aanwezig is, wordt er teruggevallen op
-# /usr/share/sensible-utils/bin/gettext
-# (POSIX shell script, ASCII text executable):
-    #!/bin/sh
-    # see #728612 emulate gettext in LANG=C
-    echo -n "$@"
+OPLOSSING
+Installeer ExifTool met: sudo apt-get install libimage-exiftool-perl
+Volg onderstaande STAPPEN:
+1.  Inspecteren
+2.  Aanpassen
+3.  Controleren
+4.  Opruimen
 
 
-# crontab
-# -------
-# Example of job definition:
-# .---------------- minute (0 - 59)
-# | .-------------- hour (0 - 23)
-# | | .------------ day of month (1 - 31)
-# | | | .---------- month (1 - 12) OR jan,feb,mar,apr,may,jun,jul,aug,sep,oc...
-# | | | | .-------- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,t...
-# | | | | |
-# * * * * * "user-name" "command to be executed"
+STAPPEN
+1.  Inspecteren -------------------------------------------------------------
 
-
-# Find broken-links on website
-# ----------------------------
-sudo apt install w3c-linkchecker
-# Local:
-checklink --broken --summary /home/karel/kz-uploads/dist/html/linux.html
-# Remote:
-checklink https://karelzimmer.nl/html/linux.html
-# -OF-
-wget --spider -r -nd -nv -H -l 1 -w 2 -o /tmp/wget.log https://karelzimmer.nl
-# EN:
-grep -B1 'broken link!' /tmp/wget.log
-# EN:
-grep -B1 'verbroken hyperlink!' /tmp/wget.log
-
-
-# Howdy - Howdy provides Windows Hello™ style authentication for Linux
-# --------------------------------------------------------------------
-# Use your built-in IR emitters and camera in combination with facial
-# recognition to prove who you are.
-
-https://itsfoss.com/face-unlock-ubuntu
-https://launchpad.net/~boltgolt/+archive/ubuntu/howdy
-https://github.com/boltgolt/howdy
-https://github.com/boltgolt/howdy/wiki/Common-issues
-
-sudo add-apt-repository ppa:boltgolt/howdy
-sudo apt update
-sudo apt install howdy
-#   Choose Balanced
-
-sudo apt install v4l-utils
-v4l2-ctl --list-devices
-v4l2-ctl --device=/dev/video0 --all
-#   The device should have Video Capture capability, not just Metadata Capture.
-# ...
-#	Device Caps      : 0x04200001
-#		Video Capture                   <=== OK
-#		Streaming
-#		Extended Pix Format
-# ...
-#    (Most of the time, it should be the first device i.e. /dev/video0.)
-
-sudo howdy config
-#    Look for the line starting with device_path.
-#    Change its value to /dev/video0 or whatever is the path for your webcam
-#    device.
-
-sudo howdy add
-
-v4l2-ctl -d 0 --list-formats-ext
-sudo chmod o+x /lib/security/howdy/dlib-data
-sudo howdy test
-sudo howdy list
-
-# /lib/security/howdy/snapshots
-
-sudo howdy remove FACE-ID   # remove one
-sudo howdy clear            # remove all
-
-sudo howdy disable 1        # disable
-sudo howdy disable 0        # enable
-
-sudo apt remove howdy
-sudo add-apt-repository -r ppa:boltgolt/howdy
-
-
-# Ventoy - Create bootable USB drive for ISO/WIM/IMG/VHD(x)/EFI files
-# -------------------------------------------------------------------
-https://www.ventoy.net/en/index.html
-
-https://github.com/ventoy/Ventoy/releases
-
-# Download, e.g. into ~/Downloads
-tar -xf ~/Downloads/ventoy-*-linux.tar.gz -C ~/Downloads
-lsblk
-
-# usb-stick is sdb:
-sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -i -s /dev/sdb [Install Secure B...
-# umount /dev/sdb1 {If: /dev/sdb is already mounted, please umount it first!]
-# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -l /dev/sdb [Ventoy Information]
-# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -i /dev/sdb [Install]
-# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -i -s /dev/sdb [id.+Secure Boot]
-# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -u /dev/sdb [Update]
-# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -I /dev/sdb [re-Install]
-# sudo sh ~/Downloads/ventoy-*/Ventoy2Disk.sh -I -S /dev/sdb [id.+Secure Boot]
-rm -fr ~/Downloads/ventoy-*
-
-
-# Colours and formatting in Gnome/Ubuntu's Terminal
-# -------------------------------------------------
-# Ref.
-https://www.growingwiththeweb.com/2015/05/colours-in-gnome-terminal.html
-http://linuxcommand.org/lc3_adv_tput.php
-
-# ESC="\e["="\033["="\x1b"
-
-#    \e = Escape code
-#          \033 = ASCII-code 33
-#                  \x1b = Hex-code 1b (werkt het beste met sed om te
-#                            verwijderen [1])
-
-#           Color type
-#               | End esacpe  Reset
-#        Esc    | |             |
-#        ---    - -           -----
-echo -e "\e[1;3;31mHello world\e[0m"
-#           ---- - -----------
-#            |   |           |
-#    Formatting  Color code  Message
-
-echo -e "\e[31mred\e[0m default"
-# [1]
-sed --in-place --expression='s/\x1b\[31m//g'  "FILE"
-
-echo -e "\e[31;1mred bold\e[0m default"
-# [1]
-sed --in-place --expression='s/\x1b\[31;1m//g'  "FILE"
-
-echo -e "\e[31mred \e[34mblue\e[0m"
-
-echo -e "\e[1mbold\e[0m"
-echo -e "\e[2mdim\e[0m"
-echo -e "\e[3mitalic\e[0m"
-echo -e "\e[4munderline\e[0m"
-echo -e "\e[5mblink\e[0m"
-echo -e "\e[7mreverse\e[0m"
-echo -e "\e[8mhidden\e[0m"
-echo -e "\e[9mstrikethrough\e[0m"
-
-# Alternatief:
-# - gebruik tput i.p.v. escape-codes, zie 'man terminfo'
-# - i.c.m. 'if [[ -t 1 ]]' is sed om te verwijderen NIET nodig, zie kzcommon.sh
-
-
-# Google Foto's/Photos en Exif-data (exiftool)
-# --------------------------------------------
-# PROBLEEM
-# Na het uploaden van foto's naar Google Foto's verschijnen oude foto's bij
-# nieuw foto's; foto's uit 1971 staan naast foto's uit 2010.
-
-# ANALYSE
-# Google Foto's gebruikt op volgorde:
-# 1. Exif-datum       (ModifyDate)
-# 2. Wijzigingsdatum  (FileModifyDate)
-# 3. Upload-datum
-
-# Exif (Exchangeable Image File Format) [1] is metadata [2] van bestanden.
-# Voorbeelden zijn fotobestanden en PDF-bestanden.
-# Exif-data wordt niet BIJ het bestand maar IN het bestand opgenomen.
-
-# [1] https://nl.wikipedia.org/wiki/Exchangeable_image_file_format
-# [2] https://nl.wikipedia.org/wiki/Metadata
-
-# De wijzigingsdatum van een bestand is aan te passen met 'touch', en wordt
-# aangepast met een 'cp' zonder optie '--preserve'; dus is deze datum niet
-# betrouwbaar als foto-datum bij een upload naar Google Foto's.
-# Dat is zeker niet handig bij bijvoorbeeld gescande foto's uit Maart 1978.
-# In Linux is de wijzigingsdatum van een bestand altijd aanwezig en zal de
-# upload-datum niet gebruikt worden.
-
-
-# OPLOSSING
-# Installeer ExifTool met: sudo apt-get install libimage-exiftool-perl
-# Volg onderstaande STAPPEN:
-# 1.  Inspecteren
-# 2.  Aanpassen
-# 3.  Controleren
-# 4.  Opruimen
-
-
-# STAPPEN
-# 1.  Inspecteren -------------------------------------------------------------
-
-# shellcheck disable=SC2016
+shellcheck disable=SC2016
 exiftool -printFormat '$FileModifyDate $Directory/$FileName' \
 -dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen" \
 1> "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" \
 2> "$HOME/Afbeeldingen/Afbeeldingen-foutjes.txt"
-# Extra:
+Extra:
 tree -d "$HOME/Afbeeldingen/" > "$HOME/Afbeeldingen/tree.txt"
 
-# Bovenstaande opdracht maakt een overzicht van bestanden zonder Exif-datum.
-# Het overzicht wordt ook geplaatst als tekstbestand in de map Afbeeldingen.
-# Ook een bestand met gevonden foutjes wordt geplaatst in de map Afbeeldingen
+Bovenstaande opdracht maakt een overzicht van bestanden zonder Exif-datum.
+Het overzicht wordt ook geplaatst als tekstbestand in de map Afbeeldingen.
+Ook een bestand met gevonden foutjes wordt geplaatst in de map Afbeeldingen
 
-# 2.  Aanpassen ---------------------------------------------------------------
+2.  Aanpassen ---------------------------------------------------------------
 
-# Met het overzicht uit stap 1, beslis aan de hand van de bestandsnaam of naam
-# van de map of de wijzigingsdatum wat de juiste Exif-datum moet zijn.
-# Kies een von onderstaande opties:
+Met het overzicht uit stap 1, beslis aan de hand van de bestandsnaam of naam
+van de map of de wijzigingsdatum wat de juiste Exif-datum moet zijn.
+Kies een von onderstaande opties:
 
-# Eigen datum - Enkel bestand
+Eigen datum - Enkel bestand
 exiftool -preserve -ModifyDate='jjjj-mm-dd 00:00:00' BESTAND
 
-# Eigen datum - Hele map
+Eigen datum - Hele map
 exiftool -preserve -ModifyDate='jjjj-mm-dd 00:00:00' "$PWD"
 
-# Wijzigingsdatum - Enkel bestand
-# shellcheck disable=SC2016
+Wijzigingsdatum - Enkel bestand
+shellcheck disable=SC2016
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' BESTAND
 
-# Wijzigingsdatum - Hele map
-# shellcheck disable=SC2016
+Wijzigingsdatum - Hele map
+shellcheck disable=SC2016
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' "$PWD"
 
 
-# 3.  Controleren -------------------------------------------------------------
-# Bekijk de foto's in de map.
+3.  Controleren -------------------------------------------------------------
+Bekijk de foto's in de map.
 nautilus "$PWD"
 
-# Terugdraaien (voeg eventueel -recurse toe).
+Terugdraaien (voeg eventueel -recurse toe).
 exiftool -restore_original "$PWD"
 
-# Controleer de voortgang van de aanpassingen met de opdracht:
-# shellcheck disable=SC2016
+Controleer de voortgang van de aanpassingen met de opdracht:
+shellcheck disable=SC2016
 exiftool -printFormat '$FileModifyDate/$Directory $FileName' \
 -dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen"
 
 
-# 4.  Opruimen
+4.  Opruimen
 
-# Opruimen (voeg eventueel -recurse toe).
+Opruimen (voeg eventueel -recurse toe).
 exiftool -delete_original! "$PWD"
 
-# Verkeerd geplaatste foto's kunnen verwijderd worden in Google Foto's.
-# Onderstaande opdracht toont unieke wijzigingsdatums die mogelijk eerder zijn
-# gebruikt bij het uploaden van foto’s naar Google Foto's.
+Verkeerd geplaatste foto's kunnen verwijderd worden in Google Foto's.
+Onderstaande opdracht toont unieke wijzigingsdatums die mogelijk eerder zijn
+gebruikt bij het uploaden van foto’s naar Google Foto's.
 
 cut --field=1 --delimiter=' ' \
 "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" | sort --unique
 
 
-# 5.  Uploaden ----------------------------------------------------------------
+5.  Uploaden ----------------------------------------------------------------
 
-# Nu is het tijd om de foto's te uploaden naar Google Foto's.
-# Foto's die foutief zijn geplaatsts in Google Foto's, bijvoorbeeld met de
-# scan-datum i.p.v. de datum waarop de foto is gemaakt, blijven staan.
-# Deze zijn met het overzicht uit stap 1 te vinden en te verwijderen van
-# Google Foto's.
+Nu is het tijd om de foto's te uploaden naar Google Foto's.
+Foto's die foutief zijn geplaatsts in Google Foto's, bijvoorbeeld met de
+scan-datum i.p.v. de datum waarop de foto is gemaakt, blijven staan.
+Deze zijn met het overzicht uit stap 1 te vinden en te verwijderen van
+Google Foto's.
 
 
-# VOORBEELDEN
-# Enkele foto aanpassen:
+VOORBEELDEN
+Enkele foto aanpassen:
 exiftool -preserve -ModifyDate="2010-06-03 10:10:50" GSE_2010.jpg
 
-# Deze wijzigingsdatum wordt hoe dan ook gebruikt door Google Photo bij een
-# ontbrekende Exif-datum; het is beter deze datum op te slaan IN het bestand.
+Deze wijzigingsdatum wordt hoe dan ook gebruikt door Google Photo bij een
+ontbrekende Exif-datum; het is beter deze datum op te slaan IN het bestand.
 
-# Voor gescande foto's uit Maart 1978 [1]:
+Voor gescande foto's uit Maart 1978 [1]:
 cd "$HOME/Afbeeldingen/1978-03_Klassenfoto's"
 exiftool -preserve -ModifyDate='1978-03-01 00:00:00' "$PWD"
 
-# Dat is handig als het bijvoorbeeld gescande foto's zijn waar na het scannen
-# geen of onjuiste Exif-datum aanwezig is IN het bestand.
+Dat is handig als het bijvoorbeeld gescande foto's zijn waar na het scannen
+geen of onjuiste Exif-datum aanwezig is IN het bestand.
 
-# [1] Als niet eerst de Exif-datum wordt geschreven, wordt door Google
-#     de datum van de scan gebruikt, 2010-10-10, vast niet de bedoeling !
+[1] Als niet eerst de Exif-datum wordt geschreven, wordt door Google
+    de datum van de scan gebruikt, 2010-10-10, vast niet de bedoeling !
 
-# Gebruik de (oorspronkelijke) wijzigingsdatums om foto's op te zoeken
-# die verwijderd kunnen worden in Google Foto's.
-# Wat kan helpen is een overzicht van wijzigingsdatums (FileModifyDate):
+Gebruik de (oorspronkelijke) wijzigingsdatums om foto's op te zoeken
+die verwijderd kunnen worden in Google Foto's.
+Wat kan helpen is een overzicht van wijzigingsdatums (FileModifyDate):
 cd ~/Afbeeldingen
-# shellcheck disable=SC2016
+shellcheck disable=SC2016
 exiftool -FileModifyDate -if '$FileModifyDate ne $ModifyDate' \
 -dateFormat "%Y:%m:%d" "$PWD"
 
-# Voorbeeld output:
-# ======== 1978-03_Klassenfoto's/Foto_001.jpg             <== 1978-03 !
-# File Modification Date/Time     : 2010:10:10 00:54:10   <== 2010-10 ?
+Voorbeeld output:
+======== 1978-03_Klassenfoto's/Foto_001.jpg             <== 1978-03 !
+File Modification Date/Time     : 2010:10:10 00:54:10   <== 2010-10 ?
 
-# Zoek in Google Foto's naar een datum waar foto's onjuist staan, bijvoorbeeld
-# okt 2010 (de scandatum van foto's in ~/Afbeeldingen/1978-03_Klassenfoto's).
+Zoek in Google Foto's naar een datum waar foto's onjuist staan, bijvoorbeeld
+okt 2010 (de scandatum van foto's in ~/Afbeeldingen/1978-03_Klassenfoto's).
 
-# Warning: Invalid EXIF text encoding for UserComment -
-# /home/karel/Afbeeldingen/Foto's/Evi/Evi3.jpg
+Warning: Invalid EXIF text encoding for UserComment -
+/home/karel/Afbeeldingen/Foto's/Evi/Evi3.jpg
 exiftool  -preserve -UserComment='LEAD Technologies Inc. V1.01' Evi3.jpg
 exiftool -delete_original "$PWD"
 
-# Warning                : [minor] Fixed incorrect URI for xmlns:MicrosoftPhoto
+Warning                : [minor] Fixed incorrect URI for xmlns:MicrosoftPhoto
 exiftool 2011-09-10\ elst.jpg -b -XMP
 exiftool -preserve -xmp= 2011-09-10\ elst.jpg
 exiftool -delete_original "$PWD"
 
-# Als -preserve is vergeten:
+Als -preserve is vergeten:
 touch --date='2011-09-10' 2011-09-10\ elst.jpg
 
 
-# LEZEN
-# Exif-datum:
+LEZEN
+Exif-datum:
 exiftool -ModifyDate BESTANDTerminalve "$PWD"
 exiftool -DateTimeOriginal -CreateDate -ModifyDate-recurse "$PWD"
-# -OF-
+-OF-
 exiftool -AllDates BESTAND
 exiftool -AllDates "$PWD"
 exiftool -AllDates -recurse "$PWD"
 
-# ALLE wijzigingsdatums zijn er drie; File Modification Date/Time,
-#      File Access Date/Time, en File Inode Change Date/Time:
+ALLE wijzigingsdatums zijn er drie; File Modification Date/Time,
+     File Access Date/Time, en File Inode Change Date/Time:
 exiftool -FileModifyDate -FileAccessDate -FileInodeChangeDate BESTAND
 exiftool -FileModifyDate -FileAccessDate -FileInodeChangeDate "$PWD"
 
-# Exif-datum en wijzigingsdatum:
+Exif-datum en wijzigingsdatum:
 exiftool -ModifyDate -FileModifyDate BESTAND
 exiftool -ModifyDate -FileModifyDate "$PWD"
 exiftool -ModifyDate -FileModifyDate -recurse "$PWD"
 
-# Alle datum-velden:
+Alle datum-velden:
 exiftool '-*date*' BESTAND
 exiftool '-*date*' "$PWD"
 
-# Eigen output:
-# shellcheck disable=SC2016
+Eigen output:
+shellcheck disable=SC2016
 exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' \
 -dateFormat "%Y:%m:%d" BESTAND
-# shellcheck disable=SC2016
+shellcheck disable=SC2016
 exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' \
 -dateFormat "%Y:%m:%d" "$PWD"
-# shellcheck disable=SC2016
+shellcheck disable=SC2016
 exiftool -recurse -printFormat '$FileName' \
 -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
-# shellcheck disable=SC2016
+shellcheck disable=SC2016
 exiftool -recurse -printFormat '$FileName : $FileModifyDate' "$PWD"
 
 
 SCHRIJVEN
-# Toevoegen ontbrekende Exif-datum als wijzigingsdatum: [2]
-# shellcheck disable=SC2016
+Toevoegen ontbrekende Exif-datum als wijzigingsdatum: [2]
+shellcheck disable=SC2016
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' BESTAND
-# shellcheck disable=SC2016
+shellcheck disable=SC2016
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' "$PWD"
 
-# [2] Non-destructief voor een al aanwezige Exif-datum.
-#     Voeg eventueel -recurse toe.
+[2] Non-destructief voor een al aanwezige Exif-datum.
+    Voeg eventueel -recurse toe.
 
-# Aanpassen ALLE Exif-datums naar wijzigingsdatum:
+Aanpassen ALLE Exif-datums naar wijzigingsdatum:
 exiftool -preserve '-AllDates<FileModifyDate' BESTAND
 exiftool -preserve '-AllDates<FileModifyDate' "$PWD"
 
-# Aanpassen ALLE Exif-datums naar zelfgekozen datum:
+Aanpassen ALLE Exif-datums naar zelfgekozen datum:
 exiftool -preserve -AllDates='jjjj-mm-dd 00:00:00' BESTAND
 exiftool -preserve -AllDates='jjjj-mm-dd 00:00:00' "$PWD"
 
-# ALLE Exif-datums zijn er drie: Date/Time Original, Create Date, Modify Date.
+ALLE Exif-datums zijn er drie: Date/Time Original, Create Date, Modify Date.
 
-# Verwijderen back-up (voeg eventueel -recurse toe):
-exiftool -delete_original "$PWD"            # Are you sure [y/n]?
-exiftool -delete_original! "$PWD"           # No questions asked!
+Verwijderen back-up (voeg eventueel -recurse toe):
+exiftool -delete_original "$PWD"            Are you sure [y/n]?
+exiftool -delete_original! "$PWD"           No questions asked!
 
-# Terugzetten back-up (voeg eventueel -recurse toe):
+Terugzetten back-up (voeg eventueel -recurse toe):
 exiftool -restore_original "$PWD"
 
-# Datum-tijd notatie
-# ISO 8601 - Data elements and interchange formats – Information interchange –
-# Representation of dates and times
-#
-# Basic datum-tijd notatie is:
-# jjjjmmddTuummss[.sss]         # Timestamp (gebruik ik)
-# jjjj/jjjj                     # Tijdsduur, lastig met Linux filesysteem
-#
-# Extended datum-tijd notatie is:
-# jjjj-mm-ddTuu:mm:ss[.sss]     # Timestamp, lastig met FAT en NTFS
-# jjjj--jjjj                    # Tijdsduur (gebruik ik)
-#
-# jjjj                          # 2015
-# jjjj-mm                       # 2015-01
-# jjjj-mm-dd                    # 2015-01-01
-# jjjj--jjjj                    # 2015--2016        (2015 t/m 2016)
-# jjjj-mm--mm                   # 2015-01---02      (jan + feb 2015)
-# jjjj-mm--jjjj-mm              # 2015-01--2016-02  (jan 2015 t/m feb 2016)
-# jjjj-mm-dd--jjjj-mm-dd        # 2015-01-01--2016-Terminalv
+Datum-tijd notatie
+ISO 8601 - Data elements and interchange formats – Information interchange –
+Representation of dates and times
+
+Basic datum-tijd notatie is:
+jjjjmmddTuummss[.sss]         Timestamp (gebruik ik)
+jjjj/jjjj                     Tijdsduur, lastig met Linux filesysteem
+
+Extended datum-tijd notatie is:
+jjjj-mm-ddTuu:mm:ss[.sss]     Timestamp, lastig met FAT en NTFS
+jjjj--jjjj                    Tijdsduur (gebruik ik)
+
+jjjj                          2015
+jjjj-mm                       2015-01
+jjjj-mm-dd                    2015-01-01
+jjjj--jjjj                    2015--2016        (2015 t/m 2016)
+jjjj-mm--mm                   2015-01---02      (jan + feb 2015)
+jjjj-mm--jjjj-mm              2015-01--2016-02  (jan 2015 t/m feb 2016)
+jjjj-mm-dd--jjjj-mm-dd        2015-01-01--2016-Terminalv
 find "$PWD" -name '* [0-9][0-9][0-9][0-9] *' -print 2> /dev/null
 
 
-# ASCII-art
-# ---------
-# 0.
-lscpu
-# 1.
-sudo apt install neofetch
-neofetch
-# 2.
-sudo apt-get install screenfetch
-screenfetch
-# 3.
-cd
-git clone https://github.com/Dr-Noob/cpufetch
-cd cpufetch/
-make
-./cpufetch
+Up/downstream
+-------------
+              upstream              downstream
+              stroomopwaarts        stroomafwaarts
+CentOS Stream ~~~~~~~~~~~~~> RedHat ~~~~~~~~~~~~~> CentOS
+
+"upstream build"         "stable build"      "downstream buid"
+
+experimenteel ~~~~~~~~~~~~~> stabiel ~~~~~~~~~~~~> stabiel
+
+Upstream:   distributeur experimenteert met updates voordat die in een
+            stabiele release komen
+Downstream: patches en updates worden pas worden uitgerold nadat een
+            distributeur dat heeft gedaan
 
 
-# Up/downstream
-# -------------
-#               upstream              downstream
-#               stroomopwaarts        stroomafwaarts
-# CentOS Stream ~~~~~~~~~~~~~> RedHat ~~~~~~~~~~~~~> CentOS
-#
-# "upstream build"         "stable build"      "downstream buid"
-#
-# experimenteel ~~~~~~~~~~~~~> stabiel ~~~~~~~~~~~~> stabiel
-#
-# Upstream:   distributeur experimenteert met updates voordat die in een
-#             stabiele release komen
-# Downstream: patches en updates worden pas worden uitgerold nadat een
-#             distributeur dat heeft gedaan
+Indeling Xorg logbestand
+------------------------
+(--) probed
+(**) from config file
+(==) default setting
+(++) from command line
+(!!) notice
+(II) informational
+(WW) warning
+(EE) error
+(NI) not implemented
+(??) unknown
 
 
-# Draai GUI app als root
-# ----------------------
-# https://wiki.archlinux.org/title/Running_GUI_applications_as_root
-#
-# sudo gedit (Ubuntu 20.04)
-# Geen probleem.
-#
-# sudo gedit (Debian 10)
-# Unable to init server: Could not connect: Connection refused
-# Unable to init server: Kon niet verbinden: Verbinding is geweigerd
-#
-# (gedit:2349): Gtk-WARNING **: cannot open display: :0
-#
-# xauth list (Ubuntu 20.04)
-# pc06/unix:  MIT-MAGIC-COOKIE-1  f3...fe
-# #ffff#70633036#:  MIT-MAGIC-COOKIE-1  f3...fe
-#
-# xauth list (Debian 10)
-# xauth:  file /home/karel/.Xauthority does not exist
-#
-# xhost
-# access control enabled, only authorized clients can connect
-# SI:localuser:karel
-#
-# xhost +si:localuser:root
-# localuser:root being added to access control list
-#
-# xhost
-# access control enabled, only authorized clients can connect
-# SI:localuser:root     <=== !
-# SI:localuser:karel
-#
-# sudo gedit (Debian 10)
-# Geen probleem (meer).
-#
-# xhost -si:localuser:root
-# localuser:root being removed from access control list
-#
-# xhost:
-# access control enabled, only authorized clients can connect
-# SI:localuser:karel
+Git/GitHub
+----------
 
-
-# Indeling Xorg logbestand
-# ------------------------
-# (--) probed
-# (**) from config file
-# (==) default setting
-# (++) from command line
-# (!!) notice
-# (II) informational
-# (WW) warning
-# (EE) error
-# (NI) not implemented
-# (??) unknown
-
-
-# Git/GitHub
-# ----------
-#
-# Lokale git repo voor teksten of scripts....
+Lokale git repo voor teksten of scripts....
 sudo apt-get instal git git-gui qgit
 git config --global user.name "Karel Zimmer"
 git config --global user.email "info@karelzimmer.nl"
@@ -1998,94 +800,94 @@ git config --list
 mkdir article
 cd article
 git init
-# Aanmaken/wijzigen/verwijderen documenten.
+Aanmaken/wijzigen/verwijderen documenten.
 git add .
 git status
 git commit -m "Initial version of article"
 git commit --amend -m "First version of article"
-#
-# Remote git repo voor teksten of scripts (e.g. GitHub)....
-# Maak repo op website.
-# download:
+
+Remote git repo voor teksten of scripts (e.g. GitHub)....
+Maak repo op website.
+download:
 git clone https://github.com/karelzimmer/kzscripts.git ~/kzscripts
 git clone https://github.com/karelzimmer/Checklists.git ~/Documenten/Checklists
 git config --global user.name "Karel Zimmer"
 git config --global user.email "info@karelzimmer.nl"
-# Upload:
+Upload:
 git config --global credential.helper store
-# Hierna geen username/password meer nodig.
-# Terugdraaien:
-# git config --global --unset credential.helper
+Hierna geen username/password meer nodig.
+Terugdraaien:
+git config --global --unset credential.helper
 git push
 Username for 'https://github.com': USERNAME
 Password for 'https://USERNAME@github.com': PASSWORD
 
-# Git config levels and files
-# --local   # lokaal configuratiebestand in repo's .git directory: .git/config
-# --global  # globaal configuratiebestand in ~ /.gitconfig
-# --system  # systeem configuratiebestand in $(prefix)/etc/gitconfig
+Git config levels and files
+--local   lokaal configuratiebestand in repo's .git directory: .git/config
+--global  globaal configuratiebestand in ~ /.gitconfig
+--system  systeem configuratiebestand in $(prefix)/etc/gitconfig
 
-# Git Branching & Merging:
-# main                   # standard branch na 'git init'
-# -OF-
-# master                 # < oktober 2020, gewijzigd naar main ivm culturele
-                         # aspecten zoals master/slave
-# BRANCH                 # branch is in feite een verwijzing naar een
-                         # momentopname van je wijzigingen
-# HEAD                   # verwijst naar de huidige commit die je aan het
-                         # bekijken bent ("pointer")
+Git Branching & Merging:
+main                   standard branch na 'git init'
+-OF-
+master                 < oktober 2020, gewijzigd naar main ivm culturele
+                         aspecten zoals master/slave
+BRANCH                 branch is in feite een verwijzing naar een
+                         momentopname van je wijzigingen
+HEAD                   verwijst naar de huidige commit die je aan het
+                         bekijken bent ("pointer")
 
-git switch -c BRANCH     # --create en switch naar BRANCH (HEAD master ->
-# -OF-                   #   BRANCH)
-git branch BRANCH        # < Git 2.23 maak BRANCH
-git checkout BRANCH      # < Git 2.23 switch naar BRANCH
-git checkout -b BRANCH   # < Git 2.23 --branch, maak en switch naar BRANCH
+git switch -c BRANCH     --create en switch naar BRANCH (HEAD master ->
+-OF-                     BRANCH)
+git branch BRANCH        < Git 2.23 maak BRANCH
+git checkout BRANCH      < Git 2.23 switch naar BRANCH
+git checkout -b BRANCH   < Git 2.23 --branch, maak en switch naar BRANCH
 
-git branch BRANCH        # list active (*) and other branches
+git branch BRANCH        list active (*) and other branches
 
-git status               # Wijzigingen zijn zichtbaar in main & BRANCH
-git add .                # Wijzigingen zijn zichtbaar in main & BRANCH
-git commit -m MESSAGE    # Wijzigingen zijn zichtbaar alleen in BRANCH
+git status               Wijzigingen zijn zichtbaar in main & BRANCH
+git add .                Wijzigingen zijn zichtbaar in main & BRANCH
+git commit -m MESSAGE    Wijzigingen zijn zichtbaar alleen in BRANCH
 
-git switch main          # switch naar main (HEAD BRANCH -> main)
-# -OF-
-git checkout main        # < Git 2.23 switch naar main
+git switch main          switch naar main (HEAD BRANCH -> main)
+-OF-
+git checkout main        < Git 2.23 switch naar main
 
-git merge BRANCH       # maak main gelijk aan de BRANCH
-git branch -d BRANCH   # --delete BRANCH
+git merge BRANCH       maak main gelijk aan de BRANCH
+git branch -d BRANCH   --delete BRANCH
 
 git status
 git push
 
-# Git Branching & Merging voorbeeld:
+Git Branching & Merging voorbeeld:
 git switch dev
 git branch
-# * dev
-#   master
+* dev
+  master
 
-# Change files
+Change files
 git status
-# git restore FILE  # Undo changes
+git restore FILE  Undo changes
 git add .
-# git restore --staged FILE # Reverse add
+git restore --staged FILE Reverse add
 git commit -m 'File added'
 
 git switch main
 git branch
-#   dev
-# * main
+  dev
+* main
 
 git merge dev
 git push
 git branch -d dev
 
-# Informatie:
+Informatie:
 gitk
 
 git reflog
 
-git config --list                   # raadplegen
-git remote set-url origin NEW_URL   # wijzigen
+git config --list                   raadplegen
+git remote set-url origin NEW_URL   wijzigen
 
 git log
 git log -10
@@ -2093,235 +895,219 @@ git log --oneline
 
 git show SHA1
 
-git diff # working <-> staged
-git diff 'SHA1-A' 'SHA1-B' # log --oneline
+git diff working <-> staged
+git diff 'SHA1-A' 'SHA1-B' log --oneline
 
-# fatal: CRLF would be replaced by LF in file.txt
+fatal: CRLF would be replaced by LF in file.txt
 git config --global core.autocrlf false
 
-# Rename branch master to main
+Rename branch master to main
 git branch -m master main
 git fetch origin
 git branch -u origin/main main
 git remote set-head origin -a
 
-# Git-ignore
-vi .gitignore   # In root van de repo.
-# Verwijder FILE uit repo, maar houd hem in werkmap als ignored file.
+Git-ignore
+vi .gitignore   In root van de repo.
+Verwijder FILE uit repo, maar houd hem in werkmap als ignored file.
 git rm --cached FILE
 git rm -r --cached DIR
 
-# Persé lege dirs in repo? Doe in lege map voor de push:
+Persé lege dirs in repo? Doe in lege map voor de push:
 touch .gitignore
 
-# Meldingen over git pull en fast-forward?
+Meldingen over git pull en fast-forward?
 git pull
 git config pull.ff only
 git config --global pull.ff only
 git clean -d  -f .
 
 
-# Disable the BIOS/firmware update
-# --------------------------------
-sudo systemctl stop fwupd.service       # Stop the service
-sudo systemctl disable fwupd.service    # Disable automatic start upon boot
-sudo systemctl mask fwupd.service       # Disable manual invoking
+Disable the BIOS/firmware update
+--------------------------------
+sudo systemctl stop fwupd.service       Stop the service
+sudo systemctl disable fwupd.service    Disable automatic start upon boot
+sudo systemctl mask fwupd.service       Disable manual invoking
 
 
-# Visual Studio Code (vscode)
-# ---------------------------
-#
-# install:
-# --------
-# Registreer vscode:
+Visual Studio Code (vscode)
+---------------------------
+
+install:
+--------
+Registreer vscode:
 sudo update-alternatives --install /usr/bin/editor editor "$(which code)" 10
-# Muteer standaard editor:
+Muteer standaard editor:
 sudo update-alternatives --set editor "$(which code)"
-# Raadpleeg standaard editor:
+Raadpleeg standaard editor:
 sudo update-alternatives --display editor
 
-# setup:
-# ------
-# Raadpleet mime-type:
+setup:
+------
+Raadpleet mime-type:
 mimetype FILE
-# Muteer standaard editor:
+Muteer standaard editor:
 xdg-mime default code_code.desktop MIMETYPE
-# Raadpleeg standaard editor:
+Raadpleeg standaard editor:
 xdg-mime query default MIMETYPE
 
-# Voorbeeld shell-script:
+Voorbeeld shell-script:
 mimetype ~/bin/backup
-# /home/karel/bin/backup: application/x-shellscript
+/home/karel/bin/backup: application/x-shellscript
 xdg-mime default code_code.desktop application/x-shellscript
 xdg-mime query default application/x-shellscript
 
-# 1. Start Visual Studio Code.
-# 2. Ga naar File > Preferences > Settings (Ctrl+,).
-# 3. Zoek 'ruler'
-# 4. Klik op 'Text Editor'.
-# 5. Klik op 'Edit in settings.json'
-# 6. Klik op 'User' - tab).
-# 7. Voeg toe, of wijzig, tussen de { en }: "editor.rulers": [79]
-# 8. Sluit Settings.
-# 9. Installeer de volgende extensies:
-#    Code Runner
-#    HTML Preview
-#    Linux Desktop File Support
-#    Live Server
-#    Markdown Preview Enahnced
-#    ShellCheck
-#    TROFF Syntax
+1. Start Visual Studio Code.
+2. Ga naar File > Preferences > Settings (Ctrl+,).
+3. Zoek 'ruler'
+4. Klik op 'Text Editor'.
+5. Klik op 'Edit in settings.json'
+6. Klik op 'User' - tab).
+7. Voeg toe, of wijzig, tussen de { en }: "editor.rulers": [79]
+8. Sluit Settings.
+9. Installeer de volgende extensies:
+   Code Runner
+   HTML Preview
+   Linux Desktop File Support
+   Live Server
+   Markdown Preview Enahnced
+   ShellCheck
+   TROFF Syntax
 
 
-# Epoch <> DateTime
-# -----------------
+Epoch <> DateTime
+-----------------
 date +%s
-# 1639767205
+1639767205
 date -date @1639767205
-# vr 17 dec 2021 19:53:25 CET
+vr 17 dec 2021 19:53:25 CET
 
 
-# Pop!_OS dual-boot
-# -----------------
-# Start from Live distro
+Pop!_OS dual-boot
+-----------------
+Start from Live distro
 sudo apt install os-prober
 sudo os-prober
 sudo update-grub
 
 
-# Bulk rename dirs/files
-# ----------------------
-find . -name '*_*' -print -or -name '* *' -print | sort
-find . -name README.md -not -path './.*' -print
-
-sudo apt install detox
-detox -nr ./*           # dry-run recursively
-
-sudo apt install rename
-rename 's/ /-/g' ./* -n # Space2dash  dry-run (no recurse option)
-rename 's/_/-/g' ./* -n # Uscore2dash dry-run (no recurse option)
-
-rename 's/ /-/g' ./*    # Space2dash  rename (no recurse option)
-rename 's/_/-/g' ./*    # Uscore2dash rename (no recurse option)
-
-
-# Copy/move home-dirs including hidden (.) files
-# ----------------------------------------------
+Copy/move home-dirs including hidden (.) files
+----------------------------------------------
 shopt -s dotglob
 cp /home/USER-OLD/* /home/USER-NEW/*
 mv /home/USER-OLD/* /home/USER-NEW/*
 
 
-# APT-hardening
-# -------------
-# For third-party packages / Voor derde-partij pakketten source-lists of PPAs.
-# apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT
-# "Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d
-#  instead (see apt-key(8))"
-# Zie:
-# https://blog.cloudflare.com/dont-use-apt-key/
-# https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html
-#
-# De instructies om een apt-sleutel toe te voegen zijn vaak:
-# wget ... | sudo tee /etc/apt/trusted.gpg.d/...
-# -of-
-# wget ... | sudo apt-key add .. (toegevoegen aan /etc/apt/trusted.gpg)
-#
-# Zie voorbeelden hieronder, een voorbeeld met de gpg-sleutel opgenomen in
-# /etc/apt/trusted.gpg door 'apt-key add' en een voorbeeld met de sleutel in
-# /etc/apt/trusted.gpg.d, IST.
-#
-# Dit zijn vaak asc-sleutels (ASCII-armored keyrings, plain text format/
-# ASCII-gepantserde handtekening, platte tekst).
-# Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat
-# AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
-# Als één van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen
-# hebben voor andere repositories.
-#
-# Oplossing is om gpg-sleutels (GNU Privacy Guard public keyring file, binary
-# format./GNU Privacy Guard openbaar sleutelringbestand, binair formaat.) te
-# plaatsen op een andere plek, en deze plek opnemen in de source-list, zie
-# voorbeelden hieronder, SOLL.
-# Dan gaan we van ALLE sleutels voor ALLE respositories naar ÉÉN sleutel voor
-# ÉÉN repository.
-#
-# gpg-sleutels
-# Een OpenPGP sleutel kan bekeken worden met opdracht:
+APT-hardening
+-------------
+For third-party packages / Voor derde-partij pakketten source-lists of PPAs.
+apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT
+"Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d
+ instead (see apt-key(8))"
+Zie:
+https://blog.cloudflare.com/dont-use-apt-key/
+https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html
+
+De instructies om een apt-sleutel toe te voegen zijn vaak:
+wget ... | sudo tee /etc/apt/trusted.gpg.d/...
+-of-
+wget ... | sudo apt-key add .. (toegevoegen aan /etc/apt/trusted.gpg)
+
+Zie voorbeelden hieronder, een voorbeeld met de gpg-sleutel opgenomen in
+/etc/apt/trusted.gpg door 'apt-key add' en een voorbeeld met de sleutel in
+/etc/apt/trusted.gpg.d, IST.
+
+Dit zijn vaak asc-sleutels (ASCII-armored keyrings, plain text format/
+ASCII-gepantserde handtekening, platte tekst).
+Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat
+AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
+Als één van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen
+hebben voor andere repositories.
+
+Oplossing is om gpg-sleutels (GNU Privacy Guard public keyring file, binary
+format./GNU Privacy Guard openbaar sleutelringbestand, binair formaat.) te
+plaatsen op een andere plek, en deze plek opnemen in de source-list, zie
+voorbeelden hieronder, SOLL.
+Dan gaan we van ALLE sleutels voor ALLE respositories naar ÉÉN sleutel voor
+ÉÉN repository.
+
+gpg-sleutels
+Een OpenPGP sleutel kan bekeken worden met opdracht:
 file repo-key.gpg
-# Als de output is als 'repo-key.gpg: PGP public key block Public-Key (old)',
-# moet deze ascii-armored OpenPGP sleutel worden omgezet met de opdracht
+Als de output is als 'repo-key.gpg: PGP public key block Public-Key (old)',
+moet deze ascii-armored OpenPGP sleutel worden omgezet met de opdracht
 gpg --dearmor
-# Voorbeeld:
+Voorbeeld:
 wget --no-verbose --output-document=- \
 https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc |
 sudo gpg --dearmor --yes --output=/usr/share/keyrings/teamviewer.gpg
-#
-# ::::::::::::::
-# IST
-# ::::::::::::::
-# TeamViewer:
+
+::::::::::::::
+IST
+::::::::::::::
+TeamViewer:
 cat /etc/apt/sources.list.d/teamviewer.list
-# deb https://linux.teamviewer.com/deb stable main
+deb https://linux.teamviewer.com/deb stable main
 apt-key list
-# /etc/apt/trusted.gpg
-# --------------------
-# pub   rsa4096 2017-03-13 [SC]
-#       8CAE 012E BFAC 38B1 7A93  7CD8 C5E2 2450 0C12 89C0
-# uid           [onbekend] TeamViewer GmbH (TeamViewer Linux 2017) <support@...
-# sub   rsa4096 2017-03-13 [E]
-#
-# pub   rsa4096 2020-01-29 [SC]
-#       D2A5 FEB3 4881 60F0 28CC  1791 8DA8 4BE5 DEB4 9217
-# uid           [onbekend] TeamViewer Germany GmbH (TeamViewer Linux 2020) <...
-#
-# Google Chrome:
+/etc/apt/trusted.gpg
+--------------------
+pub   rsa4096 2017-03-13 [SC]
+      8CAE 012E BFAC 38B1 7A93  7CD8 C5E2 2450 0C12 89C0
+uid           [onbekend] TeamViewer GmbH (TeamViewer Linux 2017) <support@...
+sub   rsa4096 2017-03-13 [E]
+
+pub   rsa4096 2020-01-29 [SC]
+      D2A5 FEB3 4881 60F0 28CC  1791 8DA8 4BE5 DEB4 9217
+uid           [onbekend] TeamViewer Germany GmbH (TeamViewer Linux 2020) <...
+
+Google Chrome:
 cat /etc/apt/sources.list.d/google-chrome.list
-# deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
 apt-key list
-# /etc/apt/trusted.gpg.d/google-chrome.gpg
-# ----------------------------------------
-# pub   rsa4096 2016-04-12 [SC]
-#       EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
-# uid           [onbekend] Google Inc. (Linux Packages Signing Authority) <l...
-# sub   rsa4096 2019-07-22 [S] [vervaldatum: 2022-07-21]
-# sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
-#
-# ::::::::::::::
-# SOLL
-# ::::::::::::::
-# TeamViewer:
+/etc/apt/trusted.gpg.d/google-chrome.gpg
+----------------------------------------
+pub   rsa4096 2016-04-12 [SC]
+      EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
+uid           [onbekend] Google Inc. (Linux Packages Signing Authority) <l...
+sub   rsa4096 2019-07-22 [S] [vervaldatum: 2022-07-21]
+sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
+
+::::::::::::::
+SOLL
+::::::::::::::
+TeamViewer:
 cat /etc/apt/sources.list.d/teamviewer.list
-# deb [signed-by=/usr/share/keyrings/teamviewer.gpg] https://linux.teamviewe...
+deb [signed-by=/usr/share/keyrings/teamviewer.gpg] https://linux.teamviewe...
 apt-key list
-# /etc/apt/trusted.gpg
-# --------------------
-# <No keys for TeamViewer>
+/etc/apt/trusted.gpg
+--------------------
+<No keys for TeamViewer>
 file /usr/share/keyrings/teamviewer.gpg
-# PGP/GPG key public ring (v4) created...
-#
-# Google Chrome:
+PGP/GPG key public ring (v4) created...
+
+Google Chrome:
 cat /etc/apt/sources.list.d/google-chrome.list
-# deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome] https://dl.go...
+deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome] https://dl.go...
 apt-key list
-# /etc/apt/trusted.gpg
-# --------------------
-# <No keys for Google Chrome>
+/etc/apt/trusted.gpg
+--------------------
+<No keys for Google Chrome>
 file /usr/share/keyrings/google-chrome.gpg
-# PGP/GPG key public ring (v4) created...
-#
-# Irritant dat bij een reinstall/upgrade van Google Chrome alsnog de key
-# opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie
-# /var/lib/dpkg/info/google-chrome-stable.postinst.
+PGP/GPG key public ring (v4) created...
+
+Irritant dat bij een reinstall/upgrade van Google Chrome alsnog de key
+opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie
+/var/lib/dpkg/info/google-chrome-stable.postinst.
 
 
-# Ansible
-# -------
-#
-# Ansible lokaal gebruiken non-root
+Ansible
+-------
+
+Ansible lokaal gebruiken non-root
 ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
-# of
+of
 ssh-copy-id localhost
 ssh localhost
 
@@ -2337,7 +1123,7 @@ echo '---
       msg: "Hello World!"' > ~/ansible/hello-world.yml
 ansible-playbook -i inventory/localhost hello-world.yml
 
-# Ansible lokaal gebruiken root (enable root access)
+Ansible lokaal gebruiken root (enable root access)
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 sudo systemctl restart ssh
 
@@ -2345,12 +1131,12 @@ sudo passwd
 sudo ssh-keygen
 sudo ssh-copy-id root@localhost
 sudo ssh root@localhost
-# of
+of
 sudo ssh-copy-id localhost
 sudo ssh localhost
 
-# Alleen toegang via ssh-keys, geen wachtwoord toegang mogelijk.
-# Controleer eerst of 'ssh localhost' en 'sudo ssh root@localhost' werkt (disable password auth)!
+Alleen toegang via ssh-keys, geen wachtwoord toegang mogelijk.
+Controleer eerst of 'ssh localhost' en 'sudo ssh root@localhost' werkt (disable password auth)!
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 sudo systemctl restart ssh
 
@@ -2362,279 +1148,188 @@ echo '---
     debug:
       msg: "Hello World!"' > ~/ansible/hello-world-root.yml
 ansible-playbook -i inventory/localhost hello-world-root.yml -K
-# BECOME password: (-k: SSH password)
+BECOME password: (-k: SSH password)
 
-# Geen -K (BECOME PASSWORD opgeven) meer nodig.
+Geen -K (BECOME PASSWORD opgeven) meer nodig.
 sudo visudo /etc/sudoers
-# Allow members of group sudo to execute any command
-# %sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
+Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
 
 
-# Google Chrome extensies en apps automatisch installeren
-# -------------------------------------------------------
-# Ref https://support.google.com/chrome/a/answer/7517525?hl=nl
-#
-# Voeg json toe aan /etc/opt/chrome/policies/managed/.
-#
-# In het voorbeeld zie je hoe je het volgende doet:
-# Google Hangouts (nckgahadagoaajjgafhacjanaoiihapd) en
-# Google Keep (lpcaedmchfhocbbapmcbpinfpgnhiddi) automatisch installeren op
-# gebruikersapparaten.
-# Gebruikers toestaan Keep uit te schakelen (normal_installed), maar Hangouts
-# niet (force_installed).
-# Gebruikers toestaan Google Agenda (gmbgaklkmjakoegficnlkhebmhkjfich) te
-# installeren uit de Chrome Web Store (allowed).
-# Voorkomen dat gebruikers andere apps of extensies installeren (blocked).
-# {
-#   "ExtensionSettings": {
-#     "*": {
-#       "installation_mode": "blocked"
-#     },
-#     "nckgahadagoaajjgafhacjanaoiihapd": {
-#       "installation_mode": "force_installed",
-#       "update_url":
-#         "https://clients2.google.com/service/update2/crx"
-#     },
-#     "lpcaedmchfhocbbapmcbpinfpgnhiddi": {
-#       "installation_mode": "normal_installed",
-#       "update_url":
-#          "https://clients2.google.com/service/update2/crx"
-#     },
-#     "gmbgaklkmjakoegficnlkhebmhkjfich": {
-#       "installation_mode": "allowed"
-#     }
-#   }
-# }
-# AdGuard extensie ID               : bgnkhhnnamicmpeenaelnjfhikgbkllg
-# Bitwarden extensie  ID            : nngceckbapebfimnlniiiahkandclblb
-# Chrome Remote Desktop extensie ID : inomeogfingihgjfjlpeplalcfajhgai
-# Gnome-shell-integratie extensie ID: gphhapmejobijbbhgpjhcjognlahblep
-# Citrix Workspace app ID           : haiffjcadagjlijoggckpgfnoeiflnem
-#
-# Maakt starters aan:
+Google Chrome extensies en apps automatisch installeren
+-------------------------------------------------------
+Ref https://support.google.com/chrome/a/answer/7517525?hl=nl
+
+Voeg json toe aan /etc/opt/chrome/policies/managed/.
+
+In het voorbeeld zie je hoe je het volgende doet:
+Google Hangouts (nckgahadagoaajjgafhacjanaoiihapd) en
+Google Keep (lpcaedmchfhocbbapmcbpinfpgnhiddi) automatisch installeren op
+gebruikersapparaten.
+Gebruikers toestaan Keep uit te schakelen (normal_installed), maar Hangouts
+niet (force_installed).
+Gebruikers toestaan Google Agenda (gmbgaklkmjakoegficnlkhebmhkjfich) te
+installeren uit de Chrome Web Store (allowed).
+Voorkomen dat gebruikers andere apps of extensies installeren (blocked).
+{
+  "ExtensionSettings": {
+    "*": {
+      "installation_mode": "blocked"
+    },
+    "nckgahadagoaajjgafhacjanaoiihapd": {
+      "installation_mode": "force_installed",
+      "update_url":
+        "https://clients2.google.com/service/update2/crx"
+    },
+    "lpcaedmchfhocbbapmcbpinfpgnhiddi": {
+      "installation_mode": "normal_installed",
+      "update_url":
+         "https://clients2.google.com/service/update2/crx"
+    },
+    "gmbgaklkmjakoegficnlkhebmhkjfich": {
+      "installation_mode": "allowed"
+    }
+  }
+}
+AdGuard extensie ID               : bgnkhhnnamicmpeenaelnjfhikgbkllg
+Bitwarden extensie  ID            : nngceckbapebfimnlniiiahkandclblb
+Chrome Remote Desktop extensie ID : inomeogfingihgjfjlpeplalcfajhgai
+Gnome-shell-integratie extensie ID: gphhapmejobijbbhgpjhcjognlahblep
+Citrix Workspace app ID           : haiffjcadagjlijoggckpgfnoeiflnem
+
+Maakt starters aan:
 "$HOME"/.local/share/applications/chrome-ID-Default.desktop
 
-# Apps instellen na installatie
-# -----------------------------
 
-# Bitwarden (wachtwoordbeheer) instellen
-# Ingebruikname van Bitwarden bestaat uit de volgende stappen:
-# 1. Start Bitwarden.
-# 2. Maak een account aan met een sterk(!) Hoofdwachtwoord.
-# 3. Exporteer de opgeslagen wachtwoorden uit de bestaande wachtwoordbeheerder.
-# 4. Importeer de opgeslagen wachtwoorden in Bitwarden.
-# 5. Verwijder de uit de oude wachtwoordbeheerder geëxporteerde wachtwoorden.
-# 6. Verwijder de oude wachtwoordbeheerder.
-# -----------------------------------------------
-# Met het gebruik van Bitwarden wordt het opslaan
-# van wachtwoorden in de browser sterk afgeraden.
-# -----------------------------------------------
-# Dit betekent voor de browser:
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# 1. Stop het (automatisch) opslaan van wachtwoorden.
-# 2. Verwijder opgeslagen wachtwoorden.
-# 3. Voeg de Bitwarden-extensie toe.
-#
-# Voor Chrome betekent dit:
-# ~~~~~~~~~~~~~~~~~~~~~~~~~
-# 1. Stop het (automatisch) opslaan van wachtwoorden.
-#    1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account beheren.
-#    2. Klik aan de linkerkant op Beveiliging.
-#    3. Scroll naar beneden en klik op Wachtwoordmanager.
-#    4. Klik rechtsboven op tandwielsymbool.
-#    5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
-# 2. Verwijder opgeslagen wachtwoorden.
-#    1. Klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes)
-#    2. Klik op Instellingen.
-#    3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
-#    4. Klik op Geavanceerd (tab).
-#    5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op Gegevens wissen.
-# 3. Gebruik de Bitwarden-extensie.
-#    1. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
-#    2. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
-#       1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING op
-#          'Time-out van de kluis' en selecteer Nooit.
-#       2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
-#          Opties en vink aan Automatisch invullen bij laden van pagina.
-
-# Google Chrome (webbrowser) instellen
-# 1. Start Google Chrome.
-# 2. Indien nodig importeer Firefox bladwijzers via klik rechtsboven op
-#    Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes).
-# 3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
-# 4. Ga naar https://chrome.google.com/webstore/category/extensions
-# 5. Zoek naar gnome en klik op gnome-shell integration
-# 6. Klik op Gnome-shell-integratie
-# 7. Klik op Toev. aan Chrome.
-# 8. Klik op Extensie toevoegen.
-
-# Om standaard te mailen met Gmail en Google Chrome voer uit:
-# 1. Start Standaardtoepassingen.
-# 2. Kies bij E-mail voor Gnome Gmail.
-
-# Thunderbird (e-mail) instellen
-# Voeg de extenstie voor Google Agenda toe via:
-# 1. Start Thunderbird.
-# 2. Ga rechtsboven naar Het Thunderbird-menu weergeven ☰ (icoontje met drie streepjes) > Add-ons.
-# 3. Zoek 'Google Agenda'
-# 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
-# 5. Volg de aanwijzingen op het scherm.
-
-# Terminal (terminalvenster) instellen (altijd maximale grootte)
-# 1. Start Terminalvenster.
-# 2. Maximaliseer het Terminalvenster.
-# 3. Voer de volgende opdracht uit:
-#    echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
-# 4. Ga rechtsboven naar Menu ☰ (icoontje met drie streepjes) > Voorkeuren.
-# 5. Onder Profielen klik op Naamloos.
-# 6. Vul in achter Oorspronkelijke afmeting van de terminal:
-#    COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
-
-
-# AWK and its versions, some don't support long-option --field-separator
-# ----------------------------------------------------------------------
+AWK and its versions, some don't support long-option --field-separator
+----------------------------------------------------------------------
 file /etc/alternatives/awk
-# /usr/bin/awk
-# /usr/bin/mawk (awk -W help: only -F)
-# /usr/bin/nawk
-# /usr/bin/gawk
+/usr/bin/awk
+/usr/bin/mawk (awk -W help: only -F)
+/usr/bin/nawk
+/usr/bin/gawk
 
 
-# Firmware
-# --------
-# Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
-fwupdmgr get-devices
-
-# Uncomplicated FireWall (UFW)
-# ----------------------------
-# Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
+Firmware
+--------
+Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
 fwupdmgr get-devices
 
 
-# Live Persistent USB
-# -------------------
-# Slax
-# https://www.slax.org/starting.php
+Uncomplicated FireWall (UFW)
+----------------------------
+Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
+fwupdmgr get-devices
 
-# MAKEN
-# Download vanaf https://www.slax.org/?lang=es///en/download.php
-# Koppel iso aan
-# Plaats USB-stick
-# Formatteer USB stick als FAT
-# Kopieer map slax van iso naar USB-stick
-# In terminal ga naar USB-stick/slax/boot en voer uit:
-sudo bash bootinst.sh
 
-# GEBRUIKEN
-# computernaam: slax, gebruiker: root, wachtwoord: toor
-# Debian met FluxBox window manager.
-# Om kz.deb te kunnen installeren:
-apt update
-apt install sudo gpg lsb-release
-# Timezone klopt niet.
-# Traag!
+Live Persistent USB
+-------------------
+Debian
+https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-with-persistence
 
-# Debian
-# https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-with-persistence
-
-# MAKEN
-# Download image.
+MAKEN
+Download image.
 wget --output-document=/tmp/debian.iso https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current-live/amd64/iso-hybrid/debian-live-11.4.0-amd64-gnome+nonfree.iso
 
-# Controleer iso.
+Controleer iso.
 sha256sum /tmp/debian.iso
 
-# Replace strings.
-LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /' < /tmp/debian.iso > /tmp/debian-persist.iso
+Vervang strings.
+Comment insmod and play to prevent loud beep at boot (https://unix.stackexchange.com/questions/598240/debian-10-live-usb-loud-beep-at-boot)
+LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /;s/insmod play/#nsmod play/;s/play 960 440 1 0 4 440 1/#lay 960 440 1 0 4 440 1/' < /tmp/debian.iso > /tmp/debian-persist.iso
 
-# Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
+Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
 lsblk
 
-# Unmount mounted partities!
-sudo umount /dev/sdb1
+Unmount mounted partities!
+sudo umount /dev/sdbX
 
-# Kopieer naar USB-stick.
+Controleer alles unmounted.
+lsblk
+
+Kopieer naar USB-stick (kan even duren, ~15 minuten).
 sudo dd if=/tmp/debian-persist.iso of=/dev/sdb
 
-# Maak en formatteer 3e partitie.
+Maak en formatteer 3e partitie.
 sudo fdisk /dev/sdb <<<$'n\np\n\n\n\nw'
 sudo mkfs.ext4 -L persistence /dev/sdb3
 
-# Bereid persistentie voor met union.
+Bereid persistentie voor met union.
 sudo mount /dev/sdb3 /mnt
 echo '/ union' | sudo tee /mnt/persistence.conf
 sudo sync
 sudo umount /mnt
 
-# GEBRUIKEN
-# computernaam: debian, gebruiker: user, wachtwoord: <geen>
-# Debian met GNOME.
+GEBRUIKEN
+computernaam: debian, gebruiker: user, wachtwoord: <geen>
+Debian met GNOME.
 
-# Disable the BIOS/firmware update.
+Disable the BIOS/firmware update.
 sudo systemctl stop fwupd.service
 sudo systemctl disable fwupd.service
 sudo systemctl mask fwupd.service
 
 
-# Bootloader herstellen met Super Grub2 Disk
-# ------------------------------------------
-# MAKEN
-# Download image.
-# https://www.supergrubdisk.org/category/download/supergrub2diskdownload/super-grub2-disk-stable/
+Bootloader herstellen met Super Grub2 Disk
+------------------------------------------
+MAKEN
+Download image.
+https://www.supergrubdisk.org/category/download/supergrub2diskdownload/super-grub2-disk-stable/
 wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourceforge.net/project/supergrub2/2.04s1/super_grub2_disk_2.04s1/super_grub2_disk_hybrid_2.04s1.iso
 
-# Controleer iso.
+Controleer iso.
 sha256sum /tmp/super_grub2_disk.iso
 
-# Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
-# Start Schijven/Gnome Disks.
-# Selecteer de USB-stick in de lijst van schijven aan de linkerkant en
-# klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
-# Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
-# Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
+Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
+Start Schijven/Gnome Disks.
+Selecteer de USB-stick in de lijst van schijven aan de linkerkant en
+klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
+Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
+Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
 
-# GEBRUIKEN
-# Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
-# Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
-# Herinstalleer de bootloader na
+GEBRUIKEN
+Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
+Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
+Herinstalleer de bootloader na
 lsblk
-# als mountpoint / bij sda staat, met
+als mountpoint / bij sda staat, met
 sudo grub-install /dev/sda
-# Controleer of de computer nu correct boot, en Windows en Linux weer bruikbaar
-# zijn, zonder de Super Grub2 Disk.
+Controleer of de computer nu correct boot, en Windows en Linux weer bruikbaar
+zijn, zonder de Super Grub2 Disk.
 
-# Als Windows niet zichtbaar is in het GRUB boot menu is de work-around:
-# Voeg GRUB_DISABLE_OS_PROBER=false toe aan /etc/default/grub en voer uit
+Als Windows niet zichtbaar is in het GRUB boot menu is de work-around:
+Voeg GRUB_DISABLE_OS_PROBER=false toe aan /etc/default/grub en voer uit
 sudo update-grub
 
-# gpg
-# ---
+
+gpg
+---
 /usr/share/keyrings$ gpg --show-keys google-chrome.gpg 
-# gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg'
-# pub   dsa1024 2007-03-08 [SC]
-#       4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
-# uid                      Google, Inc. Linux Package Signing Key <linux-packages-keymaster@google.com>
-# sub   elg2048 2007-03-08 [E]
+gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg'
+pub   dsa1024 2007-03-08 [SC]
+      4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
+uid                      Google, Inc. Linux Package Signing Key <linux-packages-keymaster@google.com>
+sub   elg2048 2007-03-08 [E]
 
-# pub   rsa4096 2016-04-12 [SC]
-#       EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
-# uid                      Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>
-# sub   rsa4096 2016-04-12 [S] [verlopen op: 2019-04-12]
-# sub   rsa4096 2017-01-24 [S] [verlopen op: 2020-01-24]
-# sub   rsa4096 2019-07-22 [S] [verlopen op: 2022-07-21]
-# sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
+pub   rsa4096 2016-04-12 [SC]
+      EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
+uid                      Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>
+sub   rsa4096 2016-04-12 [S] [verlopen op: 2019-04-12]
+sub   rsa4096 2017-01-24 [S] [verlopen op: 2020-01-24]
+sub   rsa4096 2019-07-22 [S] [verlopen op: 2022-07-21]
+sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
 
-# To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
-# Make sure that the .gnupg directory and its contents is accessibile by your user.
+To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
+Make sure that the .gnupg directory and its contents is accessibile by your user.
 chown -R "$(whoami)" ~/.gnupg/
 
-# Also correct the permissions and access rights on the directory
+Also correct the permissions and access rights on the directory
 chmod 600 ~/.gnupg/*
 chmod 700 ~/.gnupg
 
 
-# mnt-nas.mount systemd service file
-# ----------------------------------
+mnt-nas.mount systemd service file
+----------------------------------
 /etc/systemd/system/mnt-nas.mount:
 [Mount]
 What=//<NAS_IP_ADRES>/<NAS_SHARENAAM>
@@ -2644,7 +1339,7 @@ Options=credentials=<NAS_LOGIN>,sec=ntlm,vers=1.0,rw,noperm,iocharset=utf8,dir_m
 
 [Install]
 WantedBy=multi-user.target"
-# ----------------------------------
+----------------------------------
 systemctl enable mnt-nas.mount
 systemctl start mnt-nas.mount
 systemctl daemon-reload 

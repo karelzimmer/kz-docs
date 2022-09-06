@@ -64,22 +64,26 @@ Dit betekent voor de browser:
 Voor Chrome betekent dit:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Stop het (automatisch) opslaan van wachtwoorden.
-   1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account beheren.
+   1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account
+      beheren.
    2. Klik aan de linkerkant op Beveiliging.
    3. Scroll naar beneden en klik op Wachtwoordmanager.
    4. Klik rechtsboven op tandwielsymbool.
-   5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
+   5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te
+      slaan' uit.
 2. Verwijder opgeslagen wachtwoorden.
-   1. Klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes)
+   1. Klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met
+      de drie puntjes)
    2. Klik op Instellingen.
    3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
    4. Klik op Geavanceerd (tab).
-   5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op Gegevens wissen.
+   5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op
+      Gegevens wissen.
 3. Gebruik de Bitwarden-extensie.
    1. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
    2. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
-      1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING op
-         'Time-out van de kluis' en selecteer Nooit.
+      1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING
+         op 'Time-out van de kluis' en selecteer Nooit.
       2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
          Opties en vink aan Automatisch invullen bij laden van pagina.
 
@@ -101,7 +105,8 @@ Om standaard te mailen met Gmail en Google Chrome voer uit:
 Thunderbird (e-mail) instellen
 Voeg de extenstie voor Google Agenda toe via:
 1. Start Thunderbird.
-2. Ga rechtsboven naar Het Thunderbird-menu weergeven ☰ (icoontje met drie streepjes) > Add-ons.
+2. Ga rechtsboven naar Het Thunderbird-menu weergeven ☰ (icoontje met drie
+   streepjes) > Add-ons.
 3. Zoek 'Google Agenda'
 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
 5. Volg de aanwijzingen op het scherm.
@@ -791,7 +796,6 @@ Indeling Xorg logbestand
 
 Git/GitHub
 ----------
-
 Lokale git repo voor teksten of scripts....
 sudo apt-get instal git git-gui qgit
 git config --global user.name "Karel Zimmer"
@@ -1102,7 +1106,6 @@ opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie
 
 Ansible
 -------
-
 Ansible lokaal gebruiken non-root
 ssh-keygen
 ssh-copy-id "$USER"@localhost
@@ -1216,12 +1219,6 @@ Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
 fwupdmgr get-devices
 
 
-Uncomplicated FireWall (UFW)
-----------------------------
-Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
-fwupdmgr get-devices
-
-
 Debian Live Persistent USB
 --------------------------
 https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-with-persistence
@@ -1309,19 +1306,21 @@ gpg
 gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg'
 pub   dsa1024 2007-03-08 [SC]
       4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
-uid                      Google, Inc. Linux Package Signing Key <linux-packages-keymaster@google.com>
+uid                      Google, Inc. Linux Package Signing Key <linux-packa...
 sub   elg2048 2007-03-08 [E]
 
 pub   rsa4096 2016-04-12 [SC]
       EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
-uid                      Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>
+uid                      Google Inc. (Linux Packages Signing Authority) <lin...
 sub   rsa4096 2016-04-12 [S] [verlopen op: 2019-04-12]
 sub   rsa4096 2017-01-24 [S] [verlopen op: 2020-01-24]
 sub   rsa4096 2019-07-22 [S] [verlopen op: 2022-07-21]
 sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
 
-To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
-Make sure that the .gnupg directory and its contents is accessibile by your user.
+To fix the " gpg: WARNING: unsafe permissions on homedir
+   '/home/path/to/user/.gnupg' " error
+Make sure that the .gnupg directory and its contents is accessibile by your
+user.
 chown -R "$(whoami)" ~/.gnupg/
 
 Also correct the permissions and access rights on the directory

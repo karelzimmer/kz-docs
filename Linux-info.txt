@@ -40,6 +40,67 @@ lsblk
 sudo cryptsetup luksAddKey /dev/sdaX
 
 
+Dual-boot met Windows
+---------------------
+VOORBEREIDEN
+Uitzetten Snel opstarten (Fast Startup):
+1. Windows-toets + R.
+2. Typ 'control' en klik op OK.
+3. Ga naar Systeem en beveiliging (System and Security).
+4. Klik op Energiebeheer (Power Options).
+5. In het linkerpaneel, klik op Het gedrag van de aan/uit knoppen bepalen
+   (Choose what the power buttons do).
+6. Klik op Instellingen wijzigen die momenteel niet beschikbaar zijn
+   (Change settings that are currently unavailable).
+7. Vink uit: Snel opstarten inschakelen (aanbevolen) (Turn on fast startup
+   (recommended)).
+8. Klik op Wijzigingen opslaan (Save changes).
+9. Sluit scherm Energiebeheer (Power Options).
+
+INSTALLEER
+Ubuntu of Debian GNU/Linux.
+
+HERSTELLEN
+Bootloader herstellen met Super Grub2 Disk
+------------------------------------------
+MAKEN
+Download image.
+https://www.supergrubdisk.org/category/download/supergrub2diskdownload/super-grub2-disk-stable/
+wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourceforge.net/project/supergrub2/2.04s1/super_grub2_disk_2.04s1/super_grub2_disk_hybrid_2.04s1.iso
+
+Controleer iso.
+sha256sum /tmp/super_grub2_disk.iso
+
+Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
+Start Schijven/Gnome Disks.
+Selecteer de USB-stick in de lijst van schijven aan de linkerkant en
+klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
+Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
+Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
+
+GEBRUIKEN
+Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
+Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
+Herinstalleer de bootloader na
+lsblk
+als mountpoint / bij sda staat, met
+sudo grub-install /dev/sda
+Controleer of de computer nu correct boot, en Windows en Linux weer bruikbaar
+zijn, zonder de Super Grub2 Disk.
+
+Als Windows niet zichtbaar is in het GRUB boot menu is de work-around:
+Voeg GRUB_DISABLE_OS_PROBER=false toe aan /etc/default/grub en voer uit
+sudo update-grub
+
+
+Pop!_OS dual-boot
+-----------------
+Start from Live distro
+sudo apt install os-prober
+sudo os-prober
+sudo update-grub
+
+
 Apps instellen na installatie
 -----------------------------
 
@@ -125,30 +186,6 @@ Terminal (terminalvenster) instellen (altijd maximale grootte)
 WiFi
 ----
 nmcli device wifi show-password
-
-
-Dual-boot met Windows
----------------------
-The easiest way to turn on Fast Startup is via the Control Panel's power
-settings. Here’s how to do it.
-
-Press Win + R to open Run.
-Type control and click OK to open the Control Panel.
-Go to System and Security and then click on Power Options.
-In the left pane, click on Choose what the power buttons do.
-Next, click the Change settings that are currently unavailable link.
-Under the Shutdown settings section, check the
-Turn on fast startup (recommended) option to turn on the feature.
-Uncheck the Turn on fast startup option to turn it off.
-Click Save changes to apply the changes.
-
-
-Pop!_OS dual-boot
------------------
-Start from Live distro
-sudo apt install os-prober
-sudo os-prober
-sudo update-grub
 
 
 Afmelden via command line
@@ -1273,38 +1310,6 @@ sudo systemctl disable fwupd.service
 sudo systemctl mask fwupd.service
 
 Verwijder starter Install Debian.
-
-
-Bootloader herstellen met Super Grub2 Disk
-------------------------------------------
-MAKEN
-Download image.
-https://www.supergrubdisk.org/category/download/supergrub2diskdownload/super-grub2-disk-stable/
-wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourceforge.net/project/supergrub2/2.04s1/super_grub2_disk_2.04s1/super_grub2_disk_hybrid_2.04s1.iso
-
-Controleer iso.
-sha256sum /tmp/super_grub2_disk.iso
-
-Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
-Start Schijven/Gnome Disks.
-Selecteer de USB-stick in de lijst van schijven aan de linkerkant en
-klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
-Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
-Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
-
-GEBRUIKEN
-Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
-Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
-Herinstalleer de bootloader na
-lsblk
-als mountpoint / bij sda staat, met
-sudo grub-install /dev/sda
-Controleer of de computer nu correct boot, en Windows en Linux weer bruikbaar
-zijn, zonder de Super Grub2 Disk.
-
-Als Windows niet zichtbaar is in het GRUB boot menu is de work-around:
-Voeg GRUB_DISABLE_OS_PROBER=false toe aan /etc/default/grub en voer uit
-sudo update-grub
 
 
 gpg

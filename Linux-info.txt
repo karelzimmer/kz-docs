@@ -127,13 +127,28 @@ WiFi
 nmcli device wifi show-password
 
 
-Update
-------
-sudo apt-get update
-sudo apt-get upgrade --yes
-sudo apt-get autoremove --yes
-if command -v snap 1> /dev/null; then sudo snap refresh; fi
-if [[ -f /var/run/reboot-required ]]; then echo REBOOT; fi
+Dual-boot met Windows
+---------------------
+The easiest way to turn on Fast Startup is via the Control Panel's power
+settings. Here’s how to do it.
+
+Press Win + R to open Run.
+Type control and click OK to open the Control Panel.
+Go to System and Security and then click on Power Options.
+In the left pane, click on Choose what the power buttons do.
+Next, click the Change settings that are currently unavailable link.
+Under the Shutdown settings section, check the
+Turn on fast startup (recommended) option to turn on the feature.
+Uncheck the Turn on fast startup option to turn it off.
+Click Save changes to apply the changes.
+
+
+Pop!_OS dual-boot
+-----------------
+Start from Live distro
+sudo apt install os-prober
+sudo os-prober
+sudo update-grub
 
 
 Afmelden via command line
@@ -985,14 +1000,6 @@ date +%s
 1639767205
 date -date @1639767205
 vr 17 dec 2021 19:53:25 CET
-
-
-Pop!_OS dual-boot
------------------
-Start from Live distro
-sudo apt install os-prober
-sudo os-prober
-sudo update-grub
 
 
 Copy/move home-dirs including hidden (.) files

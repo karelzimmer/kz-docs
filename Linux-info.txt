@@ -294,14 +294,13 @@ Zorg dat de helderheid van laptopscherm correct is bij het opstarten
 --------------------------------------------------------------------
 1. Zet helderheid op de gewenste waarde.
 2. Vraag helderheid op met:
-cat /sys/class/backlight/acpi_video0/brightness,
-   zeg dat hier N gemeld wordt.
-sudo -i
-gedit /etc/rc.local
-Voeg regel toe:
-echo N > /sys/class/backlight/acpi_video0/brightness
-exit
-NB Er kan ook een andere map staan in /sys/class/backlight/, bijv. radeon_bl0
+ls /sys/class/backlight/*/brightness
+   zeg: /sys/class/backlight/intel_backlight/brightness
+cat /sys/class/backlight/intel_backlight/brightness
+   zeg: 1900
+sudo vi /etc/rc.local
+   Voeg regel toe:
+echo 1900 > /sys/class/backlight/intel_backlight/brightness
 
 
 Grappige Linux-opdrachten

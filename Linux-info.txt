@@ -298,10 +298,13 @@ ls /sys/class/backlight/*/brightness
    zeg: /sys/class/backlight/intel_backlight/brightness
 cat /sys/class/backlight/intel_backlight/brightness
    zeg: 1900
+3. Leg gewenste helderheid vast:
 sudo vi /etc/rc.local
-   Voeg regel toe:
+   Voeg regels toe:
+#!/bin/sh
 echo 1900 > /sys/class/backlight/intel_backlight/brightness
-
+4. Zorg dat /etc/rc.local uitvoerbaar is:
+sudo chmod +x /etc/rc.local
 
 Grappige Linux-opdrachten
 -------------------------

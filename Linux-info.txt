@@ -7,11 +7,12 @@ shellcheck shell=bash
 ###############################################################################
 # RELEASE_YEAR=2010
 
-Als er voor versleutelen of Encrypteer systeem is gekozen (LUKS)
-----------------------------------------------------------------
+Versleuteling (LUKS)
+--------------------
 Om de harddisk te versleutelen, vink aan:
 De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
-LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt.
+LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of
+vink aan Encrypteer systeem (Debian).
 
 Daarna:
 1. Gebruiker automatisch aanmelden.
@@ -19,9 +20,8 @@ Daarna:
 3. LUKS-wachtwoord toevoegen.
 
 1. Gebruiker automatisch aanmelden.
-Voeg eventuele extra Standaard of Beheerder gebruikers toe via een druk op
-de Super-toets, typ gebr en klik achter Instellingen op Gebruikers.
-Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
+Druk op de Super-toets, typ gebr en klik achter Instellingen op Gebruikers.
+Klik op Ontgrendelen en zet daarna Automatisch aanmelden met het schuifje aan.
 
 2. De aanmeldsleutelbos werd niet automatisch ontgrendeld bij uw aanmelding.
    1. Start Wachtwoorden en sleutels.
@@ -31,8 +31,6 @@ Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
       3. Geef het oude wachtwoord op en klik op Doorgaan.
       4. Geef als nieuw wachtwoord tweemaal niets op en klik op Doorgaan.
   3. Sluit Wachtwoorden en sleutels af.
-Security-issue speelt niet/minder als tijdens de installatie gekozen is voor
-"De nieuwe installatie van Ubuntu versleutelen voor de veiligheid" (LUKS).
 
 3. LUKS-wachtwoord toevoegen.
 Bepaal welke partitie LUKS bevat:

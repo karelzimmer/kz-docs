@@ -16,7 +16,7 @@ LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt.
 Daarna:
 1. Gebruiker automatisch aanmelden.
 2. Wachtwoord verwijderen sleutelbossen.
-3. Extra LUKS-wachtwoord toevoegen.
+3. LUKS-wachtwoord toevoegen.
 
 1. Gebruiker automatisch aanmelden.
 Voeg eventuele extra Standaard of Beheerder gebruikers toe via een druk op
@@ -34,10 +34,11 @@ Klik op Ontgrendelen en daarna op Gebruiker toevoegen.
 Security-issue speelt niet/minder als tijdens de installatie gekozen is voor
 "De nieuwe installatie van Ubuntu versleutelen voor de veiligheid" (LUKS).
 
-3. Extra LUKS-wachtwoord toevoegen.
+3. LUKS-wachtwoord toevoegen.
 Bepaal welke partitie LUKS bevat:
 lsblk
-sudo cryptsetup luksAddKey /dev/sdaX
+Voeg LUKS-wachtwoord toe:
+sudo cryptsetup luksAddKey /dev/sdXY (bijvoorbeeld: sdb1)
 
 
 Dual-boot met Windows
@@ -264,7 +265,7 @@ Klaar.
 MAC address spoofing
 --------------------
 ip link show INTERFACE  INTERFACE zie iwlist scan
-   voorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
+   bijvoorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
 ip link set dev INTERFACE down
 ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
 ip link set dev INTERFACE up
@@ -451,36 +452,45 @@ for i in *.jpg; do echo "Processing $i"; exiftool -all= "$i"; done
 
 LUKS - Ondersteuning voor schijfversleuteling
 ---------------------------------------------
-Bepaal welke partitie LUKS bevat, voorbeeld:
 lsblk
+Bepaal welke partitie LUKS bevat.
+Voorbeeld 1:
+...
 sda                     8:0    0 232,9G  0 disk
 ├─sda1                  8:1    0   512M  0 part  /boot/efi
 ├─sda2                  8:2    0   732M  0 part  /boot
 └─sda3                  8:3    0 231,7G  0 part
   └─sda3_crypt        253:0    0 231,7G  0 crypt
-    ├─vgubuntu-root   253:1    0 230,7G  0 lvm   /
-    └─vgubuntu-swap_1 253:2    0   976M  0 lvm   [SWAP]
-In bovenstaand geval dus /dev/sda3.
+...
+In bovenstaand geval dus /dev/sdXY.
+
+Voorbeeld 2:
+...
+sdb                                             8:16   0 232,9G  0 disk  
+└─sdb1                                          8:17   0 231,9G  0 part  
+  └─luks-a805d665-da6b-4872-8370-1ae4eb0bfc53 253:3    0 231,9G  0 crypt
+...
+In bovenstaand geval dus /dev/sdb1.
 
 Om een LUKS-wachtwoord toe te voegen, start Terminalvenster en typ, of
 kopieer en plak:
-sudo cryptsetup luksAddKey /dev/sda3
+sudo cryptsetup luksAddKey /dev/sdXY
 
 Om een LUKS-wachtwoord aan te passen, start Terminalvenster en typ, of
 kopieer en plak:
-sudo cryptsetup luksChangeKey /dev/sda3
+sudo cryptsetup luksChangeKey /dev/sdXY
 
 Voor het aantal LUKS-wachtwoorden, start Terminalvenster en typ, of kopieer
 en plak:
-sudo cryptsetup luksDump /dev/sda3
+sudo cryptsetup luksDump /dev/sdXY
 
 Om een LUKS-wachtwoord te verwijderen, start Terminalvenster en typ, of
 kopieer en plak:
-sudo cryptsetup luksRemoveKey /dev/sda3
+sudo cryptsetup luksRemoveKey /dev/sdXY
 
 Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het
 wachtwoord van slot 1, voer dan uit:
-sudo cryptsetup luksKillSlot /dev/sda3 0
+sudo cryptsetup luksKillSlot /dev/sdXY 0
 
 #-OF-
 

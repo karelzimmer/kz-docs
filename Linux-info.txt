@@ -44,18 +44,26 @@ Dual-boot met Windows
 ---------------------
 VOORBEREIDEN
 Uitzetten Snel opstarten (Fast Startup):
-1. Windows-toets + R.
-2. Typ 'control' en klik op OK.
-3. Ga naar Systeem en beveiliging (System and Security).
-4. Klik op Energiebeheer (Power Options).
-5. In het linkerpaneel, klik op Het gedrag van de aan/uit knoppen bepalen
+1. Druk op de Windows-toets, typ 'energie' en klik op Energiebeheer
+   (Power Options).
+2. In het linkerpaneel, klik op Het gedrag van de aan/uit knoppen bepalen
    (Choose what the power buttons do).
-6. Klik op Instellingen wijzigen die momenteel niet beschikbaar zijn
+3. Klik op Instellingen wijzigen die momenteel niet beschikbaar zijn
    (Change settings that are currently unavailable).
-7. Vink uit: Snel opstarten inschakelen (aanbevolen) (Turn on fast startup
+4. Vink uit: Snel opstarten inschakelen (aanbevolen) (Turn on fast startup
    (recommended)).
-8. Klik op Wijzigingen opslaan (Save changes).
-9. Sluit scherm Energiebeheer (Power Options).
+5. Klik op Wijzigingen opslaan (Save changes).
+6. Sluit scherm Energiebeheer (Power Options).
+
+Uitzetten Apparaatversleuteling (BitLocker):
+1. Druk op de Windows-toets, typ 'bitlocker' en klik op Instellingen voor
+   apparaatversleuteling (BitLocker Drive Encryption).
+2. Achter Apparaatversleuteling (BitLocker Drive Encryption) zet schuifje op
+   Uit (Off).
+3. Op het scherm Apparaatversleuteling uitschakelen (BitLocker Drive
+   Encryption) klik op Uitschakelen (Turn off BitLocker).
+4. Sluit scherm Instellingen voor apparaatversleuteling (BitLocker Drive
+   Encryption).
 
 INSTALLEER
 Ubuntu of Debian GNU/Linux.
@@ -206,12 +214,13 @@ Boot/recovery menu
 BIOS: Shift-toets ingedrukt houden
 UEFI: Esc-toets meerdere malen indrukken
 
+
 VM
 --
 sudo apt-get install --yes spice-vdagent && sudo reboot
 
 
-shell script SCRIPT debuggen
+Shell script SCRIPT debuggen
 ----------------------------
 bash -vx ./SCRIPT
                       v = verbose (elke invoerregel tonen)
@@ -261,7 +270,7 @@ ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
 ip link set dev INTERFACE up
 
 
-boot-repair (ook vanaf live-CD)
+Boot-repair (ook vanaf live-CD)
 -------------------------------
 sudo add-apt-repository ppa:yannubuntu/boot-repair
 sudo apt-get update
@@ -305,6 +314,7 @@ sudo vi /etc/rc.local
 echo 1900 > /sys/class/backlight/intel_backlight/brightness
 4. Zorg dat /etc/rc.local uitvoerbaar is:
 sudo chmod +x /etc/rc.local
+
 
 Grappige Linux-opdrachten
 -------------------------

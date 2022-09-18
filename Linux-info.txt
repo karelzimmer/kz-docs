@@ -9,10 +9,14 @@ shellcheck shell=bash
 
 Versleuteling (LUKS)
 --------------------
-Om de harddisk te versleutelen, vink aan:
+Om de harddisk te versleutelen, vink aan tijdens het installeren:
 De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
 LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of
 vink aan Encrypteer systeem (Debian).
+Of na het installeren met ecryptfs-utils cryptsetup, zie o.a:
+https://www.howtogeek.com/116032/how-to-encrypt-your-home-folder-after-installing-ubuntu/
+en
+https://jumpcloud.com/blog/how-to-encrypt-ubuntu-20-04-desktop-post-installation
 
 Daarna:
 1. Gebruiker automatisch aanmelden.
@@ -36,7 +40,7 @@ Klik op Ontgrendelen en zet daarna Automatisch aanmelden met het schuifje aan.
 Bepaal welke partitie LUKS bevat:
 lsblk
 Voeg LUKS-wachtwoord toe:
-sudo cryptsetup luksAddKey /dev/sdXY (bijvoorbeeld: sdb1)
+sudo cryptsetup luksAddKey /dev/sdXY (bijvoorbeeld: /dev/sdb1)
 
 
 Dual-boot met Windows

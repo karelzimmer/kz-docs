@@ -204,67 +204,15 @@ Ubuntu Pro
 ----------
 https://discourse.ubuntu.com/c/ubuntu-pro/
 https://ubuntu.com/pro
+
 pro --version
-# 27.11.2~22.04.1
 pro security-status
-# 2250 packages installed:
-#      1873 packages from Ubuntu Main/Restricted repository
-#      368 packages from Ubuntu Universe/Multiverse repository
-#      5 packages from third parties
-#      4 packages no longer available for download
-
-# To get more information about the packages, run
-#     pro security-status --help
-# for a list of available options.
-
-# This machine is not attached to an Ubuntu Pro subscription.
-
-# Main/Restricted packages receive updates with LTS until 2027.
-
-# Try Ubuntu Pro beta with a free personal subscription on up to 5 machines.
-# Learn more at https://ubuntu.com/pro
 sudo pro attach [YOUR_TOKEN]
-# Enabling default service esm-infra
-# Updating package lists
-# Ubuntu Pro: ESM Infra enabled
-# Enabling default service livepatch
-# Installing canonical-livepatch snap
-# Canonical livepatch enabled.
-# Unable to determine current instance-id
-# This machine is now attached to 'Ubuntu Pro - free personal subscription'
-
-# SERVICE          ENTITLED  STATUS    DESCRIPTION
-# esm-infra        yes       enabled   Expanded Security Maintenance for Infrastructure
-# livepatch        yes       enabled   Canonical Livepatch service
-
-# NOTICES
-# Operation in progress: pro attach
-
-# Enable services with: pro enable <service>
-
-#      Account: karel.zimmer@gmail.com
-# Subscription: Ubuntu Pro - free personal subscription
 sudo pro enable esm-apps --beta
-# One moment, checking your subscription first
-# Updating package lists
-# Ubuntu Pro: ESM Apps enabled
-apt list --upgradable | grep apps-security 
 sudo apt-get update
 sudo apt upgrade
 sudo pro enable usg
-# One moment, checking your subscription first
-# Ubuntu Security Guide is not available for Ubuntu 22.04 LTS (Jammy Jellyfish).
 sudo pro status
-# SERVICE          ENTITLED  STATUS    DESCRIPTION
-# esm-apps         yes       enabled   Expanded Security Maintenance for Applications
-# esm-infra        yes       enabled   Expanded Security Maintenance for Infrastructure
-# livepatch        yes       enabled   Canonical Livepatch service
-
-# Enable services with: pro enable <service>
-
-#      Account: [{]YOUR_ACCOUNT]
-# Subscription: Ubuntu Pro - free personal subscription
-
 
 
 Afmelden via command line

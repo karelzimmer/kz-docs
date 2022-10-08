@@ -1,5 +1,3 @@
-#!/usr/bin/bash
-shellcheck shell=bash
 ###############################################################################
 # Tekstbestand met Linux opdrachten en informatie.
 #
@@ -205,6 +203,7 @@ Ubuntu Pro
 https://discourse.ubuntu.com/c/ubuntu-pro/
 https://ubuntu.com/pro
 
+KOPPELEN
 pro --version
 pro security-status
 sudo pro attach [YOUR_TOKEN]
@@ -212,7 +211,12 @@ sudo pro enable esm-apps --beta
 sudo apt-get update
 sudo apt upgrade
 sudo pro enable usg
-sudo pro status
+pro status
+
+canonical-livepatch status
+
+ONTKOPPELEN
+sudo pro detach
 
 
 Afmelden via command line

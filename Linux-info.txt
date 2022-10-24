@@ -1202,6 +1202,9 @@ of
 ssh-copy-id localhost
 ssh localhost
 
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+
 echo 'localhost' > ~/ansible/inventory/localhost
 ansible-inventory --inventory ~/ansible/inventory/localhost --list
 ansible localhost -a 'echo Hello World!'

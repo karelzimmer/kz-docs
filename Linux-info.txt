@@ -81,15 +81,15 @@ wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourcefor
 Controleer iso.
 sha256sum /tmp/super_grub2_disk.iso
 
-Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
+Plaats usb-stick, hier /dev/sdb, controleer met lsblk!
 Start Schijven/Gnome Disks.
-Selecteer de USB-stick in de lijst van schijven aan de linkerkant en
+Selecteer de usb-stick in de lijst van schijven aan de linkerkant en
 klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
 Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
 Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
 
 GEBRUIKEN
-Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
+Herstart de computer vanaf de usb-stick en kies de optie 'Detect en show boot methods'.
 Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
 Herinstalleer de bootloader na
 lsblk
@@ -554,7 +554,7 @@ sudo visudo /etc/sudoers.d/student
 man sudoers
 
 
-Interne USB-device uitschakelen
+Interne usb-device uitschakelen
 -------------------------------
 Hier als voorbeeld een Bluetooth-module:
 sudo lsusb -v | grep -i blue
@@ -1325,7 +1325,7 @@ Vervang strings.
 Comment insmod and play to prevent loud beep at boot (https://unix.stackexchange.com/questions/598240/debian-10-live-usb-loud-beep-at-boot)
 LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /;s/insmod play/#nsmod play/;s/play 960 440 1 0 4 440 1/#lay 960 440 1 0 4 440 1/' < /tmp/debian.iso > /tmp/debian-persist.iso
 
-Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
+Plaats usb-stick, hier /dev/sdb, controleer met lsblk!
 lsblk
 
 Unmount mounted partities!
@@ -1334,7 +1334,7 @@ sudo umount /dev/sdbX
 Controleer alles unmounted.
 lsblk
 
-Kopieer naar USB-stick (kan even duren, ~15 minuten).
+Kopieer naar usb-stick (kan even duren, ~15 minuten).
 sudo dd if=/tmp/debian-persist.iso of=/dev/sdb
 
 Maak en formatteer 3e partitie.

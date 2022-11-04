@@ -293,7 +293,7 @@ ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
 ip link set dev INTERFACE up
 
 
-Boot-repair (ook vanaf live-CD)
+Boot-repair (ook vanaf live-cd)
 -------------------------------
 sudo add-apt-repository ppa:yannubuntu/boot-repair
 sudo apt-get update

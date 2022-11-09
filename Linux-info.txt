@@ -243,6 +243,14 @@ VM
 sudo apt-get install --yes spice-vdagent && sudo reboot
 
 
+debconf
+-------
+debconf-show --listowners
+sudo debconf-show <pakketnaam>
+echo 'virtualbox-ext-pack virtualbox-ext-pack/license select true' |
+   sudo tee debconf-set-selections
+
+
 Shell script SCRIPT debuggen
 ----------------------------
 bash -vx ./SCRIPT

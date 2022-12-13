@@ -1419,3 +1419,11 @@ systemctl start mnt-nas.mount
 systemctl daemon-reload 
 
 sudo systemctl disable mnt-nas.mount
+
+
+Lynis (CISOfy)
+--------------
+git clone https://github.com/CISOfy/lynis
+cd lynis
+./lynis audit system
+sudo ./lynis audit system

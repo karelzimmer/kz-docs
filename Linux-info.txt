@@ -914,11 +914,11 @@ git status
 git commit -m "Initial version of article"
 git commit --amend -m "First version of article"
 
-Remote git repo voor teksten of scripts (e.g. GitHub)....
+Remote git repo voor documenten of scripts, e.g. GitHub....
 Maak repo op website.
 download:
-git clone https://github.com/karelzimmer/kzscripts.git ~/kzscripts
-git clone https://github.com/karelzimmer/Checklists.git ~/Documenten/Checklists
+git clone https://github.com/karelzimmer/kz-docs.git ~
+git clone https://github.com/karelzimmer/kz-scripts.git ~
 git config --global user.name 'Karel Zimmer'
 git config --global user.email 'karel.zimmer@gmail.com'
 Upload:
@@ -1423,6 +1423,7 @@ sudo systemctl disable mnt-nas.mount
 
 Lynis (CISOfy)
 --------------
+cd
 git clone https://github.com/CISOfy/lynis
 cd lynis
 ./lynis audit system

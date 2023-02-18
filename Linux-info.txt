@@ -62,7 +62,15 @@ git branch BRANCH        < Git 2.23 maak BRANCH
 git checkout BRANCH      < Git 2.23 switch naar BRANCH
 git checkout -b BRANCH   < Git 2.23 --branch, maak en switch naar BRANCH
 
-git branch BRANCH        list active (*) and other branches
+git branch               list active (*) and other branches
+
+Some suggestions for naming your feature branches:
+users/username/description
+users/username/workitem
+bugfix/description
+feature/feature-name
+feature/feature-area/feature-name
+hotfix/description
 
 git status               Wijzigingen zijn zichtbaar in main & BRANCH
 git add .                Wijzigingen zijn zichtbaar in main & BRANCH

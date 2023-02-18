@@ -1045,9 +1045,9 @@ cd ~/scripts || exit
 mkdir --parents nl/LC_MESSAGES
 
 # Maak POT bestand (Portable Object Template) aan, 1-keer, daarna TOEVOEGEN:
-# xgettext --language=Shell --output=helloworld.pot helloworld.sh
+# xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
 # of: 
-# xgettext --language=Python --output=helloworld.pot helloworld.py
+# xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
 # TOEVOEGEN:
 xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
 # of: 

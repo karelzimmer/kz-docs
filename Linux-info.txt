@@ -1044,17 +1044,19 @@ Gettext .pot/.po/.mo files
 cd ~/scripts || exit
 mkdir --parents nl/LC_MESSAGES
 
-# Maak POT bestand (Portable Object Template) aan, eerste keer:
-xgettext --language=Shell --output=helloworld.pot helloworld.sh
-xgettext --language=Python --output=helloworld.pot helloworld.py
-# Herhalen:
+# Maak POT bestand (Portable Object Template) aan, 1-keer, daarna TOEVOEGEN:
+# xgettext --language=Shell --output=helloworld.pot helloworld.sh
+# of: 
+# xgettext --language=Python --output=helloworld.pot helloworld.py
+# TOEVOEGEN:
 xgettext --language=Shell --join-existing --output=helloworld.pot helloworld.sh
+# of: 
 xgettext --language=Python --join-existing --output=helloworld.pot helloworld.py
 
 # Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
-msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
+# msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
 # TOEVOEGEN:
-msgmerge --update nl/LC_MESSAGES/helloworld.po helloworld.pot
+msgmerge --update --previous nl/LC_MESSAGES/helloworld.po helloworld.pot
 
 # Wijzig 1-malig het PO bestand:
 # Content-Type: text/plain; charset=UTF-8\n" <== UTF-8

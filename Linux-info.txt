@@ -1049,14 +1049,14 @@ mkdir --parents nl/LC_MESSAGES
 # of: 
 # xgettext --language=Python --output=helloworld.pot helloworld.py
 # TOEVOEGEN:
-xgettext --language=Shell --join-existing --output=helloworld.pot helloworld.sh
+xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
 # of: 
-xgettext --language=Python --join-existing --output=helloworld.pot helloworld.py
+xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
 
 # Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
 # msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
 # TOEVOEGEN:
-msgmerge --update --previous nl/LC_MESSAGES/helloworld.po helloworld.pot
+msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po helloworld.pot
 
 # Wijzig 1-malig het PO bestand:
 # Content-Type: text/plain; charset=UTF-8\n" <== UTF-8

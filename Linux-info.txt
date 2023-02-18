@@ -908,6 +908,7 @@ git config --list
 mkdir article
 cd article
 git init
+
 Aanmaken/wijzigen/verwijderen documenten.
 git add .
 git status
@@ -921,9 +922,11 @@ git clone https://github.com/karelzimmer/kz-docs.git ~
 git clone https://github.com/karelzimmer/kz-scripts.git ~
 git config --global user.name 'Karel Zimmer'
 git config --global user.email 'karel.zimmer@gmail.com'
+
 Upload:
 git config --global credential.helper store
 Hierna geen username/password meer nodig.
+
 Terugdraaien:
 git config --global --unset credential.helper
 git push
@@ -945,6 +948,7 @@ BRANCH                 branch is in feite een verwijzing naar een
 HEAD                   verwijst naar de huidige commit die je aan het
                          bekijken bent ("pointer")
 
+git switch BRANCH        switch naar BRANCH (HEAD master -> BRANCH)
 git switch -c BRANCH     --create en switch naar BRANCH (HEAD master ->
 -OF-                     BRANCH)
 git branch BRANCH        < Git 2.23 maak BRANCH
@@ -1029,6 +1033,74 @@ git pull
 git config pull.ff only
 git config --global pull.ff only
 git clean -d  -f .
+
+
+Gettext .pot/.po/.mo files
+--------------------------
+# WERKWIJZE
+# ---------
+# sudo apt install gettext
+
+cd ~/scripts || exit
+mkdir --parents nl/LC_MESSAGES
+
+# Maak POT bestand (Portable Object Template) aan, eerste keer:
+xgettext --language=Shell --output=/tmp/helloworld.pot helloworld.sh
+xgettext --language=Python --output=/tmp/helloworld.pot helloworld.py
+# Herhalen:
+xgettext --language=Shell --join-existing --output=/tmp/helloworld.pot helloworld.sh
+xgettext --language=Python --join-existing --output=/tmp/helloworld.pot helloworld.py
+
+# Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
+msginit --locale=nl --input=/tmp/helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
+# TOEVOEGEN:
+msgmerge --update nl/LC_MESSAGES/helloworld.po /tmp/helloworld.pot
+
+# Wijzig 1-malig het PO bestand:
+# Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
+# PACKAGE -> helloworld
+# VERSION -> 0.1
+
+# Wijzig als vertaler het PO bestand:
+# msgid "Hello world!"
+# msgstr "" --> "Hallo wereld!"
+# Etc.
+
+# Maak MO bestand (Machine Object) aan na iedere wijziging in .po:
+msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
+# Wordt gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
+# ├── helloworld.sh
+# ├── nl
+# │   └── LC_MESSAGES
+# │       ├── helloworld.mo
+# │       ├── helloworld.po
+# Voor systeem:
+sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
+sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo 
+# N.B. Ik gebruik /tmp als locatie voor .pot omdat ik alleen voor nl vertaal.
+
+# Vind duplicates in PO bestand:
+msguniq --repeated nl/LC_MESSAGES/helloworld.po
+
+# Combineer PO bestanden:
+msgcat --repeated File1.po File2.po --output-file=File3.po
+
+# TESTEN
+# ------
+echo "$LANGUAGE"
+# nl:en
+# LANGUAGE=nl
+
+./helloworld.sh 
+# Programmanaam: ./helloworld.sh
+#
+# Hallo wereld!
+
+LANGUAGE=en
+./helloworld.sh 
+# Program name: ./helloworld.sh
+#
+# Hello world!
 
 
 Disable the BIOS/firmware update

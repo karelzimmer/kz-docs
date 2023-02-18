@@ -1045,16 +1045,16 @@ cd ~/scripts || exit
 mkdir --parents nl/LC_MESSAGES
 
 # Maak POT bestand (Portable Object Template) aan, eerste keer:
-xgettext --language=Shell --output=/tmp/helloworld.pot helloworld.sh
-xgettext --language=Python --output=/tmp/helloworld.pot helloworld.py
+xgettext --language=Shell --output=helloworld.pot helloworld.sh
+xgettext --language=Python --output=helloworld.pot helloworld.py
 # Herhalen:
-xgettext --language=Shell --join-existing --output=/tmp/helloworld.pot helloworld.sh
-xgettext --language=Python --join-existing --output=/tmp/helloworld.pot helloworld.py
+xgettext --language=Shell --join-existing --output=helloworld.pot helloworld.sh
+xgettext --language=Python --join-existing --output=helloworld.pot helloworld.py
 
 # Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
-msginit --locale=nl --input=/tmp/helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
+msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
 # TOEVOEGEN:
-msgmerge --update nl/LC_MESSAGES/helloworld.po /tmp/helloworld.pot
+msgmerge --update nl/LC_MESSAGES/helloworld.po helloworld.pot
 
 # Wijzig 1-malig het PO bestand:
 # Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
@@ -1069,6 +1069,7 @@ msgmerge --update nl/LC_MESSAGES/helloworld.po /tmp/helloworld.pot
 # Maak MO bestand (Machine Object) aan na iedere wijziging in .po:
 msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 # Wordt gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
+# ├── helloworld.pot
 # ├── helloworld.sh
 # ├── nl
 # │   └── LC_MESSAGES
@@ -1077,7 +1078,6 @@ msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 # Voor systeem:
 sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
 sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo 
-# N.B. Ik gebruik /tmp als locatie voor .pot omdat ik alleen voor nl vertaal.
 
 # Vind duplicates in PO bestand:
 msguniq --repeated nl/LC_MESSAGES/helloworld.po

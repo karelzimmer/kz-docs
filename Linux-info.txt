@@ -4,7 +4,213 @@
 # Geschreven in 2010 door Karel Zimmer <info@karelzimmer.nl>, Creative Commons
 # Publiek Domein Verklaring <http://creativecommons.org/publicdomain/zero/1.0>.
 ###############################################################################
-# RELEASE_YEAR=2010
+
+Git/GitHub
+----------
+Lokale git repo voor teksten of scripts....
+sudo apt-get instal git git-gui qgit
+git config --global user.name 'Karel Zimmer'
+git config --global user.email 'karel.zimmer@gmail.com'
+git config --list
+mkdir article
+cd article
+git init
+
+Aanmaken/wijzigen/verwijderen documenten.
+git add .
+git status
+git commit -m "Initial version of article"
+git commit --amend -m "First version of article"
+
+Remote git repo voor documenten of scripts, e.g. GitHub....
+Maak repo op website.
+download:
+git clone https://github.com/karelzimmer/kz-docs.git ~
+git clone https://github.com/karelzimmer/kz-scripts.git ~
+git config --global user.name 'Karel Zimmer'
+git config --global user.email 'karel.zimmer@gmail.com'
+
+Upload:
+git config --global credential.helper store
+Hierna geen username/password meer nodig.
+
+Terugdraaien:
+git config --global --unset credential.helper
+git push
+Username for 'https://github.com': USERNAME
+Password for 'https://USERNAME@github.com': PASSWORD
+
+Git config levels and files
+--local   lokaal configuratiebestand in repo's .git directory: .git/config
+--global  globaal configuratiebestand in ~ /.gitconfig
+--system  systeem configuratiebestand in $(prefix)/etc/gitconfig
+
+Git Branching & Merging:
+main                   standard branch na 'git init'
+-OF-
+master                 < oktober 2020, gewijzigd naar main ivm culturele
+                         aspecten zoals master/slave
+BRANCH                 branch is in feite een verwijzing naar een
+                         momentopname van je wijzigingen
+HEAD                   verwijst naar de huidige commit die je aan het
+                         bekijken bent ("pointer")
+
+git switch BRANCH        switch naar BRANCH (HEAD master -> BRANCH)
+git switch -c BRANCH     --create en switch naar BRANCH (HEAD master ->
+-OF-                     BRANCH)
+git branch BRANCH        < Git 2.23 maak BRANCH
+git checkout BRANCH      < Git 2.23 switch naar BRANCH
+git checkout -b BRANCH   < Git 2.23 --branch, maak en switch naar BRANCH
+
+git branch BRANCH        list active (*) and other branches
+
+git status               Wijzigingen zijn zichtbaar in main & BRANCH
+git add .                Wijzigingen zijn zichtbaar in main & BRANCH
+git commit -m MESSAGE    Wijzigingen zijn zichtbaar alleen in BRANCH
+
+git switch main          switch naar main (HEAD BRANCH -> main)
+-OF-
+git checkout main        < Git 2.23 switch naar main
+
+git merge BRANCH       maak main gelijk aan de BRANCH
+git branch -d BRANCH   --delete BRANCH
+
+git status
+git push
+
+Git Branching & Merging voorbeeld:
+git switch dev
+git branch
+* dev
+  master
+
+Change files
+git status
+git restore FILE  Undo changes
+git add .
+git restore --staged FILE Reverse add
+git commit -m 'File added'
+
+git switch main
+git branch
+  dev
+* main
+
+git merge dev
+git push
+git branch -d dev
+
+Informatie:
+gitk
+
+git reflog
+
+git config --list                   raadplegen
+git remote set-url origin NEW_URL   wijzigen
+
+git log
+git log -10
+git log --oneline
+
+git show SHA1
+
+git diff working <-> staged
+git diff 'SHA1-A' 'SHA1-B' log --oneline
+
+fatal: CRLF would be replaced by LF in file.txt
+git config --global core.autocrlf false
+
+Rename branch master to main
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+
+Git-ignore
+vi .gitignore   In root van de repo.
+Verwijder FILE uit repo, maar houd hem in werkmap als ignored file.
+git rm --cached FILE
+git rm -r --cached DIR
+
+Persé lege dirs in repo? Doe in lege map voor de push:
+touch .gitignore
+
+Meldingen over git pull en fast-forward?
+git pull
+git config pull.ff only
+git config --global pull.ff only
+git clean -d  -f .
+
+
+Gettext .pot/.po/.mo files
+--------------------------
+# WERKWIJZE
+# ---------
+# sudo apt install gettext
+
+cd ~/scripts || exit
+mkdir --parents nl/LC_MESSAGES
+
+# Maak POT bestand (Portable Object Template) aan, 1-keer, daarna TOEVOEGEN:
+# xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
+# of: 
+# xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
+# TOEVOEGEN:
+xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
+# of: 
+xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
+
+# Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
+# msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
+# TOEVOEGEN:
+msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po helloworld.pot
+
+# Wijzig 1-malig het PO bestand:
+# Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
+# PACKAGE -> helloworld
+# VERSION -> 0.1
+
+# Wijzig als vertaler het PO bestand:
+# msgid "Hello world!"
+# msgstr "" --> "Hallo wereld!"
+# Etc.
+
+# Maak MO bestand (Machine Object) aan na iedere wijziging in .po:
+msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
+# Wordt gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
+# ├── helloworld.pot
+# ├── helloworld.sh
+# ├── nl
+# │   └── LC_MESSAGES
+# │       ├── helloworld.mo
+# │       ├── helloworld.po
+# Voor systeem:
+sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
+sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo 
+
+# Vind duplicates in PO bestand:
+msguniq --repeated nl/LC_MESSAGES/helloworld.po
+
+# Combineer PO bestanden:
+msgcat --repeated File1.po File2.po --output-file=File3.po
+
+# TESTEN
+# ------
+echo "$LANGUAGE"
+# nl:en
+# LANGUAGE=nl
+
+./helloworld.sh 
+# Programmanaam: ./helloworld.sh
+#
+# Hallo wereld!
+
+LANGUAGE=en
+./helloworld.sh 
+# Program name: ./helloworld.sh
+#
+# Hello world!
+
 
 Versleuteling (LUKS)
 --------------------
@@ -898,211 +1104,6 @@ Indeling Xorg logbestand
 (??) unknown
 
 
-Git/GitHub
-----------
-Lokale git repo voor teksten of scripts....
-sudo apt-get instal git git-gui qgit
-git config --global user.name 'Karel Zimmer'
-git config --global user.email 'karel.zimmer@gmail.com'
-git config --list
-mkdir article
-cd article
-git init
-
-Aanmaken/wijzigen/verwijderen documenten.
-git add .
-git status
-git commit -m "Initial version of article"
-git commit --amend -m "First version of article"
-
-Remote git repo voor documenten of scripts, e.g. GitHub....
-Maak repo op website.
-download:
-git clone https://github.com/karelzimmer/kz-docs.git ~
-git clone https://github.com/karelzimmer/kz-scripts.git ~
-git config --global user.name 'Karel Zimmer'
-git config --global user.email 'karel.zimmer@gmail.com'
-
-Upload:
-git config --global credential.helper store
-Hierna geen username/password meer nodig.
-
-Terugdraaien:
-git config --global --unset credential.helper
-git push
-Username for 'https://github.com': USERNAME
-Password for 'https://USERNAME@github.com': PASSWORD
-
-Git config levels and files
---local   lokaal configuratiebestand in repo's .git directory: .git/config
---global  globaal configuratiebestand in ~ /.gitconfig
---system  systeem configuratiebestand in $(prefix)/etc/gitconfig
-
-Git Branching & Merging:
-main                   standard branch na 'git init'
--OF-
-master                 < oktober 2020, gewijzigd naar main ivm culturele
-                         aspecten zoals master/slave
-BRANCH                 branch is in feite een verwijzing naar een
-                         momentopname van je wijzigingen
-HEAD                   verwijst naar de huidige commit die je aan het
-                         bekijken bent ("pointer")
-
-git switch BRANCH        switch naar BRANCH (HEAD master -> BRANCH)
-git switch -c BRANCH     --create en switch naar BRANCH (HEAD master ->
--OF-                     BRANCH)
-git branch BRANCH        < Git 2.23 maak BRANCH
-git checkout BRANCH      < Git 2.23 switch naar BRANCH
-git checkout -b BRANCH   < Git 2.23 --branch, maak en switch naar BRANCH
-
-git branch BRANCH        list active (*) and other branches
-
-git status               Wijzigingen zijn zichtbaar in main & BRANCH
-git add .                Wijzigingen zijn zichtbaar in main & BRANCH
-git commit -m MESSAGE    Wijzigingen zijn zichtbaar alleen in BRANCH
-
-git switch main          switch naar main (HEAD BRANCH -> main)
--OF-
-git checkout main        < Git 2.23 switch naar main
-
-git merge BRANCH       maak main gelijk aan de BRANCH
-git branch -d BRANCH   --delete BRANCH
-
-git status
-git push
-
-Git Branching & Merging voorbeeld:
-git switch dev
-git branch
-* dev
-  master
-
-Change files
-git status
-git restore FILE  Undo changes
-git add .
-git restore --staged FILE Reverse add
-git commit -m 'File added'
-
-git switch main
-git branch
-  dev
-* main
-
-git merge dev
-git push
-git branch -d dev
-
-Informatie:
-gitk
-
-git reflog
-
-git config --list                   raadplegen
-git remote set-url origin NEW_URL   wijzigen
-
-git log
-git log -10
-git log --oneline
-
-git show SHA1
-
-git diff working <-> staged
-git diff 'SHA1-A' 'SHA1-B' log --oneline
-
-fatal: CRLF would be replaced by LF in file.txt
-git config --global core.autocrlf false
-
-Rename branch master to main
-git branch -m master main
-git fetch origin
-git branch -u origin/main main
-git remote set-head origin -a
-
-Git-ignore
-vi .gitignore   In root van de repo.
-Verwijder FILE uit repo, maar houd hem in werkmap als ignored file.
-git rm --cached FILE
-git rm -r --cached DIR
-
-Persé lege dirs in repo? Doe in lege map voor de push:
-touch .gitignore
-
-Meldingen over git pull en fast-forward?
-git pull
-git config pull.ff only
-git config --global pull.ff only
-git clean -d  -f .
-
-
-Gettext .pot/.po/.mo files
---------------------------
-# WERKWIJZE
-# ---------
-# sudo apt install gettext
-
-cd ~/scripts || exit
-mkdir --parents nl/LC_MESSAGES
-
-# Maak POT bestand (Portable Object Template) aan, 1-keer, daarna TOEVOEGEN:
-# xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
-# of: 
-# xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
-# TOEVOEGEN:
-xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
-# of: 
-xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
-
-# Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
-# msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
-# TOEVOEGEN:
-msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po helloworld.pot
-
-# Wijzig 1-malig het PO bestand:
-# Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
-# PACKAGE -> helloworld
-# VERSION -> 0.1
-
-# Wijzig als vertaler het PO bestand:
-# msgid "Hello world!"
-# msgstr "" --> "Hallo wereld!"
-# Etc.
-
-# Maak MO bestand (Machine Object) aan na iedere wijziging in .po:
-msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
-# Wordt gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
-# ├── helloworld.pot
-# ├── helloworld.sh
-# ├── nl
-# │   └── LC_MESSAGES
-# │       ├── helloworld.mo
-# │       ├── helloworld.po
-# Voor systeem:
-sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
-sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo 
-
-# Vind duplicates in PO bestand:
-msguniq --repeated nl/LC_MESSAGES/helloworld.po
-
-# Combineer PO bestanden:
-msgcat --repeated File1.po File2.po --output-file=File3.po
-
-# TESTEN
-# ------
-echo "$LANGUAGE"
-# nl:en
-# LANGUAGE=nl
-
-./helloworld.sh 
-# Programmanaam: ./helloworld.sh
-#
-# Hallo wereld!
-
-LANGUAGE=en
-./helloworld.sh 
-# Program name: ./helloworld.sh
-#
-# Hello world!
 
 
 Disable the BIOS/firmware update

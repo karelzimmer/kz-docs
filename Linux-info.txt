@@ -64,6 +64,13 @@ git checkout -b BRANCH   < Git 2.23 --branch, maak en switch naar BRANCH
 
 git branch               list active (*) and other branches
 
+There are five different branch types in total:
+Main
+Develop
+Feature
+Release
+Hotfix
+
 Some suggestions for naming your feature branches:
 users/username/description
 users/username/workitem

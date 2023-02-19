@@ -57,10 +57,10 @@ HEAD                   verwijst naar de huidige commit die je aan het
 
 git switch BRANCH        switch naar BRANCH (HEAD master -> BRANCH)
 git switch -c BRANCH     --create en switch naar BRANCH (HEAD master ->
--OF-                     BRANCH)
-git branch BRANCH        < Git 2.23 maak BRANCH
-git checkout BRANCH      < Git 2.23 switch naar BRANCH
-git checkout -b BRANCH   < Git 2.23 --branch, maak en switch naar BRANCH
+# -OF-                     BRANCH)
+# git branch BRANCH        < Git 2.23 maak BRANCH
+# git checkout BRANCH      < Git 2.23 switch naar BRANCH
+# git checkout -b BRANCH   < Git 2.23 --branch, maak en switch naar BRANCH
 
 git branch               list active (*) and other branches
 
@@ -84,10 +84,10 @@ git add .                Wijzigingen zijn zichtbaar in main & BRANCH
 git commit -m MESSAGE    Wijzigingen zijn zichtbaar alleen in BRANCH
 
 git switch main          switch naar main (HEAD BRANCH -> main)
--OF-
-git checkout main        < Git 2.23 switch naar main
+# -OF-
+# git checkout main        < Git 2.23 switch naar main
 
-git merge BRANCH       maak main gelijk aan de BRANCH
+git merge BRANCH        maak main gelijk aan de BRANCH
 git branch -d BRANCH   --delete BRANCH
 
 git status
@@ -99,25 +99,23 @@ git branch
 * dev
   master
 
-Change files
+Change files:
 git status
-git restore FILE  Undo changes
+git restore FILE           Undo changes
 git add .
-git restore --staged FILE Reverse add
+git restore --staged FILE  Reverse add
 git commit -m 'File added'
 
 git switch main
 git branch
-  dev
-* main
+#   dev
+# * main
 
 git merge dev
 git push
 git branch -d dev
 
 Informatie:
-gitk
-
 git reflog
 
 git config --list                   raadplegen
@@ -132,16 +130,16 @@ git show SHA1
 git diff working <-> staged
 git diff 'SHA1-A' 'SHA1-B' log --oneline
 
-fatal: CRLF would be replaced by LF in file.txt
+# fatal: CRLF would be replaced by LF in file.txt
 git config --global core.autocrlf false
 
-Rename branch master to main
+Rename branch master to main:
 git branch -m master main
 git fetch origin
 git branch -u origin/main main
 git remote set-head origin -a
 
-Git-ignore
+Git-ignore:
 vi .gitignore   In root van de repo.
 Verwijder FILE uit repo, maar houd hem in werkmap als ignored file.
 git rm --cached FILE
@@ -150,7 +148,7 @@ git rm -r --cached DIR
 Persé lege dirs in repo? Doe in lege map voor de push:
 touch .gitignore
 
-Meldingen over git pull en fast-forward?
+Meldingen over git pull en fast-forward?:
 git pull
 git config pull.ff only
 git config --global pull.ff only
@@ -162,9 +160,8 @@ Gettext .pot/.po/.mo files
 # WERKWIJZE
 # ---------
 # sudo apt install gettext
-
-cd ~/scripts || exit
-mkdir --parents nl/LC_MESSAGES
+cd ~/scripts
+# mkdir --parents nl/LC_MESSAGES
 
 # Maak POT bestand (Portable Object Template) aan, 1-keer, daarna TOEVOEGEN:
 # xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh

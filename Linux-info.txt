@@ -160,8 +160,11 @@ Gettext .pot/.po/.mo files
 cd ~/scripts
 # mkdir --parents nl/LC_MESSAGES
 
+# 1. POT bestand (Portable Object Template/GNU gettext message catalogue).
+# 2. PO bestand (Portable Object/GNU gettext message catalogue).
+# 3. MO bestand (Machine Object/GNU message catalog).
+
 # Maak .pot aan, eerste keer, daarna TOEVOEGEN:
-# POT bestand (Portable Object Template/GNU gettext message catalogue).
 # xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
 # Of:
 # xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
@@ -171,7 +174,6 @@ xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot 
 xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
 
 # Maak .po aan, eerste keer, daarna TOEVOEGEN:
-# PO bestand (Portable Object/GNU gettext message catalogue).
 # msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
 # TOEVOEGEN:
 msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po helloworld.pot
@@ -187,7 +189,6 @@ msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po hellowor
 # Etc.
 
 # Maak .mo aan na iedere vertaling in .po:
-# MO bestand (Machine Object/GNU message catalog).
 msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 # Wordt t.z.t. gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
 # ├── helloworld.pot

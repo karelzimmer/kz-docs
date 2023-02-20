@@ -47,7 +47,7 @@ Git config levels and files
 
 Git Branching & Merging:
 main                    standard branch na 'git init'
-# OF
+# Of:
 master                  < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
 
 BRANCH                      branch is in feite een verwijzing naar een momentopname van je wijzigingen
@@ -56,7 +56,7 @@ HEAD                        verwijst naar de huidige commit die je aan het bekij
 git switch BRANCH       switch naar BRANCH (HEAD master -> BRANCH)
 git switch -c BRANCH    --create en switch naar BRANCH (HEAD master -> BRANCH)
 git branch              list active (*) and other branches
-# OF
+# Of:
 # git branch BRANCH         < Git 2.23 maak BRANCH
 # git checkout BRANCH       < Git 2.23 switch naar BRANCH
 # git checkout -b BRANCH    < Git 2.23 --branch, maak en switch naar BRANCH
@@ -81,7 +81,7 @@ git add .                Wijzigingen zijn zichtbaar in main & BRANCH
 git commit -m MESSAGE    Wijzigingen zijn zichtbaar alleen in BRANCH
 
 git switch main          switch naar main (HEAD BRANCH -> main)
-# OF
+# Of:
 # git checkout main        < Git 2.23 switch naar main
 
 git merge BRANCH        maak main gelijk aan de BRANCH
@@ -162,11 +162,11 @@ cd ~/scripts
 
 # Maak POT bestand (Portable Object Template) aan, 1-keer, daarna TOEVOEGEN:
 # xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
-# OF 
+# Of: 
 # xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
 # TOEVOEGEN:
 xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
-# OF 
+# Of: 
 xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
 
 # Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
@@ -225,7 +225,7 @@ Versleuteling (LUKS)
 --------------------
 Om de harddisk te versleutelen, vink aan tijdens het installeren:
 De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of vink aan Encrypteer systeem (Debian).
-# OF
+# Of:
 Na het installeren met ecryptfs-utils en cryptsetup, zie o.a:
 https://www.howtogeek.com/116032/how-to-encrypt-your-home-folder-after-installing-ubuntu/
 en
@@ -479,7 +479,7 @@ Netwerkverbinding vóór het aanmelden?
 -------------------------------------
 Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op gewenste verbinding en vervolgens op Bewerken.
 Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken met dit netwerk. Klik op Opslaan.
-# OF
+# Of:
 Ga naar /etc/NetworkManager/system-connections.
 Edit gewenste verbinding en haal alles weg achter permissions=
 Klaar.
@@ -744,7 +744,7 @@ Interne usb-device uitschakelen
 -------------------------------
 Hier als voorbeeld een Bluetooth-module:
 sudo lsusb -v | grep -i blue
-# OF
+# Of:
 sudo udevadm info -a -p /sys/class/bluetooth/hci0
 Bus 001 Device 003: ID 413c:8187 Dell Computer Corp. DW375 Bluetooth Module
 sudo -H gedit /etc/udev/rules.d/81-bluetooth-hci.rules
@@ -1114,7 +1114,7 @@ https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html
 
 De instructies om een apt-sleutel toe te voegen zijn vaak:
 wget ... | sudo tee /etc/apt/trusted.gpg.d/...
-# OF
+# Of:
 wget ... | sudo apt-key add .. (toegevoegen aan /etc/apt/trusted.gpg)
 
 Zie voorbeelden hieronder, een voorbeeld met de gpg-sleutel opgenomen in /etc/apt/trusted.gpg door 'apt-key add' en een voorbeeld met de sleutel in /etc/apt/trusted.gpg.d, IST.
@@ -1197,7 +1197,7 @@ Ansible lokaal gebruiken non-root
 ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
-# OF
+# Of:
 ssh-copy-id localhost
 ssh localhost
 
@@ -1224,7 +1224,7 @@ sudo passwd
 sudo ssh-keygen
 sudo ssh-copy-id root@localhost
 sudo ssh root@localhost
-# OF
+# Of:
 sudo ssh-copy-id localhost
 sudo ssh localhost
 

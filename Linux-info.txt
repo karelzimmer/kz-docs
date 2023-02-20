@@ -1,8 +1,8 @@
 ###############################################################################
-# Tekstbestand met Linux opdrachten en informatie.
+# Text file containing Linux commands and information (mostly in Dutch).
 #
-# Geschreven in 2010 door Karel Zimmer <info@karelzimmer.nl>, Creative Commons
-# Publiek Domein Verklaring <http://creativecommons.org/publicdomain/zero/1.0>.
+# Written in 2010 by Karel Zimmer <info@karelzimmer.nl>, Creative Commons
+# Public Domain Dedication <http://creativecommons.org/publicdomain/zero/1.0>.
 ###############################################################################
 
 Git/GitHub
@@ -46,23 +46,20 @@ Git config levels and files
 --system  systeem configuratiebestand in $(prefix)/etc/gitconfig
 
 Git Branching & Merging:
-main                   standard branch na 'git init'
--OF-
-master                 < oktober 2020, gewijzigd naar main ivm culturele
-                         aspecten zoals master/slave
-BRANCH                 branch is in feite een verwijzing naar een
-                         momentopname van je wijzigingen
-HEAD                   verwijst naar de huidige commit die je aan het
-                         bekijken bent ("pointer")
+main                    standard branch na 'git init'
+# OF
+master                  < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
 
-git switch BRANCH        switch naar BRANCH (HEAD master -> BRANCH)
-git switch -c BRANCH     --create en switch naar BRANCH (HEAD master ->
-# -OF-                     BRANCH)
-# git branch BRANCH        < Git 2.23 maak BRANCH
-# git checkout BRANCH      < Git 2.23 switch naar BRANCH
-# git checkout -b BRANCH   < Git 2.23 --branch, maak en switch naar BRANCH
+BRANCH                      branch is in feite een verwijzing naar een momentopname van je wijzigingen
+HEAD                        verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
 
-git branch               list active (*) and other branches
+git switch BRANCH       switch naar BRANCH (HEAD master -> BRANCH)
+git switch -c BRANCH    --create en switch naar BRANCH (HEAD master -> BRANCH)
+git branch              list active (*) and other branches
+# OF
+# git branch BRANCH         < Git 2.23 maak BRANCH
+# git checkout BRANCH       < Git 2.23 switch naar BRANCH
+# git checkout -b BRANCH    < Git 2.23 --branch, maak en switch naar BRANCH
 
 There are five different branch types in total:
 Main
@@ -84,7 +81,7 @@ git add .                Wijzigingen zijn zichtbaar in main & BRANCH
 git commit -m MESSAGE    Wijzigingen zijn zichtbaar alleen in BRANCH
 
 git switch main          switch naar main (HEAD BRANCH -> main)
-# -OF-
+# OF
 # git checkout main        < Git 2.23 switch naar main
 
 git merge BRANCH        maak main gelijk aan de BRANCH
@@ -165,11 +162,11 @@ cd ~/scripts
 
 # Maak POT bestand (Portable Object Template) aan, 1-keer, daarna TOEVOEGEN:
 # xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
-# of: 
+# OF 
 # xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
 # TOEVOEGEN:
 xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
-# of: 
+# OF 
 xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
 
 # Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
@@ -189,7 +186,7 @@ msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po hellowor
 
 # Maak MO bestand (Machine Object) aan na iedere wijziging in .po:
 msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
-# Wordt gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
+# Wordt t.z.t. gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
 # ├── helloworld.pot
 # ├── helloworld.sh
 # ├── nl
@@ -227,10 +224,9 @@ LANGUAGE=en
 Versleuteling (LUKS)
 --------------------
 Om de harddisk te versleutelen, vink aan tijdens het installeren:
-De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook
-LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of
-vink aan Encrypteer systeem (Debian).
-Of na het installeren met ecryptfs-utils en cryptsetup, zie o.a:
+De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of vink aan Encrypteer systeem (Debian).
+# OF
+Na het installeren met ecryptfs-utils en cryptsetup, zie o.a:
 https://www.howtogeek.com/116032/how-to-encrypt-your-home-folder-after-installing-ubuntu/
 en
 https://jumpcloud.com/blog/how-to-encrypt-ubuntu-20-04-desktop-post-installation
@@ -264,26 +260,18 @@ Dual-boot met Windows
 ---------------------
 VOORBEREIDEN
 Uitzetten Snel opstarten (Fast Startup):
-1. Druk op de Windows-toets, typ 'energie' en klik op Energiebeheer
-   (Power Options).
-2. In het linkerpaneel, klik op Het gedrag van de aan/uit knoppen bepalen
-   (Choose what the power buttons do).
-3. Klik op Instellingen wijzigen die momenteel niet beschikbaar zijn
-   (Change settings that are currently unavailable).
-4. Vink uit: Snel opstarten inschakelen (aanbevolen) (Turn on fast startup
-   (recommended)).
+1. Druk op de Windows-toets, typ 'energie' en klik op Energiebeheer (Power Options).
+2. In het linkerpaneel, klik op Het gedrag van de aan/uit knoppen bepalen (Choose what the power buttons do).
+3. Klik op Instellingen wijzigen die momenteel niet beschikbaar zijn (Change settings that are currently unavailable).
+4. Vink uit: Snel opstarten inschakelen (aanbevolen) (Turn on fast startup (recommended)).
 5. Klik op Wijzigingen opslaan (Save changes).
 6. Sluit scherm Energiebeheer (Power Options).
 
 Uitzetten Apparaatversleuteling (BitLocker):
-1. Druk op de Windows-toets, typ 'bitlocker' en klik op Instellingen voor
-   apparaatversleuteling (BitLocker Drive Encryption).
-2. Achter Apparaatversleuteling (BitLocker Drive Encryption) zet schuifje op
-   Uit (Off).
-3. Op het scherm Apparaatversleuteling uitschakelen (BitLocker Drive
-   Encryption) klik op Uitschakelen (Turn off BitLocker).
-4. Sluit scherm Instellingen voor apparaatversleuteling (BitLocker Drive
-   Encryption).
+1. Druk op de Windows-toets, typ 'bitlocker' en klik op Instellingen voor apparaatversleuteling (BitLocker Drive Encryption).
+2. Achter Apparaatversleuteling (BitLocker Drive Encryption) zet schuifje op Uit (Off).
+3. Op het scherm Apparaatversleuteling uitschakelen (BitLocker Drive Encryption) klik op Uitschakelen (Turn off BitLocker).
+4. Sluit scherm Instellingen voor apparaatversleuteling (BitLocker Drive Encryption).
 
 INSTALLEER
 Ubuntu of Debian GNU/Linux.
@@ -353,33 +341,26 @@ Dit betekent voor de browser:
 Voor Chrome betekent dit:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Stop het (automatisch) opslaan van wachtwoorden.
-   1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account
-      beheren.
+   1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account beheren.
    2. Klik aan de linkerkant op Beveiliging.
    3. Scroll naar beneden en klik op Wachtwoordmanager.
    4. Klik rechtsboven op tandwielsymbool.
-   5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te
-      slaan' uit.
+   5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
 2. Verwijder opgeslagen wachtwoorden.
-   1. Klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met
-      de drie puntjes)
+   1. Klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes)
    2. Klik op Instellingen.
    3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
    4. Klik op Geavanceerd (tab).
-   5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op
-      Gegevens wissen.
+   5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op Gegevens wissen.
 3. Gebruik de Bitwarden-extensie.
    1. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
    2. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
-      1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING
-         op 'Time-out van de kluis' en selecteer Nooit.
-      2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op
-         Opties en vink aan Automatisch invullen bij laden van pagina.
+      1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING op 'Time-out van de kluis' en selecteer Nooit.
+      2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op Opties en vink aan Automatisch invullen bij laden van pagina.
 
 Google Chrome (webbrowser) instellen
 1. Start Google Chrome.
-2. Indien nodig importeer Firefox bladwijzers via klik rechtsboven op
-   Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes).
+2. Indien nodig importeer Firefox bladwijzers via klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes).
 3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
 4. Ga naar https://chrome.google.com/webstore/category/extensions
 5. Zoek naar gnome en klik op gnome-shell integration
@@ -394,8 +375,7 @@ Om standaard te mailen met Gmail en Google Chrome voer uit:
 Thunderbird (e-mail) instellen
 Voeg de extenstie voor Google Agenda toe via:
 1. Start Thunderbird.
-2. Ga rechtsboven naar Het Thunderbird-menu weergeven ☰ (icoontje met drie
-   streepjes) > Add-ons.
+2. Ga rechtsboven naar Het Thunderbird-menu weergeven ☰ (icoontje met drie streepjes) > Add-ons.
 3. Zoek 'Google Agenda'
 4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
 5. Volg de aanwijzingen op het scherm.
@@ -403,12 +383,10 @@ Voeg de extenstie voor Google Agenda toe via:
 Terminal (terminalvenster) instellen (altijd maximale grootte)
 1. Start Terminalvenster.
 2. Maximaliseer het Terminalvenster.
-3. Voer de volgende opdracht uit:
-   echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
+3. Voer de volgende opdracht uit: echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
 4. Ga rechtsboven naar Menu ☰ (icoontje met drie streepjes) > Voorkeuren.
 5. Onder Profielen klik op Naamloos.
-6. Vul in achter Oorspronkelijke afmeting van de terminal:
-   COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
+6. Vul in achter Oorspronkelijke afmeting van de terminal: COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
 
 
 WiFi
@@ -447,7 +425,7 @@ gnome-session-quit --reboot     Opnieuw opstarten (met bevestiging)
 gnome-session-quit --logout     afmelden
 sudo systemctl reboot           herstarten
 sudo systemctl poweroff         uitschakelen
-/var/run/reboot-required      reboot nodig als aanwezig
+/var/run/reboot-required        reboot nodig als aanwezig
 
 
 Boot/recovery menu
@@ -465,19 +443,18 @@ debconf
 -------
 debconf-show --listowners
 sudo debconf-show <pakketnaam>
-echo 'virtualbox-ext-pack virtualbox-ext-pack/license select true' |
-   sudo tee debconf-set-selections
+echo 'virtualbox-ext-pack virtualbox-ext-pack/license select true' | sudo tee debconf-set-selections
 
 
 Shell script SCRIPT debuggen
 ----------------------------
 bash -vx ./SCRIPT
-                      v = verbose (elke invoerregel tonen)
-                      x = xtrace  (elke opdracht tonen)
-                      n = noexec  (opdrachten lezen maar niet uitvoeren)
+                    v = verbose (elke invoerregel tonen)
+                    x = xtrace  (elke opdracht tonen)
+                    n = noexec  (opdrachten lezen maar niet uitvoeren)
 Enable code-stepping:
 trap '(read -p "[$BASH_SOURCE:$LINENO] $BASH_COMMAND?")' DEBUG
-readelf Toon info over Executable and Linking Format uitvoerbare programma's
+readelf             Toon info over Executable and Linking Format uitvoerbare programma's
 
 
 diff
@@ -500,11 +477,9 @@ rm -fr "$HOME"/.cache/thumbnails/
 
 Netwerkverbinding vóór het aanmelden?
 -------------------------------------
-Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op
-gewenste verbinding en vervolgens op Bewerken.
-Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken
-met dit netwerk. Klik op Opslaan.
--of-
+Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op gewenste verbinding en vervolgens op Bewerken.
+Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken met dit netwerk. Klik op Opslaan.
+# OF
 Ga naar /etc/NetworkManager/system-connections.
 Edit gewenste verbinding en haal alles weg achter permissions=
 Klaar.
@@ -523,9 +498,9 @@ Boot-repair (ook vanaf live-cd)
 -------------------------------
 sudo add-apt-repository ppa:yannubuntu/boot-repair
 sudo apt-get update
-sudo apt install boot-repair    voor repareren GRUB: Boot-reparatie
+sudo apt install boot-repair        Voor repareren GRUB: Boot-reparatie
 sudo boot-repair
-sudo apt install startupmanager evt voor aanpassen GRUB: Opstart-Manager
+sudo apt install startupmanager     Evt. voor aanpassen GRUB: Opstart-Manager
 sudo startupmanager
 
 
@@ -533,8 +508,8 @@ GRUB-menu zichtbaar maken
 -------------------------
 sudo -i
 gedit /etc/default/grub
- Wijzig: #GRUB_HIDDEN_TIMEOUT=0
-           #GRUB_HIDDEN_TIMEOUT_QUIET=true
+Wijzig: #GRUB_HIDDEN_TIMEOUT=0
+        #GRUB_HIDDEN_TIMEOUT_QUIET=true
 sudo update-grub
 exit
 
@@ -576,7 +551,7 @@ apt-get moo
 aptitude moo
 aptitude -v moo
 aptitude -vv moo
-aptitude -vvv moo   etc.
+aptitude -vvv moo   Etc.
 
 
 Rechten
@@ -605,21 +580,16 @@ Bestandsrechten, de betekenis van de r, w, en x attributen:
     w - Bestand wijzigen.
     x - Bestand uitvoeren.
 Maprechten, de betekenis van de r, w, en x attributen:
-    r - Inhoud van map opvragen (ls MAPNAAM) als ook het x-attribuut is
-        aangezet.
-    w - Bestanden aanmaken, verwijderen, of hernoemen als ook het x-attribuut
-        is aangezet.
+    r - Inhoud van map opvragen (ls MAPNAAM) als ook het x-attribuut is aangezet.
+    w - Bestanden aanmaken, verwijderen, of hernoemen als ook het x-attribuut is aangezet.
     x - Toegang tot de map (cd MAPNAAM), "zoeken".
 Basisrechten (base permissions):
 dirs    777 (rwxrwxrwx)
 files   666 (rw-rw-rw-)
 Umask (user mask):
-normal 0002 (dan zijn u=rwx, g=rwx, en o=rx de maximaal toegestane
-            standaardwaarden)
-root   0022 (dan zijn u=rwx, g=rx,  en o=rx de maximaal toegestane
-            standaardwaarden)
-Standaard wordt een bestand of map aangemaakt met de rechten van
-Basisrechten -/- Umask.
+normal 0002 (dan zijn u=rwx, g=rwx, en o=rx de maximaal toegestane standaardwaarden)
+root   0022 (dan zijn u=rwx, g=rx,  en o=rx de maximaal toegestane standaardwaarden)
+Standaard wordt een bestand of map aangemaakt met de rechten van Basisrechten -/- Umask.
 Resultaat als een normale user een map of bestand aanmaakt:
 mkdir   775 (rwxrwxr-x) (777 -/- 002)
 touch   664 (rw-rw-r--) (666 -/- 002)
@@ -645,8 +615,7 @@ Weer af- en aanmelden!
 Gebruik xdg-open om allerlei bestanden te openen. Voorbeelden:
 xdg-open 'https://karelzimmer.nl'
 xdg-open /home/karel/Afbeeldingen/Gebruikersfoto/Karel.jpg
-xdg-open "/home/karel/Documenten/eDocs/Bash Shell Scripting/Advanced Bash-Scri\
-pting Guide 10.pdf"
+xdg-open "/home/karel/Documenten/eDocs/Bash Shell Scripting/Advanced Bash-Scripting Guide 10.pdf"
 xdg-open /tmp/
 
 
@@ -661,11 +630,9 @@ Zie eerst: http://askubuntu.com/questions/162075/
 
 1. Niet-afgemaakte updates.
 Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
-(Als dat menu niet verschijnt bij het opstarten, hou dan de Shift-toets
-ingedrukt bij het opstarten.)
+(Als dat menu niet verschijnt bij het opstarten, hou dan de Shift-toets ingedrukt bij het opstarten.)
 Kies dan Ubuntu, with Linux... (recovery mode).
-Zorg dat het netwerk bedraad beschikbaar is en kies op het Herstelmenu eerst
-network en daarna root.
+Zorg dat het netwerk bedraad beschikbaar is en kies op het Herstelmenu eerst network en daarna root.
 In het Terminalvester voer uit:
 sudo apt-get update
 sudo apt-get upgrade
@@ -680,8 +647,7 @@ Kies op het Herstelmenu voor fsck.
 Volg de aanwijzingen op het scherm.
 
 #3. Meer drastische methodes:
-Op het Aanmeldscherm/Bureaublad probeer een Terminalvenster te openen met
-Ctrl+Alt+T of Ctrl+Alt+F1.
+Op het Aanmeldscherm/Bureaublad probeer een Terminalvenster te openen met Ctrl+Alt+T of Ctrl+Alt+F1.
 Voer in het Terminalvenster uit:
 sudo rm -fr "$HOME"/.cache/compizconfig-1
 sudo rm -fr "$HOME"/.compiz
@@ -720,30 +686,24 @@ sdb                                             8:16   0 232,9G  0 disk
 ...
 In bovenstaand geval dus /dev/sdb1.
 
-Om een LUKS-wachtwoord toe te voegen, start Terminalvenster en typ, of
-kopieer en plak:
+Om een LUKS-wachtwoord toe te voegen, start Terminalvenster en typ, of kopieer en plak:
 sudo cryptsetup luksAddKey /dev/sdXY
 
-Om een LUKS-wachtwoord aan te passen, start Terminalvenster en typ, of
-kopieer en plak:
+Om een LUKS-wachtwoord aan te passen, start Terminalvenster en typ, of kopieer en plak:
 sudo cryptsetup luksChangeKey /dev/sdXY
 
-Voor het aantal LUKS-wachtwoorden, start Terminalvenster en typ, of kopieer
-en plak:
+Voor het aantal LUKS-wachtwoorden, start Terminalvenster en typ, of kopieer en plak:
 sudo cryptsetup luksDump /dev/sdXY
 
-Om een LUKS-wachtwoord te verwijderen, start Terminalvenster en typ, of
-kopieer en plak:
+Om een LUKS-wachtwoord te verwijderen, start Terminalvenster en typ, of kopieer en plak:
 sudo cryptsetup luksRemoveKey /dev/sdXY
 
-Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het
-wachtwoord van slot 1, voer dan uit:
+Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het wachtwoord van slot 1, voer dan uit:
 sudo cryptsetup luksKillSlot /dev/sdXY 0
 
-#-OF-
+#OF
 
-Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie >
-klik op tandwiel-symbool > Wachtwoord wijzigen.
+Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandwiel-symbool > Wachtwoord wijzigen.
 
 
 Zoek en verwijder dubbele bestanden
@@ -784,12 +744,11 @@ Interne usb-device uitschakelen
 -------------------------------
 Hier als voorbeeld een Bluetooth-module:
 sudo lsusb -v | grep -i blue
-of
+# OF
 sudo udevadm info -a -p /sys/class/bluetooth/hci0
 Bus 001 Device 003: ID 413c:8187 Dell Computer Corp. DW375 Bluetooth Module
 sudo -H gedit /etc/udev/rules.d/81-bluetooth-hci.rules
-SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="8187",ATTR{aut\
-horized}="0"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="8187",ATTR{authorized}="0"
 reboot
 
 
@@ -825,10 +784,6 @@ https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
 
 Youtube video's downloaden
 --------------------------
-#cWhat are the URL tricks to save YouTube offline
-#cThe ways below show you the most direct method to download YouTube videos by
-#cchanging URL without any software. Try any of them as you need.
-
 Tip #1: Change YouTube to youpak
 youtube.com/watch?v=... -> youpak.com/watch?v=...
 
@@ -850,8 +805,7 @@ ffmpeg -i input-video-file output-audio-file
 Google Foto's/Photos en Exif-data (exiftool)
 --------------------------------------------
 PROBLEEM
-Na het uploaden van foto's naar Google Foto's verschijnen oude foto's bij
-nieuw foto's; foto's uit 1971 staan naast foto's uit 2010.
+Na het uploaden van foto's naar Google Foto's verschijnen oude foto's bij nieuw foto's; foto's uit 1971 staan naast foto's uit 2010.
 
 ANALYSE
 Google Foto's gebruikt op volgorde:
@@ -866,12 +820,9 @@ Exif-data wordt niet BIJ het bestand maar IN het bestand opgenomen.
 [1] https://nl.wikipedia.org/wiki/Exchangeable_image_file_format
 [2] https://nl.wikipedia.org/wiki/Metadata
 
-De wijzigingsdatum van een bestand is aan te passen met 'touch', en wordt
-aangepast met een 'cp' zonder optie '--preserve'; dus is deze datum niet
-betrouwbaar als foto-datum bij een upload naar Google Foto's.
-Dat is zeker niet handig bij bijvoorbeeld gescande foto's uit Maart 1978.
-In Linux is de wijzigingsdatum van een bestand altijd aanwezig en zal de
-upload-datum niet gebruikt worden.
+De wijzigingsdatum van een bestand is aan te passen met 'touch', en wordt aangepast met een 'cp' zonder optie '--preserve'; dus is deze datum niet betrouwbaar als foto-datum bij een upload naar Google Foto's.
+Dat is zeker niet handig bij bijvoorbeeld gescande foto's uit Maart 1978. 
+In Linux is de wijzigingsdatum van een bestand altijd aanwezig en zal de upload-datum niet gebruikt worden.
 
 
 OPLOSSING
@@ -886,22 +837,17 @@ Volg onderstaande STAPPEN:
 STAPPEN
 1.  Inspecteren -------------------------------------------------------------
 
-shellcheck disable=SC2016
-exiftool -printFormat '$FileModifyDate $Directory/$FileName' \
--dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen" \
-1> "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" \
-2> "$HOME/Afbeeldingen/Afbeeldingen-foutjes.txt"
+exiftool -printFormat '$FileModifyDate $Directory/$FileName' -dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen" 1> "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" 2> "$HOME/Afbeeldingen/Afbeeldingen-foutjes.txt"
 Extra:
 tree -d "$HOME/Afbeeldingen/" > "$HOME/Afbeeldingen/tree.txt"
 
 Bovenstaande opdracht maakt een overzicht van bestanden zonder Exif-datum.
 Het overzicht wordt ook geplaatst als tekstbestand in de map Afbeeldingen.
-Ook een bestand met gevonden foutjes wordt geplaatst in de map Afbeeldingen
+Ook een bestand met gevonden foutjes wordt geplaatst in de map Afbeeldingen.
 
 2.  Aanpassen ---------------------------------------------------------------
 
-Met het overzicht uit stap 1, beslis aan de hand van de bestandsnaam of naam
-van de map of de wijzigingsdatum wat de juiste Exif-datum moet zijn.
+Met het overzicht uit stap 1, beslis aan de hand van de bestandsnaam of naam van de map of de wijzigingsdatum wat de juiste Exif-datum moet zijn.
 Kies een von onderstaande opties:
 
 Eigen datum - Enkel bestand
@@ -911,11 +857,9 @@ Eigen datum - Hele map
 exiftool -preserve -ModifyDate='jjjj-mm-dd 00:00:00' "$PWD"
 
 Wijzigingsdatum - Enkel bestand
-shellcheck disable=SC2016
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' BESTAND
 
 Wijzigingsdatum - Hele map
-shellcheck disable=SC2016
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' "$PWD"
 
 
@@ -927,9 +871,7 @@ Terugdraaien (voeg eventueel -recurse toe).
 exiftool -restore_original "$PWD"
 
 Controleer de voortgang van de aanpassingen met de opdracht:
-shellcheck disable=SC2016
-exiftool -printFormat '$FileModifyDate/$Directory $FileName' \
--dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen"
+exiftool -printFormat '$FileModifyDate/$Directory $FileName' -dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen"
 
 
 4.  Opruimen
@@ -938,56 +880,44 @@ Opruimen (voeg eventueel -recurse toe).
 exiftool -delete_original! "$PWD"
 
 Verkeerd geplaatste foto's kunnen verwijderd worden in Google Foto's.
-Onderstaande opdracht toont unieke wijzigingsdatums die mogelijk eerder zijn
-gebruikt bij het uploaden van foto’s naar Google Foto's.
+Onderstaande opdracht toont unieke wijzigingsdatums die mogelijk eerder zijn gebruikt bij het uploaden van foto’s naar Google Foto's.
 
-cut --field=1 --delimiter=' ' \
-"$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" | sort --unique
+cut --field=1 --delimiter=' ' "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" | sort --unique
 
 
 5.  Uploaden ----------------------------------------------------------------
 
 Nu is het tijd om de foto's te uploaden naar Google Foto's.
-Foto's die foutief zijn geplaatsts in Google Foto's, bijvoorbeeld met de
-scan-datum i.p.v. de datum waarop de foto is gemaakt, blijven staan.
-Deze zijn met het overzicht uit stap 1 te vinden en te verwijderen van
-Google Foto's.
+Foto's die foutief zijn geplaatsts in Google Foto's, bijvoorbeeld met de scan-datum i.p.v. de datum waarop de foto is gemaakt, blijven staan.
+Deze zijn met het overzicht uit stap 1 te vinden en te verwijderen van Google Foto's.
 
 
 VOORBEELDEN
 Enkele foto aanpassen:
 exiftool -preserve -ModifyDate="2010-06-03 10:10:50" GSE_2010.jpg
 
-Deze wijzigingsdatum wordt hoe dan ook gebruikt door Google Photo bij een
-ontbrekende Exif-datum; het is beter deze datum op te slaan IN het bestand.
+Deze wijzigingsdatum wordt hoe dan ook gebruikt door Google Photo bij een ontbrekende Exif-datum; het is beter deze datum op te slaan IN het bestand.
 
 Voor gescande foto's uit Maart 1978 [1]:
 cd "$HOME/Afbeeldingen/1978-03_Klassenfoto's"
 exiftool -preserve -ModifyDate='1978-03-01 00:00:00' "$PWD"
 
-Dat is handig als het bijvoorbeeld gescande foto's zijn waar na het scannen
-geen of onjuiste Exif-datum aanwezig is IN het bestand.
+Dat is handig als het bijvoorbeeld gescande foto's zijn waar na het scannen geen of onjuiste Exif-datum aanwezig is IN het bestand.
 
-[1] Als niet eerst de Exif-datum wordt geschreven, wordt door Google
-    de datum van de scan gebruikt, 2010-10-10, vast niet de bedoeling !
+[1] Als niet eerst de Exif-datum wordt geschreven, wordt door Google de datum van de scan gebruikt, 2010-10-10, vast niet de bedoeling !
 
-Gebruik de (oorspronkelijke) wijzigingsdatums om foto's op te zoeken
-die verwijderd kunnen worden in Google Foto's.
+Gebruik de (oorspronkelijke) wijzigingsdatums om foto's op te zoeken die verwijderd kunnen worden in Google Foto's.
 Wat kan helpen is een overzicht van wijzigingsdatums (FileModifyDate):
 cd ~/Afbeeldingen
-shellcheck disable=SC2016
-exiftool -FileModifyDate -if '$FileModifyDate ne $ModifyDate' \
--dateFormat "%Y:%m:%d" "$PWD"
+exiftool -FileModifyDate -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
 
 Voorbeeld output:
 ======== 1978-03_Klassenfoto's/Foto_001.jpg             <== 1978-03 !
 File Modification Date/Time     : 2010:10:10 00:54:10   <== 2010-10 ?
 
-Zoek in Google Foto's naar een datum waar foto's onjuist staan, bijvoorbeeld
-okt 2010 (de scandatum van foto's in ~/Afbeeldingen/1978-03_Klassenfoto's).
+Zoek in Google Foto's naar een datum waar foto's onjuist staan, bijvoorbeeld okt 2010 (de scandatum van foto's in ~/Afbeeldingen/1978-03_Klassenfoto's).
 
-Warning: Invalid EXIF text encoding for UserComment -
-/home/karel/Afbeeldingen/Foto's/Evi/Evi3.jpg
+Warning: Invalid EXIF text encoding for UserComment - /home/karel/Afbeeldingen/Foto's/Evi/Evi3.jpg
 exiftool  -preserve -UserComment='LEAD Technologies Inc. V1.01' Evi3.jpg
 exiftool -delete_original "$PWD"
 
@@ -1004,7 +934,7 @@ LEZEN
 Exif-datum:
 exiftool -ModifyDate BESTANDTerminalve "$PWD"
 exiftool -DateTimeOriginal -CreateDate -ModifyDate-recurse "$PWD"
--OF-
+OF
 exiftool -AllDates BESTAND
 exiftool -AllDates "$PWD"
 exiftool -AllDates -recurse "$PWD"
@@ -1024,24 +954,15 @@ exiftool '-*date*' BESTAND
 exiftool '-*date*' "$PWD"
 
 Eigen output:
-shellcheck disable=SC2016
-exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' \
--dateFormat "%Y:%m:%d" BESTAND
-shellcheck disable=SC2016
-exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' \
--dateFormat "%Y:%m:%d" "$PWD"
-shellcheck disable=SC2016
-exiftool -recurse -printFormat '$FileName' \
--if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
-shellcheck disable=SC2016
+exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" BESTAND
+exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
+exiftool -recurse -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
 exiftool -recurse -printFormat '$FileName : $FileModifyDate' "$PWD"
 
 
 SCHRIJVEN
 Toevoegen ontbrekende Exif-datum als wijzigingsdatum: [2]
-shellcheck disable=SC2016
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' BESTAND
-shellcheck disable=SC2016
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' "$PWD"
 
 [2] Non-destructief voor een al aanwezige Exif-datum.
@@ -1065,8 +986,7 @@ Terugzetten back-up (voeg eventueel -recurse toe):
 exiftool -restore_original "$PWD"
 
 Datum-tijd notatie
-ISO 8601 - Data elements and interchange formats – Information interchange –
-Representation of dates and times
+ISO 8601 - Data elements and interchange formats – Information interchange – Representation of dates and times
 
 Basic datum-tijd notatie is:
 jjjjmmddTuummss[.sss]         Timestamp (gebruik ik)
@@ -1096,10 +1016,8 @@ CentOS Stream ~~~~~~~~~~~~~> RedHat ~~~~~~~~~~~~~> CentOS
 
 experimenteel ~~~~~~~~~~~~~> stabiel ~~~~~~~~~~~~> stabiel
 
-Upstream:   distributeur experimenteert met updates voordat die in een
-            stabiele release komen
-Downstream: patches en updates worden pas worden uitgerold nadat een
-            distributeur dat heeft gedaan
+Upstream:   distributeur experimenteert met updates voordat die in een stabiele release komen
+Downstream: patches en updates worden pas worden uitgerold nadat een distributeur dat heeft gedaan
 
 
 Indeling Xorg logbestand
@@ -1188,8 +1106,7 @@ mv /home/USER-OLD/* /home/USER-NEW/*
 APT-hardening
 -------------
 For third-party packages / Voor derde-partij pakketten source-lists of PPAs.
-apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT
-"Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d
+apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT "Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d
  instead (see apt-key(8))"
 Zie:
 https://blog.cloudflare.com/dont-use-apt-key/
@@ -1197,26 +1114,17 @@ https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html
 
 De instructies om een apt-sleutel toe te voegen zijn vaak:
 wget ... | sudo tee /etc/apt/trusted.gpg.d/...
--of-
+# OF
 wget ... | sudo apt-key add .. (toegevoegen aan /etc/apt/trusted.gpg)
 
-Zie voorbeelden hieronder, een voorbeeld met de gpg-sleutel opgenomen in
-/etc/apt/trusted.gpg door 'apt-key add' en een voorbeeld met de sleutel in
-/etc/apt/trusted.gpg.d, IST.
+Zie voorbeelden hieronder, een voorbeeld met de gpg-sleutel opgenomen in /etc/apt/trusted.gpg door 'apt-key add' en een voorbeeld met de sleutel in /etc/apt/trusted.gpg.d, IST.
 
-Dit zijn vaak asc-sleutels (ASCII-armored keyrings, plain text format/
-ASCII-gepantserde handtekening, platte tekst).
-Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat
-AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
-Als één van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen
-hebben voor andere repositories.
+Dit zijn vaak asc-sleutels (ASCII-armored keyrings, plain text format/ASCII-gepantserde handtekening, platte tekst).
+Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
+Als één van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen hebben voor andere repositories.
 
-Oplossing is om gpg-sleutels (GNU Privacy Guard public keyring file, binary
-format./GNU Privacy Guard openbaar sleutelringbestand, binair formaat.) te
-plaatsen op een andere plek, en deze plek opnemen in de source-list, zie
-voorbeelden hieronder, SOLL.
-Dan gaan we van ALLE sleutels voor ALLE respositories naar ÉÉN sleutel voor
-ÉÉN repository.
+Oplossing is om gpg-sleutels (GNU Privacy Guard public keyring file, binary format./GNU Privacy Guard openbaar sleutelringbestand, binair formaat.) te plaatsen op een andere plek, en deze plek opnemen in de source-list, zie voorbeelden hieronder, SOLL.
+Dan gaan we van ALLE sleutels voor ALLE respositories naar ÉÉN sleutel voor ÉÉN repository.
 
 gpg-sleutels
 Een OpenPGP sleutel kan bekeken worden met opdracht:
@@ -1225,9 +1133,7 @@ Als de output is als 'repo-key.gpg: PGP public key block Public-Key (old)',
 moet deze ascii-armored OpenPGP sleutel worden omgezet met de opdracht
 gpg --dearmor
 Voorbeeld:
-wget --no-verbose --output-document=- \
-https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc |
-sudo gpg --dearmor --yes --output=/usr/share/keyrings/teamviewer.gpg
+wget --no-verbose --output-document=- https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo gpg --dearmor --yes --output=/usr/share/keyrings/teamviewer.gpg
 
 ::::::::::::::
 IST
@@ -1282,9 +1188,7 @@ apt-key list
 file /usr/share/keyrings/google-chrome.gpg
 PGP/GPG key public ring (v4) created...
 
-Irritant dat bij een reinstall/upgrade van Google Chrome alsnog de key
-opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie
-/var/lib/dpkg/info/google-chrome-stable.postinst.
+Irritant dat bij een reinstall/upgrade van Google Chrome alsnog de key opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie /var/lib/dpkg/info/google-chrome-stable.postinst.
 
 
 Ansible
@@ -1293,7 +1197,7 @@ Ansible lokaal gebruiken non-root
 ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
-of
+# OF
 ssh-copy-id localhost
 ssh localhost
 
@@ -1320,7 +1224,7 @@ sudo passwd
 sudo ssh-keygen
 sudo ssh-copy-id root@localhost
 sudo ssh root@localhost
-of
+# OF
 sudo ssh-copy-id localhost
 sudo ssh localhost
 
@@ -1352,13 +1256,9 @@ Ref https://support.google.com/chrome/a/answer/7517525?hl=nl
 Voeg json toe aan /etc/opt/chrome/policies/managed/.
 
 In het voorbeeld zie je hoe je het volgende doet:
-Google Hangouts (nckgahadagoaajjgafhacjanaoiihapd) en
-Google Keep (lpcaedmchfhocbbapmcbpinfpgnhiddi) automatisch installeren op
-gebruikersapparaten.
-Gebruikers toestaan Keep uit te schakelen (normal_installed), maar Hangouts
-niet (force_installed).
-Gebruikers toestaan Google Agenda (gmbgaklkmjakoegficnlkhebmhkjfich) te
-installeren uit de Chrome Web Store (allowed).
+Google Hangouts (nckgahadagoaajjgafhacjanaoiihapd) en Google Keep (lpcaedmchfhocbbapmcbpinfpgnhiddi) automatisch installeren op gebruikersapparaten.
+Gebruikers toestaan Keep uit te schakelen (normal_installed), maar Hangouts niet (force_installed).
+Gebruikers toestaan Google Agenda (gmbgaklkmjakoegficnlkhebmhkjfich) te installeren uit de Chrome Web Store (allowed).
 Voorkomen dat gebruikers andere apps of extensies installeren (blocked).
 {
   "ExtensionSettings": {
@@ -1384,10 +1284,6 @@ AdGuard extensie ID               : bgnkhhnnamicmpeenaelnjfhikgbkllg
 Bitwarden extensie  ID            : nngceckbapebfimnlniiiahkandclblb
 Chrome Remote Desktop extensie ID : inomeogfingihgjfjlpeplalcfajhgai
 Gnome-shell-integratie extensie ID: gphhapmejobijbbhgpjhcjognlahblep
-Citrix Workspace app ID           : haiffjcadagjlijoggckpgfnoeiflnem
-
-Maakt starters aan:
-"$HOME"/.local/share/applications/chrome-ID-Default.desktop
 
 
 AWK and its versions, some don't support long-option --field-separator
@@ -1461,7 +1357,7 @@ sudo systemctl mask fwupd.service
 Verwijder starter Install Debian.
 
 
-gpg
+GPG
 ---
 /usr/share/keyrings$ gpg --show-keys google-chrome.gpg 
 gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg'
@@ -1478,10 +1374,8 @@ sub   rsa4096 2017-01-24 [S] [verlopen op: 2020-01-24]
 sub   rsa4096 2019-07-22 [S] [verlopen op: 2022-07-21]
 sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
 
-To fix the " gpg: WARNING: unsafe permissions on homedir
-   '/home/path/to/user/.gnupg' " error
-Make sure that the .gnupg directory and its contents is accessibile by your
-user.
+To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
+Make sure that the .gnupg directory and its contents is accessibile by your user.
 chown -R "$(whoami)" ~/.gnupg/
 
 Also correct the permissions and access rights on the directory

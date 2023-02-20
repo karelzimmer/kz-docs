@@ -160,16 +160,16 @@ Gettext .pot/.po/.mo files
 cd ~/scripts
 # mkdir --parents nl/LC_MESSAGES
 
-# Maak POT bestand (Portable Object Template) aan, 1-keer, daarna TOEVOEGEN:
+# Maak POT bestand (Portable Object Template) aan, eerste keer, daarna TOEVOEGEN:
 # xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
-# Of: 
+# Of:
 # xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
 # TOEVOEGEN:
 xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
-# Of: 
+# Of:
 xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
 
-# Maak PO bestand (Portable Object) aan, 1-keer, daarna TOEVOEGEN:
+# Maak PO bestand (Portable Object) aan, eerste keer, daarna TOEVOEGEN:
 # msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
 # TOEVOEGEN:
 msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po helloworld.pot
@@ -195,7 +195,7 @@ msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 # │       ├── helloworld.po
 # Voor systeem:
 sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
-sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo 
+sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo
 
 # Vind duplicates in PO bestand:
 msguniq --repeated nl/LC_MESSAGES/helloworld.po
@@ -209,13 +209,13 @@ echo "$LANGUAGE"
 # nl:en
 # LANGUAGE=nl
 
-./helloworld.sh 
+./helloworld.sh
 # Programmanaam: ./helloworld.sh
 #
 # Hallo wereld!
 
 LANGUAGE=en
-./helloworld.sh 
+./helloworld.sh
 # Program name: ./helloworld.sh
 #
 # Hello world!
@@ -680,8 +680,8 @@ In bovenstaand geval dus /dev/sdXY.
 
 Voorbeeld 2:
 ...
-sdb                                             8:16   0 232,9G  0 disk  
-└─sdb1                                          8:17   0 231,9G  0 part  
+sdb                                             8:16   0 232,9G  0 disk
+└─sdb1                                          8:17   0 231,9G  0 part
   └─luks-a805d665-da6b-4872-8370-1ae4eb0bfc53 253:3    0 231,9G  0 crypt
 ...
 In bovenstaand geval dus /dev/sdb1.
@@ -821,7 +821,7 @@ Exif-data wordt niet BIJ het bestand maar IN het bestand opgenomen.
 [2] https://nl.wikipedia.org/wiki/Metadata
 
 De wijzigingsdatum van een bestand is aan te passen met 'touch', en wordt aangepast met een 'cp' zonder optie '--preserve'; dus is deze datum niet betrouwbaar als foto-datum bij een upload naar Google Foto's.
-Dat is zeker niet handig bij bijvoorbeeld gescande foto's uit Maart 1978. 
+Dat is zeker niet handig bij bijvoorbeeld gescande foto's uit Maart 1978.
 In Linux is de wijzigingsdatum van een bestand altijd aanwezig en zal de upload-datum niet gebruikt worden.
 
 
@@ -1359,7 +1359,7 @@ Verwijder starter Install Debian.
 
 GPG
 ---
-/usr/share/keyrings$ gpg --show-keys google-chrome.gpg 
+/usr/share/keyrings$ gpg --show-keys google-chrome.gpg
 gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg'
 pub   dsa1024 2007-03-08 [SC]
       4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
@@ -1397,7 +1397,7 @@ WantedBy=multi-user.target"
 ----------------------------------
 systemctl enable mnt-nas.mount
 systemctl start mnt-nas.mount
-systemctl daemon-reload 
+systemctl daemon-reload
 
 sudo systemctl disable mnt-nas.mount
 

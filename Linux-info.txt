@@ -7,8 +7,8 @@
 
 Git/GitHub
 ----------
-Lokale git repo voor teksten of scripts....
-sudo apt-get instal git git-gui qgit
+Lokale git repo voor teksten of scripts:
+sudo apt-get instal git
 git config --global user.name 'Karel Zimmer'
 git config --global user.email 'karel.zimmer@gmail.com'
 git config --list
@@ -16,13 +16,13 @@ mkdir article
 cd article
 git init
 
-Aanmaken/wijzigen/verwijderen documenten.
+Aanmaken/wijzigen/verwijderen documenten:
 git add .
 git status
 git commit -m "Initial version of article"
 git commit --amend -m "First version of article"
 
-Remote git repo voor documenten of scripts, e.g. GitHub....
+Remote git repo voor documenten of scripts, e.g. GitHub:
 Maak repo op website.
 download:
 git clone https://github.com/karelzimmer/kz-docs.git ~
@@ -40,7 +40,7 @@ git push
 Username for 'https://github.com': USERNAME
 Password for 'https://USERNAME@github.com': PASSWORD
 
-Git config levels and files
+Git config levels and files:
 --local   lokaal configuratiebestand in repo's .git directory: .git/config
 --global  globaal configuratiebestand in ~ /.gitconfig
 --system  systeem configuratiebestand in $(prefix)/etc/gitconfig
@@ -151,39 +151,38 @@ Gettext .pot/.po/.mo files
 --------------------------
 # WERKWIJZE
 # ---------
-# sudo apt install gettext
 cd ~/scripts
+
+# 1-malig:
+# sudo apt install gettext
 # mkdir --parents nl/LC_MESSAGES
 
-# 1. POT bestand (Portable Object Template/GNU gettext message catalogue).
-# 2. PO bestand (Portable Object/GNU gettext message catalogue).
-# 3. MO bestand (Machine Object/GNU message catalog).
+# Voeg 1 of meer gettext's toe in script.
 
-# Maak .pot aan, eerste keer, daarna TOEVOEGEN:
 # xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
 # Of:
 # xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
-# TOEVOEGEN:
-xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
-# Of:
-xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
 
-# Maak .po aan, eerste keer, daarna TOEVOEGEN:
 # msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
-# TOEVOEGEN:
-msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po helloworld.pot
-
-# Wijzig 1-malig het PO bestand:
+# Wijzig 1-malig .po:
 # Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
 # PACKAGE -> helloworld
 # VERSION -> 0.1
 
-# Wijzig als vertaler het PO bestand:
+# Voeg gettext's toe in script.
+
+xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
+# Of:
+xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
+
+msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po helloworld.pot
+
+# Wijzig als vertaler .po:
 # msgid "Hello world!"
 # msgstr "" --> "Hallo wereld!"
 # Etc.
 
-# Maak .mo aan na iedere vertaling in .po:
+# Maak .mo aan na iedere wijziging in .po:
 msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 # Wordt t.z.t. gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
 # ├── helloworld.pot
@@ -196,6 +195,10 @@ msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
 sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo
 
+# 1. .pot = POT bestand (Portable Object Template/GNU gettext message catalogue).
+# 2. .po  = PO bestand (Portable Object/GNU gettext message catalogue).
+# 3. .mo  = MO bestand (Machine Object/GNU message catalog).
+
 # Vind duplicates in PO bestand:
 msguniq --repeated nl/LC_MESSAGES/helloworld.po
 
@@ -206,15 +209,12 @@ msgcat --repeated File1.po File2.po --output-file=File3.po
 # ------
 echo "$LANGUAGE"
 # nl:en
-# LANGUAGE=nl
-
-./helloworld.sh
+LANGUAGE=nl ./helloworld.sh
 # Programmanaam: ./helloworld.sh
 #
 # Hallo wereld!
 
-LANGUAGE=en
-./helloworld.sh
+LANGUAGE=en ./helloworld.sh
 # Program name: ./helloworld.sh
 #
 # Hello world!

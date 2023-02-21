@@ -50,16 +50,13 @@ main                    standard branch na 'git init'
 # Of:
 master                  < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
 
-BRANCH                      branch is in feite een verwijzing naar een momentopname van je wijzigingen
-HEAD                        verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
+BRANCH                  branch is in feite een verwijzing naar een momentopname van je wijzigingen
+HEAD                    verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
 
-git switch BRANCH       switch naar BRANCH (HEAD master -> BRANCH)
-git switch -c BRANCH    --create en switch naar BRANCH (HEAD master -> BRANCH)
 git branch              list active (*) and other branches
-# Of:
-# git branch BRANCH         < Git 2.23 maak BRANCH
-# git checkout BRANCH       < Git 2.23 switch naar BRANCH
-# git checkout -b BRANCH    < Git 2.23 --branch, maak en switch naar BRANCH
+git branch BRANCH       maak BRANCH
+git checkout BRANCH     checkout naar BRANCH
+git checkout -b BRANCH  --branch, maak en checkout naar BRANCH
 
 There are five different branch types in total:
 Main
@@ -76,34 +73,32 @@ feature/feature-name
 feature/feature-area/feature-name
 hotfix/description
 
-git status               Wijzigingen zijn zichtbaar in main & BRANCH
-git add .                Wijzigingen zijn zichtbaar in main & BRANCH
-git commit -m MESSAGE    Wijzigingen zijn zichtbaar alleen in BRANCH
+git status              wijzigingen zijn zichtbaar in main & BRANCH
+git add .               wijzigingen zijn zichtbaar in main & BRANCH
+git commit -m MESSAGE   wijzigingen zijn zichtbaar alleen in BRANCH
 
-git switch main          switch naar main (HEAD BRANCH -> main)
-# Of:
-# git checkout main        < Git 2.23 switch naar main
+git checkout main       checkout naar main (HEAD BRANCH -> main)
 
 git merge BRANCH        maak main gelijk aan de BRANCH
-git branch -d BRANCH   --delete BRANCH
+git branch -d BRANCH    --delete BRANCH
 
 git status
 git push
 
 Git Branching & Merging voorbeeld:
-git switch dev
+git checkout dev
 git branch
 * dev
   master
 
 Change files:
 git status
-git restore FILE           Undo changes
+git restore FILE           undo changes
 git add .
-git restore --staged FILE  Reverse add
+git restore --staged FILE  reverse add
 git commit -m 'File added'
 
-git switch main
+git checkout main
 git branch
 #   dev
 # * main

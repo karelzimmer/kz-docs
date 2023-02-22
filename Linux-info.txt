@@ -156,13 +156,42 @@ cd ~/scripts
 # 1-malig:
 # sudo apt install gettext
 # mkdir --parents nl/LC_MESSAGES
-
-# Voeg 1 of meer gettext's toe in script.
-
-# xgettext --language=Shell --sort-output --output=helloworld.pot helloworld.sh
+# Voeg 1 of meer gettext's toe in script:
+#--------------------------------------------------------------------------------
+#!/bin/bash
+#
+# export TEXTDOMAIN=helloworld
+# export TEXTDOMAINDIR=/home/karel/scripts
+#
+# source /usr/bin/gettext.sh
+#
+# program_name=helloworld.sh
+#
+# printf '%s\n' "$(eval_gettext "Program name: \$program_name")"
+# printf '\n'
+#
+# printf '%s\n' "$(gettext 'Hello world!')"
+#--------------------------------------------------------------------------------
+# xgettext --language=Shell --no-location --output=helloworld.pot helloworld.sh
 # Of:
-# xgettext --language=Python --sort-output --output=helloworld.pot helloworld.py
-
+#--------------------------------------------------------------------------------
+#!/bin/python
+#
+# import gettext
+#
+# gettext.bindtextdomain('helloworld', '/home/karel/scripts')
+# gettext.textdomain('helloworld')
+# _ = gettext.gettext
+#
+# program_name = 'helloworld.py'
+#
+# print(_('Program name: {}').format(program_name))
+# print('')
+#
+# print(_('Hello world!'))
+#--------------------------------------------------------------------------------
+# xgettext --language=Python --no-location --output=helloworld.pot helloworld.py
+#
 # msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
 # Wijzig 1-malig .po:
 # Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
@@ -170,34 +199,32 @@ cd ~/scripts
 # VERSION -> 0.1
 
 # Voeg gettext's toe in script.
-
-xgettext --language=Shell --join-existing --sort-output --output=helloworld.pot helloworld.sh
+# Daarna:
+xgettext --language=Shell --join-existing --no-location --output=helloworld.pot helloworld.sh
 # Of:
-xgettext --language=Python --join-existing --sort-output --output=helloworld.pot helloworld.py
+xgettext --language=Python --join-existing --no-location --output=helloworld.pot helloworld.py
 
-msgmerge --update --previous --sort-output nl/LC_MESSAGES/helloworld.po helloworld.pot
+msgmerge --update --backup=none --previous --no-location nl/LC_MESSAGES/helloworld.po helloworld.pot
 
 # Wijzig als vertaler .po:
 # msgid "Hello world!"
 # msgstr "" --> "Hallo wereld!"
 # Etc.
 
-# Maak .mo aan na iedere wijziging in .po:
+# Maak .mo aan na iedere vertaling:
 msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
-# Wordt t.z.t. gedistribueerd en geinstalleerd met "kz.deb", zonder helloword.po.
-# ├── helloworld.pot
-# ├── helloworld.sh
-# ├── nl
-# │   └── LC_MESSAGES
-# │       ├── helloworld.mo
-# │       ├── helloworld.po
+
 # Voor systeem:
 sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
 sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo
 
-# 1. .pot = POT bestand (Portable Object Template/GNU gettext message catalogue).
-# 2. .po  = PO bestand (Portable Object/GNU gettext message catalogue).
-# 3. .mo  = MO bestand (Machine Object/GNU message catalog).
+# Vertaalbestanden worden t.z.t. gedistribueerd en geinstalleerd met "kz.deb".
+# ├── helloworld.pot (Portable Object Template/GNU gettext message catalogue)
+# ├── helloworld.sh
+# ├── nl
+# │   └── LC_MESSAGES
+# │       ├── helloworld.mo (Machine Object/GNU message catalog)
+# │       ├── helloworld.po (Portable Object/GNU gettext message catalogue)
 
 # Vind duplicates in PO bestand:
 msguniq --repeated nl/LC_MESSAGES/helloworld.po

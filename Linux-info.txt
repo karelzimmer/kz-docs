@@ -168,7 +168,6 @@ cd ~/scripts
 # program_name=helloworld.sh
 #
 # printf '%s\n' "$(eval_gettext "Program name: \$program_name")"
-# printf '\n'
 #
 # printf '%s\n' "$(gettext 'Hello world!')"
 #--------------------------------------------------------------------------------
@@ -186,7 +185,6 @@ cd ~/scripts
 # program_name = 'helloworld.py'
 #
 # print(_('Program name: {}').format(program_name))
-# print('')
 #
 # print(_('Hello world!'))
 #--------------------------------------------------------------------------------

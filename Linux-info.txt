@@ -204,6 +204,8 @@ xgettext --language=Python --join-existing --no-location --output=helloworld.pot
 
 msgmerge --update --backup=none --previous --no-location nl/LC_MESSAGES/helloworld.po helloworld.pot
 
+Zie ook ~/bin/pogensh en pogenpy.
+
 # Wijzig als vertaler .po:
 # msgid "Hello world!"
 # msgstr "" --> "Hallo wereld!"
@@ -214,7 +216,8 @@ msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 
 # Voor systeem:
 sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
-sudo rm /usr/share/locale/nl/LC_MESSAGES/helloworld.mo
+
+Zie ook ~/bin/mogen.
 
 # Vertaalbestanden worden t.z.t. gedistribueerd en geinstalleerd met "kz.deb".
 # ├── helloworld.pot (Portable Object Template/GNU gettext message catalogue)

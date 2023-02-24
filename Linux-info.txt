@@ -153,7 +153,7 @@ Gettext .pot/.po/.mo files
 # ---------
 cd ~/scripts
 
-# 1-malig:
+# ### 1-MALIG ###
 # sudo apt install gettext
 # mkdir --parents nl/LC_MESSAGES
 # Voeg 1 of meer gettext's toe in script:
@@ -172,7 +172,7 @@ cd ~/scripts
 # printf '%s\n' "$(gettext 'Hello world!')"
 #--------------------------------------------------------------------------------
 # xgettext --language=Shell --no-location --output=helloworld.pot helloworld.sh
-# Of:
+# ### OF ###
 #--------------------------------------------------------------------------------
 #!/bin/python
 #
@@ -204,7 +204,7 @@ xgettext --language=Python --join-existing --no-location --output=helloworld.pot
 
 msgmerge --update --backup=none --previous --no-location nl/LC_MESSAGES/helloworld.po helloworld.pot
 
-Zie ook ~/bin/pogensh en pogenpy.
+Zie ook ~/bin/pogen.
 
 # Wijzig als vertaler .po:
 # msgid "Hello world!"

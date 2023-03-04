@@ -197,6 +197,10 @@ Date:   Fri Mar 3 09:05:35 2023 +0100
     Changes for t9n
 
 etc... (73 commits voor Changes for t9n!)
+# Of:
+git checkout main
+git merge --squash
+git commit -m'squash-commit-msg'
 
 
 Gettext .pot/.po/.mo files

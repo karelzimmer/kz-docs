@@ -303,6 +303,9 @@ LANGUAGE=en ./helloworld.sh
 #
 # Hello world!
 
+man <SCRIPT>
+man -L en <SCRIPT>
+
 
 Versleuteling (LUKS)
 --------------------

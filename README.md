@@ -1,7 +1,7 @@
 # kz-docs
 
-Documenten voor het installeren en beheren van Debian en op Debian gebaseerd systeem zoals Ubuntu.
+Documents for installing and managing Debian and Debian based system like Ubuntu.
 
-Onderdeel van Debian-pakket *kz*, genoemd naar de maker Karel Zimmer.
+Part of Debian package *kz*, named after its creator Karel Zimmer.
 
-Meer informatie op [karelzimmer.nl](https://karelzimmer.nl).
+More information on [karelzimmer.nl](https://karelzimmer.nl).

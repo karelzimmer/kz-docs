@@ -469,7 +469,8 @@ Voeg de extenstie voor Google Agenda toe via:
 Terminal (terminalvenster) instellen (altijd maximale grootte)
 1. Start Terminalvenster.
 2. Maximaliseer het Terminalvenster.
-3. Voer de volgende opdracht uit: echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
+3. Voer de volgende opdracht uit:
+   echo "Terminalgrootte: $COLUMNS kolommen $LINES rijen"
 4. Ga rechtsboven naar Menu ☰ (icoontje met drie streepjes) > Voorkeuren.
 5. Onder Profielen klik op Naamloos.
 6. Vul in achter Oorspronkelijke afmeting van de terminal: COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.

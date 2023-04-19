@@ -1527,9 +1527,7 @@ lsblk
 df -H
 # /dev/vda1           17G      15G  377M  98% / (waar is de +10G?)
 sudo resize2fs /dev/sda1
-# The filesystem is already 4338048 (4k) blocks long.  Nothing to do! (??)
-# De wijziging wordt dus niet bemerkt door het guest OS!
-
+sudo update-initramfs -u
 
 sudo apt install gparted
 # Start gparted, extend part 1, maybe after deleting and recreating lin ux-swap

@@ -1496,3 +1496,45 @@ git clone https://github.com/CISOfy/lynis
 cd lynis
 ./lynis audit system
 sudo ./lynis audit system
+
+
+Extend KVM disk
+---------------
+sudo virsh list
+sudo virsh shutdown pc07
+sudo virsh list
+sudo virsh domblklist pc07
+sudo qemu-img info /var/lib/libvirt/images/pc07.qcow2
+# virtual size: 25 GiB (26843545600 bytes)
+# disk size: 15.4 GiB
+
+# sudo virsh snapshot-list pc07
+# sudo virsh snapshot-delete --domain pc07 --snapshotname snapshot1
+
+sudo qemu-img resize /var/lib/libvirt/images/pc07.qcow2 +10G
+sudo qemu-img info /var/lib/libvirt/images/pc07.qcow2
+# virtual size: 35 GiB (37580963840 bytes)
+# disk size: 15.4 GiB
+
+sudo fdisk -l /var/lib/libvirt/images/pc07.qcow2
+# Schijf /var/lib/libvirt/images/pc07.qcow2: 25 GiB, 26847870976 bytes, 52437248 sectoren
+
+# sudo qemu-img resize /var/lib/libvirt/images/pc07.qcow2 --shrink -10G
+
+# Start VM
+lsblk
+# vda    254:0    0    35G  0 disk (was 25G)
+df -H
+# /dev/vda1           17G      15G  377M  98% / (waar is de +10G?)
+sudo resize2fs /dev/sda1
+# The filesystem is already 4338048 (4k) blocks long.  Nothing to do! (??)
+# De wijziging wordt dus niet bemerkt door het guest OS!
+
+sudo apt -y install cloud-guest-utils gdisk
+sudo growpart /dev/vda 1
+# NOCHANGE: partition 1 is size 34704385. it cannot be grown
+karel@pc07:~$ lsblk
+# NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+# vda    254:0    0    35G  0 disk 
+# vda1   254:1    0  16,5G  0 part /
+# vda2   254:2    0   8,4G  0 part [SWAP]

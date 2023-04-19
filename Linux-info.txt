@@ -1530,11 +1530,6 @@ sudo resize2fs /dev/sda1
 # The filesystem is already 4338048 (4k) blocks long.  Nothing to do! (??)
 # De wijziging wordt dus niet bemerkt door het guest OS!
 
-sudo apt -y install cloud-guest-utils gdisk
-sudo growpart /dev/vda 1
-# NOCHANGE: partition 1 is size 34704385. it cannot be grown
-karel@pc07:~$ lsblk
-# NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-# vda    254:0    0    35G  0 disk 
-# vda1   254:1    0  16,5G  0 part /
-# vda2   254:2    0   8,4G  0 part [SWAP]
+
+sudo apt install gparted
+# Start gparted, extend part 1, maybe after deleting and recreating lin ux-swap

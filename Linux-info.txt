@@ -1530,4 +1530,4 @@ sudo resize2fs /dev/sda1
 sudo update-initramfs -u
 
 sudo apt install gparted
-# Start gparted, extend part 1, maybe after deleting and recreating lin ux-swap
+# Start gparted, extend part 1, maybe after deleting and recreating linux-swap.

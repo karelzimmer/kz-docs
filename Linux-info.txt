@@ -1,8 +1,8 @@
 ###############################################################################
 # Text file containing Linux commands and information (mostly in Dutch).
 #
-# Written in 2010 by Karel Zimmer <info@karelzimmer.nl>, Creative Commons
-# Public Domain Dedication <http://creativecommons.org/publicdomain/zero/1.0>.
+# Written by Karel Zimmer <info@karelzimmer.nl>, CC0 1.0 Universal
+# <https://creativecommons.org/publicdomain/zero/1.0>, 2010-2023.
 ###############################################################################
 
 Git/GitHub

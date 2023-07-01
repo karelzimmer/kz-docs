@@ -521,6 +521,26 @@ BIOS: Shift-toets ingedrukt houden
 UEFI: Esc-toets meerdere malen indrukken
 
 
+GIO & Google Drive
+------------------
+GIO=GNOME Input/Output=Gtk general purpose I/O functionality
+GVfs=GNOME virtual filesysteem
+FUSE=Filesystem in USErspace
+
+gio list smb://<server>/<share>/file.txt
+
+mount:
+gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,rela...
+
+cd /run/user/1000/gvfs/google-drive:host=gmail.com,user=karel.zimmer
+gio list -d
+  Gedeeld met mij
+gio list -a "standard::display-name"
+  GVfsSharedWithMe	0	(directory)	standard::display-name=Gedeeld met mij
+gio list -a "unix"
+gio list -a "*"
+
+
 VM
 --
 sudo apt-get install --yes spice-vdagent && sudo reboot

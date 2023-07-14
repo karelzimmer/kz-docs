@@ -1421,8 +1421,7 @@ https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-
 
 MAKEN
 Download image.
-wget --output-document=/tmp/debian.iso https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current-live/amd64/iso-hybrid/debian-live-11.4.0-amd64-gnome+nonfree.iso
-
+wget --output-document=/tmp/debian.iso https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-12.0.0-amd64-gnome.iso
 Controleer iso.
 sha256sum /tmp/debian.iso
 

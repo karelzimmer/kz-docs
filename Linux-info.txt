@@ -1421,13 +1421,14 @@ https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-
 
 MAKEN
 Download image.
-wget --output-document=/tmp/debian.iso https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-12.0.0-amd64-gnome.iso
+wget --output-document=$HOME/debian.iso https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-12.0.0-amd64-gnome.iso
 Controleer iso.
-sha256sum /tmp/debian.iso
+sha256sum $HOME/debian.iso
+03b427707f5bc96e354721bc1108f0f91f8b0d2e89d15823724244fb7cc20bf1  /home/karel/debian.iso
 
 Vervang strings.
 Comment insmod and play to prevent loud beep at boot (https://unix.stackexchange.com/questions/598240/debian-10-live-usb-loud-beep-at-boot)
-LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /;s/insmod play/#nsmod play/;s/play 960 440 1 0 4 440 1/#lay 960 440 1 0 4 440 1/' < /tmp/debian.iso > /tmp/debian-persist.iso
+LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /;s/insmod play/#nsmod play/;s/play 960 440 1 0 4 440 1/#lay 960 440 1 0 4 440 1/' < $HOME/debian.iso > $HOME/debian-persist.iso
 
 Plaats usb-stick, hier /dev/sdb, controleer met lsblk!
 lsblk
@@ -1439,7 +1440,7 @@ Controleer alles unmounted.
 lsblk
 
 Kopieer naar usb-stick (kan even duren, ~15 minuten).
-sudo dd if=/tmp/debian-persist.iso of=/dev/sdb
+sudo dd if=$HOME/debian-persist.iso of=/dev/sdb
 
 Maak en formatteer 3e partitie.
 sudo fdisk /dev/sdb <<<$'n\np\n\n\n\nw'
@@ -1461,6 +1462,7 @@ sudo systemctl disable fwupd.service
 sudo systemctl mask fwupd.service
 
 Verwijder starter Install Debian.
+KLAAR
 
 
 GPG

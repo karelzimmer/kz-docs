@@ -1415,8 +1415,8 @@ ps --no-headers -o comm 1
 systemctl reboot --firmware-setup
 
 
-Debian Live Persistent USB
---------------------------
+Debian 12 Live Persistent USB
+-----------------------------
 https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-with-persistence
 
 MAKEN
@@ -1453,7 +1453,7 @@ sudo sync
 sudo umount /mnt
 
 GEBRUIKEN
-computernaam: debian, gebruiker: user, wachtwoord: <geen>
+computernaam: debian, gebruiker: user, wachtwoord: live
 Debian met GNOME.
 
 Stop BIOS/firmware updates (met name voor laptops met BitLocker).

@@ -509,7 +509,6 @@ gnome-session-quit --no-prompt  Geen bevestiging van vragen bij --logout
 gnome-session-quit --logout     Afmelden (standaard)
 gnome-session-quit --power-off  Computer uitzetten (met bevestiging)
 gnome-session-quit --reboot     Opnieuw opstarten (met bevestiging)
-gnome-session-quit --logout     afmelden
 sudo systemctl reboot           herstarten
 sudo systemctl poweroff         uitschakelen
 /var/run/reboot-required        reboot nodig als aanwezig

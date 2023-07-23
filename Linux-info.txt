@@ -717,6 +717,23 @@ Wijzig XDG_PICTURES_DIR="$HOME/"  naar XDG_PICTURES_DIR="$HOME/Afbeeldingen"
 Wijzig XDG_DOCUMENTS_DIR="$HOME/" naar XDG_DOCUMENTS_DIR="$HOME/Documenten"
 Wijzig XDG_DOWNLOAD_DIR="$HOME/"  naar XDG_DOWNLOAD_DIR="$HOME/Downloads"
 etc.
+Voorbeeld "$HOME"/.config/user-dirs.dirs:
+# This file is written by xdg-user-dirs-update
+# If you want to change or add directories, just edit the line you're
+# interested in. All local changes will be retained on the next run.
+# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
+# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
+# absolute path. No other format is supported.
+# 
+XDG_DESKTOP_DIR="$HOME/Bureaublad"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_TEMPLATES_DIR="$HOME/Sjablonen"
+XDG_PUBLICSHARE_DIR="$HOME/Openbaar"
+XDG_DOCUMENTS_DIR="$HOME/Documenten"
+XDG_MUSIC_DIR="$HOME/Muziek"
+XDG_PICTURES_DIR="$HOME/Afbeeldingen"
+XDG_VIDEOS_DIR="$HOME/Video's"
+
 Weer af- en aanmelden!
 Gebruik xdg-open om allerlei bestanden te openen. Voorbeelden:
 xdg-open 'https://karelzimmer.nl'

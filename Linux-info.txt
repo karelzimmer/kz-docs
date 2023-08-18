@@ -25,6 +25,17 @@ Boek The Official Ubuntu Server Book - Third Edition, Kyle Rankin and Benjamin M
 Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Raphaël Hertzog and Roland Mas, Freexian
 
 
+Repair NTFS
+-----------
+sudo apt install ntfs-3g -y
+
+findmnt
+# TARGET          SOURCE    FSTYPE OPTIONS
+# /media/...      /dev/sdb2 ntfs3  rw,nosuid,nodev,relatime,uid=...
+
+sudo ntfsfix /dev/sdb2
+
+
 Git/GitHub
 ----------
 Lokale git repo voor teksten of scripts:
@@ -1175,8 +1186,6 @@ Indeling Xorg logbestand
 (EE) error
 (NI) not implemented
 (??) unknown
-
-
 
 
 Disable the BIOS/firmware update

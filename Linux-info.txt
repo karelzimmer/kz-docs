@@ -5,6 +5,26 @@
 # <https://creativecommons.org/publicdomain/zero/1.0>, 2010-2023.
 ###############################################################################
 
+UNIX, Linux, and distro's
+-------------------------
+Linux is gestandaardiseerd op drie manieren:
+1. POSIX
+    Zelfs POSIX+
+2. Freedsktop
+    desktop entry spec, systemd, basedir, ...
+3. LSB (Linux Standard Base)
+    modules, naamgeving, compiler-opties, FHS (Filesystem Hierarchy Standard)
+
+Unix:
+Boek UNIX het *standaard* operating system, H.J. Thomassen, Academic Services.
+Linux:
+Boek LINUX: Rute User's Tutorial and Exposition, Paul Sheer, Prentice Hall PTR
+Distro:
+Boek The Official Ubuntu Book - Ninth Edition, Matthew Helmke et.al, Prentice Hall
+Boek The Official Ubuntu Server Book - Third Edition, Kyle Rankin and Benjamin Mako Hill, Prentice Hall
+Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Raphaël Hertzog and Roland Mas, Freexian
+
+
 Git/GitHub
 ----------
 Lokale git repo voor teksten of scripts:

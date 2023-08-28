@@ -583,6 +583,12 @@ sudo debconf-show <pakketnaam>
 echo 'virtualbox-ext-pack virtualbox-ext-pack/license select true' | sudo tee debconf-set-selections
 
 
+Opdracht OPDRACHT debuggen
+--------------------------
+strace -f OPDRACHT [> trace.txt]
+strace -f -p OPDRACHT-PID [> trace.txt]
+
+
 Shell script SCRIPT debuggen
 ----------------------------
 bash -vx ./SCRIPT

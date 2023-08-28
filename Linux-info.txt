@@ -585,11 +585,11 @@ echo 'virtualbox-ext-pack virtualbox-ext-pack/license select true' | sudo tee de
 
 Opdracht OPDRACHT debuggen
 --------------------------
-strace -f OPDRACHT [> trace.txt]
-strace --follow-forks OPDRACHT [> trace.txt]
+sudo strace -f OPDRACHT [> trace.txt]
+sudo strace --follow-forks OPDRACHT [> trace.txt]
 
-strace -f -p OPDRACHT-PID [> trace.txt]
-strace --follow-forks --attach OPDRACHT-PID [> trace.txt]
+sudo strace -f -p OPDRACHT-PID [> trace.txt]
+sudo strace --follow-forks --attach OPDRACHT-PID [> trace.txt]
 
 
 Shell script SCRIPT debuggen

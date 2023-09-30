@@ -1,6 +1,6 @@
 # kz-docs
 
-Documents for installing and managing Debian and Debian based system like Ubuntu.
+Documents for installing Debian and Debian based system like Ubuntu.
 
 Part of Debian package *kz*, named after its creator Karel Zimmer.
 

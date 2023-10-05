@@ -36,6 +36,22 @@ findmnt
 sudo ntfsfix /dev/sdb2
 
 
+Repair pcieport AER: Corrected errors received
+----------------------------------------------
+Modify the boot parameters when the GRUB bootloader menu appears.
+Select the “Install Ubuntu” option, press ‘e’ to edit the commands before booting,
+and add “pci=noaer” (or “pci=nomsi”, or "pci=noaer,nomsi”) at the end of the line
+beginning with “linux”. Then Ctrl-X or press F10 to boot.
+
+And later press Left or Right Shift key to add the parameter(s) to the line.
+
+Make it permanent by updating "/etc/default/grub" and add the parameters to
+"GRUB_CMDLINE_LINUX_DEFAULT", adding your parameter(s) to the text inside the
+double-quotes after the words "quiet splash".
+Then run: sudo update-grub
+Restart the system.
+
+
 Git/GitHub
 ----------
 Lokale git repo voor teksten of scripts:

@@ -9,7 +9,7 @@ Maak een zelfstartende USB-stick/Create a self-starting USB stick
 -----------------------------------------------------------------
 In een grafische werkomgeving:
 Zoek sch en klik op het pictogram van Schijven.
-Selecteer de usb-stick in de lijst van schijven aan de linkerkant en klik
+Selecteer de USB-stick in de lijst van schijven aan de linkerkant en klik
 rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
 Kies Schijfkopie terugzetten en selecteer het gedownloade cd-beeldbestand (.iso).
 Klik op Terugzetten starten en vervolgens op Terugzetten.
@@ -21,6 +21,9 @@ Zoek de regel die begint met /media/USER/USBLABEL (kolom TARGET) en noteer
 de apparaatnaam /dev/sdXN (kolom SOURCE).
 $ umount /dev/sdXN
 $ sudo dd bs=4M if=~/Downloads/NAAM.iso of=/dev/sdX conv=fdatasync status=progress
+
+Of gebruik Ventoy (ventoy.net):
+Kopieer één of meer gedownloade cd-beeldbestanden (.iso) naar een USB-stick.
 /
 In a graphical work environment:
 Locate disk and click the Disks icon.
@@ -36,6 +39,9 @@ Find the line that starts with /media/USER/USBLABEL (TARGET column) and note
 the device name /dev/sdXN (SOURCE column).
 $ umount /dev/sdXN
 $ sudo dd bs=4M if=~/Downloads/NAME.iso of=/dev/sdX conv=fdatasync status=progress
+
+Or use Ventoy (ventoy.net):
+Copy one or more downloaded CD image files (.iso) to a USB-stick.
 
 
 UNIX, Linux, and distro's
@@ -453,15 +459,15 @@ wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourcefor
 Controleer iso.
 sha256sum /tmp/super_grub2_disk.iso
 
-Plaats usb-stick, hier /dev/sdb, controleer met lsblk!
+Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
 Start Schijven/Gnome Disks.
-Selecteer de usb-stick in de lijst van schijven aan de linkerkant en
+Selecteer de USB-stick in de lijst van schijven aan de linkerkant en
 klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
 Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
 Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
 
 GEBRUIKEN
-Herstart de computer vanaf de usb-stick en kies de optie 'Detect en show boot methods'.
+Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
 Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
 Herinstalleer de bootloader na
 lsblk
@@ -1533,7 +1539,7 @@ Vervang strings.
 Comment insmod and play to prevent loud beep at boot (https://unix.stackexchange.com/questions/598240/debian-10-live-usb-loud-beep-at-boot)
 LANG=C sed 's/splash quiet/persistence /;s/quiet splash/persistence /;s/insmod play/#nsmod play/;s/play 960 440 1 0 4 440 1/#lay 960 440 1 0 4 440 1/' < $HOME/debian.iso > $HOME/debian-persist.iso
 
-Plaats usb-stick, hier /dev/sdb, controleer met lsblk!
+Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
 lsblk
 
 Unmount mounted partities!
@@ -1542,7 +1548,7 @@ sudo umount /dev/sdbX
 Controleer alles unmounted.
 lsblk
 
-Kopieer naar usb-stick (kan even duren, ~15 minuten).
+Kopieer naar USB-stick (kan even duren, ~15 minuten).
 sudo dd if=$HOME/debian-persist.iso of=/dev/sdb
 
 Maak en formatteer 3e partitie.

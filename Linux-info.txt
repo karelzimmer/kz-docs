@@ -5,8 +5,8 @@
 # <https://creativecommons.org/publicdomain/zero/1.0>, 2010-2023.
 ###############################################################################
 
-Maak een zelfstartende USB-stick/Create a self-starting USB stick
------------------------------------------------------------------
+Maak een opstartbare USB-stick/Create a bootable USB stick
+----------------------------------------------------------
 In een grafische werkomgeving:
 Plaats een usb-stick van minimaal 4 GB.
 Zoek sch en klik op het pictogram van Schijven.
@@ -24,8 +24,10 @@ de apparaatnaam /dev/sdXN (kolom SOURCE).
 $ umount /dev/sdXN
 $ sudo dd bs=4M if=~/Downloads/NAAM.iso of=/dev/sdX conv=fdatasync status=progress
 
-Of gebruik Ventoy (ventoy.net):
-Kopieer één of meer gedownloade cd-beeldbestanden (.iso) naar een USB-stick.
+Of gebruik Ventoy:
+Plaats de Ventoy usb-stick [1].
+Kopieer één of meer gedownloade cd-beeldbestanden (.iso) naar Ventoy.
+[1] Om een Ventoy USB-stick aan te maken, zie https://www.ventoy.net/en/doc_start.html.
 /
 In a graphical work environment:
 Insert a USB stick of at least 4 GB.
@@ -44,8 +46,10 @@ the device name /dev/sdXN (SOURCE column).
 $ umount /dev/sdXN
 $ sudo dd bs=4M if=~/Downloads/NAME.iso of=/dev/sdX conv=fdatasync status=progress
 
-Or use Ventoy (ventoy.net):
-Copy one or more downloaded CD image files (.iso) to a Ventoy USB-stick.
+Or use Ventoy:
+Insert the Ventoy USB stick [1].
+Copy one or more downloaded CD image files (.iso) to Ventoy.
+[1] To create a Ventoy USB stick, see https://www.ventoy.net/en/doc_start.html.
 
 
 UNIX, Linux, and distro's

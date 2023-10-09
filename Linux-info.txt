@@ -8,6 +8,7 @@
 Maak een zelfstartende USB-stick/Create a self-starting USB stick
 -----------------------------------------------------------------
 In een grafische werkomgeving:
+Plaats een usb-stick van minimaal 4 GB.
 Zoek sch en klik op het pictogram van Schijven.
 Selecteer de USB-stick in de lijst van schijven aan de linkerkant en klik
 rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
@@ -16,6 +17,7 @@ Klik op Terugzetten starten en vervolgens op Terugzetten.
 Of gebruik het programma Etcher (etcher.io) dat beschikbaar is voor Windows, macOS, en Linux.
 
 In een Terminalvenster:
+Plaats een usb-stick van minimaal 4 GB.
 $ findmnt
 Zoek de regel die begint met /media/USER/USBLABEL (kolom TARGET) en noteer
 de apparaatnaam /dev/sdXN (kolom SOURCE).
@@ -26,6 +28,7 @@ Of gebruik Ventoy (ventoy.net):
 Kopieer één of meer gedownloade cd-beeldbestanden (.iso) naar een USB-stick.
 /
 In a graphical work environment:
+Insert a USB stick of at least 4 GB.
 Locate disk and click the Disks icon.
 Select the USB stick in the list of disks on the left and click
 Disk settings ⋮ (icon with the three dots) in the top right corner.
@@ -34,6 +37,7 @@ Click Start Restore, and then click Restore.
 Or use the Etcher program (etcher.io) available for Windows, macOS, and Linux.
 
 In a Terminal:
+Insert a USB stick of at least 4 GB.
 $ findmnt
 Find the line that starts with /media/USER/USBLABEL (TARGET column) and note
 the device name /dev/sdXN (SOURCE column).
@@ -41,7 +45,7 @@ $ umount /dev/sdXN
 $ sudo dd bs=4M if=~/Downloads/NAME.iso of=/dev/sdX conv=fdatasync status=progress
 
 Or use Ventoy (ventoy.net):
-Copy one or more downloaded CD image files (.iso) to a USB-stick.
+Copy one or more downloaded CD image files (.iso) to a Ventoy USB-stick.
 
 
 UNIX, Linux, and distro's
@@ -819,7 +823,7 @@ Voorbeeld "$HOME"/.config/user-dirs.dirs:
 # Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
 # homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
 # absolute path. No other format is supported.
-# 
+#
 XDG_DESKTOP_DIR="$HOME/Bureaublad"
 XDG_DOWNLOAD_DIR="$HOME/Downloads"
 XDG_TEMPLATES_DIR="$HOME/Sjablonen"

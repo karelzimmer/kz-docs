@@ -27,7 +27,8 @@ $ sudo dd bs=4M if=~/Downloads/NAAM.iso of=/dev/sdX conv=fdatasync status=progre
 Of gebruik Ventoy:
 Plaats de Ventoy usb-stick [1].
 Kopieer één of meer gedownloade cd-beeldbestanden (.iso) naar Ventoy.
-[1] Om een Ventoy USB-stick aan te maken, zie https://www.ventoy.net/en/doc_start.html.
+[1] Om een Ventoy USB-stick aan te maken,
+    zie https://www.ventoy.net> Document > Get Started.
 /
 In a graphical work environment:
 Insert a USB stick of at least 4 GB.
@@ -49,7 +50,8 @@ $ sudo dd bs=4M if=~/Downloads/NAME.iso of=/dev/sdX conv=fdatasync status=progre
 Or use Ventoy:
 Insert the Ventoy USB stick [1].
 Copy one or more downloaded CD image files (.iso) to Ventoy.
-[1] To create a Ventoy USB stick, see https://www.ventoy.net/en/doc_start.html.
+[1] To create a Ventoy USB stick,
+    see https://www.ventoy.net> Document > Get Started.
 
 
 UNIX, Linux, and distro's

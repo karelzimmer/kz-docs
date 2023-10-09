@@ -5,9 +5,10 @@
 # <https://creativecommons.org/publicdomain/zero/1.0>, 2010-2023.
 ###############################################################################
 
-Maak een opstartbare USB-stick/Create a bootable USB stick
-----------------------------------------------------------
-In een grafische werkomgeving:
+Maak een opstartbare USB-stick / Create a bootable USB stick
+============================================================
+In een grafische werkomgeving
+-----------------------------
 Plaats een usb-stick van minimaal 4 GB.
 Zoek sch en klik op het pictogram van Schijven.
 Selecteer de USB-stick in de lijst van schijven aan de linkerkant en klik
@@ -16,7 +17,8 @@ Kies Schijfkopie terugzetten en selecteer het gedownloade cd-beeldbestand (.iso)
 Klik op Terugzetten starten en vervolgens op Terugzetten.
 Of gebruik het programma Etcher (etcher.io) dat beschikbaar is voor Windows, macOS, en Linux.
 
-In een Terminalvenster:
+In een Terminalvenster
+----------------------
 Plaats een usb-stick van minimaal 4 GB.
 $ findmnt
 Zoek de regel die begint met /media/USER/USBLABEL (kolom TARGET) en noteer
@@ -24,13 +26,17 @@ de apparaatnaam /dev/sdXN (kolom SOURCE).
 $ umount /dev/sdXN
 $ sudo dd bs=4M if=~/Downloads/NAAM.iso of=/dev/sdX conv=fdatasync status=progress
 
-Of gebruik Ventoy:
+Of gebruik Ventoy
+-----------------
 Plaats de Ventoy usb-stick [1].
 Kopieer één of meer gedownloade cd-beeldbestanden (.iso) naar Ventoy.
 [1] Om een Ventoy USB-stick aan te maken,
     zie https://www.ventoy.net> Document > Get Started.
+
 /
-In a graphical work environment:
+
+In a graphical work environment
+-------------------------------
 Insert a USB stick of at least 4 GB.
 Locate disk and click the Disks icon.
 Select the USB stick in the list of disks on the left and click
@@ -39,7 +45,8 @@ Choose Restore Disk Image and select the downloaded CD image file (.iso).
 Click Start Restore, and then click Restore.
 Or use the Etcher program (etcher.io) available for Windows, macOS, and Linux.
 
-In a Terminal:
+In a Terminal
+-------------
 Insert a USB stick of at least 4 GB.
 $ findmnt
 Find the line that starts with /media/USER/USBLABEL (TARGET column) and note
@@ -47,7 +54,8 @@ the device name /dev/sdXN (SOURCE column).
 $ umount /dev/sdXN
 $ sudo dd bs=4M if=~/Downloads/NAME.iso of=/dev/sdX conv=fdatasync status=progress
 
-Or use Ventoy:
+Or use Ventoy
+-------------
 Insert the Ventoy USB stick [1].
 Copy one or more downloaded CD image files (.iso) to Ventoy.
 [1] To create a Ventoy USB stick,
@@ -500,9 +508,9 @@ sudo update-grub
 
 
 Apps instellen na installatie
------------------------------
-
+=============================
 Bitwarden (wachtwoordbeheer) instellen
+--------------------------------------
 Ingebruikname van Bitwarden bestaat uit de volgende stappen:
 1. Start Bitwarden.
 2. Maak een account aan met een sterk(!) Hoofdwachtwoord.
@@ -541,6 +549,7 @@ Voor Chrome betekent dit:
       2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op Opties en vink aan Automatisch invullen bij laden van pagina.
 
 Google Chrome (webbrowser) instellen
+------------------------------------
 1. Start Google Chrome.
 2. Indien nodig importeer Firefox bladwijzers via klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes).
 3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
@@ -555,6 +564,7 @@ Om standaard te mailen met Gmail en Google Chrome voer uit:
 2. Kies bij E-mail voor Gnome Gmail.
 
 Thunderbird (e-mail) instellen
+------------------------------
 Voeg de extenstie voor Google Agenda toe via:
 1. Start Thunderbird.
 2. Ga rechtsboven naar Het Thunderbird-menu weergeven ☰ (icoontje met drie streepjes) > Add-ons.
@@ -563,6 +573,7 @@ Voeg de extenstie voor Google Agenda toe via:
 5. Volg de aanwijzingen op het scherm.
 
 Terminal (terminalvenster) instellen (altijd maximale grootte)
+--------------------------------------------------------------
 1. Start Terminalvenster.
 2. Maximaliseer het Terminalvenster.
 3. Voer de volgende opdracht uit:
@@ -856,7 +867,8 @@ Zie eerst: http://askubuntu.com/questions/162075/
 4. Als dat het niet oplost
 5. En nog verder gaan
 
-1. Niet-afgemaakte updates.
+1. Niet-afgemaakte updates
+--------------------------
 Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
 (Als dat menu niet verschijnt bij het opstarten, hou dan de Shift-toets ingedrukt bij het opstarten.)
 Kies dan Ubuntu, with Linux... (recovery mode).
@@ -868,13 +880,15 @@ exit
 Volg de eventuele aanwijzingen op het scherm (zoals sudo apt install -f).
 Start de computer daarna weer op,
 
-#2. Beschadigd bestandssysteem
+2. Beschadigd bestandssysteem
+-----------------------------
 Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
 Kies dan Ubuntu, with Linux... (recovery mode).
 Kies op het Herstelmenu voor fsck.
 Volg de aanwijzingen op het scherm.
 
-#3. Meer drastische methodes:
+3. Meer drastische methodes
+---------------------------
 Op het Aanmeldscherm/Bureaublad probeer een Terminalvenster te openen met Ctrl+Alt+T of Ctrl+Alt+F1.
 Voer in het Terminalvenster uit:
 sudo rm -fr "$HOME"/.cache/compizconfig-1
@@ -882,7 +896,8 @@ sudo rm -fr "$HOME"/.compiz
 sudo rm -fr "$HOME"/.Xauthority
 sudo rm -fr "$HOME"/.config/autostart
 
-4. En nog verder gaan (verwijdert alle, mogelijk foutieve, configuratiedata):
+4. En nog verder gaan (verwijdert alle, mogelijk foutieve, configuratiedata)
+----------------------------------------------------------------------------
 rm -rf "$HOME"/.config
 
 
@@ -1011,17 +1026,21 @@ https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
 
 
 Youtube video's downloaden
---------------------------
-Tip #1: Change YouTube to youpak
+==========================
+Change YouTube to youpak
+------------------------
 youtube.com/watch?v=... -> youpak.com/watch?v=...
 
-Tip #2: Change YouTube to ssyoutube
+Change YouTube to ssyoutube
+---------------------------
 youtube.com/watch?v=... -> ssyoutube.com/watch?v=...
 
-Tip #3: Insert "pp" after "youtube"
+Insert "pp" after "youtube"
+---------------------------
 youtube.com/watch?v=... -> youtubepp.com/watch?v=...
 
-Tip #4: Add "pwn" before "youtube"
+Add "pwn" before "youtube"
+--------------------------
 youtube.com/watch?v=... -> pwnyoutube.com/watch?v=...
 
 
@@ -1063,8 +1082,8 @@ Volg onderstaande STAPPEN:
 
 
 STAPPEN
-1.  Inspecteren -------------------------------------------------------------
-
+1.  Inspecteren
+---------------
 exiftool -printFormat '$FileModifyDate $Directory/$FileName' -dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen" 1> "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" 2> "$HOME/Afbeeldingen/Afbeeldingen-foutjes.txt"
 Extra:
 tree -d "$HOME/Afbeeldingen/" > "$HOME/Afbeeldingen/tree.txt"
@@ -1073,8 +1092,8 @@ Bovenstaande opdracht maakt een overzicht van bestanden zonder Exif-datum.
 Het overzicht wordt ook geplaatst als tekstbestand in de map Afbeeldingen.
 Ook een bestand met gevonden foutjes wordt geplaatst in de map Afbeeldingen.
 
-2.  Aanpassen ---------------------------------------------------------------
-
+2.  Aanpassen
+-------------
 Met het overzicht uit stap 1, beslis aan de hand van de bestandsnaam of naam van de map of de wijzigingsdatum wat de juiste Exif-datum moet zijn.
 Kies een von onderstaande opties:
 
@@ -1091,7 +1110,8 @@ Wijzigingsdatum - Hele map
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' "$PWD"
 
 
-3.  Controleren -------------------------------------------------------------
+3.  Controleren
+---------------
 Bekijk de foto's in de map.
 nautilus "$PWD"
 
@@ -1103,7 +1123,7 @@ exiftool -printFormat '$FileModifyDate/$Directory $FileName' -dateFormat "%Y-%m-
 
 
 4.  Opruimen
-
+------------
 Opruimen (voeg eventueel -recurse toe).
 exiftool -delete_original! "$PWD"
 
@@ -1113,8 +1133,8 @@ Onderstaande opdracht toont unieke wijzigingsdatums die mogelijk eerder zijn geb
 cut --field=1 --delimiter=' ' "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" | sort --unique
 
 
-5.  Uploaden ----------------------------------------------------------------
-
+5.  Uploaden
+------------
 Nu is het tijd om de foto's te uploaden naar Google Foto's.
 Foto's die foutief zijn geplaatsts in Google Foto's, bijvoorbeeld met de scan-datum i.p.v. de datum waarop de foto is gemaakt, blijven staan.
 Deze zijn met het overzicht uit stap 1 te vinden en te verwijderen van Google Foto's.

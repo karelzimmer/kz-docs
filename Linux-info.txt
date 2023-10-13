@@ -511,11 +511,12 @@ sudo update-grub
 =========
 # Force the use of Wayland because Wayland is not (yet) supported by remote desktop apps such as AnyDesk and TeamViewer.
 # Force means no choice @ user login for X11 or Wayland!
-# To check, after reboot (!) execute: echo $XDG_SESSION_TYPE (should output 'x11')
-sudo sed --in-place --expression='s/#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
+# To check, after reboot (!), execute: echo $XDG_SESSION_TYPE (should output 'x11')
+sudo sed --in-place --expression='s/^#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
 REVERT:
-# To check execute: echo $XDG_SESSION_TYPE (should output 'wayland')
-sudo sed --in-place --expression='s/WaylandEnable=false/#WaylandEnable=false/' /etc/gdm3/custom.conf
+# Remove the forced use of X11 because Wayland is not (yet) supported by remote desktop apps such as AnyDesk and TeamViewer.
+# To check, after reboot (!), execute: echo $XDG_SESSION_TYPE (should output 'wayland')
+sudo sed --in-place --expression='s/^WaylandEnable=false/#WaylandEnable=false/' /etc/gdm3/custom.conf
 
 
 # App virtualbox instellen na installatie

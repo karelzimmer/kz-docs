@@ -30,6 +30,9 @@ Of gebruik Ventoy
 -----------------
 Plaats de Ventoy usb-stick [1].
 Kopieer één of meer gedownloade cd-beeldbestanden (.iso) naar Ventoy.
+Start de computer op vanaf de Ventoy usb-stick.
+Over Secure Boot in UEFI-modus, zie https://www.ventoy.net/en/doc_secure.html.
+
 [1] Om een Ventoy USB-stick aan te maken,
     zie https://www.ventoy.net> Document > Get Started.
 
@@ -58,6 +61,9 @@ Or use Ventoy
 -------------
 Insert the Ventoy USB stick [1].
 Copy one or more downloaded CD image files (.iso) to Ventoy.
+Boot from the Ventoy USB stick.
+About Secure Boot in UEFI mode, see https://www.ventoy.net/en/doc_secure.html.
+
 [1] To create a Ventoy USB stick,
     see https://www.ventoy.net> Document > Get Started.
 

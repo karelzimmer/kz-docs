@@ -9,7 +9,7 @@ Maak een opstartbare USB-stick / Create a bootable USB stick
 ============================================================
 In een grafische werkomgeving
 -----------------------------
-Plaats een usb-stick van minimaal 4 GB.
+Plaats een usb-stick van minimaal 8 GB.
 Zoek sch en klik op het pictogram van Schijven.
 Selecteer de USB-stick in de lijst van schijven aan de linkerkant en klik
 rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
@@ -19,7 +19,7 @@ Of gebruik het programma Etcher (etcher.io) dat beschikbaar is voor Windows, mac
 
 In een Terminalvenster
 ----------------------
-Plaats een usb-stick van minimaal 4 GB.
+Plaats een usb-stick van minimaal 8 GB.
 $ findmnt
 Zoek de regel die begint met /media/USER/USBLABEL (kolom TARGET) en noteer
 de apparaatnaam /dev/sdXN (kolom SOURCE).
@@ -40,7 +40,7 @@ Over Secure Boot in UEFI-modus, zie https://www.ventoy.net/en/doc_secure.html.
 
 In a graphical work environment
 -------------------------------
-Insert a USB stick of at least 4 GB.
+Insert a USB stick of at least 8 GB.
 Locate disk and click the Disks icon.
 Select the USB stick in the list of disks on the left and click
 Disk settings ⋮ (icon with the three dots) in the top right corner.
@@ -50,7 +50,7 @@ Or use the Etcher program (etcher.io) available for Windows, macOS, and Linux.
 
 In a Terminal
 -------------
-Insert a USB stick of at least 4 GB.
+Insert a USB stick of at least 8 GB.
 $ findmnt
 Find the line that starts with /media/USER/USBLABEL (TARGET column) and note
 the device name /dev/sdXN (SOURCE column).

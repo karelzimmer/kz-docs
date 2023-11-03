@@ -475,7 +475,8 @@ Ubuntu of Debian GNU/Linux.
 HERSTELLEN
 Bootloader herstellen met Super Grub2 Disk
 ------------------------------------------
-MAKEN
+Maken
+-----
 Download image.
 https://www.supergrubdisk.org/category/download/supergrub2diskdownload/super-grub2-disk-stable/
 wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourceforge.net/project/supergrub2/2.04s1/super_grub2_disk_2.04s1/super_grub2_disk_hybrid_2.04s1.iso
@@ -490,7 +491,8 @@ klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
 Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
 Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
 
-GEBRUIKEN
+Gebruiken
+---------
 Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
 Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
 Herinstalleer de bootloader na
@@ -503,6 +505,13 @@ zijn, zonder de Super Grub2 Disk.
 Als Windows niet zichtbaar is in het GRUB boot menu is de work-around:
 Voeg GRUB_DISABLE_OS_PROBER=false toe aan /etc/default/grub en voer uit
 sudo update-grub
+
+# APP wine
+==========
+sudo apt-get install --yes wine winetricks playonlinux
+REVERT:
+sudo apt-get remove --purge --yes wine winetricks playonlinux
+sudo apt-get autoremove --yes
 
 
 Pop!_OS dual-boot

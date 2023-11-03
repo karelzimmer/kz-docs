@@ -522,6 +522,21 @@ sudo os-prober
 sudo update-grub
 
 
+# APP google-earth
+==================
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/google-earth.gpg] https://dl.google.com/linux/earth/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-earth-pro.list > /dev/null
+wget --output-document=- 'https://dl.google.com/linux/linux_signing_key.pub' | sudo gpg --dearmor --yes --output=/usr/share/keyrings/google-earth.gpg
+sudo apt-get update
+sudo apt-get install --yes google-earth-pro-stable
+# The installation overwrites the newly added source-list.
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/google-earth.gpg] https://dl.google.com/linux/earth/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-earth-pro.list > /dev/null
+REVERT:
+sudo apt-get remove --purge --yes google-earth-pro-stable
+sudo apt-get autoremove --yes
+sudo rm --force /etc/apt/sources.list.d/google-earth-pro.list* /usr/share/keyrings/google-earth.gpg*
+sudo apt-get update
+
+
 APP force-x11 & wayland
 =======================
 # Force the use of X11 because Wayland is not (yet) supported by remote desktop apps such as AnyDesk and TeamViewer.

@@ -515,127 +515,13 @@ sudo os-prober
 sudo update-grub
 
 
-APP gast
-========
+gast
+----
 sudo useradd --create-home --shell /usr/bin/bash --comment 'Gast' gast || true
 sudo passwd --delete gast
 REMOVE:
 sudo userdel --remove gast
 
-
-APP force-x11 & wayland
-=======================
-# Force the use of X11 because Wayland is not (yet) supported by remote desktop apps such as AnyDesk and TeamViewer.
-# Force means no choice @ user login for X11 or Wayland!
-# To check, after reboot (!), execute: echo $XDG_SESSION_TYPE (should output 'x11')
-sudo sed --in-place --expression='s/^#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
-REVERT:
-# Remove the forced use of X11 because Wayland is not (yet) supported by remote desktop apps such as AnyDesk and TeamViewer.
-# To check, after reboot (!), execute: echo $XDG_SESSION_TYPE (should output 'wayland')
-sudo sed --in-place --expression='s/^WaylandEnable=false/#WaylandEnable=false/' /etc/gdm3/custom.conf
-
-
-APP virtualbox instellen na installatie
-=======================================
-# If installation hangs, the computer has UEFI Secure Boot, see the log:
-# ----------------------------------------------------------------------------
-# Configuring Secure Boot
-# -----------------------
-#
-# Your system has UEFI Secure Boot enabled.
-#
-# UEFI Secure Boot requires additional configuration to work with third-party
-# drivers.
-#
-# The system will assist you in configuring UEFI Secure Boot. To permit the
-# use of third-party drivers, a new Machine-Owner Key MOK has been generated.
-# This key now needs to be enrolled in your system's firmware.
-#
-# To ensure that this change is being made by you as an authorized user, and
-# not by an attacker, you must choose a password now and then confirm the
-# change after reboot using the same password, in both the "Enroll MOK" and
-# "Change Secure Boot state" menus that will be presented to you when this
-# system reboots.
-#
-# If you proceed but do not confirm the password upon reboot, Ubuntu will
-# still be able to boot on your system but any hardware that requires
-# third-party drivers to work correctly may not be usable.
-# ----------------------------------------------------------------------------
-# Steps to take:
-# 1. Reboot.
-# 2. Run kz update, who does a repair, among other things.
-# 3. Provide a Secure Boot password and remember it.
-# 4. Reboot.
-# 5. Enroll MOK and provide the Secure Boot password from step 3.
-#
-# With an AMD processor, AMD-V will be enabled, but Intel often requires VT-x
-# be enabled in the UEFI BIOS screen !
-
-
-Apps instellen na installatie
-=============================
-Bitwarden (wachtwoordbeheer) instellen
---------------------------------------
-Ingebruikname van Bitwarden bestaat uit de volgende stappen:
-1. Start Bitwarden.
-2. Maak een account aan met een sterk(!) Hoofdwachtwoord.
-3. Exporteer de opgeslagen wachtwoorden uit de bestaande wachtwoordbeheerder.
-4. Importeer de opgeslagen wachtwoorden in Bitwarden.
-5. Verwijder de uit de oude wachtwoordbeheerder geëxporteerde wachtwoorden.
-6. Verwijder de oude wachtwoordbeheerder.
------------------------------------------------
-Met het gebruik van Bitwarden wordt het opslaan
-van wachtwoorden in de browser sterk afgeraden.
------------------------------------------------
-Dit betekent voor de browser:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. Stop het (automatisch) opslaan van wachtwoorden.
-2. Verwijder opgeslagen wachtwoorden.
-3. Voeg de Bitwarden-extensie toe.
-
-Voor Chrome betekent dit:
-~~~~~~~~~~~~~~~~~~~~~~~~~
-1. Stop het (automatisch) opslaan van wachtwoorden.
-   1. Klik rechtsboven op de gebruikersafbeelding en kies Je Google-account beheren.
-   2. Klik aan de linkerkant op Beveiliging.
-   3. Scroll naar beneden en klik op Wachtwoordmanager.
-   4. Klik rechtsboven op tandwielsymbool.
-   5. Zet schuifjes 'Automatisch inloggen' en 'Aanbieden om wachtwoorden op te slaan' uit.
-2. Verwijder opgeslagen wachtwoorden.
-   1. Klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes)
-   2. Klik op Instellingen.
-   3. Klik onder 'Privacy en beveiliging' op Browsegegevens wissen.
-   4. Klik op Geavanceerd (tab).
-   5. Vink aan 'Wachtwoorden en andere inloggegevens' en klik op Gegevens wissen.
-3. Gebruik de Bitwarden-extensie.
-   1. Klik rechtsboven op Bitwarden-icoontje en geef het Hoofdwachtwoord.
-   2. Eventueel, met licht veiligheidsrisico, maar groot gebruikersgemak:
-      1. Klik in Bitwarden-extensie op Instellingen en klik onder BEVEILIGING op 'Time-out van de kluis' en selecteer Nooit.
-      2. Klik in Bitwarden-extensie op Instellingen en klik onder OVERIG op Opties en vink aan Automatisch invullen bij laden van pagina.
-
-Google Chrome (webbrowser) instellen
-------------------------------------
-1. Start Google Chrome.
-2. Indien nodig importeer Firefox bladwijzers via klik rechtsboven op Google Chrome aanpassen en beheren ⋮ (icoontje met de drie puntjes).
-3. Kies Bladwijzers en dan Bladwijzers en instellingen importeren.
-4. Ga naar https://chrome.google.com/webstore/category/extensions
-5. Zoek naar gnome en klik op gnome-shell integration
-6. Klik op Gnome-shell-integratie
-7. Klik op Toev. aan Chrome.
-8. Klik op Extensie toevoegen.
-
-Om standaard te mailen met Gmail en Google Chrome voer uit:
-1. Start Standaardtoepassingen.
-2. Kies bij E-mail voor Gnome Gmail.
-
-Thunderbird (e-mail) instellen
-------------------------------
-Voeg de extenstie voor Google Agenda toe via:
-1. Start Thunderbird.
-2. Ga rechtsboven naar Het Thunderbird-menu weergeven ☰ (icoontje met drie streepjes) > Add-ons.
-3. Zoek 'Google Agenda'
-4. Klik achter 'Provider for Google Calendar' op '+ Toevoegen...'.
-5. Volg de aanwijzingen op het scherm.
 
 Terminal (terminalvenster) instellen (altijd maximale grootte)
 --------------------------------------------------------------

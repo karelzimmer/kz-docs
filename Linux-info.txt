@@ -523,6 +523,18 @@ REMOVE:
 sudo userdel --remove gast
 
 
+force x11 & wayland
+-------------------
+# Force the use of X11 because Wayland is not (yet) supported by remote desktop apps such as AnyDesk and TeamViewer.
+# Force means no choice @ user login for X11 or Wayland!
+sudo sed --in-place --expression='s/^#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf
+# To check, after reboot (!), execute: echo $XDG_SESSION_TYPE (should output 'x11')
+REVERT:
+# Remove the forced use of X11 because Wayland is not (yet) supported by remote desktop apps such as AnyDesk and TeamViewer.
+sudo sed --in-place --expression='s/^WaylandEnable=false/#WaylandEnable=false/' /etc/gdm3/custom.conf
+# To check, after reboot (!), execute: echo $XDG_SESSION_TYPE (should output 'wayland')
+
+
 Terminal (terminalvenster) instellen (altijd maximale grootte)
 --------------------------------------------------------------
 1. Start Terminalvenster.

@@ -120,7 +120,7 @@ Git/GitHub
 Lokale git repo voor teksten of scripts:
 sudo apt-get instal git
 git config --global user.name 'Karel Zimmer'
-git config --global user.email 'karel.zimmer@gmail.com'
+git config --global user.email 'info@karel.zimmer'
 git config --list
 mkdir article
 cd article
@@ -138,7 +138,7 @@ download:
 git clone https://github.com/karelzimmer/kz-docs.git ~
 git clone https://github.com/karelzimmer/kz-scripts.git ~
 git config --global user.name 'Karel Zimmer'
-git config --global user.email 'karel.zimmer@gmail.com'
+git config --global user.email 'info@karel.zimmer'
 
 Upload:
 git config --global credential.helper store
@@ -280,13 +280,13 @@ VOORBEELD
 Hoe cool, 1 commit 'Changes for t9n' in main, tegen 73 dezelfde commits in feature/t9n:
 $ git log
 commit ef16d17af1fb152981dd1efe680cf13547a16cd8 (HEAD -> main)
-Author: Karel Zimmer <karel.zimmer@gmail.com>
+Author: Karel Zimmer <info@karel.zimmer>
 Date:   Fri Mar 3 10:33:56 2023 +0100
 
     Changes for t9n
 
 commit 7ff89479024c8dc1343181cf51370b776e6b5e5d (origin/main, origin/HEAD)
-Author: Karel Zimmer <karel.zimmer@gmail.com>
+Author: Karel Zimmer <info@karel.zimmer>
 Date:   Tue Feb 21 08:45:00 2023 +0100
 
     Added check if all repo' s are on branch main
@@ -295,13 +295,13 @@ etc... (1 commit voor Changes for t9n!)
 $ git checkout feature/t9n
 $ git log
 commit e0429689659a75924850c4baa65b8f39d14b3195 (HEAD -> feature/t9n, origin/feature/t9n)
-Author: Karel Zimmer <karel.zimmer@gmail.com>
+Author: Karel Zimmer <info@karel.zimmer>
 Date:   Fri Mar 3 09:45:48 2023 +0100
 
     Changes for t9n
 
 commit 2dd93b3b70c0b2757e716df35f1c1e3c91849661
-Author: Karel Zimmer <karel.zimmer@gmail.com>
+Author: Karel Zimmer <info@karel.zimmer>
 Date:   Fri Mar 3 09:05:35 2023 +0100
 
     Changes for t9n

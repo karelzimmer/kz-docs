@@ -313,110 +313,6 @@ git merge --squash
 git commit -m'squash-commit-msg'
 
 
-Gettext .pot/.po/.mo files
---------------------------
-# WERKWIJZE
-# ---------
-cd ~/scripts
-
-# ### 1-MALIG ###
-# sudo apt install gettext
-# mkdir --parents nl/LC_MESSAGES
-# Voeg 1 of meer gettext's toe in script:
-#--------------------------------------------------------------------------------
-#!/bin/bash
-#
-# export TEXTDOMAIN=helloworld
-# export TEXTDOMAINDIR=/home/karel/scripts
-#
-# source /usr/bin/gettext.sh
-#
-# program_name=helloworld.sh
-#
-# printf '%s\n' "$(eval_gettext "Program name: \$program_name")"
-#
-# printf '%s\n' "$(gettext 'Hello world!')"
-#--------------------------------------------------------------------------------
-# xgettext --language=Shell --no-location --output=helloworld.pot helloworld.sh
-# ### OF ###
-#--------------------------------------------------------------------------------
-#!/bin/python
-#
-# import gettext
-#
-# gettext.bindtextdomain('helloworld', '/home/karel/scripts')
-# gettext.textdomain('helloworld')
-# _ = gettext.gettext
-#
-# program_name = 'helloworld.py'
-#
-# print(_('Program name: {}').format(program_name))
-#
-# print(_('Hello world!'))
-#--------------------------------------------------------------------------------
-# xgettext --language=Python --no-location --output=helloworld.pot helloworld.py
-#
-# msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
-# Wijzig 1-malig .po:
-# Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
-# PACKAGE -> helloworld
-# VERSION -> 0.1
-
-# Voeg gettext's toe in script.
-# Daarna:
-xgettext --language=Shell --join-existing --no-location --output=helloworld.pot helloworld.sh
-# Of:
-xgettext --language=Python --join-existing --no-location --output=helloworld.pot helloworld.py
-
-msgmerge --update --backup=none --previous --no-location nl/LC_MESSAGES/helloworld.po helloworld.pot
-
-Zie ook ~/bin/pogen.
-
-# Wijzig als vertaler .po:
-# msgid "Hello world!"
-# msgstr "" --> "Hallo wereld!"
-# Etc.
-
-# Maak .mo aan na iedere vertaling:
-msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
-
-# Voor systeem:
-sudo cp nl/LC_MESSAGES/helloworld.mo /usr/share/locale/nl/LC_MESSAGES
-
-Zie ook ~/bin/mogen.
-
-# Vertaalbestanden worden t.z.t. gedistribueerd en geinstalleerd met "kz.deb".
-# ├── helloworld.pot (Portable Object Template/GNU gettext message catalogue)
-# ├── helloworld.sh
-# ├── nl
-# │   └── LC_MESSAGES
-# │       ├── helloworld.mo (Machine Object/GNU message catalog)
-# │       ├── helloworld.po (Portable Object/GNU gettext message catalogue)
-
-# Vind duplicates in PO bestand:
-msguniq --repeated nl/LC_MESSAGES/helloworld.po
-
-# Combineer PO bestanden:
-msgcat --repeated File1.po File2.po --output-file=File3.po
-
-# TESTEN
-# ------
-echo "$LANGUAGE"
-# nl:en
-LANGUAGE=nl ./helloworld.sh
-# Programmanaam: ./helloworld.sh
-#
-# Hallo wereld!
-
-LANGUAGE=en ./helloworld.sh
-# Program name: ./helloworld.sh
-#
-# Hello world!
-
-man <SCRIPT>
-man -L en <SCRIPT>
-
-
 Versleuteling (LUKS)
 --------------------
 Om de harddisk te versleutelen, vink aan tijdens het installeren:
@@ -515,8 +411,8 @@ sudo os-prober
 sudo update-grub
 
 
-gast
-----
+Gebruiker gast
+--------------
 sudo useradd --create-home --shell /usr/bin/bash --comment 'Gast' gast || true
 sudo passwd --delete gast
 REMOVE:
@@ -572,54 +468,15 @@ ONTKOPPELEN
 sudo pro detach
 
 
-Afmelden via command line
--------------------------
-gnome-session-quit              Afmelden met 60 sec. bedenktijd
-gnome-session-quit --no-prompt  Geen bevestiging van vragen bij --logout
-gnome-session-quit --logout     Afmelden (standaard)
-gnome-session-quit --power-off  Computer uitzetten (met bevestiging)
-gnome-session-quit --reboot     Opnieuw opstarten (met bevestiging)
-sudo systemctl reboot           herstarten
-sudo systemctl poweroff         uitschakelen
-/var/run/reboot-required        reboot nodig als aanwezig
-
-
 Boot/recovery menu
 ------------------
 BIOS: Shift-toets ingedrukt houden
 UEFI: Esc-toets meerdere malen indrukken
 
 
-GIO & Google Drive
-------------------
-GIO=GNOME Input/Output=Gtk general purpose I/O functionality
-GVfs=GNOME virtual filesysteem
-FUSE=Filesystem in USErspace
-
-gio list smb://<server>/<share>/file.txt
-
-mount:
-gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,rela...
-
-cd /run/user/1000/gvfs/google-drive:host=gmail.com,user=karel.zimmer
-gio list -d
-  Gedeeld met mij
-gio list -a "standard::display-name"
-  GVfsSharedWithMe	0	(directory)	standard::display-name=Gedeeld met mij
-gio list -a "unix"
-gio list -a "*"
-
-
 VM
 --
 sudo apt-get install --yes spice-vdagent && sudo reboot
-
-
-debconf
--------
-debconf-show --listowners
-sudo debconf-show <pakketnaam>
-echo 'virtualbox-ext-pack virtualbox-ext-pack/license select true' | sudo tee debconf-set-selections
 
 
 Opdracht OPDRACHT debuggen
@@ -653,11 +510,6 @@ Zwart scherm bij opstarten
 --------------------------
 Probeer een 'nomodeset' op te geven als opstartparameter.
 Ref: http://askubuntu.com/questions/162075/
-
-
-Herstel Bestanden thumbnails
-----------------------------
-rm -fr "$HOME"/.cache/thumbnails/
 
 
 Netwerkverbinding vóór het aanmelden?
@@ -788,6 +640,11 @@ Draai 90 graden iPhone film
 mencoder -vf rotate -o Input.MOV -oac lavc -ovc lavc Output.MOV
 
 
+Herstel Bestanden thumbnails
+----------------------------
+rm -fr "$HOME"/.cache/thumbnails/
+
+
 Herstel verwijderde "Locaties" Afbeeldingen, Documenten, Downloads, etc.
 ------------------------------------------------------------------------
 Maak Afbeeldingen, Documenten, Downloads, etc. map aan in Persoonlijke map
@@ -862,12 +719,6 @@ sudo rm -fr "$HOME"/.config/autostart
 4. En nog verder gaan (verwijdert alle, mogelijk foutieve, configuratiedata)
 ----------------------------------------------------------------------------
 rm -rf "$HOME"/.config
-
-
-Verwijder Exif-informatie verborgen in JPEG-bestanden
------------------------------------------------------
-sudo apt install libimage-exiftool-perl
-for i in *.jpg; do echo "Processing $i"; exiftool -all= "$i"; done
 
 
 LUKS - Ondersteuning voor schijfversleuteling
@@ -980,14 +831,6 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
 
-GUIfying scriptsfo
-----------------
-dialog
-whiptail
-https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
-
-
-
 Youtube video's downloaden
 ==========================
 Change YouTube to youpak
@@ -1010,6 +853,12 @@ youtube.com/watch?v=... -> pwnyoutube.com/watch?v=...
 Extract mp3 uit mp4
 -------------------
 ffmpeg -i input-video-file output-audio-file
+
+
+Verwijder Exif-informatie verborgen in JPEG-bestanden
+-----------------------------------------------------
+sudo apt install libimage-exiftool-perl
+for i in *.jpg; do echo "Processing $i"; exiftool -all= "$i"; done
 
 
 Google Foto's/Photos en Exif-data (exiftool)
@@ -1312,94 +1161,6 @@ cp /home/USER-OLD/* /home/USER-NEW/*
 mv /home/USER-OLD/* /home/USER-NEW/*
 
 
-APT-hardening
--------------
-For third-party packages / Voor derde-partij pakketten source-lists of PPAs.
-apt-key - Verouderd hulpprogramma voor het beheer van de sleutels van APT "Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d
- instead (see apt-key(8))"
-Zie:
-https://blog.cloudflare.com/dont-use-apt-key/
-https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html
-
-De instructies om een apt-sleutel toe te voegen zijn vaak:
-wget ... | sudo tee /etc/apt/trusted.gpg.d/...
-# Of:
-wget ... | sudo apt-key add .. (toegevoegen aan /etc/apt/trusted.gpg)
-
-Zie voorbeelden hieronder, een voorbeeld met de gpg-sleutel opgenomen in /etc/apt/trusted.gpg door 'apt-key add' en een voorbeeld met de sleutel in /etc/apt/trusted.gpg.d, IST.
-
-Dit zijn vaak asc-sleutels (ASCII-armored keyrings, plain text format/ASCII-gepantserde handtekening, platte tekst).
-Probleem met keys in /etc/apt/trusted.gpg en /etc/apt/trusted.gpg.d is dat AL deze sleutels worden gebruikt voor het controleren van ALLE repositories.
-Als één van deze sleutels is blootgesteld/gecompromitteerd kan dat gevolgen hebben voor andere repositories.
-
-Oplossing is om gpg-sleutels (GNU Privacy Guard public keyring file, binary format./GNU Privacy Guard openbaar sleutelringbestand, binair formaat.) te plaatsen op een andere plek, en deze plek opnemen in de source-list, zie voorbeelden hieronder, SOLL.
-Dan gaan we van ALLE sleutels voor ALLE respositories naar ÉÉN sleutel voor ÉÉN repository.
-
-gpg-sleutels
-Een OpenPGP sleutel kan bekeken worden met opdracht:
-file repo-key.gpg
-Als de output is als 'repo-key.gpg: PGP public key block Public-Key (old)',
-moet deze ascii-armored OpenPGP sleutel worden omgezet met de opdracht
-gpg --dearmor
-Voorbeeld:
-wget --no-verbose --output-document=- https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo gpg --dearmor --yes --output=/usr/share/keyrings/teamviewer.gpg
-
-::::::::::::::
-IST
-::::::::::::::
-TeamViewer:
-cat /etc/apt/sources.list.d/teamviewer.list
-deb https://linux.teamviewer.com/deb stable main
-apt-key list
-/etc/apt/trusted.gpg
---------------------
-pub   rsa4096 2017-03-13 [SC]
-      8CAE 012E BFAC 38B1 7A93  7CD8 C5E2 2450 0C12 89C0
-uid           [onbekend] TeamViewer GmbH (TeamViewer Linux 2017) <support@...
-sub   rsa4096 2017-03-13 [E]
-
-pub   rsa4096 2020-01-29 [SC]
-      D2A5 FEB3 4881 60F0 28CC  1791 8DA8 4BE5 DEB4 9217
-uid           [onbekend] TeamViewer Germany GmbH (TeamViewer Linux 2020) <...
-
-Google Chrome:
-cat /etc/apt/sources.list.d/google-chrome.list
-deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
-apt-key list
-/etc/apt/trusted.gpg.d/google-chrome.gpg
-----------------------------------------
-pub   rsa4096 2016-04-12 [SC]
-      EB4C 1BFD 4F04 2F6D DDCC  EC91 7721 F63B D38B 4796
-uid           [onbekend] Google Inc. (Linux Packages Signing Authority) <l...
-sub   rsa4096 2019-07-22 [S] [vervaldatum: 2022-07-21]
-sub   rsa4096 2021-10-26 [S] [vervaldatum: 2024-10-25]
-
-::::::::::::::
-SOLL
-::::::::::::::
-TeamViewer:
-cat /etc/apt/sources.list.d/teamviewer.list
-deb [signed-by=/usr/share/keyrings/teamviewer.gpg] https://linux.teamviewe...
-apt-key list
-/etc/apt/trusted.gpg
---------------------
-<No keys for TeamViewer>
-file /usr/share/keyrings/teamviewer.gpg
-PGP/GPG key public ring (v4) created...
-
-Google Chrome:
-cat /etc/apt/sources.list.d/google-chrome.list
-deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome] https://dl.go...
-apt-key list
-/etc/apt/trusted.gpg
---------------------
-<No keys for Google Chrome>
-file /usr/share/keyrings/google-chrome.gpg
-PGP/GPG key public ring (v4) created...
-
-Irritant dat bij een reinstall/upgrade van Google Chrome alsnog de key opnieuw wordt geplaatst in /etc/apt/trusted.gpg.d/, zie /var/lib/dpkg/info/google-chrome-stable.postinst.
-
-
 Ansible
 -------
 Ansible lokaal gebruiken non-root
@@ -1456,43 +1217,6 @@ Geen -K (BECOME PASSWORD opgeven) meer nodig.
 sudo visudo /etc/sudoers
 Allow members of group sudo to execute any command
 %sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
-
-
-Google Chrome extensies en apps automatisch installeren
--------------------------------------------------------
-Ref https://support.google.com/chrome/a/answer/7517525?hl=nl
-
-Voeg json toe aan /etc/opt/chrome/policies/managed/.
-
-In het voorbeeld zie je hoe je het volgende doet:
-Google Hangouts (nckgahadagoaajjgafhacjanaoiihapd) en Google Keep (lpcaedmchfhocbbapmcbpinfpgnhiddi) automatisch installeren op gebruikersapparaten.
-Gebruikers toestaan Keep uit te schakelen (normal_installed), maar Hangouts niet (force_installed).
-Gebruikers toestaan Google Agenda (gmbgaklkmjakoegficnlkhebmhkjfich) te installeren uit de Chrome Web Store (allowed).
-Voorkomen dat gebruikers andere apps of extensies installeren (blocked).
-{
-  "ExtensionSettings": {
-    "*": {
-      "installation_mode": "blocked"
-    },
-    "nckgahadagoaajjgafhacjanaoiihapd": {
-      "installation_mode": "force_installed",
-      "update_url":
-        "https://clients2.google.com/service/update2/crx"
-    },
-    "lpcaedmchfhocbbapmcbpinfpgnhiddi": {
-      "installation_mode": "normal_installed",
-      "update_url":
-         "https://clients2.google.com/service/update2/crx"
-    },
-    "gmbgaklkmjakoegficnlkhebmhkjfich": {
-      "installation_mode": "allowed"
-    }
-  }
-}
-AdGuard extensie ID               : bgnkhhnnamicmpeenaelnjfhikgbkllg
-Bitwarden extensie  ID            : nngceckbapebfimnlniiiahkandclblb
-Chrome Remote Desktop extensie ID : inomeogfingihgjfjlpeplalcfajhgai
-Gnome-shell-integratie extensie ID: gphhapmejobijbbhgpjhcjognlahblep
 
 
 AWK and its versions, some don't support long-option --field-separator
@@ -1621,36 +1345,11 @@ cd lynis
 sudo ./lynis audit system
 
 
-Extend KVM disk
----------------
-sudo virsh list
-sudo virsh shutdown pc07
-sudo virsh list
-sudo virsh domblklist pc07
-sudo qemu-img info /var/lib/libvirt/images/pc07.qcow2
-# virtual size: 25 GiB (26843545600 bytes)
-# disk size: 15.4 GiB
-
-# sudo virsh snapshot-list pc07
-# sudo virsh snapshot-delete --domain pc07 --snapshotname snapshot1
-
-sudo qemu-img resize /var/lib/libvirt/images/pc07.qcow2 +10G
-sudo qemu-img info /var/lib/libvirt/images/pc07.qcow2
-# virtual size: 35 GiB (37580963840 bytes)
-# disk size: 15.4 GiB
-
-sudo fdisk -l /var/lib/libvirt/images/pc07.qcow2
-# Schijf /var/lib/libvirt/images/pc07.qcow2: 25 GiB, 26847870976 bytes, 52437248 sectoren
-
-# sudo qemu-img resize /var/lib/libvirt/images/pc07.qcow2 --shrink -10G
-
-# Start VM
-lsblk
-# vda    254:0    0    35G  0 disk (was 25G)
-df -H
-# /dev/vda1           17G      15G  377M  98% / (waar is de +10G?)
-sudo resize2fs /dev/sda1
-sudo update-initramfs -u
-
-sudo apt install gparted
-# Start gparted, extend part 1, maybe after deleting and recreating linux-swap.
+Browser policies
+----------------
+Google Chrome:
+/etc/opt/chrome/policies/managed/policies.json
+chrome://policy/
+Mozilla Firefox:
+/etc/firefox/policies/policies.json
+about://policy/

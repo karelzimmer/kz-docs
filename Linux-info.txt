@@ -151,8 +151,9 @@ Git config levels and files
 Git Branching & Merging
 -----------------------
 main                    standard branch na 'git init'
-# Of:
-# master                < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
+Of
+--
+master                  < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
 
 BRANCH                  branch is in feite een verwijzing naar een momentopname van je wijzigingen
 HEAD                    verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
@@ -308,7 +309,8 @@ Date:   Fri Mar 3 09:05:35 2023 +0100
     Changes for t9n
 
 etc... (73 commits voor Changes for t9n!)
-# Of:
+Of
+--
 git checkout main
 git merge --squash
 git commit -m'squash-commit-msg'
@@ -316,15 +318,19 @@ git commit -m'squash-commit-msg'
 
 Versleuteling (LUKS)
 ====================
-Om de harddisk te versleutelen, vink aan tijdens het installeren:
+Om de harddisk te versleutelen, vink aan tijdens het installeren
+----------------------------------------------------------------
 De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of vink aan Encrypteer systeem (Debian).
-# Of:
-Na het installeren met ecryptfs-utils en cryptsetup, zie o.a:
+Of
+--
+Na het installeren met ecryptfs-utils en cryptsetup, zie o.a
+------------------------------------------------------------
 https://www.howtogeek.com/116032/how-to-encrypt-your-home-folder-after-installing-ubuntu/
 en
 https://jumpcloud.com/blog/how-to-encrypt-ubuntu-20-04-desktop-post-installation
 
-Daarna:
+Daarna
+------
 1. Gebruiker automatisch aanmelden.
 2. Wachtwoord verwijderen sleutelbossen.
 3. LUKS-wachtwoord toevoegen.
@@ -515,7 +521,8 @@ Netwerkverbinding vóór het aanmelden?
 =====================================
 Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op gewenste verbinding en vervolgens op Bewerken.
 Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken met dit netwerk. Klik op Opslaan.
-# Of:
+Of
+--
 Ga naar /etc/NetworkManager/system-connections.
 Edit gewenste verbinding en haal alles weg achter permissions=
 Klaar.
@@ -721,9 +728,8 @@ sudo cryptsetup luksRemoveKey /dev/sdXY
 
 Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het wachtwoord van slot 1, voer dan uit:
 sudo cryptsetup luksKillSlot /dev/sdXY 0
-
-#OF
-
+OF
+--
 Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandwiel-symbool > Wachtwoord wijzigen.
 
 
@@ -834,7 +840,6 @@ Exif-data wordt niet BIJ het bestand maar IN het bestand opgenomen.
 De wijzigingsdatum van een bestand is aan te passen met 'touch', en wordt aangepast met een 'cp' zonder optie '--preserve'; dus is deze datum niet betrouwbaar als foto-datum bij een upload naar Google Foto's.
 Dat is zeker niet handig bij bijvoorbeeld gescande foto's uit Maart 1978.
 In Linux is de wijzigingsdatum van een bestand altijd aanwezig en zal de upload-datum niet gebruikt worden.
-
 
 OPLOSSING
 Installeer ExifTool met: sudo apt-get install libimage-exiftool-perl
@@ -1152,7 +1157,8 @@ sudo passwd
 sudo ssh-keygen
 sudo ssh-copy-id root@localhost
 sudo ssh root@localhost
-# Of:
+Of
+--
 sudo ssh-copy-id localhost
 sudo ssh localhost
 

@@ -69,7 +69,7 @@ About Secure Boot in UEFI mode, see https://www.ventoy.net/en/doc_secure.html.
 
 
 UNIX, Linux, and distro's
--------------------------
+=========================
 Linux is gestandaardiseerd op drie manieren:
 1. POSIX
     Zelfs POSIX+
@@ -89,9 +89,10 @@ Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Rap
 
 
 Repair NTFS
------------
+===========
 sudo apt install ntfs-3g -y
 
+USE
 findmnt
 # TARGET          SOURCE    FSTYPE OPTIONS
 # /media/...      /dev/sdb2 ntfs3  rw,nosuid,nodev,relatime,uid=...
@@ -100,7 +101,7 @@ sudo ntfsfix /dev/sdb2
 
 
 Repair pcieport AER: Corrected errors received
-----------------------------------------------
+==============================================
 Modify the boot parameters when the GRUB bootloader menu appears.
 Select the “Install Ubuntu” option, press ‘e’ to edit the commands before booting,
 and add “pci=noaer” (or “pci=nomsi”, or "pci=noaer,nomsi”) at the end of the line
@@ -116,8 +117,9 @@ Restart the system.
 
 
 Git/GitHub
-----------
-Lokale git repo voor teksten of scripts:
+==========
+Lokale git repo voor teksten of scripts
+---------------------------------------
 sudo apt-get instal git
 git config --global user.name 'Karel Zimmer'
 git config --global user.email 'karel.zimmer@gmail.com'
@@ -126,36 +128,40 @@ mkdir article
 cd article
 git init
 
-Aanmaken/wijzigen/verwijderen documenten:
+Aanmaken/wijzigen/verwijderen documenten
+----------------------------------------
 git add .
 git status
 git commit -m "Initial version of article"
 git commit --amend -m "First version of article"
 
-Remote git repo voor documenten of scripts, e.g. GitHub:
+Remote git repo voor documenten of scripts, e.g. GitHub
+-------------------------------------------------------
 Maak repo op website.
-download:
+DOWNLOAD
 git clone https://github.com/karelzimmer/kz-docs.git ~
 git clone https://github.com/karelzimmer/kz-scripts.git ~
 git config --global user.name 'Karel Zimmer'
 git config --global user.email 'karel.zimmer@gmail.com'
 
-Upload:
+UPLOAD
 git config --global credential.helper store
 Hierna geen username/password meer nodig.
 
-Terugdraaien:
+ROLL BACK
 git config --global --unset credential.helper
 git push
 Username for 'https://github.com': USERNAME
 Password for 'https://USERNAME@github.com': PASSWORD
 
-Git config levels and files:
+Git config levels and files
+---------------------------
 --local   lokaal configuratiebestand in repo's .git directory: .git/config
 --global  globaal configuratiebestand in ~ /.gitconfig
 --system  systeem configuratiebestand in $(prefix)/etc/gitconfig
 
-Git Branching & Merging:
+Git Branching & Merging
+-----------------------
 main                    standard branch na 'git init'
 # Of:
 # master                < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
@@ -168,14 +174,16 @@ git branch BRANCH       maak BRANCH
 git checkout BRANCH     checkout naar BRANCH
 git checkout -b BRANCH  --branch, maak en checkout naar BRANCH
 
-There are five different branch types in total:
+There are five different branch types in total
+----------------------------------------------
 Main
 Develop
 Feature
 Release
 Hotfix
 
-Some suggestions for naming your feature branches:
+Some suggestions for naming your feature branches
+-------------------------------------------------
 users/username/description
 users/username/workitem
 bugfix/description
@@ -195,13 +203,15 @@ git branch -d BRANCH    --delete BRANCH
 git status
 git push
 
-Git Branching & Merging voorbeeld:
+Git Branching & Merging voorbeeld
+---------------------------------
 git checkout dev
 git branch
 * dev
   master
 
-Change files:
+Change files
+------------
 git status
 git restore FILE           undo changes
 git add .
@@ -217,7 +227,8 @@ git merge dev
 git push
 git branch -d dev
 
-Informatie:
+Informatie
+----------
 git reflog
 
 git config --list                   raadplegen
@@ -235,36 +246,39 @@ git diff 'SHA1-A' 'SHA1-B' log --oneline
 # fatal: CRLF would be replaced by LF in file.txt
 git config --global core.autocrlf false
 
-Rename branch master to main:
+Rename branch master to main
+----------------------------
 git branch -m master main
 git fetch origin
 git branch -u origin/main main
 git remote set-head origin -a
 
-Git-ignore:
+Git-ignore
+----------
 vi .gitignore   In root van de repo.
 Verwijder FILE uit repo, maar houd hem in werkmap als ignored file.
 git rm --cached FILE
 git rm -r --cached DIR
 
-Persé lege dirs in repo? Doe in lege map voor de push:
+Persé lege dirs in repo? Doe in lege map voor de push
+-----------------------------------------------------
 touch .gitignore
 
-Meldingen over git pull en fast-forward?:
+Meldingen over git pull en fast-forward?
+----------------------------------------
 git pull
 git config pull.ff only
 git config --global pull.ff only
 git clean -d  -f .
 
+
 Squash commit in vscode
 =======================
 
 VOORBERIDING
------------
 Installeer vscode extensie Git Graph
 
 WERKWIJZE
----------
 1. Checkout naar main
 2. Klik links op pictogram van Source Control (Crl+Shift+G G)
 3. Open SOURCE CONTROL als nodig door te klikken op SOURCE CONTROL
@@ -276,7 +290,6 @@ WERKWIJZE
 9. Geef commit message en doe de commit
 
 VOORBEELD
----------
 Hoe cool, 1 commit 'Changes for t9n' in main, tegen 73 dezelfde commits in feature/t9n:
 $ git log
 commit ef16d17af1fb152981dd1efe680cf13547a16cd8 (HEAD -> main)
@@ -314,7 +327,7 @@ git commit -m'squash-commit-msg'
 
 
 Versleuteling (LUKS)
---------------------
+====================
 Om de harddisk te versleutelen, vink aan tijdens het installeren:
 De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of vink aan Encrypteer systeem (Debian).
 # Of:
@@ -349,7 +362,7 @@ sudo cryptsetup luksAddKey /dev/sdXY (bijvoorbeeld: /dev/sdb1)
 
 
 Dual-boot met Windows
----------------------
+=====================
 VOORBEREIDEN
 Uitzetten Snel opstarten (Fast Startup):
 1. Druk op de Windows-toets, typ 'energie' en klik op Energiebeheer (Power Options).
@@ -371,8 +384,7 @@ Ubuntu of Debian GNU/Linux.
 HERSTELLEN
 Bootloader herstellen met Super Grub2 Disk
 ------------------------------------------
-Maken
------
+MAKEN
 Download image.
 https://www.supergrubdisk.org/category/download/supergrub2diskdownload/super-grub2-disk-stable/
 wget --output-document=/tmp/super_grub2_disk.iso https://netcologne.dl.sourceforge.net/project/supergrub2/2.04s1/super_grub2_disk_2.04s1/super_grub2_disk_hybrid_2.04s1.iso
@@ -387,8 +399,7 @@ klik rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
 Kies Schijfkopie terugzetten/Restore Disk Image en selecteer /tmp/super_grub2_disk.iso.
 Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore.
 
-Gebruiken
----------
+GEBRUIKEN
 Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
 Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
 Herinstalleer de bootloader na
@@ -404,15 +415,135 @@ sudo update-grub
 
 
 Pop!_OS dual-boot
------------------
+=================
 Start from Live distro
 sudo apt install os-prober
 sudo os-prober
 sudo update-grub
 
 
+Boot/recovery menu
+==================
+BIOS: Shift-toets ingedrukt houden
+UEFI: Esc-toets meerdere malen indrukken
+
+
+Zwart scherm bij opstarten
+==========================
+Probeer een 'nomodeset' op te geven als opstartparameter.
+Ref: http://askubuntu.com/questions/162075/
+
+
+Boot-repair (ook vanaf live-cd)
+===============================
+sudo add-apt-repository ppa:yannubuntu/boot-repair
+sudo apt-get update
+sudo apt install boot-repair        Voor repareren GRUB: Boot-reparatie
+sudo boot-repair
+sudo apt install startupmanager     Evt. voor aanpassen GRUB: Opstart-Manager
+sudo startupmanager
+
+
+GRUB-menu zichtbaar maken
+=========================
+sudo -i
+gedit /etc/default/grub
+Wijzig: #GRUB_HIDDEN_TIMEOUT=0
+        #GRUB_HIDDEN_TIMEOUT_QUIET=true
+sudo update-grub
+exit
+
+
+GRUB-menu ander menuitem starten
+================================
+sudo -i
+gedit /etc/default/grub
+Wijzig: GRUB_DEFAULT=0 -> GRUB_DEFAULT=1 (of 2, 3, etc.)
+sudo update-grub
+exit
+
+
+Zorg dat de helderheid van laptopscherm correct is bij het opstarten
+====================================================================
+1. Zet helderheid op de gewenste waarde.
+2. Vraag helderheid op met:
+ls /sys/class/backlight/*/brightness
+   zeg: /sys/class/backlight/intel_backlight/brightness
+cat /sys/class/backlight/intel_backlight/brightness
+   zeg: 1900
+3. Leg gewenste helderheid vast:
+sudo vi /etc/rc.local
+   Voeg regels toe:
+#!/bin/sh
+echo 1900 > /sys/class/backlight/intel_backlight/brightness
+4. Zorg dat /etc/rc.local uitvoerbaar is:
+sudo chmod +x /etc/rc.local
+
+
+Bureaublad wordt niet goed getoond (geen juiste venster, geen starter)
+======================================================================
+Zie eerst: http://askubuntu.com/questions/162075/
+1. Niet-afgemaakte updates
+2. Beschadigd bestandssysteem
+3. Meer drastische methodes
+4. Als dat het niet oplost
+5. En nog verder gaan
+
+1. Niet-afgemaakte updates
+--------------------------
+Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
+(Als dat menu niet verschijnt bij het opstarten, hou dan de Shift-toets ingedrukt bij het opstarten.)
+Kies dan Ubuntu, with Linux... (recovery mode).
+Zorg dat het netwerk bedraad beschikbaar is en kies op het Herstelmenu eerst network en daarna root.
+In het Terminalvester voer uit:
+sudo apt-get update
+sudo apt-get upgrade
+exit
+Volg de eventuele aanwijzingen op het scherm (zoals sudo apt install -f).
+Start de computer daarna weer op,
+
+2. Beschadigd bestandssysteem
+-----------------------------
+Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
+Kies dan Ubuntu, with Linux... (recovery mode).
+Kies op het Herstelmenu voor fsck.
+Volg de aanwijzingen op het scherm.
+
+3. Meer drastische methodes
+---------------------------
+Op het Aanmeldscherm/Bureaublad probeer een Terminalvenster te openen met Ctrl+Alt+T of Ctrl+Alt+F1.
+Voer in het Terminalvenster uit:
+sudo rm -fr "$HOME"/.cache/compizconfig-1
+sudo rm -fr "$HOME"/.compiz
+sudo rm -fr "$HOME"/.Xauthority
+sudo rm -fr "$HOME"/.config/autostart
+
+4. En nog verder gaan (verwijdert alle, mogelijk foutieve, configuratiedata)
+----------------------------------------------------------------------------
+rm -rf "$HOME"/.config
+
+
+Netwerkverbinding vóór het aanmelden?
+=====================================
+Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op gewenste verbinding en vervolgens op Bewerken.
+Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken met dit netwerk. Klik op Opslaan.
+# Of:
+Ga naar /etc/NetworkManager/system-connections.
+Edit gewenste verbinding en haal alles weg achter permissions=
+Klaar.
+
+
+MAC address spoofing
+====================
+ip link show INTERFACE  INTERFACE zie iwlist scan
+   bijvoorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
+ip link set dev INTERFACE down
+ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
+ip link set dev INTERFACE up
+
+
 Terminal (terminalvenster) instellen (altijd maximale grootte)
---------------------------------------------------------------
+==============================================================
 1. Start Terminalvenster.
 2. Maximaliseer het Terminalvenster.
 3. Voer de volgende opdracht uit:
@@ -422,13 +553,8 @@ Terminal (terminalvenster) instellen (altijd maximale grootte)
 6. Vul in achter Oorspronkelijke afmeting van de terminal: COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
 
 
-WiFi
-----
-nmcli device wifi show-password
-
-
 Ubuntu Pro
-----------
+==========
 https://discourse.ubuntu.com/c/ubuntu-pro/
 https://ubuntu.com/pro
 
@@ -448,19 +574,8 @@ ONTKOPPELEN
 sudo pro detach
 
 
-Boot/recovery menu
-------------------
-BIOS: Shift-toets ingedrukt houden
-UEFI: Esc-toets meerdere malen indrukken
-
-
-VM
---
-sudo apt-get install --yes spice-vdagent && sudo reboot
-
-
 Opdracht OPDRACHT debuggen
---------------------------
+==========================
 [sudo] strace -f OPDRACHT [> trace.txt]
 [sudo] strace --follow-forks OPDRACHT [> trace.txt]
 
@@ -469,7 +584,7 @@ sudo strace --follow-forks --attach OPDRACHT-PID [> trace.txt]
 
 
 Shell script SCRIPT debuggen
-----------------------------
+============================
 bash -vx ./SCRIPT
                     v = verbose (elke invoerregel tonen)
                     x = xtrace  (elke opdracht tonen)
@@ -480,90 +595,19 @@ readelf             Toon info over Executable and Linking Format uitvoerbare pro
 
 
 diff
-----
+====
 diff --context ORIG.BEST. GEWIJZ.BEST. PATCHBEST.
 patch
 patch ORIG.BEST. PATCHBEST.
 
 
-Zwart scherm bij opstarten
---------------------------
-Probeer een 'nomodeset' op te geven als opstartparameter.
-Ref: http://askubuntu.com/questions/162075/
-
-
-Netwerkverbinding vóór het aanmelden?
--------------------------------------
-Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op gewenste verbinding en vervolgens op Bewerken.
-Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken met dit netwerk. Klik op Opslaan.
-# Of:
-Ga naar /etc/NetworkManager/system-connections.
-Edit gewenste verbinding en haal alles weg achter permissions=
-Klaar.
-
-
-MAC address spoofing
---------------------
-ip link show INTERFACE  INTERFACE zie iwlist scan
-   bijvoorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
-ip link set dev INTERFACE down
-ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
-ip link set dev INTERFACE up
-
-
-Boot-repair (ook vanaf live-cd)
--------------------------------
-sudo add-apt-repository ppa:yannubuntu/boot-repair
-sudo apt-get update
-sudo apt install boot-repair        Voor repareren GRUB: Boot-reparatie
-sudo boot-repair
-sudo apt install startupmanager     Evt. voor aanpassen GRUB: Opstart-Manager
-sudo startupmanager
-
-
-GRUB-menu zichtbaar maken
--------------------------
-sudo -i
-gedit /etc/default/grub
-Wijzig: #GRUB_HIDDEN_TIMEOUT=0
-        #GRUB_HIDDEN_TIMEOUT_QUIET=true
-sudo update-grub
-exit
-
-
-GRUB-menu ander menuitem starten
---------------------------------
-sudo -i
-gedit /etc/default/grub
-Wijzig: GRUB_DEFAULT=0 -> GRUB_DEFAULT=1 (of 2, 3, etc.)
-sudo update-grub
-exit
-
-
-Zorg dat de helderheid van laptopscherm correct is bij het opstarten
---------------------------------------------------------------------
-1. Zet helderheid op de gewenste waarde.
-2. Vraag helderheid op met:
-ls /sys/class/backlight/*/brightness
-   zeg: /sys/class/backlight/intel_backlight/brightness
-cat /sys/class/backlight/intel_backlight/brightness
-   zeg: 1900
-3. Leg gewenste helderheid vast:
-sudo vi /etc/rc.local
-   Voeg regels toe:
-#!/bin/sh
-echo 1900 > /sys/class/backlight/intel_backlight/brightness
-4. Zorg dat /etc/rc.local uitvoerbaar is:
-sudo chmod +x /etc/rc.local
-
-
 Grappige Linux-opdrachten
--------------------------
+=========================
 Zie site https://itsfoss.com/funny-linux-commands/
 
 
 Paaseieren
-----------
+==========
 apt-get moo
 aptitude moo
 aptitude -v moo
@@ -572,7 +616,7 @@ aptitude -vvv moo   Etc.
 
 
 Rechten
--------
+=======
 Octaal (achttallig stelsel, 0 t/m 7):
 +--2²=4
 |+-2¹=2
@@ -616,12 +660,12 @@ touch   644 (rw-r--r--) (666 -/- 022)
 
 
 Draai 90 graden iPhone film
----------------------------
+===========================
 mencoder -vf rotate -o Input.MOV -oac lavc -ovc lavc Output.MOV
 
 
 Herstel verwijderde "Locaties" Afbeeldingen, Documenten, Downloads, etc.
-------------------------------------------------------------------------
+========================================================================
 Maak Afbeeldingen, Documenten, Downloads, etc. map aan in Persoonlijke map
 gedit "$HOME"/.config/user-dirs.dirs
 Wijzig XDG_PICTURES_DIR="$HOME/"  naar XDG_PICTURES_DIR="$HOME/Afbeeldingen"
@@ -653,51 +697,8 @@ xdg-open "/home/karel/Documenten/eDocs/Bash Shell Scripting/Advanced Bash-Script
 xdg-open /tmp/
 
 
-Bureaublad wordt niet goed getoond (geen juiste venster, geen starter)
-----------------------------------------------------------------------
-Zie eerst: http://askubuntu.com/questions/162075/
-1. Niet-afgemaakte updates
-2. Beschadigd bestandssysteem
-3. Meer drastische methodes
-4. Als dat het niet oplost
-5. En nog verder gaan
-
-1. Niet-afgemaakte updates
---------------------------
-Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
-(Als dat menu niet verschijnt bij het opstarten, hou dan de Shift-toets ingedrukt bij het opstarten.)
-Kies dan Ubuntu, with Linux... (recovery mode).
-Zorg dat het netwerk bedraad beschikbaar is en kies op het Herstelmenu eerst network en daarna root.
-In het Terminalvester voer uit:
-sudo apt-get update
-sudo apt-get upgrade
-exit
-Volg de eventuele aanwijzingen op het scherm (zoals sudo apt install -f).
-Start de computer daarna weer op,
-
-2. Beschadigd bestandssysteem
------------------------------
-Op het GNU GRUB opstartscherm kies Geavanceerde opties voor Ubuntu.
-Kies dan Ubuntu, with Linux... (recovery mode).
-Kies op het Herstelmenu voor fsck.
-Volg de aanwijzingen op het scherm.
-
-3. Meer drastische methodes
----------------------------
-Op het Aanmeldscherm/Bureaublad probeer een Terminalvenster te openen met Ctrl+Alt+T of Ctrl+Alt+F1.
-Voer in het Terminalvenster uit:
-sudo rm -fr "$HOME"/.cache/compizconfig-1
-sudo rm -fr "$HOME"/.compiz
-sudo rm -fr "$HOME"/.Xauthority
-sudo rm -fr "$HOME"/.config/autostart
-
-4. En nog verder gaan (verwijdert alle, mogelijk foutieve, configuratiedata)
-----------------------------------------------------------------------------
-rm -rf "$HOME"/.config
-
-
 LUKS - Ondersteuning voor schijfversleuteling
----------------------------------------------
+=============================================
 lsblk
 Bepaal welke partitie LUKS bevat.
 Voorbeeld 1:
@@ -739,7 +740,7 @@ Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandw
 
 
 Zoek en verwijder dubbele bestanden
------------------------------------
+===================================
 FSlint: GUI tool to find and remove duplicate files (GUI)
 sudo apt install fslint
 fslint-gui                      rapporteer v/a huidige dir
@@ -753,7 +754,7 @@ fdupes -d -N /path/to/folder    verwijder, vanaf /path/to/folder
 
 
 visudo
-------
+======
 Gebruiker student kan alle sudo-opdrachten uitvoeren zonder wachtwoord:
 sudo visudo /etc/sudoers.d/student
    student ALL=(ALL:ALL) NOPASSWDD: ALL
@@ -773,10 +774,12 @@ man sudoers
 
 
 Interne usb-device uitschakelen
--------------------------------
-Hier als voorbeeld een Bluetooth-module:
+===============================
+Hier als voorbeeld een Bluetooth-module
+---------------------------------------
 sudo lsusb -v | grep -i blue
-# Of:
+Of
+--
 sudo udevadm info -a -p /sys/class/bluetooth/hci0
 Bus 001 Device 003: ID 413c:8187 Dell Computer Corp. DW375 Bluetooth Module
 sudo -H gedit /etc/udev/rules.d/81-bluetooth-hci.rules
@@ -785,7 +788,7 @@ reboot
 
 
 Uncomplicated FireWall (UFW)
-----------------------------
+============================
 sudo ufw status             status opvragen
 sudo ufw status verbose     status opvragen uitgebreid
 sudo ufw enable             aanzetten
@@ -826,18 +829,18 @@ youtube.com/watch?v=... -> pwnyoutube.com/watch?v=...
 
 
 Extract mp3 uit mp4
--------------------
+===================
 ffmpeg -i input-video-file output-audio-file
 
 
 Verwijder Exif-informatie verborgen in JPEG-bestanden
------------------------------------------------------
+=====================================================
 sudo apt install libimage-exiftool-perl
 for i in *.jpg; do echo "Processing $i"; exiftool -all= "$i"; done
 
 
 Google Foto's/Photos en Exif-data (exiftool)
---------------------------------------------
+============================================
 PROBLEEM
 Na het uploaden van foto's naar Google Foto's verschijnen oude foto's bij nieuw foto's; foto's uit 1971 staan naast foto's uit 2010.
 
@@ -867,12 +870,12 @@ Volg onderstaande STAPPEN:
 3.  Controleren
 4.  Opruimen
 
-
 STAPPEN
 1.  Inspecteren
 ---------------
 exiftool -printFormat '$FileModifyDate $Directory/$FileName' -dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen" 1> "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" 2> "$HOME/Afbeeldingen/Afbeeldingen-foutjes.txt"
-Extra:
+Extra
+-----
 tree -d "$HOME/Afbeeldingen/" > "$HOME/Afbeeldingen/tree.txt"
 
 Bovenstaande opdracht maakt een overzicht van bestanden zonder Exif-datum.
@@ -882,8 +885,8 @@ Ook een bestand met gevonden foutjes wordt geplaatst in de map Afbeeldingen.
 2.  Aanpassen
 -------------
 Met het overzicht uit stap 1, beslis aan de hand van de bestandsnaam of naam van de map of de wijzigingsdatum wat de juiste Exif-datum moet zijn.
-Kies een von onderstaande opties:
-
+Kies een von onderstaande opties
+--------------------------------
 Eigen datum - Enkel bestand
 exiftool -preserve -ModifyDate='jjjj-mm-dd 00:00:00' BESTAND
 
@@ -896,7 +899,6 @@ exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' BESTAND
 Wijzigingsdatum - Hele map
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' "$PWD"
 
-
 3.  Controleren
 ---------------
 Bekijk de foto's in de map.
@@ -908,7 +910,6 @@ exiftool -restore_original "$PWD"
 Controleer de voortgang van de aanpassingen met de opdracht:
 exiftool -printFormat '$FileModifyDate/$Directory $FileName' -dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen"
 
-
 4.  Opruimen
 ------------
 Opruimen (voeg eventueel -recurse toe).
@@ -919,21 +920,21 @@ Onderstaande opdracht toont unieke wijzigingsdatums die mogelijk eerder zijn geb
 
 cut --field=1 --delimiter=' ' "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" | sort --unique
 
-
 5.  Uploaden
 ------------
 Nu is het tijd om de foto's te uploaden naar Google Foto's.
 Foto's die foutief zijn geplaatsts in Google Foto's, bijvoorbeeld met de scan-datum i.p.v. de datum waarop de foto is gemaakt, blijven staan.
 Deze zijn met het overzicht uit stap 1 te vinden en te verwijderen van Google Foto's.
 
-
 VOORBEELDEN
-Enkele foto aanpassen:
+Enkele foto aanpassen
+---------------------
 exiftool -preserve -ModifyDate="2010-06-03 10:10:50" GSE_2010.jpg
 
 Deze wijzigingsdatum wordt hoe dan ook gebruikt door Google Photo bij een ontbrekende Exif-datum; het is beter deze datum op te slaan IN het bestand.
 
-Voor gescande foto's uit Maart 1978 [1]:
+Voor gescande foto's uit Maart 1978 [1]
+-----------------------------------
 cd "$HOME/Afbeeldingen/1978-03_Klassenfoto's"
 exiftool -preserve -ModifyDate='1978-03-01 00:00:00' "$PWD"
 
@@ -942,11 +943,13 @@ Dat is handig als het bijvoorbeeld gescande foto's zijn waar na het scannen geen
 [1] Als niet eerst de Exif-datum wordt geschreven, wordt door Google de datum van de scan gebruikt, 2010-10-10, vast niet de bedoeling !
 
 Gebruik de (oorspronkelijke) wijzigingsdatums om foto's op te zoeken die verwijderd kunnen worden in Google Foto's.
-Wat kan helpen is een overzicht van wijzigingsdatums (FileModifyDate):
+Wat kan helpen is een overzicht van wijzigingsdatums (FileModifyDate)
+---------------------------------------------------------------------
 cd ~/Afbeeldingen
 exiftool -FileModifyDate -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
 
-Voorbeeld output:
+Voorbeeld output
+----------------
 ======== 1978-03_Klassenfoto's/Foto_001.jpg             <== 1978-03 !
 File Modification Date/Time     : 2010:10:10 00:54:10   <== 2010-10 ?
 
@@ -961,49 +964,55 @@ exiftool 2011-09-10\ elst.jpg -b -XMP
 exiftool -preserve -xmp= 2011-09-10\ elst.jpg
 exiftool -delete_original "$PWD"
 
-Als -preserve is vergeten:
+Als -preserve is vergeten
+-------------------------
 touch --date='2011-09-10' 2011-09-10\ elst.jpg
 
-
 LEZEN
-Exif-datum:
+Exif-datum
+----------
 exiftool -ModifyDate BESTANDTerminalve "$PWD"
 exiftool -DateTimeOriginal -CreateDate -ModifyDate-recurse "$PWD"
 OF
+--
 exiftool -AllDates BESTAND
 exiftool -AllDates "$PWD"
 exiftool -AllDates -recurse "$PWD"
 
-ALLE wijzigingsdatums zijn er drie; File Modification Date/Time,
-     File Access Date/Time, en File Inode Change Date/Time:
+ALLE wijzigingsdatums zijn er drie; File Modification Date/Time, File Access Date/Time, en File Inode Change Date/Time
+     -----------------------------------------------------------------------------------------------------------------
 exiftool -FileModifyDate -FileAccessDate -FileInodeChangeDate BESTAND
 exiftool -FileModifyDate -FileAccessDate -FileInodeChangeDate "$PWD"
 
-Exif-datum en wijzigingsdatum:
+Exif-datum en wijzigingsdatum
+-----------------------------
 exiftool -ModifyDate -FileModifyDate BESTAND
 exiftool -ModifyDate -FileModifyDate "$PWD"
 exiftool -ModifyDate -FileModifyDate -recurse "$PWD"
 
-Alle datum-velden:
+Alle datum-velden
+-----------------
 exiftool '-*date*' BESTAND
 exiftool '-*date*' "$PWD"
 
-Eigen output:
+Eigen output
+------------
 exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" BESTAND
 exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
 exiftool -recurse -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
 exiftool -recurse -printFormat '$FileName : $FileModifyDate' "$PWD"
 
-
 SCHRIJVEN
-Toevoegen ontbrekende Exif-datum als wijzigingsdatum: [2]
+Toevoegen ontbrekende Exif-datum als wijzigingsdatum [2]
+----------------------------------------------------
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' BESTAND
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' "$PWD"
 
 [2] Non-destructief voor een al aanwezige Exif-datum.
     Voeg eventueel -recurse toe.
 
-Aanpassen ALLE Exif-datums naar wijzigingsdatum:
+Aanpassen ALLE Exif-datums naar wijzigingsdatum
+-----------------------------------------------
 exiftool -preserve '-AllDates<FileModifyDate' BESTAND
 exiftool -preserve '-AllDates<FileModifyDate' "$PWD"
 
@@ -1013,21 +1022,25 @@ exiftool -preserve -AllDates='jjjj-mm-dd 00:00:00' "$PWD"
 
 ALLE Exif-datums zijn er drie: Date/Time Original, Create Date, Modify Date.
 
-Verwijderen back-up (voeg eventueel -recurse toe):
+Verwijderen back-up (voeg eventueel -recurse toe)
+-------------------------------------------------
 exiftool -delete_original "$PWD"            Are you sure [y/n]?
 exiftool -delete_original! "$PWD"           No questions asked!
 
-Terugzetten back-up (voeg eventueel -recurse toe):
+Terugzetten back-up (voeg eventueel -recurse toe)
+-------------------------------------------------
 exiftool -restore_original "$PWD"
 
 Datum-tijd notatie
 ISO 8601 - Data elements and interchange formats – Information interchange – Representation of dates and times
 
-Basic datum-tijd notatie is:
+Basic datum-tijd notatie is
+---------------------------
 jjjjmmddTuummss[.sss]         Timestamp (gebruik ik)
 jjjj/jjjj                     Tijdsduur, lastig met Linux filesysteem
 
-Extended datum-tijd notatie is:
+Extended datum-tijd notatie is
+------------------------------
 jjjj-mm-ddTuu:mm:ss[.sss]     Timestamp, lastig met FAT en NTFS
 jjjj--jjjj                    Tijdsduur (gebruik ik)
 
@@ -1042,7 +1055,7 @@ find "$PWD" -name '* [0-9][0-9][0-9][0-9] *' -print 2> /dev/null
 
 
 Up/downstream
--------------
+=============
               upstream              downstream
               stroomopwaarts        stroomafwaarts
 CentOS Stream ~~~~~~~~~~~~~> RedHat ~~~~~~~~~~~~~> CentOS
@@ -1056,7 +1069,7 @@ Downstream: patches en updates worden pas worden uitgerold nadat een distributeu
 
 
 Indeling Xorg logbestand
-------------------------
+========================
 (--) probed
 (**) from config file
 (==) default setting
@@ -1070,10 +1083,10 @@ Indeling Xorg logbestand
 
 
 Visual Studio Code (vscode)
----------------------------
+===========================
 
-install:
---------
+install
+-------
 Registreer vscode:
 sudo update-alternatives --install /usr/bin/editor editor "$(which code)" 10
 Muteer standaard editor:
@@ -1081,8 +1094,8 @@ sudo update-alternatives --set editor "$(which code)"
 Raadpleeg standaard editor:
 sudo update-alternatives --display editor
 
-setup:
-------
+setup
+-----
 Raadpleet mime-type:
 mimetype FILE
 Muteer standaard editor:
@@ -1090,7 +1103,8 @@ xdg-mime default code_code.desktop MIMETYPE
 Raadpleeg standaard editor:
 xdg-mime query default MIMETYPE
 
-Voorbeeld shell-script:
+Voorbeeld shell-script
+----------------------
 mimetype ~/bin/backup
 /home/karel/bin/backup: application/x-shellscript
 xdg-mime default code_code.desktop application/x-shellscript
@@ -1115,7 +1129,7 @@ xdg-mime query default application/x-shellscript
 
 
 Epoch <> DateTime
------------------
+=================
 date +%s
 1639767205
 date -date @1639767205
@@ -1123,19 +1137,20 @@ vr 17 dec 2021 19:53:25 CET
 
 
 Copy/move home-dirs including hidden (.) files
-----------------------------------------------
+==============================================
 shopt -s dotglob
 cp /home/USER-OLD/* /home/USER-NEW/*
 mv /home/USER-OLD/* /home/USER-NEW/*
 
 
 Ansible
--------
+=======
 Ansible lokaal gebruiken non-root
 ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
-# Of:
+Of
+--
 ssh-copy-id localhost
 ssh localhost
 
@@ -1155,6 +1170,7 @@ echo '---
 ansible-playbook -i inventory/localhost hello-world.yml
 
 Ansible lokaal gebruiken root (enable root access)
+--------------------------------------------------
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 sudo systemctl restart ssh
 
@@ -1166,7 +1182,8 @@ sudo ssh root@localhost
 sudo ssh-copy-id localhost
 sudo ssh localhost
 
-Alleen toegang via ssh-keys, geen wachtwoord toegang mogelijk.
+Alleen toegang via ssh-keys, geen wachtwoord toegang mogelijk
+-------------------------------------------------------------
 Controleer eerst of 'ssh localhost' en 'sudo ssh root@localhost' werkt (disable password auth)!
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 sudo systemctl restart ssh
@@ -1181,14 +1198,15 @@ echo '---
 ansible-playbook -i inventory/localhost hello-world-root.yml -K
 BECOME password: (-k: SSH password)
 
-Geen -K (BECOME PASSWORD opgeven) meer nodig.
+Geen -K (BECOME PASSWORD opgeven) meer nodig
+--------------------------------------------
 sudo visudo /etc/sudoers
 Allow members of group sudo to execute any command
 %sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
 
 
 AWK and its versions, some don't support long-option --field-separator
-----------------------------------------------------------------------
+======================================================================
 file /etc/alternatives/awk
 /usr/bin/awk
 /usr/bin/mawk (awk -W help: only -F)
@@ -1197,20 +1215,20 @@ file /etc/alternatives/awk
 
 
 Firmware
---------
+========
 Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
 fwupdmgr get-devices
 
 
 UEFI from Linux
----------------
+===============
 ps --no-headers -o comm 1
 -> systemd
 systemctl reboot --firmware-setup
 
 
 Debian 12 Live Persistent USB
------------------------------
+=============================
 https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-with-persistence
 
 MAKEN
@@ -1260,7 +1278,7 @@ KLAAR
 
 
 GPG
----
+===
 /usr/share/keyrings$ gpg --show-keys google-chrome.gpg
 gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg'
 pub   dsa1024 2007-03-08 [SC]
@@ -1286,10 +1304,12 @@ chmod 700 ~/.gnupg
 
 
 Browser policies
-----------------
-Google Chrome:
+================
+Google Chrome
+-------------
 /etc/opt/chrome/policies/managed/policies.json
 chrome://policy/
-Mozilla Firefox:
+Mozilla Firefox
+---------------
 /etc/firefox/policies/policies.json
 about://policy/

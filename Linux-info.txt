@@ -1074,13 +1074,6 @@ Indeling Xorg logbestand
 (??) unknown
 
 
-Disable the BIOS/firmware update
---------------------------------
-sudo systemctl stop fwupd.service       Stop the service
-sudo systemctl disable fwupd.service    Disable automatic start upon boot
-sudo systemctl mask fwupd.service       Disable manual invoking
-
-
 Visual Studio Code (vscode)
 ---------------------------
 

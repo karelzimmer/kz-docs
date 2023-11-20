@@ -727,20 +727,6 @@ sudo cryptsetup luksKillSlot /dev/sdXY 0
 Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandwiel-symbool > Wachtwoord wijzigen.
 
 
-Zoek en verwijder dubbele bestanden
-===================================
-FSlint: GUI tool to find and remove duplicate files (GUI)
-sudo apt install fslint
-fslint-gui                      rapporteer v/a huidige dir
-fslint-gui /path/to/folder      rapporteer vanaf /path/to/folder
-
-FDUPES: CLI tool to find and remove duplicate files (TUI)
-sudo apt install fdupes
-fdupes -r /home                 rapporteer recursief v/a /home
-fdupes -d /path/to/folder       verwijder, interactief, vanaf /path/to/folder
-fdupes -d -N /path/to/folder    verwijder, vanaf /path/to/folder
-
-
 visudo
 ======
 Gebruiker student kan alle sudo-opdrachten uitvoeren zonder wachtwoord:

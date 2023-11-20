@@ -1304,15 +1304,6 @@ systemctl daemon-reload
 sudo systemctl disable mnt-nas.mount
 
 
-Lynis (CISOfy)
---------------
-cd
-git clone https://github.com/CISOfy/lynis
-cd lynis
-./lynis audit system
-sudo ./lynis audit system
-
-
 Browser policies
 ----------------
 Google Chrome:

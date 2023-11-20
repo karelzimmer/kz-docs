@@ -263,8 +263,7 @@ git clean -d  -f .
 
 Squash commit in vscode
 =======================
-
-VOORBERIDING
+VOORBEREIDEN
 Installeer vscode extensie Git Graph
 
 WERKWIJZE
@@ -372,7 +371,7 @@ Uitzetten Apparaatversleuteling (BitLocker):
 3. Op het scherm Apparaatversleuteling uitschakelen (BitLocker Drive Encryption) klik op Uitschakelen (Turn off BitLocker).
 4. Sluit scherm Instellingen voor apparaatversleuteling (BitLocker Drive Encryption).
 
-INSTALLEER
+INSTALLEREN
 Ubuntu of Debian GNU/Linux.
 
 HERSTELLEN

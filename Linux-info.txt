@@ -620,11 +620,6 @@ Draai 90 graden iPhone film
 mencoder -vf rotate -o Input.MOV -oac lavc -ovc lavc Output.MOV
 
 
-Herstel Bestanden thumbnails
-----------------------------
-rm -fr "$HOME"/.cache/thumbnails/
-
-
 Herstel verwijderde "Locaties" Afbeeldingen, Documenten, Downloads, etc.
 ------------------------------------------------------------------------
 Maak Afbeeldingen, Documenten, Downloads, etc. map aan in Persoonlijke map

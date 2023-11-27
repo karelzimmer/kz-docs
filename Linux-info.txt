@@ -315,6 +315,99 @@ git merge --squash
 git commit -m'squash-commit-msg'
 
 
+Localization: t9n, l10n, i18n, g11n
+===================================
+t9n = translation
+l10n = localization
+i18n = internationalization
+g11n = globalization
+
+Gettext .pot/.po/.mo files
+--------------------------
+# WERKWIJZE
+# ---------
+cd ~/scripts
+
+### 1-MALIG ###
+
+sudo apt install gettext
+mkdir --parents nl/LC_MESSAGES
+
+Voeg 1 of meer gettext's toe in script Bash script
+--------------------------------------------------
+!/bin/bash
+
+export TEXTDOMAIN=helloworld
+export TEXTDOMAINDIR=/home/karel/scripts
+source /usr/bin/gettext.sh
+
+program_name=helloworld.sh
+
+printf '%s\n' "$(eval_gettext "Program name: \$program_name")"
+
+printf '%s\n' "$(gettext 'Hello world!')"
+
+Voeg 1 of meer gettext's toe in Python script
+---------------------------------------------
+!/bin/python
+
+import gettext
+
+gettext.bindtextdomain('helloworld', '/home/karel/scripts')
+gettext.textdomain('helloworld')
+_ = gettext.gettext
+
+program_name = 'helloworld.py'
+
+print(_('Program name: {}').format(program_name))
+
+print(_('Hello world!'))
+
+Maak .pot
+---------
+xgettext --language=Shell --no-location --output=helloworld.pot helloworld.sh
+xgettext --language=Python --no-location --output=helloworld.pot helloworld.py
+
+Maak .po
+--------
+msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/helloworld.po
+
+Wijzig 1-malig .po
+------------------
+# Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
+# PACKAGE -> helloworld
+# VERSION -> 0.1
+
+Maak .mo
+--------
+msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
+
+### Test de vertaling ###
+
+Voeg [eval_]gettext's toe in script en update .pot
+--------------------------------------------------
+xgettext --language=Shell --join-existing --no-location --output=helloworld.pot helloworld.sh
+xgettext --language=Python --join-existing --no-location --output=helloworld.pot helloworld.py
+
+Update .po
+----------
+msgmerge --update --backup=none --previous --no-location nl/LC_MESSAGES/helloworld.po helloworld.pot
+
+Wijzig als vertaler .po
+-----------------------
+# msgid "Hello world!"
+# msgstr "" --> "Hallo wereld!"
+Etc.
+
+Update .mo na iedere vertaling
+------------------------------
+msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
+
+### Test de vertaling ###
+
+Zie ook ~/bin/pogen en ~/bin/mogen, en ~/kz-scripts/usr/bin/.
+
+
 Versleuteling (LUKS)
 ====================
 Om de harddisk te versleutelen, vink aan tijdens het installeren

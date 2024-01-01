@@ -2,7 +2,7 @@
 # Text file containing Linux information (mostly in Dutch).
 #
 # Written by Karel Zimmer <info@karelzimmer.nl>, CC0 1.0 Universal
-# <https://creativecommons.org/publicdomain/zero/1.0>, 2010-2023.
+# <https://creativecommons.org/publicdomain/zero/1.0>, 2010-2024.
 ###############################################################################
 
 Maak een opstartbare USB-stick / Create a bootable USB stick

@@ -104,6 +104,15 @@ Then run: sudo update-grub
 Restart the system.
 
 
+GNOME
+=====
+Press Super and use the Mouse Scroll Wheel to switch workspaces.
+Press Super and Right-click anywhere on a window to open the window menu, you
+   can then take screenshots, hide the window, change window behavior and more.
+Press Super and drag anywhere on any window to move it. (No need to grab the
+   top bar to move)
+
+
 Git/GitHub
 ==========
 Lokale git repo voor teksten of scripts

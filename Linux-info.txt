@@ -23,8 +23,9 @@ Plaats een usb-stick van minimaal 8 GB.
 $ findmnt
 Zoek de regel die begint met /media/USER/USBLABEL (kolom TARGET) en noteer
 de apparaatnaam /dev/sdXN (kolom SOURCE).
-$ umount /dev/sdXN
-$ sudo dd bs=4M if=~/Downloads/NAAM.iso of=/dev/sdX conv=fdatasync status=progress
+Voer uit:
+umount /dev/sdXN
+sudo dd bs=4M if=~/Downloads/NAAM.iso of=/dev/sdX conv=fdatasync status=progress
 
 Of gebruik Ventoy
 -----------------
@@ -54,8 +55,9 @@ Insert a USB stick of at least 8 GB.
 $ findmnt
 Find the line that starts with /media/USER/USBLABEL (TARGET column) and note
 the device name /dev/sdXN (SOURCE column).
-$ umount /dev/sdXN
-$ sudo dd bs=4M if=~/Downloads/NAME.iso of=/dev/sdX conv=fdatasync status=progress
+Execute:
+umount /dev/sdXN
+sudo dd bs=4M if=~/Downloads/NAME.iso of=/dev/sdX conv=fdatasync status=progress
 
 Or use Ventoy
 -------------
@@ -417,8 +419,8 @@ msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 Zie ook ~/bin/pogen en ~/bin/mogen, en ~/kz-scripts/usr/bin/.
 
 
-Versleuteling (LUKS)
-====================
+LUKS - Ondersteuning voor schijfversleuteling
+=============================================
 Om de harddisk te versleutelen, vink aan tijdens het installeren
 ----------------------------------------------------------------
 De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of vink aan Encrypteer systeem (Debian).
@@ -450,10 +452,44 @@ Klik op Ontgrendelen en zet daarna Automatisch aanmelden met het schuifje aan.
   3. Sluit Wachtwoorden en sleutels af.
 
 3. LUKS-wachtwoord toevoegen.
-Bepaal welke partitie LUKS bevat:
-lsblk
-Voeg LUKS-wachtwoord toe:
-sudo cryptsetup luksAddKey /dev/sdXY (bijvoorbeeld: /dev/sdb1)
+
+Bepaal welke partitie LUKS bevat
+--------------------------------
+Voorbeeld 1:
+...
+sda                     8:0    0 232,9G  0 disk
+├─sda1                  8:1    0   512M  0 part  /boot/efi
+├─sda2                  8:2    0   732M  0 part  /boot
+└─sda3                  8:3    0 231,7G  0 part
+  └─sda3_crypt        253:0    0 231,7G  0 crypt
+...
+In bovenstaand geval dus /dev/sda3.
+
+Voorbeeld 2:
+...
+sdb                                             8:16   0 232,9G  0 disk
+└─sdb1                                          8:17   0 231,9G  0 part
+  └─luks-a805d665-da6b-4872-8370-1ae4eb0bfc53 253:3    0 231,9G  0 crypt
+...
+In bovenstaand geval dus /dev/sdb1.
+
+Om een LUKS-wachtwoord toe te voegen, start Terminalvenster en voer uit:
+sudo cryptsetup luksAddKey /dev/sdXN
+
+Om een LUKS-wachtwoord aan te passen, start Terminalvenster en voer uit:
+sudo cryptsetup luksChangeKey /dev/sdXN
+
+Voor het aantal LUKS-wachtwoorden, start Terminalvenster en voer uit:
+sudo cryptsetup luksDump /dev/sdXN
+
+Om een LUKS-wachtwoord te verwijderen, start Terminalvenster en voer uit:
+sudo cryptsetup luksRemoveKey /dev/sdXN
+
+Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het wachtwoord van slot 1, voer dan uit:
+sudo cryptsetup luksKillSlot /dev/sdXN 0
+OF
+--
+Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandwiel-symbool > Wachtwoord wijzigen.
 
 
 Dual-boot met Windows
@@ -791,47 +827,6 @@ xdg-open 'https://karelzimmer.nl'
 xdg-open /home/karel/Afbeeldingen/Gebruikersfoto/Karel.jpg
 xdg-open "/home/karel/Documenten/eDocs/Bash Shell Scripting/Advanced Bash-Scripting Guide 10.pdf"
 xdg-open /tmp/
-
-
-LUKS - Ondersteuning voor schijfversleuteling
-=============================================
-lsblk
-Bepaal welke partitie LUKS bevat.
-Voorbeeld 1:
-...
-sda                     8:0    0 232,9G  0 disk
-├─sda1                  8:1    0   512M  0 part  /boot/efi
-├─sda2                  8:2    0   732M  0 part  /boot
-└─sda3                  8:3    0 231,7G  0 part
-  └─sda3_crypt        253:0    0 231,7G  0 crypt
-...
-In bovenstaand geval dus /dev/sdXY.
-
-Voorbeeld 2:
-...
-sdb                                             8:16   0 232,9G  0 disk
-└─sdb1                                          8:17   0 231,9G  0 part
-  └─luks-a805d665-da6b-4872-8370-1ae4eb0bfc53 253:3    0 231,9G  0 crypt
-...
-In bovenstaand geval dus /dev/sdb1.
-
-Om een LUKS-wachtwoord toe te voegen, start Terminalvenster en typ, of kopieer en plak:
-sudo cryptsetup luksAddKey /dev/sdXY
-
-Om een LUKS-wachtwoord aan te passen, start Terminalvenster en typ, of kopieer en plak:
-sudo cryptsetup luksChangeKey /dev/sdXY
-
-Voor het aantal LUKS-wachtwoorden, start Terminalvenster en typ, of kopieer en plak:
-sudo cryptsetup luksDump /dev/sdXY
-
-Om een LUKS-wachtwoord te verwijderen, start Terminalvenster en typ, of kopieer en plak:
-sudo cryptsetup luksRemoveKey /dev/sdXY
-
-Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het wachtwoord van slot 1, voer dan uit:
-sudo cryptsetup luksKillSlot /dev/sdXY 0
-OF
---
-Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandwiel-symbool > Wachtwoord wijzigen.
 
 
 visudo

@@ -487,7 +487,7 @@ sudo cryptsetup luksRemoveKey /dev/sdXN
 
 Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het wachtwoord van slot 1, voer dan uit:
 sudo cryptsetup luksKillSlot /dev/sdXN 0
-OF
+Of
 --
 Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandwiel-symbool > Wachtwoord wijzigen.
 
@@ -1322,7 +1322,7 @@ Plaats USB-stick, hier /dev/sdb, controleer met lsblk!
 lsblk
 
 Unmount mounted partities!
-sudo umount /dev/sdbX
+sudo umount /dev/sdXN
 
 Controleer alles unmounted.
 lsblk

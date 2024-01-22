@@ -90,20 +90,23 @@ Boek The Official Ubuntu Server Book - Third Edition, Kyle Rankin and Benjamin M
 Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Raphaël Hertzog and Roland Mas, Freexian
 
 
-Prevent a flood of 'AER: Corrected error received' in the log
-=============================================================
-Modify the boot parameters when the GRUB bootloader menu appears.
-Select the “Install Ubuntu” option, press ‘e’ to edit the commands before booting,
-and add “pci=noaer” (or “pci=nomsi”, or "pci=noaer,nomsi”) at the end of the line
-beginning with “linux”. Then Ctrl-X or press F10 to boot.
+Voorkom een overstroming van 'AER: Corrected error received' in het logboek
+===========================================================================
+Wijzig de opstartparameters wanneer het GRUB-bootloadermenu verschijnt.
+Selecteer de optie "Ubuntu installeren", druk op 'e' om de opdrachten te
+bewerken voordat u opstart.
+Voeg “pci=noaer” (of “pci=nomsi”, of "pci=noaer,nomsi”) toe aan het einde van
+de regel beginnend met 'linux'.
+Druk vervolgens op Ctrl-X of druk op F10 om op te starten.
 
-And later press Left or Right Shift key to add the parameter(s) to the line.
+En druk later op de linker- of rechter Shift-toets om de parameter(s) aan de
+regel toe te voegen.
 
-Make it permanent by updating "/etc/default/grub" and add the parameters to
-"GRUB_CMDLINE_LINUX_DEFAULT", adding your parameter(s) to the text inside the
-double-quotes after the words "quiet splash".
-Then run: sudo update-grub
-Restart the system.
+Maak het permanent door "/etc/default/grub" bij te werken en de parameters
+toe te voegen aan "GRUB_CMDLINE_LINUX_DEFAULT" met dubbele aanhalingstekens na
+de woorden "quiet splash".
+Voer vervolgens uit: sudo update-grub
+Start het systeem opnieuw op.
 
 
 GNOME

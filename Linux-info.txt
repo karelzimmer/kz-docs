@@ -90,8 +90,8 @@ Boek The Official Ubuntu Server Book - Third Edition, Kyle Rankin and Benjamin M
 Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Raphaël Hertzog and Roland Mas, Freexian
 
 
-Repair pcieport AER: Corrected errors received
-==============================================
+Prevent a flood of 'AER: Corrected error received' in the log
+=============================================================
 Modify the boot parameters when the GRUB bootloader menu appears.
 Select the “Install Ubuntu” option, press ‘e’ to edit the commands before booting,
 and add “pci=noaer” (or “pci=nomsi”, or "pci=noaer,nomsi”) at the end of the line

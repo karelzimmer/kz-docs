@@ -868,15 +868,15 @@ reboot
 
 Problemen met Bluetooth
 =======================
-sudo dmesg | grep -i bluetooth | grep -i firmware
-karel@pc06:/usr/lib/firmware/brcm$ sudo dmesg | grep -i bluetooth | grep -i firmware 
-[sudo] wachtwoord voor karel: 
-[  284.462305] Bluetooth: hci0: Minimum firmware build 1 week 10 2014
-[  284.470419] Bluetooth: hci0: Found device firmware: intel/ibt-11-5.sfi
-[  286.011276] Bluetooth: hci0: Waiting for firmware download to complete
-[  286.012276] Bluetooth: hci0: Firmware loaded in 1505714 usecs
-[  286.029294] Bluetooth: hci0: Firmware revision 0.0 build 14 week 44 2021
+journalctl -ab | grep -i bluetooth | grep -i firmware
 
+karel@pc06:/usr/lib/firmware/brcm$ journalctl -ab| grep -i bluetooth | grep -i firmware
+jan 29 07:16:03 pc06 kernel: Bluetooth: hci0: Minimum firmware build 1 week 10 2014
+jan 29 07:16:03 pc06 kernel: Bluetooth: hci0: Found device firmware: intel/ibt-11-5.sfi
+jan 29 07:16:04 pc06 kernel: Bluetooth: hci0: Waiting for firmware download to complete
+jan 29 07:16:04 pc06 kernel: Bluetooth: hci0: Firmware loaded in 1505714 usecs
+jan 29 07:16:04 pc06 kernel: Bluetooth: hci0: Firmware revision 0.0 build 14 week 44 2021
+...
 Je moet wachten tot de Firmware is gedownload en geïnstalleerd....
 
 

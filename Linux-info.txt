@@ -421,6 +421,10 @@ msgfmt --output-file=nl/LC_MESSAGES/helloworld.mo nl/LC_MESSAGES/helloworld.po
 
 Zie ook ~/bin/pogen en ~/bin/mogen, en ~/kz-scripts/usr/bin/.
 
+Voer pogen uit voor alle scripts:
+cd ~/kz-scripts/usr/bin
+for file in $(find . -executable -type f -print); do pogen $file;done
+
 
 LUKS - Ondersteuning voor schijfversleuteling
 =============================================

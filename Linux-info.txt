@@ -7,10 +7,10 @@
 
 Install kz_2.4.7_all.deb on Debian < 12
 =======================================
-# On Debian, dpkg version = 1.21.18 has zstd support for .deb archives, on
-# Ubuntu the default is zst from Ubuntu 21.10.
-# Debian 11 has dpkg version < 1.21.18 and does not support zst compression.
-# Debian 12 has dpkg version > 1.21.18 and supports zst compression.
+# On Debian, dpkg version 1.21.18 has zstd support for .deb archives, on Ubuntu
+# the default is zstd from Ubuntu 21.10.
+# Debian 11 has dpkg version < 1.21.18 and does not support zstd compression.
+# Debian 12 has dpkg version > 1.21.18 and supports zstd compression.
 # If on Debian < 12 and need to install a .deb package that uses zstd, you can
 # repack it:
 # Install required packages

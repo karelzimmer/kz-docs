@@ -5,32 +5,6 @@
 # <https://creativecommons.org/publicdomain/zero/1.0>, 2010-2024.
 ###############################################################################
 
-Install kz_2.4.7_all.deb on Debian < 12
-=======================================
-# On Debian, dpkg version 1.21.18 has zstd support for .deb archives, on Ubuntu
-# the default is zstd from Ubuntu 21.10.
-# Debian 11 has dpkg version < 1.21.18 and does not support zstd compression.
-# Debian 12 has dpkg version > 1.21.18 and supports zstd compression.
-# If on Debian < 12 and need to install a .deb package that uses zstd, you can
-# repack it:
-# Install required packages
-sudo apt install binutils zstd
-# Download kz_2.4.7_all.deb from
-# https://karelzimmer.nl/assets/kz/kz_2.4.7_all.deb and go to ~/Downloads
-cd ~/Downloads
-# Extract files from the archive
-ar x kz_2.4.7_all.deb
-# Uncompress zstd files an re-compress them using xz
-zstd -d < control.tar.zst | xz > control.tar.xz
-zstd -d < data.tar.zst | xz > data.tar.xz
-# Re-create the Debian package in /tmp/
-ar -m -c -a sdsd /tmp/kz_2.4.7_all.deb debian-binary control.tar.xz data.tar.xz
-# Clean up
-rm debian-binary control.tar.xz data.tar.xz control.tar.zst data.tar.zst
-# Install kz_2.4.7_all.deb from /tmp/
-sudo apt install /tmp/kz_2.4.7_all.deb
-
-
 Maak een opstartbare USB-stick / Create a bootable USB stick
 ============================================================
 In een grafische werkomgeving
@@ -114,6 +88,29 @@ Distro:
 Boek The Official Ubuntu Book - Ninth Edition, Matthew Helmke et.al, Prentice Hall
 Boek The Official Ubuntu Server Book - Third Edition, Kyle Rankin and Benjamin Mako Hill, Prentice Hall
 Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Raphaël Hertzog and Roland Mas, Freexian
+
+
+Install zstd package on Debian < 12
+===================================
+# On Debian, dpkg version 1.21.18 has zstd support for .deb archives,
+# on Ubuntu the default is zstd from Ubuntu 21.10.
+# Debian 11 has dpkg version < 1.21.18 that does not support zstd.
+# Debian 12 has dpkg version > 1.21.18 that does supports zstd.
+# If on Debian < 12 and need to install a .deb package that uses zstd,
+# you can repack it:
+# Install required packages
+sudo apt install binutils zstd
+# Extract files from the archive
+ar x <debfile>
+# Uncompress zstd files an re-compress them using xz
+zstd -d < control.tar.zst | xz > control.tar.xz
+zstd -d < data.tar.zst | xz > data.tar.xz
+# Re-create the Debian package
+ar -m -c -a sdsd <debfile_xz> debian-binary control.tar.xz data.tar.xz
+# Clean up
+rm debian-binary control.tar.xz data.tar.xz control.tar.zst data.tar.zst
+# Install <debfile_xz>
+sudo apt install <debfile_xz>
 
 
 Voorkom een overstroming van 'AER: Corrected error received' in het logboek

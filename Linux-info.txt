@@ -596,7 +596,7 @@ UEFI: Esc-toets meerdere malen indrukken
 Zwart scherm bij opstarten
 ==========================
 Probeer een 'nomodeset' op te geven als opstartparameter.
-Ref: http://askubuntu.com/questions/162075/
+Ref: https://askubuntu.com/questions/162075/
 
 
 Boot-repair (ook vanaf live-cd)
@@ -647,7 +647,7 @@ sudo chmod +x /etc/rc.local
 
 Bureaublad wordt niet goed getoond (geen juiste venster, geen starter)
 ======================================================================
-Zie eerst: http://askubuntu.com/questions/162075/
+Zie eerst: https://askubuntu.com/questions/162075/
 1. Niet-afgemaakte updates
 2. Beschadigd bestandssysteem
 3. Meer drastische methodes

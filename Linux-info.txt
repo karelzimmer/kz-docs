@@ -2,7 +2,7 @@
 # Text file containing Linux information.
 #
 # Written by Karel Zimmer <info@karelzimmer.nl>.
-# License CC0 1.0 Universal<https://creativecommons.org/publicdomain/zero/1.0>.
+# License CC0 1.0 <https://creativecommons.org/publicdomain/zero/1.0>.
 ###############################################################################
 
 Maak een opstartbare USB-stick / Create a bootable USB stick

@@ -924,12 +924,16 @@ Interne usb-device uitschakelen
 Hier als voorbeeld een Bluetooth-module
 ---------------------------------------
 sudo lsusb -v | grep -i blue
-Of
---
+of
 sudo udevadm info -a -p /sys/class/bluetooth/hci0
+
+Output:
 Bus 001 Device 003: ID 413c:8187 Dell Computer Corp. DW375 Bluetooth Module
-sudo -H gedit /etc/udev/rules.d/81-bluetooth-hci.rules
+
+sudo vi /etc/udev/rules.d/81-bluetooth-hci.rules
+Voeg toe:
 SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="8187",ATTR{authorized}="0"
+
 reboot
 
 

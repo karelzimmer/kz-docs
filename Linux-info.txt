@@ -90,6 +90,24 @@ Boek The Official Ubuntu Server Book - Third Edition, Kyle Rankin and Benjamin M
 Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Raphaël Hertzog and Roland Mas, Freexian
 
 
+Verifying shim SBAT data / SBAT self-check failed: Security Policy Violation
+============================================================================
+Disable secureboot, boot into ubuntu and run:
+
+mokutil --list-sbat-revocations
+ sbat,1,2024010900
+ shim,2
+ grub,3
+Something like this will show, so sbat it's blocking shim and grub. Then run:
+
+mokutil --set-sbat-policy delete
+Reboot whitout secure boot again and check:
+
+mokutil --list-sbat-revocations
+ sbat,1,2021030218
+Now nothing it's blocked, reboot, enable secureboot and all should be fine.
+
+
 Install zstd package on Debian < 12
 ===================================
 # On Debian, dpkg version 1.21.18 has zstd support for .deb archives,

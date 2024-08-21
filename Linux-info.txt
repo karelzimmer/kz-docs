@@ -161,6 +161,12 @@ Press Super and drag anywhere on any window to move it. (No need to grab the
    top bar to move)
 
 
+Colored less
+============
+grep --color=always REGEXP SOURCE | less --raw-control-chars
+git diff --color=always | less -r
+
+
 Git/GitHub
 ==========
 Aangepaste prompt

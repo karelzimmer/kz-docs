@@ -100,7 +100,7 @@ mokutil --list-sbat-revocations
  grub,3
 Something like this will show, so sbat it's blocking shim and grub.
 
-Delete the SBAT policy with: 
+Delete the SBAT policy with:
 mokutil --set-sbat-policy delete
 
 Reboot whithout Secure Boot again and check:
@@ -382,6 +382,63 @@ Of
 git checkout main
 git merge --squash
 git commit -m'squash-commit-msg'
+
+
+Mount NAS
+=========
+Example
+-------
+Mount NAS_IP_ADDRESS/data on /mnt/data.
+
+Make sure the NAS has a fixed IP address NAS_IP_ADDRESS.
+This requires:
+
+  - the MAC address of the NAS (looks like aa:bb:cc:dd:ee:ff)
+  - access the NAS via a web browser
+  - access the router via a web browser
+
+  1. Select the MAC address of the NAS in the router
+     IP address outside the range of DHCP automatically
+     distributes the IP addresses (often 192.168.0.200).
+  2. Select the fixed IP address in the NAS and turn off DHCP.
+
+sudo apt-get install --yes cifs-utils samba
+
+Create login file
+-----------------
+sudo vi /etc/data.login
+username=NAS_USER_NAME
+password=NAS_PASSWORD
+:x
+chmod --verbose '600' /etc/data.login
+
+Create systemd mount service file
+---------------------------------
+sudo vi /etc/systemd/system/mnt-data.mount
+[Unit]
+Description=Mount NAS Directory
+
+[Mount]
+What=//NAS_IP_ADDRESS/data
+Where=/mnt/data
+Type=cifs
+Options=credentials=/etc/data.login,vers=1.0,rw,noperm,iocharset=utf8,dir_mode=0777,file_mode=0777
+
+[Install]
+WantedBy=multi-user.target
+:x
+
+Activate systemd mount service file
+-----------------------------------
+systemctl enable mnt-data.mount
+systemctl start mnt-data.mount
+systemctl daemon-reload
+systemctl status mnt-data.mount
+
+Deactivate the systemd mount file and remove the NAS login
+----------------------------------------------------------
+sudo systemctl disable mnt-data.mount
+sudo rm /etc/data.login
 
 
 Localization: t9n, l10n, i18n, g11n

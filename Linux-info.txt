@@ -224,13 +224,12 @@ Of
 --
 master                  < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
 
-BRANCH                  branch is in feite een verwijzing naar een momentopname van je wijzigingen
+<branch>                branch is in feite een verwijzing naar een momentopname van je wijzigingen
 HEAD                    verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
 
 git branch              list active (*) and other branches
-git branch BRANCH       maak BRANCH
-git checkout BRANCH     checkout naar BRANCH
-git checkout -b BRANCH  --branch, maak en checkout naar BRANCH
+git branch <branch>     maak <branch>
+git switch <branch>     switch naar <branch>
 
 There are five different branch types in total
 ----------------------------------------------
@@ -249,15 +248,13 @@ feature/feature-name
 feature/feature-area/feature-name
 hotfix/description
 
-git status              wijzigingen zijn zichtbaar in main & BRANCH
-git add .               wijzigingen zijn zichtbaar in main & BRANCH
-git commit -m MESSAGE   wijzigingen zijn zichtbaar alleen in BRANCH
+git status              wijzigingen zijn zichtbaar in main & <branch>
+git add .               wijzigingen zijn zichtbaar in main & <branch>
+git commit -m <message> wijzigingen zijn zichtbaar alleen in <branch>
 
-git switch main         schakel over naar main (HEAD BRANCH -> main)
+git switch main         schakel over naar main (HEAD <branch> -> main)
 
-git merge BRANCH        maak main gelijk aan de BRANCH
-git branch -d BRANCH    --delete BRANCH
-
+git merge <branch>      maak main gelijk aan de <branch>
 git status
 git push
 
@@ -310,7 +307,11 @@ Squash commit
 =============
 git switch main
 git merge --squash <branch>
+git diff --staged
 git commit -m'squash-commit-msg'
+git push [origin main]
+git branch -d <branch>
+git push origin --delete <branch>
 
 
 Proces slapen met Ctrl-Z

@@ -253,37 +253,13 @@ git status              wijzigingen zijn zichtbaar in main & BRANCH
 git add .               wijzigingen zijn zichtbaar in main & BRANCH
 git commit -m MESSAGE   wijzigingen zijn zichtbaar alleen in BRANCH
 
-git checkout main       checkout naar main (HEAD BRANCH -> main)
+git switch main         schakel over naar main (HEAD BRANCH -> main)
 
 git merge BRANCH        maak main gelijk aan de BRANCH
 git branch -d BRANCH    --delete BRANCH
 
 git status
 git push
-
-Git Branching & Merging voorbeeld
----------------------------------
-git checkout dev
-git branch
-* dev
-  master
-
-Change files
-------------
-git status
-git restore FILE           undo changes
-git add .
-git restore --staged FILE  reverse add
-git commit -m 'File added'
-
-git checkout main
-git branch
-#   dev
-# * main
-
-git merge dev
-git push
-git branch -d dev
 
 Informatie
 ----------
@@ -330,58 +306,19 @@ git config --global pull.ff only
 git clean -d  -f .
 
 
-Squash commit in vscode
-=======================
-VOORBEREIDEN
-Installeer vscode extensie Git Graph
-
-WERKWIJZE
-1. Checkout naar main
-2. Klik links op pictogram van Source Control (Crl+Shift+G G)
-3. Open SOURCE CONTROL als nodig door te klikken op SOURCE CONTROL
-4. Klik rechts van SOURCE CONTROL op pictogram van View Git Graph (git log)
-5. Klik rechts op branch die (squash) gemerged moet worden met main en kies Merge with current branch
-6. Vink aan Squash Commits
-7. Klik op Yes, merge
-8. Los eventuele merge-conflicten op in het 3-venster scherm
-9. Geef commit message en doe de commit
-
-VOORBEELD
-Hoe cool, 1 commit 'Changes for t9n' in main, tegen 73 dezelfde commits in feature/t9n:
-$ git log
-commit ef16d17af1fb152981dd1efe680cf13547a16cd8 (HEAD -> main)
-Author: Karel Zimmer <karel.zimmer@gmail.com>
-Date:   Fri Mar 3 10:33:56...
-
-    Changes for t9n
-
-commit 7ff89479024c8dc1343181cf51370b776e6b5e5d (origin/main, origin/HEAD)
-Author: Karel Zimmer <karel.zimmer@gmail.com>
-Date:   Tue Feb 21 08:45:00...
-
-    Added check if all repo' s are on branch main
-
-etc... (1 commit voor Changes for t9n!)
-$ git checkout feature/t9n
-$ git log
-commit e0429689659a75924850c4baa65b8f39d14b3195 (HEAD -> feature/t9n, origin/feature/t9n)
-Author: Karel Zimmer <karel.zimmer@gmail.com>
-Date:   Fri Mar 3 09:45:48...
-
-    Changes for t9n
-
-commit 2dd93b3b70c0b2757e716df35f1c1e3c91849661
-Author: Karel Zimmer <karel.zimmer@gmail.com>
-Date:   Fri Mar 3 09:05:35...
-
-    Changes for t9n
-
-etc... (73 commits voor Changes for t9n!)
-Of
---
-git checkout main
-git merge --squash
+Squash commit
+=============
+git switch main
+git merge --squash <branch>
 git commit -m'squash-commit-msg'
+
+
+Proces slapen met Ctrl-Z
+========================
+Overzicht met jobs,
+kill met kill %<nummer>,
+resume in background via bg %<nummer >,
+resume in foreground via fg %<nummer >.
 
 
 Mount NAS

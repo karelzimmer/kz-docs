@@ -231,23 +231,6 @@ git branch              list active (*) and other branches
 git branch <branch>     maak <branch>
 git switch <branch>     switch naar <branch>
 
-There are five different branch types in total
-----------------------------------------------
-Main
-Develop
-Feature
-Release
-Hotfix
-
-Some suggestions for naming your feature branches
--------------------------------------------------
-users/username/description
-users/username/workitem
-bugfix/description
-feature/feature-name
-feature/feature-area/feature-name
-hotfix/description
-
 git status              wijzigingen zijn zichtbaar in main & <branch>
 git add .               wijzigingen zijn zichtbaar in main & <branch>
 git commit -m <message> wijzigingen zijn zichtbaar alleen in <branch>
@@ -257,6 +240,29 @@ git switch main         schakel over naar main (HEAD <branch> -> main)
 git merge <branch>      maak main gelijk aan de <branch>
 git status
 git push
+
+Branch names and prefixes
+-------------------------
+Main repository branches:
+   main
+   master
+
+Branch prefixes:
+   bugfix/		                  fix bug in code, e.g. butfix/fix-login-error
+   customers/	                  specific branch for a customer
+   develop/	                     development
+   docs/		                     write, update, and fix documentation
+   feature/	                     new features, e.g. feature/project-xyz
+   hotfix/		                  fix critical bug, e.g. hotfix/incident-xyz
+   release/	                     new production version
+   users/username/description/   personal branche
+   users/username/workitem/      personal branche
+
+Rename branch
+-------------
+git branch -m <oldbranch> <newbranch>
+git push origin --delete <oldbranch>
+git push --set-upstream origin <newbranch>
 
 Informatie
 ----------
@@ -1488,3 +1494,9 @@ Mozilla Firefox
 ---------------
 /etc/firefox/policies/policies.json
 about://policy/
+
+
+Record bash session
+===================
+$ script
+# Start nieuwe bash-sessie en legt input en output vast in bestand typescript.

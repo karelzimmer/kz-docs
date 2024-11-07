@@ -21,11 +21,11 @@ In een Terminalvenster
 ----------------------
 Plaats een usb-stick van minimaal 8 GB.
 $ findmnt
-Zoek de regel die begint met /media/USER/USBLABEL (kolom TARGET) en noteer
-de apparaatnaam /dev/sdXN (kolom SOURCE).
+Zoek de regel die begint met /media/<user>/<usblabel> (kolom TARGET) en noteer
+de apparaatnaam /dev/sd<XN> (kolom SOURCE).
 Voer uit:
-umount /dev/sdXN
-sudo dd bs=4M if=~/Downloads/NAAM.iso of=/dev/sdX conv=fdatasync status=progress
+umount /dev/sd<XN>
+sudo dd bs=4M if=~/Downloads/<isonaam> of=/dev/sd<X> conv=fdatasync status=progress
 
 Of gebruik Ventoy
 -----------------
@@ -53,11 +53,11 @@ In a Terminal
 -------------
 Insert a USB stick of at least 8 GB.
 $ findmnt
-Find the line that starts with /media/USER/USBLABEL (TARGET column) and note
-the device name /dev/sdXN (SOURCE column).
+Find the line that starts with /media/<user>/<usblabel> (TARGET column) and note
+the device name /dev/sd<XN> (SOURCE column).
 Execute:
-umount /dev/sdXN
-sudo dd bs=4M if=~/Downloads/NAME.iso of=/dev/sdX conv=fdatasync status=progress
+umount /dev/sd<XN>
+sudo dd bs=4M if=~/Downloads/<isoname> of=/dev/sd<X> conv=fdatasync status=progress
 
 Or use Ventoy
 -------------
@@ -208,36 +208,35 @@ Hierna geen username/password meer nodig.
 ROLL BACK
 git config --global --unset credential.helper
 git push
-Username for 'https://github.com': USERNAME
-Password for 'https://USERNAME@github.com': PASSWORD
+Username for 'https://github.com': <username>
+Password for 'https://<username>@github.com': <password>
 
 Git config levels and files
 ---------------------------
---local   lokaal configuratiebestand in repo's .git directory: .git/config
+--local   lokaal  configuratiebestand in repo's .git directory: .git/config
 --global  globaal configuratiebestand in ~ /.gitconfig
 --system  systeem configuratiebestand in $(prefix)/etc/gitconfig
 
 Git Branching & Merging
 -----------------------
 main                    standard branch na 'git init'
-Of
---
+-of-
 master                  < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
 
 <branchname>            branch is in feite een verwijzing naar een momentopname van je wijzigingen
 HEAD                    verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
 
-git branch              list active (*) and other branches
-git branch <branchname> maak <branchname>
-git switch <branchname> switch naar <branchname>
+git branch              # list active (*) and other branches
+git branch <branchname> # maak <branchname>
+git switch <branchname> # switch naar <branchname>
 
-git status              wijzigingen zijn zichtbaar in main & <branchname>
-git add .               wijzigingen zijn zichtbaar in main & <branchname>
-git commit -m <message> wijzigingen zijn zichtbaar alleen in <branchname>
+git status              # wijzigingen zijn zichtbaar in main & <branchname>
+git add .               # wijzigingen zijn zichtbaar in main & <branchname>
+git commit -m <message> # wijzigingen zijn zichtbaar alleen in <branchname>
 
-git switch main         schakel over naar main (HEAD <branchname> -> main)
+git switch main         # schakel over naar main (HEAD <branchname> -> main)
 
-git merge <branchname>  maak main gelijk aan de <branchname>
+git merge <branchname>  # maak main gelijk aan de <branchname>
 git status
 git push
 
@@ -248,12 +247,12 @@ Main repository branches:
    master
 
 Branch prefixes:
-   bugfix/		                  fix bug in code, e.g. butfix/fix-login-error
+   bugfix/		                  fix bug in code, e.g. bugfix/fix-login-error
    customers/	                  specific branch for a customer
    develop/	                     development
    docs/		                     write, update, and fix documentation
-   feature/	                     new features, e.g. feature/project-xyz
-   hotfix/		                  fix critical bug, e.g. hotfix/incident-xyz
+   feature/	                     new features, e.g. feature/<projectname>
+   hotfix/		                  fix critical bug, e.g. hotfix/<incidentnumber>
    release/	                     new production version
    users/<username>/<desc>/      personal branche
    users/<username>/<workitem>/  personal branche
@@ -268,8 +267,8 @@ Informatie
 ----------
 git reflog
 
-git config --list                   raadplegen
-git remote set-url origin NEW_URL   wijzigen
+git config --list                   # raadplegen
+git remote set-url origin <new-url> # wijzigen
 
 git log
 git log -10
@@ -351,8 +350,9 @@ sudo apt-get install --yes cifs-utils samba
 Create login file
 -----------------
 sudo vi /etc/data.login
-username=NAS_USER_NAME
-password=NAS_PASSWORD
+username=<nas_username>
+password=<nas_password>
+
 :x
 chmod --verbose '600' /etc/data.login
 
@@ -487,8 +487,7 @@ LUKS - Ondersteuning voor schijfversleuteling
 Om de harddisk te versleutelen, vink aan tijdens het installeren
 ----------------------------------------------------------------
 De nieuwe installatie van Ubuntu versleutelen voor de veiligheid, en ook LVM gebruiken bij de nieuwe installatie van Ubuntu wordt dan aangevinkt, of vink aan Encrypteer systeem (Debian).
-Of
---
+-of-
 Na het installeren met ecryptfs-utils en cryptsetup, zie o.a
 ------------------------------------------------------------
 https://www.howtogeek.com/116032/how-to-encrypt-your-home-folder-after-installing-ubuntu/
@@ -554,8 +553,7 @@ sudo cryptsetup luksRemoveKey /dev/NAME
 
 Mocht je het wachtwoord van slot 0 vergeten zijn, en je weet nog het wachtwoord van slot 1, voer dan uit:
 sudo cryptsetup luksKillSlot /dev/NAME 0
-Of
---
+-of-
 Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandwiel-symbool > Wachtwoord wijzigen.
 
 
@@ -725,8 +723,7 @@ Netwerkverbinding vóór het aanmelden?
 =====================================
 Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op gewenste verbinding en vervolgens op Bewerken.
 Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken met dit netwerk. Klik op Opslaan.
-Of
---
+-of-
 Ga naar /etc/NetworkManager/system-connections.
 Edit gewenste verbinding en haal alles weg achter permissions=
 Klaar.
@@ -1319,8 +1316,9 @@ vr 17 dec 2021 19:53:25 CET
 Copy/move home-dirs including hidden (.) files
 ==============================================
 shopt -s dotglob
-cp /home/USER-OLD/* /home/USER-NEW/*
-mv /home/USER-OLD/* /home/USER-NEW/*
+cp /home/<user-old>/* /home/<user-new>/*
+-of-
+mv /home/<user-old>/* /home/<user-new>/*
 
 
 Ansible
@@ -1329,8 +1327,7 @@ Ansible lokaal gebruiken non-root
 ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
-Of
---
+-of-
 ssh-copy-id localhost
 ssh localhost
 
@@ -1358,8 +1355,7 @@ sudo passwd
 sudo ssh-keygen
 sudo ssh-copy-id root@localhost
 sudo ssh root@localhost
-Of
---
+-of-
 sudo ssh-copy-id localhost
 sudo ssh localhost
 
@@ -1379,8 +1375,8 @@ echo '---
 ansible-playbook -i inventory/localhost hello-world-root.yml -K
 BECOME password: (-k: SSH password)
 
-Geen -K (BECOME PASSWORD opgeven) meer nodig
---------------------------------------------
+Geen -K (become <password> opgeven) meer nodig
+----------------------------------------------
 sudo visudo /etc/sudoers
 Allow members of group sudo to execute any command
 %sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL

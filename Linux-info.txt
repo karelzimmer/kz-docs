@@ -224,20 +224,20 @@ Of
 --
 master                  < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
 
-<branch>                branch is in feite een verwijzing naar een momentopname van je wijzigingen
+<branchname>            branch is in feite een verwijzing naar een momentopname van je wijzigingen
 HEAD                    verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
 
 git branch              list active (*) and other branches
-git branch <branch>     maak <branch>
-git switch <branch>     switch naar <branch>
+git branch <branchname> maak <branchname>
+git switch <branchname> switch naar <branchname>
 
-git status              wijzigingen zijn zichtbaar in main & <branch>
-git add .               wijzigingen zijn zichtbaar in main & <branch>
-git commit -m <message> wijzigingen zijn zichtbaar alleen in <branch>
+git status              wijzigingen zijn zichtbaar in main & <branchname>
+git add .               wijzigingen zijn zichtbaar in main & <branchname>
+git commit -m <message> wijzigingen zijn zichtbaar alleen in <branchname>
 
-git switch main         schakel over naar main (HEAD <branch> -> main)
+git switch main         schakel over naar main (HEAD <branchname> -> main)
 
-git merge <branch>      maak main gelijk aan de <branch>
+git merge <branchname>  maak main gelijk aan de <branchname>
 git status
 git push
 
@@ -255,8 +255,8 @@ Branch prefixes:
    feature/	                     new features, e.g. feature/project-xyz
    hotfix/		                  fix critical bug, e.g. hotfix/incident-xyz
    release/	                     new production version
-   users/username/description/   personal branche
-   users/username/workitem/      personal branche
+   users/<username>/<desc>/      personal branche
+   users/<username>/<workitem>/  personal branche
 
 Rename branch
 -------------
@@ -312,12 +312,12 @@ git clean -d  -f .
 Squash commit
 =============
 git switch main
-git merge --squash <branch>
+git merge --squash <branchname>
 git diff --staged
 git commit -m'squash-commit-msg'
 git push [origin main]
-git branch -d <branch>
-git push origin --delete <branch>
+git branch -d <branchname>
+git push origin --delete <branchname>
 
 
 Proces slapen met Ctrl-Z

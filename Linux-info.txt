@@ -234,29 +234,6 @@ Git config levels and files
 --global  globaal configuratiebestand in ~ /.gitconfig
 --system  systeem configuratiebestand in $(prefix)/etc/gitconfig
 
-Git Branching & Merging
------------------------
-main                    standard branch na 'git init'
--of-
-master                  < oktober 2020, gewijzigd naar main ivm culturele aspecten zoals master/slave
-
-<branchname>            branch is in feite een verwijzing naar een momentopname van je wijzigingen
-HEAD                    verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
-
-git branch              # list active (*) and other branches
-git branch <branchname> # maak <branchname>
-git switch <branchname> # switch naar <branchname>
-
-git status              # wijzigingen zijn zichtbaar in main & <branchname>
-git add .               # wijzigingen zijn zichtbaar in main & <branchname>
-git commit -m <message> # wijzigingen zijn zichtbaar alleen in <branchname>
-
-git switch main         # schakel over naar main (HEAD <branchname> -> main)
-
-git merge <branchname>  # maak main gelijk aan de <branchname>
-git status
-git push
-
 Branch names and prefixes
 -------------------------
 Main repository branches:
@@ -274,9 +251,43 @@ Branch prefixes:
    users/<username>/<desc>/      personal branche
    users/<username>/<workitem>/  personal branche
 
+Git Branching & Merging
+-----------------------
+main                    standard branch na 'git init'
+-of-
+master                  < oktober 2020, gewijzigd naar main ivm culturele
+                          aspecten zoals master/slave
+
+<branchname>            branch is in feite een verwijzing naar een momentopname van je wijzigingen
+HEAD                    verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
+
+git branch              # list active (*) and other branches
+git branch <branchname> # maak <branchname>
+git switch <branchname> # switch naar <branchname>
+
+git status              # wijzigingen zijn zichtbaar in main & <branchname>
+git add .               # wijzigingen zijn zichtbaar in main & <branchname>
+git commit -m <message> # wijzigingen zijn zichtbaar alleen in <branchname>
+git push                # 1e keer: git push --set-upstream origin <branchname>
+
+git switch main         # schakel over naar main (HEAD <branchname> -> main)
+git merge <branchname>  # maak main gelijk aan de <branchname>
+git status
+git push
+
+Squash commit
+-------------
+git switch main
+git merge --squash <branchname>
+git diff --staged
+git commit -m <message>
+git push [origin main]
+git branch --delete <branchname>
+git push origin --delete <branchname>
+
 Rename branch
 -------------
-git branch -m <oldbranch> <newbranch>
+git branch --move <oldbranch> <newbranch>
 git push origin --delete <oldbranch>
 git push --set-upstream origin <newbranch>
 
@@ -323,17 +334,6 @@ git pull
 git config pull.ff only
 git config --global pull.ff only
 git clean -d  -f .
-
-
-Squash commit
-=============
-git switch main
-git merge --squash <branchname>
-git diff --staged
-git commit -m'squash-commit-msg'
-git push [origin main]
-git branch -d <branchname>
-git push origin --delete <branchname>
 
 
 Proces slapen met Ctrl-Z

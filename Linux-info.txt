@@ -133,6 +133,23 @@ rm debian-binary control.tar.xz data.tar.xz control.tar.zst data.tar.zst
 sudo apt install <debfile_xz>
 
 
+Restore grub2 in Legacy or EFI mode
+===================================
+1. Boot from Live-USB stick.
+2. Open the Terminal.
+3. Execute: [ -d /sys/firmware/efi ] && echo "EFI boot on HDD" || echo "Legacy boot on HDD" ]
+4. A. For Bios legacy mode.
+      $ sudo su
+      $ apt-get install --reinstall grub
+      $ grub-install /dev/sda
+      $ update-grub
+4. B. For EFI - x86_64-efi.
+      $ sudo su
+      $ apt-get install --reinstall grub-efi-amd64
+      $ grub-install /dev/sda
+      $ update-grub
+
+
 Voorkom een overstroming van 'AER: Corrected error received' in het logboek
 ===========================================================================
 Wijzig de opstartparameters wanneer het GRUB-bootloadermenu verschijnt.

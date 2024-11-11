@@ -133,23 +133,6 @@ rm debian-binary control.tar.xz data.tar.xz control.tar.zst data.tar.zst
 sudo apt install <debfile_xz>
 
 
-Restore grub2 in Legacy or EFI mode
-===================================
-1. Boot from Live-USB stick.
-2. Open the Terminal.
-3. Execute: [ -d /sys/firmware/efi ] && echo "EFI boot on HDD" || echo "Legacy boot on HDD" ]
-4. A. For Bios legacy mode.
-      $ sudo su
-      $ apt-get install --reinstall grub
-      $ grub-install /dev/sda
-      $ update-grub
-4. B. For EFI - x86_64-efi.
-      $ sudo su
-      $ apt-get install --reinstall grub-efi-amd64
-      $ grub-install /dev/sda
-      $ update-grub
-
-
 Voorkom een overstroming van 'AER: Corrected error received' in het logboek
 ===========================================================================
 Wijzig de opstartparameters wanneer het GRUB-bootloadermenu verschijnt.
@@ -625,6 +608,22 @@ zijn, zonder de Super Grub2 Disk.
 Als Windows niet zichtbaar is in het GRUB boot menu is de work-around:
 Voeg GRUB_DISABLE_OS_PROBER=false toe aan /etc/default/grub en voer uit
 sudo update-grub
+
+Restore grub2 in Legacy or EFI mode
+-----------------------------------
+1. Boot from Super Grub2 Disk Live-USB stick.
+2. Open the Terminal.
+3. Execute: [ -d /sys/firmware/efi ] && echo "EFI boot on HDD" || echo "Legacy boot on HDD" ]
+4. A. For Bios legacy mode.
+      $ sudo su
+      $ apt-get install --reinstall grub
+      $ grub-install /dev/sda
+      $ update-grub
+4. B. For EFI - x86_64-efi.
+      $ sudo su
+      $ apt-get install --reinstall grub-efi-amd64
+      $ grub-install /dev/sda
+      $ update-grub
 
 
 Pop!_OS dual-boot

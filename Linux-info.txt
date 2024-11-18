@@ -220,8 +220,10 @@ Git config levels and files
 Branch names and prefixes
 -------------------------
 Main repository branches:
-   main
-   master
+   main                          of master
+   develop                       Two long running main branches: main/master
+                                 and develop, "GitFlow model". Arbitrary amount
+                                 of support branches
 
 Branch prefixes:
    bugfix/		                  fix bug in code, e.g. bugfix/fix-login-error

@@ -274,6 +274,12 @@ git push [origin main]
 git branch --delete <branchname>
 git push origin --delete <branchname>
 
+Branch main is ahead of branch X
+--------------------------------
+git switch X
+git rebase main
+git push
+
 Rename branch
 -------------
 git branch --move <oldbranch> <newbranch>

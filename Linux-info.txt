@@ -227,7 +227,8 @@ Main repository branches:
    main                          of master
    develop                       Two long running main branches: main/master
                                  and develop, "GitFlow model". Arbitrary amount
-                                 of support branches
+                                 of support branches. Gitflow has fallen in
+                                 popularity in favor of trunk-based workflows.
 
 Branch prefixes:
    bugfix/		                  fix bug in code, e.g. bugfix/fix-login-error

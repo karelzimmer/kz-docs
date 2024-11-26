@@ -184,6 +184,8 @@ Lokale git repo voor teksten of scripts
 sudo apt-get instal git
 git config --global user.name 'Karel Zimmer'
 git config --global user.email 'karel.zimmer@gmail.com'
+git config --global pull.ff only
+git config --global credential.helper store
 git config --list
 mkdir article
 cd article

@@ -272,6 +272,7 @@ git commit -m <message>
 git push [origin main]
 git branch --delete <branchname>
 git push origin --delete <branchname>
+git fetch --prune          # remove any no longer existing remote references
 
 Branch main is ahead of branch develop
 --------------------------------------

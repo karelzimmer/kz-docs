@@ -280,7 +280,7 @@ Git rebase interactive
 git config --global core.editor "code --wait"
 git rebase -i <commit>
 [follow instructions in file git-rebase-todo]
-[change commit message in file COMMIT_EDITMSG]
+[follow instructions in file COMMIT_EDITMSG]
 git push -f
 
 Branch main is ahead of branch develop

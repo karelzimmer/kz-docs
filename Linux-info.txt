@@ -184,6 +184,7 @@ Lokale git repo voor teksten of scripts
 sudo apt-get instal git
 git config --global user.name 'Karel Zimmer'
 git config --global user.email 'karel.zimmer@gmail.com'
+git config --global core.editor "code --wait"      # To make rebase -i possible
 git config --global pull.ff only
 git config --global credential.helper store
 git config --list
@@ -273,6 +274,14 @@ git push [origin main]
 git branch --delete <branchname>
 git push origin --delete <branchname>
 git fetch --prune          # remove any no longer existing remote references
+
+Git rebase interactive
+----------------------
+git config --global core.editor "code --wait"
+git rebase -i <commit>
+[follow instructions in file git-rebase-todo]
+[change commit message in file COMMIT_EDITMSG]
+git push -f
 
 Branch main is ahead of branch develop
 --------------------------------------

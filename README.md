@@ -9,7 +9,6 @@
 
 # kz-docs
 
-Documents for installing Debian and Debian-based systems such as Ubuntu, and
-Red Hat and Red Hat-based systems such as Rocky Linux.
+Documents for installing and managing Debian and Debian-based systems such as Ubuntu, and Red Hat and Red Hat-based systems such as Rocky Linux.
 
 More information on [karelzimmer.nl/en](https://karelzimmer.nl/en).

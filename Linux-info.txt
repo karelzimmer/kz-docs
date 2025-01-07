@@ -187,6 +187,12 @@ git config --global user.email 'karel.zimmer@gmail.com'
 git config --global core.editor "code --wait"      # To make rebase -i possible
 git config --global pull.ff only
 git config --global credential.helper store
+
+git config --global push.autoSetupRemote true
+git push
+-or-
+git push --set-upstream origin feature/redesign-checklists
+
 git config --list
 mkdir article
 cd article

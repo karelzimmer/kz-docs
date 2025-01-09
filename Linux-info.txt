@@ -296,6 +296,7 @@ git switch develop
 git rebase main
 git push
 git diff main..develop
+git diff main..develop --compact-summary # only filenames
 
 Rename branch
 -------------

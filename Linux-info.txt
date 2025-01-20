@@ -1542,3 +1542,8 @@ Record bash session
 ===================
 $ script
 # Start nieuwe bash-sessie en legt input en output vast in bestand typescript.
+
+
+Find hard link
+==============
+find -samefile <filename>

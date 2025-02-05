@@ -25,7 +25,7 @@ Zoek de regel die begint met /media/<user>/<usblabel> (kolom TARGET) en noteer
 de apparaatnaam /dev/sd<XN> (kolom SOURCE).
 Voer uit:
 umount /dev/sd<XN>
-sudo dd bs=4M if=~/Downloads/<isonaam> of=/dev/sd<X> conv=fdatasync status=progress
+sudo dd bs=4M conv=fdatasync status=progress if=~/Downloads/<isonaam> of=/dev/sd<X>
 
 Of gebruik Ventoy
 -----------------
@@ -57,7 +57,7 @@ Find the line that starts with /media/<user>/<usblabel> (TARGET column) and note
 the device name /dev/sd<XN> (SOURCE column).
 Execute:
 umount /dev/sd<XN>
-sudo dd bs=4M if=~/Downloads/<isoname> of=/dev/sd<X> conv=fdatasync status=progress
+sudo dd bs=4M conv=fdatasync status=progress if=~/Downloads/<isonaam> of=/dev/sd<X>
 
 Or use Ventoy
 -------------

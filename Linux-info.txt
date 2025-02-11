@@ -7,6 +7,7 @@
 
 Maak een opstartbare USB-stick / Create a bootable USB stick
 ============================================================
+
 In een grafische werkomgeving
 -----------------------------
 Plaats een usb-stick van minimaal 8 GB.
@@ -68,6 +69,29 @@ About Secure Boot in UEFI mode, see https://www.ventoy.net/en/doc_secure.html.
 
 [1] To create a Ventoy USB stick,
     see https://www.ventoy.net> Document > Get Started.
+
+
+Als het installeren/bijwerken mislukt / If installing/updating fails
+====================================================================
+
+Als om één of andere reden het installeren/bijwerken mislukt, op een
+Debian-gebaseerd systeem kunt u het volgende proberen:
+   sudo dpkg --configure --pending
+   sudo apt-get update --fix-missing
+   sudo apt-get install --fix-broken
+Op een Red Hat-gebaseerd systeem probeer het volgende:
+   sudo dnf clean all
+   sudo dnf makecache
+/
+
+If the install/update fails for some reason, on a Debian-based system you can
+try the following:
+   sudo dpkg --configure --pending
+   sudo apt-get update --fix-missing
+   sudo apt-get install --fix-broken
+On a Red Hat-based system try the following:
+   sudo dnf clean all
+   sudo dnf makecache
 
 
 UNIX, Linux, and distro's

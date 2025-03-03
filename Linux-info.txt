@@ -1571,3 +1571,17 @@ $ script
 Find hard link
 ==============
 find -samefile <filename>
+
+
+Create own application icon
+===========================
+Open Krita
+File > New > Create
+Image > Resize Canvas > 400 x 400 > OK
+Text Tool
+Select whole image
+Placeholder Text -> KZ (bold, size 72)
+File > Save As > kz.png
+
+In desktop file:
+Icon=kz

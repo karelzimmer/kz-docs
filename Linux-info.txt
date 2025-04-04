@@ -299,7 +299,7 @@ Squash commit
 git switch main
 git merge --squash <branchname>
 git commit -m [<message>]
-git push origin main
+git push origin
 git branch --delete <branchname>
 git push origin --delete <branchname>
 git fetch --prune       # remove any no longer existing remote references

@@ -1561,6 +1561,29 @@ gpg --symmetric <file>  # Output: <file>.gpg
 gpg --decrypt <file>.gpg  # Output: <file>
 
 
+KEYSERVER
+---------
+Export:
+gpg --export -a 57770270 > public.key
+gpg --export-secret-key -a 57770270 > private.key
+
+Import:
+gpg --import public.key
+gpg --allow-secret-key-import --import private.key
+
+List:
+gpg --fingerprint
+	/home/karel/.gnupg/pubring.gpg
+	------------------------------
+	pub   1024D/57770270 2007-05-23
+	      Key fingerprint = 757D 3F99 B429 10D1 B307  4F08 446F 400F 5777 0270
+	uid                  Karel Zimmer (De Nerd) <karel.zimmer@hetnet.nl>
+	sub   2048g/E1B3A1C3 2007-05-23
+
+gpg --keyserver keyserver.ubuntu.com --send-key 57770270
+gpg --keyserver keyserver.ubuntu.com --recv-key 57770270
+
+
 Browser policies
 ================
 Google Chrome

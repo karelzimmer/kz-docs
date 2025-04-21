@@ -1534,22 +1534,31 @@ KEYS
 gpg --export --output kz-key.gpg info@karelzimmer.nl
 # Export public key in OpenPGP ASCII armor format.
 gpg --export --output kz-key.asc --armor info@karelzimmer.nl
+
+# Encrypt a file (with public key).
+gpg --encrypt --recipient <e-mailaddress> <file>  # Output: <file>.gpg
+
+# Decrypt a file (with private key).
+gpg --decrypt <file>.gpg  # Output: <file>
+
+
 # Sign a file.
-gpg --sign <file> # Output: <file>.gpg
+gpg --sign <file>  # Output: <file>.gpg
 
 # As any user:
 # Import public key.
 gpg --import /<path>/kz-key.gpg
 # Decrypt <file>.gpg
-gpg --decrypt <file>.gpg # Output: <file>
+gpg --decrypt <file>.gpg  # Output: <file>
+
 
 PASSPHRASE
 ----------
 # Encrypt a file.
-gpg --symmetric <file> # Output: <file>.gpg
+gpg --symmetric <file>  # Output: <file>.gpg
 
 # Decrypt a file.
-gpg --decrypt <file>.gpg # Output: <file>
+gpg --decrypt <file>.gpg  # Output: <file>
 
 
 Browser policies

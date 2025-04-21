@@ -1525,28 +1525,31 @@ KLAAR
 
 GPG
 ===
-/usr/share/keyrings$ gpg --show-keys google-chrome.gpg
-gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg'
-pub   dsa1024 2007-03-08 [SC]
-      4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
-uid                      Google, Inc. Linux Package Signing Key <linux-packa...
-sub   elg2048 2007-03-08 [E]
+karel@pc06:~$ gpg --full-generate-key
+karel@pc06:~$ gpg --list-keys
 
-pub   rsa4096 2016-04-12 [SC]
-      EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
-uid                      Google Inc. (Linux Packages Signing Authority) <lin...
-sub   rsa4096 2016-04-12 [S] [verlopen op: 2019-04-12]
-sub   rsa4096 2017-01-24 [S] [verlopen op: 2020-01-24]
-sub   rsa4096 2019-07-22 [S] [verlopen op: 2022-07-21]
-sub   rsa4096 2021-10-26 [S] [vervaldatum: 2022-10-25]
+KEYS
+----
+# Export public key in OpenPGP binary format.
+gpg --export --output kz-key.gpg info@karelzimmer.nl
+# Export public key in OpenPGP ASCII armor format.
+gpg --export --output kz-key.asc --armor info@karelzimmer.nl
+# Sign a file.
+gpg --sign <file> # Output: <file>.gpg
 
-To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
-Make sure that the .gnupg directory and its contents is accessibile by your user.
-chown -R "$(whoami)" ~/.gnupg/
+# As any user:
+# Import public key.
+gpg --import /<path>/kz-key.gpg
+# Decrypt <file>.gpg
+gpg --decrypt <file>.gpg # Output: <file>
 
-Also correct the permissions and access rights on the directory
-chmod 600 ~/.gnupg/*
-chmod 700 ~/.gnupg
+PASSPHRASE
+----------
+# Encrypt a file.
+gpg --symmetric <file> # Output: <file>.gpg
+
+# Decrypt a file.
+gpg --decrypt <file>.gpg # Output: <file>
 
 
 Browser policies

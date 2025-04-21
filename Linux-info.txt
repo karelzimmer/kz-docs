@@ -1551,6 +1551,14 @@ gpg --import /<path>/kz-key.gpg
 # Decrypt <file>.gpg
 gpg --decrypt <file>.gpg  # Output: <file>
 
+---
+gpg --sign --output ~/kz-scripts/usr/bin/kz-install-extra.gpg ~/kz-install-extra
+gpg --sign --output ~/kz-scripts/usr/bin/kz-setup-extra.gpg   ~/kz-setup-extra
+---
+gpg --decrypt --output ~/kz-setup-extra   ~/kz-scripts/usr/bin/kz-setup-extra.gpg
+gpg --decrypt --output ~/kz-install-extra ~/kz-scripts/usr/bin/kz-install-extra.gpg
+---
+
 
 PASSPHRASE
 ----------

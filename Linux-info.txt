@@ -302,6 +302,7 @@ git commit -m [<message>]
 git push origin
 git branch --delete <branchname>
 git push origin --delete <branchname>
+git remote prune origin # remove all stale branches
 git fetch --prune       # remove any no longer existing remote references
 
 Rewriting commits

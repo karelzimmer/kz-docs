@@ -1553,11 +1553,11 @@ gpg --import /<path>/kz-key.gpg
 gpg --decrypt <file>.gpg  # Output: <file>
 
 ---
-gpg --decrypt --output ~/kz-setup-extra   ~/kz-scripts/usr/bin/kz-setup-extra.gpg
-gpg --decrypt --output ~/kz-install-extra ~/kz-scripts/usr/bin/kz-install-extra.gpg
+gpg --decrypt --output ~/kz-setup.sh   ~/kz-scripts/usr/bin/kz-setup.sh.gpg
+gpg --decrypt --output ~/kz-install.sh ~/kz-scripts/usr/bin/kz-install.sh.gpg
 ---
-gpg --sign --output ~/kz-scripts/usr/bin/kz-install-extra.gpg ~/kz-install-extra; rm ~/kz-install-extra
-gpg --sign --output ~/kz-scripts/usr/bin/kz-setup-extra.gpg   ~/kz-setup-extra  ; rm ~/kz-setup-extra
+gpg --sign --output ~/kz-scripts/usr/bin/kz-install.sh.gpg ~/kz-install.sh
+gpg --sign --output ~/kz-scripts/usr/bin/kz-setup.sh.gpg   ~/kz-setup.sh
 ---
 
 

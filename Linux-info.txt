@@ -339,6 +339,9 @@ git log
 git log -10
 git log --oneline
 
+git log /path/to/file               # levert wijzigingen + <commit>
+git show <commit>:/path/to/file     # levert file compleet 
+
 git show <commit>
 
 git diff working <-> staged

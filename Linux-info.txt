@@ -347,19 +347,20 @@ git show <commit>
 git diff working <-> staged
 git diff '<commit>-A' '<commit>-B' log --oneline
 
-git log
+
+git log                          # Look for right commit.
 # commit <commit1>
 
-git cat-file -p <commit1>
+git cat-file -p <commit1>        # Read the commit.
 # tree <commit2>
 
-git cat-file -p <commit2>        # Repeat 1-n times till <perm> blob ...
+git cat-file -p <commit2>        # Read the directory, repeat 1-n times.
 # <perm> tree <commit3> <dirname>
 
-git cat-file -p <commit3>
+git cat-file -p <commit3>        # Read the directory, till <perm> blob ...
 # <perm> blob <commit4> <filename>
 
-git cat-file -p <commit4>
+git cat-file -p <commit4>        # Read the file filename.
 # <filename>
 
 

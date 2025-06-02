@@ -347,6 +347,22 @@ git show <commit>
 git diff working <-> staged
 git diff '<commit>-A' '<commit>-B' log --oneline
 
+git log
+# commit <commit1>
+
+git cat-file -p <commit1>
+# tree <commit2>
+
+git cat-file -p <commit2>        # Repeat 1-n times till <perm> blob ...
+# <perm> tree <commit3> <dirname>
+
+git cat-file -p <commit3>
+# <perm> blob <commit4> <filename>
+
+git cat-file -p <commit4>
+# <filename>
+
+
 # fatal: CRLF would be replaced by LF in file.txt
 git config --global core.autocrlf false
 

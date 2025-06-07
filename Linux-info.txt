@@ -201,6 +201,7 @@ export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\
 
 Git alias
 ---------
+git config --global alias.cat 'cat-file -p'
 git config --global alias.logg 'log --decorate --graph --oneline --all'
 
 Lokale git repo voor teksten of scripts

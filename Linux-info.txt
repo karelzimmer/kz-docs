@@ -204,6 +204,10 @@ Git alias
 git config --global alias.cat 'cat-file -p'
 git config --global alias.logg 'log --decorate --graph --oneline --all'
 
+git config --global --unset alias.cat
+git config --global --unset alias.logg
+
+
 Lokale git repo voor teksten of scripts
 ---------------------------------------
 sudo apt-get instal git

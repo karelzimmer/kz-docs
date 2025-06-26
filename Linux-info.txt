@@ -318,6 +318,10 @@ git rebase -i <commit>
 [follow instructions in file COMMIT_EDITMSG]
 git push -f
 
+Revert commits
+--------------
+git revert <commit>
+
 Branch main is ahead of branch develop
 --------------------------------------
 git diff main..develop

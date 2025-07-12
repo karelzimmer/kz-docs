@@ -470,7 +470,7 @@ sudo rm /etc/data.login
 
 Localization: t9n, l10n, i18n, g11n
 ===================================
-t9n = translation
+t9n  = translation
 l10n = localization
 i18n = internationalization
 g11n = globalization

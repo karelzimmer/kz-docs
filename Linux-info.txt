@@ -74,7 +74,7 @@ About Secure Boot in UEFI mode, see https://www.ventoy.net/en/doc_secure.html.
 Als het installeren/bijwerken mislukt / If installing/updating fails
 ====================================================================
 
-Als om één of andere reden het installeren/bijwerken mislukt, op een
+Als om één of andere reden het installeren/bijwerken mislukt, op een Debian of
 Debian-gebaseerd systeem kunt u het volgende proberen:
    sudo dpkg --configure --pending
    sudo apt-get update --fix-missing
@@ -84,8 +84,8 @@ Op een Red Hat-gebaseerd systeem probeer het volgende:
    sudo dnf makecache
 /
 
-If the install/update fails for some reason, on a Debian-based system you can
-try the following:
+If the install/update fails for some reason, on a Debian or Debian-based system
+you can try the following:
    sudo dpkg --configure --pending
    sudo apt-get update --fix-missing
    sudo apt-get install --fix-broken

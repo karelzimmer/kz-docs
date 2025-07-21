@@ -79,7 +79,7 @@ Debian-gebaseerd systeem kunt u het volgende proberen:
    sudo dpkg --configure --pending
    sudo apt-get update --fix-missing
    sudo apt-get install --fix-broken
-Op een Red Hat-gebaseerd systeem probeer het volgende:
+Op een Red Hat of Red Hat-gebaseerd systeem probeer het volgende:
    sudo dnf clean all
    sudo dnf makecache
 /
@@ -89,7 +89,7 @@ you can try the following:
    sudo dpkg --configure --pending
    sudo apt-get update --fix-missing
    sudo apt-get install --fix-broken
-On a Red Hat-based system try the following:
+On a Red Hat or Red Hat-based system try the following:
    sudo dnf clean all
    sudo dnf makecache
 

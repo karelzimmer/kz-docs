@@ -94,6 +94,12 @@ On a Red Hat or Red Hat-based system try the following:
    sudo dnf makecache
 
 
+Reduceer GRUB wachttijd
+=======================
+sudo sed --in-place 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/' /etc/default/grub
+sudo update-grub
+
+
 UNIX, Linux, and distro's
 =========================
 Linux is gestandaardiseerd op drie manieren:

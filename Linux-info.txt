@@ -98,6 +98,7 @@ Reduceer GRUB wachttijd
 =======================
 sudo sed --in-place 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/' /etc/default/grub
 sudo update-grub
+sudo reboot
 
 
 UNIX, Linux, and distro's

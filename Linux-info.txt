@@ -615,9 +615,9 @@ Klik op Ontgrendelen en zet daarna Automatisch aanmelden met het schuifje aan.
 
 3. LUKS-wachtwoord toevoegen.
 
-Bepaal welke partitie LUKS bevat
---------------------------------
-Voorbeeld 1:
+Bepaal welk device/part LUKS bevat
+----------------------------------
+Voorbeeld:
 lsblk
 NAME                  MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
 ...
@@ -627,7 +627,7 @@ sda                     8:0    0 232,9G  0 disk
 └─sda3                  8:3    0 231,7G  0 part
   └─sda3_crypt        253:0    0 231,7G  0 crypt
 ...
-In bovenstaand geval dus /dev/sda3.
+In bovenstaand geval dus NAME=sda3 (een device).
 
 Voorbeeld 2:
 lsblk
@@ -637,7 +637,7 @@ sdb                                             8:16   0 232,9G  0 disk
 └─sdb1                                          8:17   0 231,9G  0 part
   └─luks-a805d665-da6b-4872-8370-1ae4eb0bfc53 253:3    0 231,9G  0 crypt
 ...
-In bovenstaand geval dus /dev/sdb1.
+In bovenstaand geval dus NAME=sdb1 (een partitie).
 
 Om een LUKS-wachtwoord toe te voegen, start Terminalvenster en voer uit:
 sudo cryptsetup luksAddKey /dev/NAME

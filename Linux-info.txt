@@ -1515,6 +1515,10 @@ fwupdmgr get-devices
 
 UEFI from Linux
 ===============
+sudo mokutil --sb-state
+sudo mokutil --list-enrolled
+sudo dmesg | grep cert # verify your key is loaded
+
 ps --no-headers -o comm 1
 -> systemd
 systemctl reboot --firmware-setup

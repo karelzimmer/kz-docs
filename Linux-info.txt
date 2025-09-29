@@ -1603,11 +1603,11 @@ gpg --import /<path>/kz-key.gpg
 gpg --decrypt <file>.gpg  # Output: <file>
 
 ---
-gpg --decrypt --output /tmp/kz-setup.sh     ~/kz-scripts/usr/bin/kz-setup.sh.gpg
-gpg --decrypt --output /tmp/kz-install.sh   ~/kz-scripts/usr/bin/kz-install.sh.gpg
+gpg --decrypt --output ~/kz-setup.sh.gpg.txt    ~/kz-scripts/usr/bin/kz-setup.sh.gpg
+gpg --decrypt --output ~/kz-install.sh.gpg.txt  ~/kz-scripts/usr/bin/kz-install.sh.gpg
 ---
-gpg --sign --output ~/kz-scripts/usr/bin/kz-install.sh.gpg  /tmp/kz-install.sh
-gpg --sign --output ~/kz-scripts/usr/bin/kz-setup.sh.gpg    /tmp/kz-setup.sh
+gpg --sign --output ~/kz-scripts/usr/bin/kz-install.sh.gpg  ~/kz-install.sh.gpg.txt
+gpg --sign --output ~/kz-scripts/usr/bin/kz-setup.sh.gpg    ~/kz-setup.sh.gpg.txt
 ---
 
 

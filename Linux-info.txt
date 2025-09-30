@@ -1693,6 +1693,17 @@ sudo sed --in-place 's/enabled=0/enabled=1/' /etc/default/apport
 sudo systemctl enable --now apport.service
 
 
+Backups/snapshots
+=================
+Install:
+Debian: sudo apt-get install --assume-yes backintime-qt
+RHEL:   sudo dnf install --assumeyes backintime-qt
+
+Remove:
+Debian: sudo apt-get remove --assume-yes backintime-qt
+RHEL:   sudo dnf remove --assumeyes backintime-qt
+
+
 Common Unix Printing System (cups)
 ==================================
 Web app: http://localhost:631

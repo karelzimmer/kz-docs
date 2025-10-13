@@ -8,18 +8,24 @@
 Maak een opstartbare USB-stick / Create a bootable USB stick
 ============================================================
 
-In een grafische werkomgeving
------------------------------
+App Schijven
+------------
 Plaats een usb-stick van minimaal 8 GB.
 Zoek sch en klik op het pictogram van Schijven.
 Selecteer de USB-stick in de lijst van schijven aan de linkerkant en klik
 rechtsboven op Schijfinstellingen ⋮ (icoontje met de drie puntjes).
 Kies Schijfkopie terugzetten en selecteer het gedownloade cd-beeldbestand (.iso).
 Klik op Terugzetten starten en vervolgens op Terugzetten.
-Of gebruik het programma Etcher (etcher.io) dat beschikbaar is voor Windows, macOS, en Linux.
 
-In een Terminalvenster
-----------------------
+App Etcher
+----------
+Download vanaf https://etcher.balena.io het programma Etcher dat beschikbaar is
+voor Windows, macOS, en Linux.
+Open Etcher.
+Volg de aanwijzingen op het scherm.
+
+App Terminalvenster
+-------------------
 Plaats een usb-stick van minimaal 8 GB.
 $ findmnt
 Zoek de regel die begint met /media/<user>/<usblabel> (kolom TARGET) en noteer
@@ -40,8 +46,8 @@ Over Secure Boot in UEFI-modus, zie https://www.ventoy.net/en/doc_secure.html.
 
 /
 
-In a graphical work environment
--------------------------------
+App Disks
+---------
 Insert a USB stick of at least 8 GB.
 Locate disk and click the Disks icon.
 Select the USB stick in the list of disks on the left and click
@@ -50,8 +56,15 @@ Choose Restore Disk Image and select the downloaded CD image file (.iso).
 Click Start Restore, and then click Restore.
 Or use the Etcher program (etcher.io) available for Windows, macOS, and Linux.
 
-In a Terminal
--------------
+App Etcher
+----------
+Download Etcher from https://etcher.balena.io, which is available for Windows,
+macOS, and Linux.
+Open Etcher.
+Follow the on-screen instructions.
+
+App Terminal
+------------
 Insert a USB stick of at least 8 GB.
 $ findmnt
 Find the line that starts with /media/<user>/<usblabel> (TARGET column) and note

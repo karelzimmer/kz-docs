@@ -9,7 +9,7 @@ Maak een opstartbare USB-stick / Create a bootable USB stick
 ============================================================
 
 App Schijven (Linux)
---------------------
+------------
 Plaats een usb-stick van minimaal 8 GB.
 Zoek sch en klik op het pictogram van Schijven.
 Selecteer de USB-stick in de lijst van schijven aan de linkerkant en klik
@@ -18,7 +18,7 @@ Kies Schijfkopie terugzetten en selecteer het gedownloade cd-beeldbestand (.iso)
 Klik op Terugzetten starten en vervolgens op Terugzetten.
 
 App Terminalvenster (Linux)
----------------------------
+-------------------
 Plaats een usb-stick van minimaal 8 GB.
 $ findmnt
 Zoek de regel die begint met /media/<user>/<usblabel> (kolom TARGET) en noteer
@@ -28,13 +28,13 @@ umount /dev/sd<XN>
 sudo dd bs=4M conv=fsync status=progress if=~/Downloads/<isonaam> of=/dev/sd<X>
 
 App Etcher (Windows, macOS, en Linux)
--------------------------------------
+----------
 Download Etcher vanaf https://etcher.balena.io.
 Open Etcher.
 Volg de aanwijzingen op het scherm.
 
 App Ventoy (Windows, macOS, en Linux)
--------------------------------------
+----------
 Plaats de Ventoy usb-stick [1].
 Kopieer één of meer gedownloade cd-beeldbestanden (.iso) naar Ventoy.
 Start de computer op vanaf de Ventoy usb-stick.
@@ -46,17 +46,16 @@ Over Secure Boot in UEFI-modus, zie https://www.ventoy.net/en/doc_secure.html.
 /
 
 App Disks (Linux)
------------------
+---------
 Insert a USB stick of at least 8 GB.
 Locate disk and click the Disks icon.
 Select the USB stick in the list of disks on the left and click
 Disk settings ⋮ (icon with the three dots) in the top right corner.
 Choose Restore Disk Image and select the downloaded CD image file (.iso).
 Click Start Restore, and then click Restore.
-Or use the Etcher program (etcher.io) available for Windows, macOS, and Linux.
 
 App Terminal (Linux)
---------------------
+------------
 Insert a USB stick of at least 8 GB.
 $ findmnt
 Find the line that starts with /media/<user>/<usblabel> (TARGET column) and note
@@ -66,13 +65,13 @@ umount /dev/sd<XN>
 sudo dd bs=4M conv=fsync status=progress if=~/Downloads/<isonaam> of=/dev/sd<X>
 
 App Etcher (Windows, macOS, and Linux)
--------------------------------------
+----------
 Download Etcher from https://etcher.balena.io.
 Open Etcher.
 Follow the on-screen instructions.
 
 App Ventoy (Windows, macOS, and Linux)
---------------------------------------
+----------
 Insert the Ventoy USB stick [1].
 Copy one or more downloaded CD image files (.iso) to Ventoy.
 Boot from the Ventoy USB stick.

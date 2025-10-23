@@ -337,6 +337,18 @@ git push origin --delete <branchname>
 git remote prune origin # remove all stale branches
 git fetch --prune       # remove any no longer existing remote references
 
+Why prune
+---------
+$ git pull
+From https://github.com/karelzimmer/kz-scripts
+d2601e26 .. ffoca320 main - origin/main
+Your configuration specifies to merge with the ref 'refs/heads/fix/gui'
+from the remote, but no such ref was fetched.
+# So branch fix/gui localy still exists. 
+$ git fetch -prune
+From https://github.com/karelzimmer/kz-scripts
+ - [deleted]           (none)     -> origin/fix/qui
+
 Rewriting commits
 -----------------
 git config --global core.editor "code --wait"

@@ -5,9 +5,8 @@
 # SPDX-License-Identifier: CC0-1.0
 # #############################################################################
 
-Maak een opstartbare USB-stick / Create a bootable USB stick
+MAAK EEN OPSTARTBARE USB-STICK / CREATE A BOOTABLE USB STICK
 ============================================================
-
 App Schijven (Linux)
 ------------
 Plaats een usb-stick van minimaal 8 GB.
@@ -81,9 +80,8 @@ About Secure Boot in UEFI mode, see https://www.ventoy.net/en/doc_secure.html.
     see https://www.ventoy.net> Document > Get Started.
 
 
-Als het installeren/bijwerken mislukt / If installing/updating fails
+ALS HET INSTALLEREN/BIJWERKEN MISLUKT / IF INSTALLING/UPDATING FAILS
 ====================================================================
-
 Als om één of andere reden het installeren/bijwerken mislukt, op een Debian of
 Debian-gebaseerd systeem kunt u het volgende proberen:
    sudo dpkg --configure --pending
@@ -104,14 +102,14 @@ On a Red Hat or Red Hat-based system try the following:
    sudo dnf makecache
 
 
-Reduceer GRUB wachttijd
+REDUCEER GRUB WACHTTIJD
 =======================
 sudo sed --in-place 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/' /etc/default/grub
 sudo update-grub
 sudo reboot
 
 
-UNIX, Linux, and distro's
+UNIX, LINUX, AND DISTRO'S
 =========================
 Linux is gestandaardiseerd op drie manieren:
 1. POSIX
@@ -129,7 +127,7 @@ Distro:
 Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Raphaël Hertzog and Roland Mas, Freexian
 
 
-Upgrade Debian testing naar Debian trixie (13)
+UPGRADE DEBIAN TESTING NAAR DEBIAN TRIXIE (13)
 ==============================================
 sudo apt update
 sudo apt upgrade
@@ -141,7 +139,7 @@ sudo apt update
 sudo apt full-upgrade
 
 
-Verifying shim SBAT data / SBAT self-check failed: Security Policy Violation
+VERIFYING SHIM SBAT DATA / SBAT SELF-CHECK FAILED: SECURITY POLICY VIOLATION
 ============================================================================
 Disable Secure Boot, boot into Ubuntu and run:
 
@@ -161,7 +159,7 @@ mokutil --list-sbat-revocations
 Now nothing it's blocked, reboot, enable Secure Boot and all should be fine.
 
 
-Install zstd package on Debian < 12
+INSTALL ZSTD PACKAGE ON DEBIAN < 12
 ===================================
 # On Debian, dpkg version 1.21.18 has zstd support for .deb archives,
 # on Ubuntu the default is zstd from Ubuntu 21.10.
@@ -184,7 +182,7 @@ rm debian-binary control.tar.xz data.tar.xz control.tar.zst data.tar.zst
 sudo apt install <debfile_xz>
 
 
-Voorkom een overstroming van 'AER: Corrected error received' in het logboek
+VOORKOM EEN OVERSTROMING VAN 'AER: CORRECTED ERROR RECEIVED' IN HET LOGBOEK
 ===========================================================================
 Wijzig de opstartparameters wanneer het GRUB-bootloadermenu verschijnt.
 Selecteer de optie "Ubuntu installeren", druk op 'e' om de opdrachten te
@@ -212,13 +210,13 @@ Press Super and drag anywhere on any window to move it. (No need to grab the
    top bar to move)
 
 
-Colored less
+COLORED LESS
 ============
 grep --color=always REGEXP SOURCE | less --raw-control-chars
 git diff --color=always | less -r
 
 
-Git/GitHub
+GIT/GITHUB
 ==========
 Aangepaste prompt
 -----------------
@@ -441,7 +439,7 @@ git config --global pull.ff only
 git clean -d  -f .
 
 
-Proces slapen met Ctrl-Z
+PROCES SLAPEN MET CTRL-Z
 ========================
 Overzicht met jobs,
 kill met kill %<nummer>,
@@ -449,7 +447,7 @@ resume in background via bg %<nummer >,
 resume in foreground via fg %<nummer >.
 
 
-Mount NAS
+MOUNT NAS
 =========
 Example
 -------
@@ -507,7 +505,7 @@ sudo systemctl disable mnt-data.mount
 sudo rm /etc/data.login
 
 
-Localization: t9n, l10n, i18n, g11n
+LOCALIZATION: T9N, L10N, I18N, G11N
 ===================================
 t9n  = translation
 l10n = localization
@@ -604,7 +602,7 @@ cd ~/kz-scripts/usr/bin
 for file in $(find . -executable -type f -print); do pogen $file;done
 
 
-LUKS - Ondersteuning voor schijfversleuteling
+LUKS - ONDERSTEUNING VOOR SCHIJFVERSLEUTELING
 =============================================
 Om de harddisk te versleutelen, vink aan tijdens het installeren
 ----------------------------------------------------------------
@@ -679,7 +677,7 @@ sudo cryptsetup luksKillSlot /dev/NAME 0
 Gebruik Schijven > klik op juiste schijf > klik op LUKS-partitie > klik op tandwiel-symbool > Wachtwoord wijzigen.
 
 
-Dual-boot met Windows
+DUAL-BOOT MET WINDOWS
 =====================
 VOORBEREIDEN
 Uitzetten Snel opstarten (Fast Startup):
@@ -748,7 +746,7 @@ Restore grub2 in Legacy or EFI mode
       $ update-grub
 
 
-Pop!_OS dual-boot
+POP!_OS DUAL-BOOT
 =================
 Start from Live distro
 sudo apt install os-prober
@@ -756,19 +754,19 @@ sudo os-prober
 sudo update-grub
 
 
-Boot/recovery menu
+BOOT/RECOVERY MENU
 ==================
 BIOS: Shift-toets ingedrukt houden
 UEFI: Esc-toets meerdere malen indrukken
 
 
-Zwart scherm bij opstarten
+ZWART SCHERM BIJ OPSTARTEN
 ==========================
 Probeer een 'nomodeset' op te geven als opstartparameter.
 Ref: https://askubuntu.com/questions/162075/
 
 
-Boot-repair (ook vanaf live-cd)
+BOOT-REPAIR (OOK VANAF LIVE-CD)
 ===============================
 sudo add-apt-repository ppa:yannubuntu/boot-repair
 sudo apt-get update
@@ -778,7 +776,7 @@ sudo apt install startupmanager     Evt. voor aanpassen GRUB: Opstart-Manager
 sudo startupmanager
 
 
-GRUB-menu zichtbaar maken
+GRUB-MENU ZICHTBAAR MAKEN
 =========================
 sudo -i
 gedit /etc/default/grub
@@ -788,7 +786,7 @@ sudo update-grub
 exit
 
 
-GRUB-menu ander menuitem starten
+GRUB-MENU ANDER MENUITEM STARTEN
 ================================
 sudo -i
 gedit /etc/default/grub
@@ -797,7 +795,7 @@ sudo update-grub
 exit
 
 
-Zorg dat de helderheid van laptopscherm correct is bij het opstarten
+ZORG DAT DE HELDERHEID VAN LAPTOPSCHERM CORRECT IS BIJ HET OPSTARTEN
 ====================================================================
 1. Zet helderheid op de gewenste waarde.
 2. Vraag helderheid op met:
@@ -814,7 +812,7 @@ echo 1900 > /sys/class/backlight/intel_backlight/brightness
 sudo chmod +x /etc/rc.local
 
 
-Bureaublad wordt niet goed getoond (geen juiste venster, geen starter)
+BUREAUBLAD WORDT NIET GOED GETOOND (GEEN JUISTE VENSTER, GEEN STARTER)
 ======================================================================
 Zie eerst: https://askubuntu.com/questions/162075/
 1. Niet-afgemaakte updates
@@ -857,7 +855,7 @@ sudo rm -fr "$HOME"/.config/autostart
 rm -rf "$HOME"/.config
 
 
-Netwerkverbinding vóór het aanmelden?
+NETWERKVERBINDING VÓÓR HET AANMELDEN?
 =====================================
 Rechtsklik bovenin op netwerk-icoon, kies Verbindingen bewerken, klik op gewenste verbinding en vervolgens op Bewerken.
 Klik op Algemeen (tab) en vink aan Alle gebruikers kunnen verbinding maken met dit netwerk. Klik op Opslaan.
@@ -867,7 +865,7 @@ Edit gewenste verbinding en haal alles weg achter permissions=
 Klaar.
 
 
-MAC address spoofing
+MAC ADDRESS SPOOFING
 ====================
 ip link show INTERFACE  INTERFACE zie iwlist scan
    bijvoorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
@@ -876,7 +874,7 @@ ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
 ip link set dev INTERFACE up
 
 
-Terminal (terminalvenster) instellen (altijd maximale grootte)
+TERMINAL (TERMINALVENSTER) INSTELLEN (ALTIJD MAXIMALE GROOTTE)
 ==============================================================
 1. Start Terminalvenster.
 2. Maximaliseer het Terminalvenster.
@@ -887,12 +885,13 @@ Terminal (terminalvenster) instellen (altijd maximale grootte)
 6. Vul in achter Oorspronkelijke afmeting van de terminal: COLUMNS kolommen en LINES rijen, en sluit Voorkeuren.
 
 
-Ubuntu Pro
+UBUNTU PRO
 ==========
 https://discourse.ubuntu.com/c/ubuntu-pro/
 https://ubuntu.com/pro
 
-KOPPELEN
+Koppelen
+--------
 pro --version
 pro security-status
 sudo pro attach [YOUR_TOKEN]
@@ -904,11 +903,12 @@ pro status
 
 canonical-livepatch status
 
-ONTKOPPELEN
+Ontkoppelen
+-----------
 sudo pro detach
 
 
-Opdracht OPDRACHT debuggen
+OPDRACHT OPDRACHT DEBUGGEN
 ==========================
 [sudo] strace -f OPDRACHT [> trace.txt]
 [sudo] strace --follow-forks OPDRACHT [> trace.txt]
@@ -917,7 +917,7 @@ sudo strace -f -p OPDRACHT-PID [> trace.txt]
 sudo strace --follow-forks --attach OPDRACHT-PID [> trace.txt]
 
 
-Shell script SCRIPT debuggen
+SHELL SCRIPT SCRIPT DEBUGGEN
 ============================
 bash -vx ./SCRIPT
                     v = verbose (elke invoerregel tonen)
@@ -928,19 +928,19 @@ trap '(read -p "[$BASH_SOURCE:$LINENO] $BASH_COMMAND?")' DEBUG
 readelf             Toon info over Executable and Linking Format uitvoerbare programma's
 
 
-diff
+DIFF
 ====
 diff --context ORIG.BEST. GEWIJZ.BEST. PATCHBEST.
 patch
 patch ORIG.BEST. PATCHBEST.
 
 
-Grappige Linux-opdrachten
+GRAPPIGE LINUX-OPDRACHTEN
 =========================
 Zie site https://itsfoss.com/funny-linux-commands/
 
 
-Paaseieren
+PAASEIEREN
 ==========
 apt-get moo
 aptitude moo
@@ -949,7 +949,7 @@ aptitude -vv moo
 aptitude -vvv moo   Etc.
 
 
-Rechten
+RECHTEN
 =======
 Octaal (achttallig stelsel, 0 t/m 7):
 +--2²=4
@@ -993,12 +993,12 @@ mkdir   755 (rwxr-xr-x) (777 -/- 022)
 touch   644 (rw-r--r--) (666 -/- 022)
 
 
-Draai 90 graden iPhone film
+DRAAI 90 GRADEN IPHONE FILM
 ===========================
 mencoder -vf rotate -o Input.MOV -oac lavc -ovc lavc Output.MOV
 
 
-Herstel verwijderde "Locaties" Afbeeldingen, Documenten, Downloads, etc.
+HERSTEL VERWIJDERDE "LOCATIES" AFBEELDINGEN, DOCUMENTEN, DOWNLOADS, ETC.
 ========================================================================
 Maak Afbeeldingen, Documenten, Downloads, etc. map aan in Persoonlijke map
 gedit "$HOME"/.config/user-dirs.dirs
@@ -1031,7 +1031,7 @@ xdg-open "/home/karel/Documenten/eDocs/Bash Shell Scripting/Advanced Bash-Script
 xdg-open /tmp/
 
 
-Kleuren in scripts
+KLEUREN IN SCRIPTS
 ==================
 NORMAL = '\033[0m'
 BOLD = '\033[1m'
@@ -1051,7 +1051,7 @@ CYAN = '\033[1;36m'
 GRAY = '\033[1;37m'
 
 
-visudo
+VISUDO
 ======
 Gebruiker student kan alle sudo-opdrachten uitvoeren zonder wachtwoord:
 sudo visudo /etc/sudoers.d/student
@@ -1071,7 +1071,7 @@ sudo visudo /etc/sudoers.d/student
 man sudoers
 
 
-Interne usb-device uitschakelen
+INTERNE USB-DEVICE UITSCHAKELEN
 ===============================
 Hier als voorbeeld een Bluetooth-module
 ---------------------------------------
@@ -1089,7 +1089,7 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="8187",ATTR{authori
 reboot
 
 
-Problemen met Bluetooth
+PROBLEMEN MET BLUETOOTH
 =======================
 journalctl -ab | grep -i bluetooth | grep -i firmware
 
@@ -1103,7 +1103,7 @@ jan 29 07:16:04 pc06 kernel: Bluetooth: hci0: Firmware revision 0.0 build 14 wee
 Je moet wachten tot de Firmware is gedownload en geïnstalleerd....
 
 
-Uncomplicated FireWall (UFW)
+UNCOMPLICATED FIREWALL (UFW)
 ============================
 sudo ufw status             status opvragen
 sudo ufw status verbose     status opvragen uitgebreid
@@ -1125,7 +1125,7 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
 
-Youtube video's downloaden
+YOUTUBE VIDEO'S DOWNLOADEN
 ==========================
 Change YouTube to youpak
 ------------------------
@@ -1144,23 +1144,25 @@ Add "pwn" before "youtube"
 youtube.com/watch?v=... -> pwnyoutube.com/watch?v=...
 
 
-Extract mp3 uit mp4
+EXTRACT MP3 UIT MP4
 ===================
 ffmpeg -i input-video-file output-audio-file
 
 
-Verwijder Exif-informatie verborgen in JPEG-bestanden
+VERWIJDER EXIF-INFORMATIE VERBORGEN IN JPEG-BESTANDEN
 =====================================================
 sudo apt install libimage-exiftool-perl
 for i in *.jpg; do echo "Processing $i"; exiftool -all= "$i"; done
 
 
-Google Foto's/Photos en Exif-data (exiftool)
+GOOGLE FOTO'S/PHOTOS EN EXIF-DATA (EXIFTOOL)
 ============================================
-PROBLEEM
+Probleem
+--------
 Na het uploaden van foto's naar Google Foto's verschijnen oude foto's bij nieuw foto's; foto's uit 1971 staan naast foto's uit 2010.
 
-ANALYSE
+Analyse
+-------
 Google Foto's gebruikt op volgorde:
 1. Exif-datum       (ModifyDate)
 2. Wijzigingsdatum  (FileModifyDate)
@@ -1177,7 +1179,8 @@ De wijzigingsdatum van een bestand is aan te passen met 'touch', en wordt aangep
 Dat is zeker niet handig bij bijvoorbeeld gescande foto's uit Maart 1978.
 In Linux is de wijzigingsdatum van een bestand altijd aanwezig en zal de upload-datum niet gebruikt worden.
 
-OPLOSSING
+Oplossing
+---------
 Installeer ExifTool met: sudo apt-get install libimage-exiftool-perl
 Volg onderstaande STAPPEN:
 1.  Inspecteren
@@ -1185,7 +1188,8 @@ Volg onderstaande STAPPEN:
 3.  Controleren
 4.  Opruimen
 
-STAPPEN
+Stappen
+-------
 1.  Inspecteren
 ---------------
 exiftool -printFormat '$FileModifyDate $Directory/$FileName' -dateFormat "%Y-%m-%d" -if 'not $ModifyDate' -recurse "$HOME/Afbeeldingen" 1> "$HOME/Afbeeldingen/Afbeeldingen-zonder-datum.txt" 2> "$HOME/Afbeeldingen/Afbeeldingen-foutjes.txt"
@@ -1241,7 +1245,8 @@ Nu is het tijd om de foto's te uploaden naar Google Foto's.
 Foto's die foutief zijn geplaatsts in Google Foto's, bijvoorbeeld met de scan-datum i.p.v. de datum waarop de foto is gemaakt, blijven staan.
 Deze zijn met het overzicht uit stap 1 te vinden en te verwijderen van Google Foto's.
 
-VOORBEELDEN
+Voorbeelden
+-----------
 Enkele foto aanpassen
 ---------------------
 exiftool -preserve -ModifyDate="2010-06-03 10:10:50" GSE_2010.jpg
@@ -1283,7 +1288,8 @@ Als -preserve is vergeten
 -------------------------
 touch --date='2011-09-10' 2011-09-10\ elst.jpg
 
-LEZEN
+Lezen
+-----
 Exif-datum
 ----------
 exiftool -ModifyDate BESTANDTerminalve "$PWD"
@@ -1317,7 +1323,8 @@ exiftool -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' -dateForm
 exiftool -recurse -printFormat '$FileName' -if '$FileModifyDate ne $ModifyDate' -dateFormat "%Y:%m:%d" "$PWD"
 exiftool -recurse -printFormat '$FileName : $FileModifyDate' "$PWD"
 
-SCHRIJVEN
+Schrijven
+---------
 Toevoegen ontbrekende Exif-datum als wijzigingsdatum [2]
 ----------------------------------------------------
 exiftool -preserve '-ModifyDate<FileModifyDate' -if 'not $ModifyDate' BESTAND
@@ -1369,7 +1376,7 @@ jjjj-mm-dd--jjjj-mm-dd        2015-01-01--2016-Terminalv
 find "$PWD" -name '* [0-9][0-9][0-9][0-9] *' -print 2> /dev/null
 
 
-Up/downstream
+UP/DOWNSTREAM
 =============
               upstream              downstream
               stroomopwaarts        stroomafwaarts
@@ -1383,7 +1390,7 @@ Upstream:   distributeur experimenteert met updates voordat die in een stabiele 
 Downstream: patches en updates worden pas worden uitgerold nadat een distributeur dat heeft gedaan
 
 
-Indeling Xorg logbestand
+INDELING XORG LOGBESTAND
 ========================
 (--) probed
 (**) from config file
@@ -1397,10 +1404,10 @@ Indeling Xorg logbestand
 (??) unknown
 
 
-Visual Studio Code (vscode)
+VISUAL STUDIO CODE (VSCODE)
 ===========================
 
-install
+Install
 -------
 Registreer vscode:
 sudo update-alternatives --install /usr/bin/editor editor "$(which code)" 10
@@ -1409,7 +1416,7 @@ sudo update-alternatives --set editor "$(which code)"
 Raadpleeg standaard editor:
 sudo update-alternatives --display editor
 
-setup
+Setup
 -----
 Raadpleet mime-type:
 mimetype FILE
@@ -1443,7 +1450,7 @@ xdg-mime query default application/x-shellscript
    TROFF Syntax
 
 
-Epoch <> DateTime
+EPOCH <> DATETIME
 =================
 date +%s
 1639767205
@@ -1451,7 +1458,7 @@ date -date @1639767205
 vr 17 dec 2021 19:53:25 CET
 
 
-Copy/move home-dirs including hidden (.) files
+COPY/MOVE HOME-DIRS INCLUDING HIDDEN (.) FILES
 ==============================================
 shopt -s dotglob
 cp /home/<user-old>/* /home/<user-new>/*
@@ -1459,9 +1466,10 @@ cp /home/<user-old>/* /home/<user-new>/*
 mv /home/<user-old>/* /home/<user-new>/*
 
 
-Ansible
+ANSIBLE
 =======
 Ansible lokaal gebruiken non-root
+---------------------------------
 ssh-keygen
 ssh-copy-id "$USER"@localhost
 ssh "$USER"@localhost
@@ -1520,7 +1528,7 @@ Allow members of group sudo to execute any command
 %sudo   ALL=(ALL:ALL) ALL -> %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
 
 
-AWK and its versions, some don't support long-option --field-separator
+AWK AND ITS VERSIONS, SOME DON'T SUPPORT LONG-OPTION --FIELD-SEPARATOR
 ======================================================================
 file /etc/alternatives/awk
 /usr/bin/awk
@@ -1529,13 +1537,13 @@ file /etc/alternatives/awk
 /usr/bin/gawk
 
 
-Firmware
+FIRMWARE
 ========
 Ref: https://fwupd.org/ (Linux Vendor Firmware Service)
 fwupdmgr get-devices
 
 
-UEFI from Linux
+UEFI FROM LINUX
 ===============
 sudo mokutil --sb-state
 sudo mokutil --list-enrolled
@@ -1546,11 +1554,12 @@ ps --no-headers -o comm 1
 systemctl reboot --firmware-setup
 
 
-Debian 12 Live Persistent USB
+DEBIAN 12 LIVE PERSISTENT USB
 =============================
 https://unix.stackexchange.com/questions/118965/how-to-create-a-debian-live-usb-with-persistence
 
-MAKEN
+Maken
+-----
 Download image.
 wget --output-document=$HOME/debian.iso https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-12.0.0-amd64-gnome.iso
 Controleer iso.
@@ -1583,7 +1592,8 @@ echo '/ union' | sudo tee /mnt/persistence.conf
 sudo sync
 sudo umount /mnt
 
-GEBRUIKEN
+Gebruiken
+---------
 computernaam: debian, gebruiker: user, wachtwoord: live
 Debian met GNOME.
 
@@ -1593,7 +1603,7 @@ sudo systemctl disable fwupd.service
 sudo systemctl mask fwupd.service
 
 Verwijder starter Install Debian.
-KLAAR
+Klaar!
 
 
 GPG
@@ -1601,7 +1611,7 @@ GPG
 karel@pc06:~$ gpg --full-generate-key
 karel@pc06:~$ gpg --list-keys
 
-KEYS
+Keys
 ----
 # Export public key in OpenPGP binary format.
 gpg --export --output kz-key.gpg info@karelzimmer.nl
@@ -1632,8 +1642,7 @@ gpg --output ~/kz-scripts/usr/bin/kz-install.sh.gpg   --sign ~/kz-install.sh.gpg
 gpg --output ~/kz-scripts/usr/bin/kz-setup.sh.gpg     --sign ~/kz-setup.sh.gpg.bash
 ---
 
-
-PASSPHRASE
+Passphrase
 ----------
 # Encrypt a file.
 gpg --symmetric <file>  # Output: <file>.gpg
@@ -1642,7 +1651,7 @@ gpg --symmetric <file>  # Output: <file>.gpg
 gpg --decrypt <file>.gpg  # Output: <file>
 
 
-KEYSERVER
+Keyserver
 ---------
 Export:
 gpg --export -a 57770270 > public.key
@@ -1665,30 +1674,74 @@ gpg --keyserver keyserver.ubuntu.com --send-key 57770270
 gpg --keyserver keyserver.ubuntu.com --recv-key 57770270
 
 
-Browser policies
+BROWSER POLICIES
 ================
-Google Chrome
--------------
-/etc/opt/chrome/policies/managed/policies.json
-chrome://policy/
 Mozilla Firefox
 ---------------
 /etc/firefox/policies/policies.json
-about://policy/
+about://policy
+
+Google Chrome
+-------------
+/etc/opt/chrome/policies/managed/policies.json
+chrome://policy
+
+Microsoft Edge
+--------------
+/etc/opt/edge/policies/managed/MSEDGE-GLOBAL.json
+edge://policy
 
 
-Record bash session
+BROWSER EXTENSIONS
+==================
+Mozilla Firefox
+---------------
+# Extensions hosted in the Firefox web store (all):
+"adguardadblocker@adguard.com"              # AdGuard Advertentieblokker
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
+
+"{446900e4-71c2-419f-a6a7-df9c091e268b}"    # Bitwarden - wachtwoordbeheerder
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
+
+"chrome-gnome-shell@gnome.org"              # GNOME Shell-integratie
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/gnome-shell-integration/latest.xpi"
+
+"jid1-KKzOGWgsW3Ao4Q@jetpack"               # I don’t care about cookies
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi"
+
+Google Chrome
+-------------
+# Extensions hosted in the Chrome web store (all):
+"update_url": "https://clients2.google.com/service/update2/crx"
+"bgnkhhnnamicmpeenaelnjfhikgbkllg" # AdGuard Advertentieblokker
+"nngceckbapebfimnlniiiahkandclblb" # Bitwarden - wachtwoordbeheerder
+"gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell-integratie
+"fihnjjcciajhdojfnbdddfaoknhalnja" # I don’t care about cookies
+
+Microsoft Edge
+--------------
+# Extensions hosted in the Edge web store:
+"update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
+"pdffkfellgipmhklpdmokmckkkfcopbh" # AdGuard Advertentieblokker
+"jbkfoedolllekgbhcbcoahefnbanhhlh" # Bitwarden - wachtwoordbeheerder
+"oholpbloipjbbhlhohaebmieiiieioal" # I don’t care about cookies
+# Extensions hosted in the Chrome web store:
+"update_url": "https://clients2.google.com/service/update2/crx"
+"gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell-integratie
+
+
+RECORD BASH SESSION
 ===================
 $ script
 # Start nieuwe bash-sessie en legt input en output vast in bestand typescript.
 
 
-Find hard link
+FIND HARD LINK
 ==============
 find -samefile <filename>
 
 
-Create own application icon
+CREATE OWN APPLICATION ICON
 ===========================
 Open Krita
 File > New > Create

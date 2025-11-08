@@ -1724,10 +1724,12 @@ Microsoft Edge
 "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
 "pdffkfellgipmhklpdmokmckkkfcopbh" # AdGuard Advertentieblokker
 "jbkfoedolllekgbhcbcoahefnbanhhlh" # Bitwarden - wachtwoordbeheerder
-"oholpbloipjbbhlhohaebmieiiieioal" # I don’t care about cookies
-# Extensions hosted in the Chrome web store:
+# Extension hosted in the Chrome web store:
 "update_url": "https://clients2.google.com/service/update2/crx"
 "gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell-integratie
+# Extension hosted in the Edge web store:
+"update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
+"oholpbloipjbbhlhohaebmieiiieioal" # I don’t care about cookies
 
 
 RECORD BASH SESSION

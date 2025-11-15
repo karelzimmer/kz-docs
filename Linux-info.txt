@@ -1755,3 +1755,36 @@ File > Save As > kz.png
 
 In desktop file:
 Icon=kz
+
+
+DISABLE/ENABLE-AER
+==================
+# -----------------------------------------------------------------------------
+# Disable Advanced Error Reporting.
+# -----------------------------------------------------------------------------
+# Disable kernel config parameter PCIEAER (Peripheral Component Interconnect
+# Express Advanced Error Reporting) prevents the log gets flooded with
+# 'AER: Corrected errors received'. This is usually needed for HP hardware.
+# -----------------------------------------------------------------------------
+if ! grep --quiet 'pci=noaer' /etc/default/grub; then sudo sed --in-place 's/quiet/quiet pci=noaer/' /etc/default/grub; fi
+if   grep --quiet debian /etc/os-release; then sudo update-grub; fi
+if   grep --quiet rhel   /etc/os-release; then sudo grub2-mkconfig -o /boot/grub2/grub.cfg; fi
+# -----------------------------------------------------------------------------
+# Check for kernel config parameter pci=noaer.
+# -----------------------------------------------------------------------------
+grep --quiet 'pci=noaer' /etc/default/grub
+
+# -----------------------------------------------------------------------------
+# Enable Advanced Error Reporting.
+# -----------------------------------------------------------------------------
+# Enable kernel config parameter PCIEAER (Peripheral Component Interconnect
+# Express Advanced Error Reporting) to "allow" the log gets flooded with
+# 'AER: Corrected errors received'. This is usually needed for HP hardware.
+# -----------------------------------------------------------------------------
+if grep --quiet 'pci=noaer' /etc/default/grub; then sudo sed --in-place 's/quiet pci=noaer/quiet/' /etc/default/grub; fi
+if grep --quiet debian /etc/os-release; then sudo update-grub; fi
+if grep --quiet rhel   /etc/os-release; then sudo grub2-mkconfig -o /boot/grub2/grub.cfg; fi
+# -----------------------------------------------------------------------------
+# Check for kernel config parameter pci=noaer.
+# -----------------------------------------------------------------------------
+! grep --quiet 'pci=noaer' /etc/default/grub

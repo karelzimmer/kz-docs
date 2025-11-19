@@ -159,6 +159,42 @@ mokutil --list-sbat-revocations
 Now nothing it's blocked, reboot, enable Secure Boot and all should be fine.
 
 
+CHARACTERS TO AVOID IN FILENAMES AND DIRECTORIES
+================================================
+Do not use any of these common illegal characters or symbols in your filenames or folders:
+# pound
+% percent
+& ampersand
+{ left curly bracket
+} right curly bracket
+\ back slash
+< left angle bracket
+> right angle bracket
+* asterisk
+? question mark
+/ forward slash
+  blank spaces
+$ dollar sign
+! exclamation point
+' single quotes
+" double quotes
+: colon
+@ at sign
++ plus sign
+` backtick
+| pipe
+= equal sign
+emojis
+alt codes
+
+In addition to forbidden characters, keep these rules in mind when choosing a folder name or filename:
+- Don't start or end your filename with a space, period, hyphen, or underline.
+- Keep your filenames to a reasonable length and be sure they are under 31 characters.
+- Most operating systems are case sensitive; always use lowercase.
+- Avoid using spaces ( ) and underscores (_); use a hyphen (-) instead.
+- Non-ASCII characters need to be escaped.
+
+
 INSTALL ZSTD PACKAGE ON DEBIAN < 12
 ===================================
 # On Debian, dpkg version 1.21.18 has zstd support for .deb archives,

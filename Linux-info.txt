@@ -831,6 +831,27 @@ sudo update-grub
 exit
 
 
+CONVERTEER .PST naar .MBOX
+==========================
+Van .pst naar .mbox converteren
+-------------------------------
+$ sudo apt install pst-utils
+$ readpst -o <output-directory> <pst-file>
+
+Voeg 'ImportExportTools NG' extensie toe aan Thunderbird
+--------------------------------------------------------
+Extra > Add-ons en thema's
+zoek import
+selecteer 'ImportExportTools NG' en klik op '+ Toevoegen aan Thunderbird'.
+
+Importeer de MBOX-bestanden in Thunderbird
+------------------------------------------
+Rechtsklik op Lokale mappen > Nieuwe map: <thunderbird-map>
+Rechtsklik op nieuwe <thunderbird-map> > ImportExportTools NG >
+   Importeer mbox-bestanden > Alle mbox-bestanden uit directory: 0.Outlook
+Klik op Openen
+
+
 ZORG DAT DE HELDERHEID VAN LAPTOPSCHERM CORRECT IS BIJ HET OPSTARTEN
 ====================================================================
 1. Zet helderheid op de gewenste waarde.

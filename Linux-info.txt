@@ -1025,7 +1025,7 @@ rwx
 110 rw- 6
 111 rwx 7
 rwx
-DUUUGGGOOO = Directory (map, - is gewoon bestamd), User (gebruiker),
+DUUUGGGOOO = Directory (map, - is gewoon bestand), User (gebruiker),
     Group (groep), en Other (rest).
 Bestandsrechten, de betekenis van de r, w, en x attributen:
     r - Bestand lezen.
@@ -1048,6 +1048,22 @@ touch   664 (rw-rw-r--) (666 -/- 002)
 Resultaat als de beheerder (superuser of root) een map of bestand aanmaakt:
 mkdir   755 (rwxr-xr-x) (777 -/- 022)
 touch   644 (rw-r--r--) (666 -/- 022)
+
+SUID, SGID, and sticky bit
+--------------------------
+Start at 0
+SUID = 4 user + s(pecial)
+-rwsr-xr-x.
+
+SGID = 2 group + s(pecial)
+drwxrws---
+
+Sticky = 1
+1777/drwxrwxrwt
+|             |
+|             | 
++--- 1=sticky bit
+
 
 
 DRAAI 90 GRADEN IPHONE FILM

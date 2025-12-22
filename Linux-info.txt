@@ -328,11 +328,11 @@ Main repository branch:
 Branch prefixes:
    bugfix/		                  fix bug in code, e.g. bugfix/fix-login-error
    customers/	                  specific branch for a customer
-   develop/	                     development
+   dev/, develop/	               development
    docs/		                     write, update, and fix documentation
-   feature/	                     new features, e.g. feature/<projectname>
+   feat/, feature/               new features, e.g. feature/<projectname>
    hotfix/		                  fix critical bug, e.g. hotfix/<incidentnumber>
-   release/	                     new production version
+   rel/, release/                new production version
    users/<username>/<desc>/      personal branche
    users/<username>/<workitem>/  personal branche
 

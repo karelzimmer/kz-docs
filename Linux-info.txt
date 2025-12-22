@@ -326,12 +326,12 @@ Main repository branch:
    main                          of master
 
 Branch prefixes:
-   bugfix/		                  fix bug in code, e.g. bugfix/fix-login-error
-   customers/	                  specific branch for a customer
-   dev/, develop/	               development
-   docs/		                     write, update, and fix documentation
+   bugfix/                       fix bug in code, e.g. bugfix/fix-login-error
+   customers/                    specific branch for a customer
+   dev/, develop/                development
+   docs/                         write, update, and fix documentation
    feat/, feature/               new features, e.g. feature/<projectname>
-   hotfix/		                  fix critical bug, e.g. hotfix/<incidentnumber>
+   hotfix/                       fix critical bug, e.g. hotfix/<incidentnumber>
    rel/, release/                new production version
    users/<username>/<desc>/      personal branche
    users/<username>/<workitem>/  personal branche
@@ -1736,12 +1736,12 @@ gpg --allow-secret-key-import --import private.key
 
 List:
 gpg --fingerprint
-	/home/karel/.gnupg/pubring.gpg
-	------------------------------
-	pub   1024D/57770270 2007-05-23
-	      Key fingerprint = 757D 3F99 B429 10D1 B307  4F08 446F 400F 5777 0270
-	uid                  Karel Zimmer (De Nerd) <karel.zimmer@hetnet.nl>
-	sub   2048g/E1B3A1C3 2007-05-23
+   /home/karel/.gnupg/pubring.gpg
+   ------------------------------
+   pub   1024D/57770270 2007-05-23
+         Key fingerprint = 757D 3F99 B429 10D1 B307  4F08 446F 400F 5777 0270
+   uid                  Karel Zimmer (De Nerd) <karel.zimmer@hetnet.nl>
+   sub   2048g/E1B3A1C3 2007-05-23
 
 gpg --keyserver keyserver.ubuntu.com --send-key 57770270
 gpg --keyserver keyserver.ubuntu.com --recv-key 57770270

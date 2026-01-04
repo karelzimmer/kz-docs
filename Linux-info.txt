@@ -326,15 +326,17 @@ Main repository branch:
    main                          of master
 
 Branch prefixes:
-   bugfix/                       fix bug in code, e.g. bugfix/fix-login-error
-   customers/                    specific branch for a customer
-   dev/, develop/                development
-   docs/                         write, update, and fix documentation
+   cust/, customers/             specific branch for a customer
+   dev/,  develop/               development
+   doc/,  docs/                  write, update, and fix documentation
    feat/, feature/               new features, e.g. feature/<projectname>
+   fix/,  bugfix/                fix bug in code, e.g. bugfix/fix-login-error
    hotfix/                       fix critical bug, e.g. hotfix/<incidentnumber>
-   rel/, release/                new production version
+   junk/                         throwaway branch created to experiment
+   rel/,  release/               new production version
    users/<username>/<desc>/      personal branche
    users/<username>/<workitem>/  personal branche
+   wip/                          works in progress; won't be finished soon
 
 Git Branching & Merging
 -----------------------

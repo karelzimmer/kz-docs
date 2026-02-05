@@ -864,6 +864,15 @@ Rechtsklik op nieuwe <thunderbird-map> > ImportExportTools NG >
 Klik op Openen
 
 
+WISSEL NAAR ANDER THUNDERBIRD PROFIEL
+=====================================
+Start Thunderbird in Terminalvenster met 'thunderbird -P'
+of
+Start Thunderbird > Hamburgermenu > Help > Probleemoplossingsinformatie
+ga onder Toepassingsbasics naar Profielen en klik op about:profiles,
+klik onder gewenst profile op Profiel starten.
+
+
 ZORG DAT DE HELDERHEID VAN LAPTOPSCHERM CORRECT IS BIJ HET OPSTARTEN
 ====================================================================
 1. Zet helderheid op de gewenste waarde.

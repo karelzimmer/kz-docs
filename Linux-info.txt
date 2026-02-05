@@ -330,13 +330,20 @@ Branch prefixes:
    dev/,  develop/               development
    doc/,  docs/                  write, update, and fix documentation
    feat/, feature/               new features, e.g. feature/<projectname>
-   fix/,  bugfix/                fix bug in code, e.g. bugfix/fix-login-error
+   feat/, feature/               new features, e.g. feature/<projectname>
+   refactor/                     no fix/feat, rewrites/restructures your code
+   style/                        code formatting such as white-space, etc.
    hotfix/                       fix critical bug, e.g. hotfix/<incidentnumber>
    junk/                         throwaway branch created to experiment
    rel/,  release/               new production version
    users/<username>/<desc>/      personal branche
    users/<username>/<workitem>/  personal branche
    wip/                          works in progress; won't be finished soon
+
+N.B. Laat in de commitmessage de branch prefix terugkomen als type commit:
+   git commit -m '<type>: <commitmsg>'
+   Voorbeeld:
+   git commit -m 'refactor: change handling of pkexec errors'
 
 Git Branching & Merging
 -----------------------

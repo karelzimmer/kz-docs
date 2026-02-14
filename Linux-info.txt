@@ -387,7 +387,7 @@ From https://github.com/karelzimmer/kz-scripts
 d2601e26 .. ffoca320 main - origin/main
 Your configuration specifies to merge with the ref 'refs/heads/fix/gui'
 from the remote, but no such ref was fetched.
-# So branch fix/gui localy still exists. 
+# So branch fix/gui localy still exists.
 $ git fetch -prune
 From https://github.com/karelzimmer/kz-scripts
  - [deleted]           (none)     -> origin/fix/qui
@@ -431,7 +431,7 @@ git log -10
 git log --oneline
 
 git log /path/to/file               # levert wijzigingen + <commit>
-git show <commit>:/path/to/file     # levert file compleet 
+git show <commit>:/path/to/file     # levert file compleet
 
 git show <commit>
 
@@ -1082,7 +1082,7 @@ drwxrws---
 Sticky = 1
 1777/drwxrwxrwt
 |             |
-|             | 
+|             |
 +--- 1=sticky bit
 
 
@@ -1851,34 +1851,53 @@ In desktop file:
 Icon=kz
 
 
-DISABLE/ENABLE-AER
-==================
-# -----------------------------------------------------------------------------
-# Disable Advanced Error Reporting.
-# -----------------------------------------------------------------------------
-# Disable kernel config parameter PCIEAER (Peripheral Component Interconnect
-# Express Advanced Error Reporting) prevents the log gets flooded with
-# 'AER: Corrected errors received'. This is usually needed for HP hardware.
-# -----------------------------------------------------------------------------
-if ! grep --quiet 'pci=noaer' /etc/default/grub; then sudo sed --in-place 's/quiet/quiet pci=noaer/' /etc/default/grub; fi
-if   grep --quiet debian /etc/os-release; then sudo update-grub; fi
-if   grep --quiet rhel   /etc/os-release; then sudo grub2-mkconfig -o /boot/grub2/grub.cfg; fi
-# -----------------------------------------------------------------------------
-# Check for kernel config parameter pci=noaer.
-# -----------------------------------------------------------------------------
-grep --quiet 'pci=noaer' /etc/default/grub
+FUN IN THE TERMINAL
+===================
+ 1. sl: Run a train in your terminal
+    sudo apt install sl
+    sl
+    sl -F # fly your locomotive.
 
-# -----------------------------------------------------------------------------
-# Enable Advanced Error Reporting.
-# -----------------------------------------------------------------------------
-# Enable kernel config parameter PCIEAER (Peripheral Component Interconnect
-# Express Advanced Error Reporting) to "allow" the log gets flooded with
-# 'AER: Corrected errors received'. This is usually needed for HP hardware.
-# -----------------------------------------------------------------------------
-if grep --quiet 'pci=noaer' /etc/default/grub; then sudo sed --in-place 's/quiet pci=noaer/quiet/' /etc/default/grub; fi
-if grep --quiet debian /etc/os-release; then sudo update-grub; fi
-if grep --quiet rhel   /etc/os-release; then sudo grub2-mkconfig -o /boot/grub2/grub.cfg; fi
-# -----------------------------------------------------------------------------
-# Check for kernel config parameter pci=noaer.
-# -----------------------------------------------------------------------------
-! grep --quiet 'pci=noaer' /etc/default/grub
+ 2. cmatrix: Add the Matrix effect to your Linux terminal
+    sudo apt install cmatrix
+    cmatrix
+
+ 3. aafire: Let there be fire
+    sudo apt install libaa-bin
+    aafire
+
+ 4. fortune: Want to know your fortune, but there are no fortune cookies around you?
+    sudo apt install fortune fortunes-debian-hints
+    fortune
+
+ 5. oneko: Pet lover? This is for you
+    sudo apt install oneko
+    oneko
+    oneko -dog # dog instead of a cat
+
+ 6. xeyes: Little brother is watching you
+    sudo apt install x11-apps
+    xeyes
+
+ 7. espeak: Let the terminal speak for you
+    sudo apt install espeak
+    espeak "Type what your computer says"
+
+ 8. Toilet: But it has nothing to do with a washroom
+    sudo apt install toilet
+    toilet "sample text you want"
+
+ 9. cowsay: What does the cow say?
+    sudo apt install cowsay
+    cowsay "your text"
+
+10. banner: Whose banner is it?
+    sudo apt install sysvbanner
+    banner "Welcome"
+
+11. Yes: Yes, Terminal!
+    yes "It's FOSS"
+
+12. rig: Get a new identity, well, sort of
+    sudo apt install rig
+    rig

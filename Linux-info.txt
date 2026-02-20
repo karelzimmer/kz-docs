@@ -246,6 +246,15 @@ Press Super and drag anywhere on any window to move it. (No need to grab the
    top bar to move)
 
 
+SCHERPERE PICTOGRAMMEN IN LIBREOFFICE
+=====================================  
+1. Start LibreOffice Writer
+2. Ga naar Extra > Opties.
+3. Klik in de linkerkolom onder LibreOffice op Beeld.
+4. Selecteer rechts achter Thema een van de SVG-pictogrammensets, bijvoorbeeld
+   Elamentary (SVG).
+
+
 COLORED LESS
 ============
 grep --color=always REGEXP SOURCE | less --raw-control-chars

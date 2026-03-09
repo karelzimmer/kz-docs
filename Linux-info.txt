@@ -1862,6 +1862,15 @@ In desktop file:
 Icon=kz
 
 
+CROP IMAGE
+==========
+Open file with Krita.
+Press the 'C' key (Crop the image to an area).
+Select the area to keep, can be made bigger/smaller and moved around.
+Press the 'Enter' key.
+Save the file with the key combination'Ctrl + Shift + S' (Save as).
+
+
 FUN IN THE TERMINAL
 ===================
  1. sl: Run a train in your terminal

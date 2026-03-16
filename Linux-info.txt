@@ -26,6 +26,11 @@ Voer uit:
 umount /dev/sd<XN>
 sudo dd bs=4M conv=fsync status=progress if=~/Downloads/<isonaam> of=/dev/sd<X>
 
+Doorlooptijden ter indicatie:
+USB-A-2       (zwart) 480 Mbps 17m20s
+USB-A-3       (blauw)   5 Gbps  5m57s
+USB-C-3.2Gen1 (blauw)   5 Gbps  2m25s
+
 App Etcher (Windows, macOS, en Linux)
 ----------
 Download Etcher vanaf https://etcher.balena.io.

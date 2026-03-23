@@ -408,8 +408,8 @@ $ git fetch -prune
 From https://github.com/karelzimmer/kz-scripts
  - [deleted]           (none)     -> origin/fix/qui
 
-Rewriting commits
------------------
+Rewrite commits
+---------------
 git config --global core.editor "code --wait"
 git rebase -i <commit>
 [follow instructions in file git-rebase-todo]

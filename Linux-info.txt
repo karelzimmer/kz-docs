@@ -413,6 +413,7 @@ Rewrite commits
 git rebase -i HEAD~4
 [follow instructions in file git-rebase-todo]
 [follow instructions in file COMMIT_EDITMSG]
+git push --force
 
 Revert commits
 --------------

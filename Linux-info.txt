@@ -410,11 +410,9 @@ From https://github.com/karelzimmer/kz-scripts
 
 Rewrite commits
 ---------------
-git config --global core.editor "code --wait"
-git rebase -i <commit>
+git rebase -i HEAD~4
 [follow instructions in file git-rebase-todo]
 [follow instructions in file COMMIT_EDITMSG]
-git push -f
 
 Revert commits
 --------------

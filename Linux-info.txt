@@ -414,6 +414,20 @@ git rebase -i HEAD~4
 [follow instructions in file git-rebase-todo]
 [follow instructions in file COMMIT_EDITMSG]
 git push --force
+Op een andere machine in dezelfde branch:
+git pull
+hint: Diverging branches can't be fast-forwarded, you need to either:
+hint:
+hint: 	git merge --no-ff
+hint:
+hint: or:
+hint:
+hint: 	git rebase
+hint:
+hint: Disable this message with "git config advice.diverging false"
+fatal: Not possible to fast-forward, aborting.
+Voer dan uit:
+git rebase
 
 Revert commits
 --------------

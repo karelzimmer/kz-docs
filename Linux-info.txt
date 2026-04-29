@@ -144,6 +144,24 @@ sudo apt update
 sudo apt full-upgrade
 
 
+VAN UBUNTU NAAR DEBIAN
+======================
+Als Ubuntu snaps gebruikt voor Mozilla Firefox en Thunderbird bevat de map
+~/snap de confugratie (profielen en data).
+
+Firefox
+-------
+Ubuntu snap   : ~/snap/firefox/common/.mozilla --->---+
+Debian deb/apt: ~/.mozilla <---<---<---<---<---<--->--+
+
+Thunderbird
+-----------
+Ubuntu snap   : ~/snap/thunderbird/common/.thunderbird --->---+
+Debian deb/apt: ~/.thunderbird <---<---<---<---<---<---<--->--+
+
+Verwijder ~/snap
+
+
 VERIFYING SHIM SBAT DATA / SBAT SELF-CHECK FAILED: SECURITY POLICY VIOLATION
 ============================================================================
 Disable Secure Boot, boot into Ubuntu and run:

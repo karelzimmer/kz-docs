@@ -364,7 +364,6 @@ Branch prefixes:
    dev/,  develop/               development
    doc/,  docs/                  write, update, and fix documentation
    feat/, feature/               new features, e.g. feature/<projectname>
-   feat/, feature/               new features, e.g. feature/<projectname>
    refactor/                     no fix/feat, rewrites/restructures your code
    style/                        code formatting such as white-space, etc.
    hotfix/                       fix critical bug, e.g. hotfix/<incidentnumber>

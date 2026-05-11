@@ -1265,6 +1265,19 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
 
+OPENSSL OPDRACHTEN
+==================
+Check op TLS1.1:
+openssl s_client -connect dwhb01ont.linux.rabobank.nl:8443 -tls1_1
+
+Certificaat uitlezen:
+openssl x509 -in <certname>.crt -texst
+ 
+Verbinding controleren/testen:
+openssl s_client -connect localhost:<PORT#>
+ (s_client = generic SSL/TLS client for testing purposes)
+
+
 YOUTUBE VIDEO'S DOWNLOADEN
 ==========================
 Change YouTube to youpak

@@ -391,11 +391,14 @@ HEAD                    verwijst naar de huidige commit die je aan het bekijken 
 git branch              # list active (*) and other branches
 git branch <branchname> # maak <branchname>
 git switch <branchname> # switch naar <branchname>
+git push --set-upstream origin HEAD
+                        # Link your local branch to origin
 
 git status              # wijzigingen zijn zichtbaar in main & <branchname>
 git add .               # wijzigingen zijn zichtbaar in main & <branchname>
 git commit -m <message> # wijzigingen zijn zichtbaar alleen in <branchname>
-git push                # 1e keer: git push --set-upstream origin <branchname>
+git push                # Evt. 1e keer:
+                        # git push --set-upstream origin <branchname>
 
 git switch main         # schakel over naar main (HEAD <branchname> -> main)
 git merge <branchname>  # maak main gelijk aan de <branchname>

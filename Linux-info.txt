@@ -360,15 +360,16 @@ Main repository branch:
    main                          of master
 
 Branch prefixes:
+   bugfix/. fix/                 repairing a non-critical error in the code
    cust/, customers/             specific branch for a customer
    dev/,  develop/               development
    doc/,  docs/                  write, update, and fix documentation
-   feat/, feature/               new features, e.g. feature/<projectname>
-   refactor/                     no fix/feat, rewrites/restructures your code
-   style/                        code formatting such as white-space, etc.
+   feature/, feat/               new features, e.g. feature/<projectname>
    hotfix/                       fix critical bug, e.g. hotfix/<incidentnumber>
    junk/                         throwaway branch created to experiment
-   rel/,  release/               new production version
+   refactor/                     no fix/feat, rewrites/restructures your code
+   release/, rel/                new production version
+   style/                        code formatting such as white-space, etc.
    users/<username>/<desc>/      personal branche
    users/<username>/<workitem>/  personal branche
    wip/                          works in progress; won't be finished soon

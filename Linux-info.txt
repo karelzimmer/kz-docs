@@ -182,6 +182,20 @@ mokutil --list-sbat-revocations
 Now nothing it's blocked, reboot, enable Secure Boot and all should be fine.
 
 
+BASH SHELL AND CONF FILES
+=========================
+Login shell start sourcing in te following order:
+/etc/profile
+/etc/profile.d/*.sh
+$HOME/.profile       (Not if ~/.bash_profile or ~/.bash_login exists.)
+$HOME/.bash_profile  (Red Hat, CentOS en Fedora ipv ~/.profile)
+$HOME/.bashrc
+NOTE:
+$HOME/.profile is sourced by Grafical Display Managers (GDM / LightDM, like
+GNOME, by /etc/gdm3/Xsession or /etc/xprofile), file is not read by bash if
+~/.bash_profile or ~/.bash_login exists.
+
+
 CHARACTERS TO AVOID IN FILENAMES AND DIRECTORIES
 ================================================
 Do not use any of these common illegal characters or symbols in your filenames or folders:

@@ -1863,6 +1863,27 @@ Microsoft Edge
 edge://policy
 
 
+GNOME EXTENSIONS
+==================
+Coverflow Alt-Tab
+-----------------
+https://extensions.gnome.org/extension/97/coverflow-alt-tab/
+
+Compiz windows effect
+---------------------
+https://extensions.gnome.org/extension/3210/compiz-windows-effect/
+
+Compiz alike magic lamp effect
+------------------------------
+https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/
+
+Desktop Cube
+------------
+https://extensions.gnome.org/extension/4648/desktop-cube/
+
+gnome-extensions list --enabled
+
+
 BROWSER EXTENSIONS
 ==================
 Mozilla Firefox

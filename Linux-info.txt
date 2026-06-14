@@ -1865,10 +1865,8 @@ edge://policy
 
 GNOME EXTENSIONS
 ==================
-INSTALL
 $ sudo apt install pipx
-SETUP
-$ pipx install gnome-extensions-cli --system-site-packages
+$ sudo pipx install gnome-extensions-cli --system-site-packages
 
 Coverflow Alt-Tab
 -----------------

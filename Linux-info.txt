@@ -1863,6 +1863,40 @@ Microsoft Edge
 edge://policy
 
 
+BROWSER EXTENSIONS
+==================
+Mozilla Firefox
+---------------
+# Extensions hosted in the Firefox web store (all):
+"adguardadblocker@adguard.com"              # AdGuard Advertentieblokker
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
+
+"{446900e4-71c2-419f-a6a7-df9c091e268b}"    # Bitwarden - wachtwoordbeheerder
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
+
+"chrome-gnome-shell@gnome.org"              # GNOME Shell-integratie
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/gnome-shell-integration/latest.xpi"
+
+Google Chrome
+-------------
+# Extensions hosted in the Chrome web store (all):
+"update_url": "https://clients2.google.com/service/update2/crx"
+"bgnkhhnnamicmpeenaelnjfhikgbkllg" # AdGuard Advertentieblokker
+"nngceckbapebfimnlniiiahkandclblb" # Bitwarden - wachtwoordbeheerder
+"gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell-integratie
+
+Microsoft Edge
+--------------
+# Extensions hosted in the Edge web store:
+"update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
+"pdffkfellgipmhklpdmokmckkkfcopbh" # AdGuard Advertentieblokker
+"jbkfoedolllekgbhcbcoahefnbanhhlh" # Bitwarden - wachtwoordbeheerder
+# Extension hosted in the Chrome web store:
+"update_url": "https://clients2.google.com/service/update2/crx"
+"gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell-integratie
+# Extension hosted in the Edge web store:
+
+
 GNOME EXTENSIONS
 ==================
 $ sudo apt install pipx
@@ -1897,46 +1931,6 @@ $ gext enable "desktop-cube@schneegans.github.com"
 $ gnome-extensions list --enabled
 $ gnome-extensions-cli --help
 $ gnome-extensions-cli ls
-
-
-BROWSER EXTENSIONS
-==================
-Mozilla Firefox
----------------
-# Extensions hosted in the Firefox web store (all):
-"adguardadblocker@adguard.com"              # AdGuard Advertentieblokker
-"install_url": "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi"
-
-"{446900e4-71c2-419f-a6a7-df9c091e268b}"    # Bitwarden - wachtwoordbeheerder
-"install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
-
-"chrome-gnome-shell@gnome.org"              # GNOME Shell-integratie
-"install_url": "https://addons.mozilla.org/firefox/downloads/latest/gnome-shell-integration/latest.xpi"
-
-"jid1-KKzOGWgsW3Ao4Q@jetpack"               # I don’t care about cookies
-"install_url": "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi"
-
-Google Chrome
--------------
-# Extensions hosted in the Chrome web store (all):
-"update_url": "https://clients2.google.com/service/update2/crx"
-"bgnkhhnnamicmpeenaelnjfhikgbkllg" # AdGuard Advertentieblokker
-"nngceckbapebfimnlniiiahkandclblb" # Bitwarden - wachtwoordbeheerder
-"gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell-integratie
-"fihnjjcciajhdojfnbdddfaoknhalnja" # I don’t care about cookies
-
-Microsoft Edge
---------------
-# Extensions hosted in the Edge web store:
-"update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
-"pdffkfellgipmhklpdmokmckkkfcopbh" # AdGuard Advertentieblokker
-"jbkfoedolllekgbhcbcoahefnbanhhlh" # Bitwarden - wachtwoordbeheerder
-# Extension hosted in the Chrome web store:
-"update_url": "https://clients2.google.com/service/update2/crx"
-"gphhapmejobijbbhgpjhcjognlahblep" # GNOME Shell-integratie
-# Extension hosted in the Edge web store:
-"update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
-"oholpbloipjbbhlhohaebmieiiieioal" # I don’t care about cookies
 
 
 RECORD BASH SESSION

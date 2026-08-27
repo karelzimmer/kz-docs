@@ -20,11 +20,11 @@ App Terminalvenster (Linux)
 -------------------
 Plaats een usb-stick van minimaal 8 GB.
 $ findmnt
-Zoek de regel die begint met /media/<user>/<usblabel> (kolom TARGET) en noteer
-de apparaatnaam /dev/sd<XN> (kolom SOURCE).
+Zoek de regel die begint met /media/user/usblabel (kolom TARGET) en noteer
+de apparaatnaam /dev/sdXN (kolom SOURCE).
 Voer uit:
-umount /dev/sd<XN>
-sudo dd bs=4M conv=fsync status=progress if=~/Downloads/<isonaam> of=/dev/sd<X>
+umount /dev/sdXN
+sudo dd bs=4M conv=fsync status=progress if=~/Downloads/ISONAAM of=/dev/sdX
 
 Doorlooptijden ter indicatie:
 USB-A-2       (zwart) 480 Mbps 17m20s
@@ -62,11 +62,11 @@ App Terminal (Linux)
 ------------
 Insert a USB stick of at least 8 GB.
 $ findmnt
-Find the line that starts with /media/<user>/<usblabel> (TARGET column) and note
-the device name /dev/sd<XN> (SOURCE column).
+Find the line that starts with /media/user/usblabel (TARGET column) and note
+the device name /dev/sdXN (SOURCE column).
 Execute:
-umount /dev/sd<XN>
-sudo dd bs=4M conv=fsync status=progress if=~/Downloads/<isonaam> of=/dev/sd<X>
+umount /dev/sdXN
+sudo dd bs=4M conv=fsync status=progress if=~/Downloads/ISONAME of=/dev/sdX
 
 App Etcher (Windows, macOS, and Linux)
 ----------
@@ -151,13 +151,13 @@ Als Ubuntu snaps gebruikt voor Mozilla Firefox en Thunderbird bevat de map
 
 Firefox
 -------
-Ubuntu snap   : ~/snap/firefox/common/.mozilla --->---+
-Debian deb/apt: ~/.mozilla <---<---<---<---<---<--->--+
+Ubuntu snap                      Debian deb/apt
+~/snap/firefox/common/.mozilla   ~/.mozilla
 
 Thunderbird
 -----------
-Ubuntu snap   : ~/snap/thunderbird/common/.thunderbird --->---+
-Debian deb/apt: ~/.thunderbird <---<---<---<---<---<---<--->--+
+Ubuntu snap                               Debian deb/apt
+~/snap/thunderbird/common/.thunderbird    ~/.thunderbird
 
 Verwijder ~/snap
 
@@ -243,16 +243,16 @@ INSTALL ZSTD PACKAGE ON DEBIAN < 12
 # Install required packages
 sudo apt install binutils zstd
 # Extract files from the archive
-ar x <debfile>
+ar x DEBFILE
 # Uncompress zstd files an re-compress them using xz
 zstd -d < control.tar.zst | xz > control.tar.xz
 zstd -d < data.tar.zst | xz > data.tar.xz
 # Re-create the Debian package
-ar -m -c -a sdsd <debfile_xz> debian-binary control.tar.xz data.tar.xz
+ar -m -c -a sdsd DEBFILE_xz debian-binary control.tar.xz data.tar.xz
 # Clean up
 rm debian-binary control.tar.xz data.tar.xz control.tar.zst data.tar.zst
-# Install <debfile_xz>
-sudo apt install <debfile_xz>
+# Install DEBFILE_xz
+sudo apt install DEBFILE_xz
 
 
 VOORKOM EEN OVERSTROMING VAN 'AER: CORRECTED ERROR RECEIVED' IN HET LOGBOEK
@@ -359,8 +359,8 @@ Hierna geen username/password meer nodig.
 ROLL BACK
 git config --global --unset credential.helper
 git push
-Username for 'https://github.com': <username>
-Password for 'https://<username>@github.com': <password>
+Username for 'https://github.com': USERNAME
+Password for 'https://USERNAME@github.com': PASSWORD
 
 Git config levels and files
 ---------------------------
@@ -371,25 +371,25 @@ Git config levels and files
 Branch names and prefixes
 -------------------------
 Main repository branch:
-   main                          of master
+   main                       of master
 
 Branch prefixes:
-   bugfix/. fix/                 repairing a non-critical error in the code
-   cust/, customers/             specific branch for a customer
-   dev/,  develop/               development
-   doc/,  docs/                  write, update, and fix documentation
-   feature/, feat/               new features, e.g. feature/<projectname>
-   hotfix/                       fix critical bug, e.g. hotfix/<incidentnumber>
-   junk/                         throwaway branch created to experiment
-   refactor/                     no fix/feat, rewrites/restructures your code
-   release/, rel/                new production version
-   style/                        code formatting such as white-space, etc.
-   users/<username>/<desc>/      personal branche
-   users/<username>/<workitem>/  personal branche
-   wip/                          works in progress; won't be finished soon
+   bugfix/. fix/              repairing a non-critical error in the code
+   cust/, customers/          specific branch for a customer
+   dev/,  develop/            development
+   doc/,  docs/               write, update, and fix documentation
+   feature/, feat/            new features, e.g. feature/PROJECTNAME
+   hotfix/                    fix critical bug, e.g. hotfix/INCIDENTNUMBER
+   junk/                      throwaway branch created to experiment
+   refactor/                  no fix/feat, rewrites/restructures your code
+   release/, rel/             new production version
+   style/                     code formatting such as white-space, etc.
+   users/USERNAME/DESC/       personal branche
+   users/USERNAME/WORKITEM/   personal branche
+   wip/                       works in progress; won't be finished soon
 
 N.B. Laat in de commitmessage de branch prefix terugkomen als type commit:
-   git commit -m '<type>: <commitmsg>'
+   git commit -m 'TYPE: COMMITMSG'
    Voorbeeld:
    git commit -m 'refactor: change handling of pkexec errors'
 
@@ -400,34 +400,34 @@ main                    standard branch na 'git init'
 master                  < oktober 2020, gewijzigd naar main ivm culturele
                           aspecten zoals master/slave
 
-<branchname>            branch is in feite een verwijzing naar een momentopname van je wijzigingen
+BRANCHNAME              branch is in feite een verwijzing naar een momentopname van je wijzigingen
 HEAD                    verwijst naar de huidige commit die je aan het bekijken bent ("pointer")
 
 git branch              # list active (*) and other branches
-git branch <branchname> # maak <branchname>
-git switch <branchname> # switch naar <branchname>
+git branch BRANCHNAME   # maak BRANCHNAME
+git switch BRANCHNAME   # switch naar BRANCHNAME
 git push --set-upstream origin HEAD
                         # Link your local branch to origin
 
-git status              # wijzigingen zijn zichtbaar in main & <branchname>
-git add .               # wijzigingen zijn zichtbaar in main & <branchname>
-git commit -m <message> # wijzigingen zijn zichtbaar alleen in <branchname>
+git status              # wijzigingen zijn zichtbaar in main & BRANCHNAME
+git add .               # wijzigingen zijn zichtbaar in main & BRANCHNAME
+git commit -m MESSAGE   # wijzigingen zijn zichtbaar alleen in BRANCHNAME
 git push                # Evt. 1e keer:
-                        # git push --set-upstream origin <branchname>
+                        # git push --set-upstream origin BRANCHNAME
 
-git switch main         # schakel over naar main (HEAD <branchname> -> main)
-git merge <branchname>  # maak main gelijk aan de <branchname>
+git switch main         # schakel over naar main (HEAD BRANCHNAME -> main)
+git merge BRANCHNAME    # maak main gelijk aan de BRANCHNAME
 git status
 git push
 
 Squash commit
 -------------
 git switch main
-git merge --squash <branchname>
-git commit -m [<message>]
+git merge --squash BRANCHNAME
+git commit -m [MESSAGE]
 git push origin
-git branch --delete <branchname>
-git push origin --delete <branchname>
+git branch --delete BRANCHNAME
+git push origin --delete BRANCHNAME
 git remote prune origin # remove all stale branches
 git fetch --prune       # remove any no longer existing remote references
 
@@ -466,7 +466,7 @@ git rebase
 
 Revert commits
 --------------
-git revert <commit>
+git revert COMMIT
 
 Branch main is ahead of branch develop
 --------------------------------------
@@ -479,47 +479,47 @@ git diff main..develop --compact-summary # only filenames
 
 Rename branch
 -------------
-git branch --move <oldbranch> <newbranch>
-git push origin --delete <oldbranch>
-git push --set-upstream origin <newbranch>
+git branch --move OLDBRANCH NEWBRANCH
+git push origin --delete OLDBRANCH
+git push --set-upstream origin NEWBRANCH
 
 Informatie
 ----------
 git reflog
 
 git config --list                   # raadplegen
-git remote set-url origin <new-url> # wijzigen
+git remote set-url origin NEW-URL   # wijzigen
 
 git log
 git log -10
 git log --oneline
 
-git log /path/to/file               # levert wijzigingen + <commit>
-git show <commit>:/path/to/file     # levert file compleet
+git log /path/to/file               # levert wijzigingen + COMMIT
+git show COMMIT:/path/to/file       # levert file compleet
 
-git show <commit>
+git show COMMIT
 
 git diff main
 git diff --name-only main
 git diff --compact-summary main
 git diff working <-> staged
-git diff '<commit>-A' '<commit>-B' log --oneline
+git diff 'COMMIT-A' 'COMMIT-B' log --oneline
 
 
 git log                          # Look for right commit.
-# commit <commit1>
+# commit COMMIT1
 
-git cat-file -p <commit1>        # Read the commit.
-# tree <commit2>
+git cat-file -p COMMIT1          # Read the commit.
+# tree COMMIT2
 
-git cat-file -p <commit2>        # Read the directory, repeat 1-n times.
-# <perm> tree <commit3> <dirname>
+git cat-file -p COMMIT2          # Read the directory, repeat 1-n times.
+# PERM tree COMMIT3 DIRNAME
 
-git cat-file -p <commit3>        # Read the directory, till <perm> blob ...
-# <perm> blob <commit4> <filename>
+git cat-file -p COMMIT3          # Read the directory, till PERM blob ...
+# PERM blob COMMIT4 FILENAME
 
-git cat-file -p <commit4>        # Read the file filename.
-# <filename>
+git cat-file -p COMMIT4          # Read the file FILENAME.
+# FILENAME
 
 
 # fatal: CRLF would be replaced by LF in file.txt
@@ -553,10 +553,10 @@ git clean -d  -f .
 
 PROCES SLAPEN MET CTRL-Z
 ========================
-Overzicht met jobs,
-kill met kill %<nummer>,
-resume in background via bg %<nummer >,
-resume in foreground via fg %<nummer >.
+Overzicht met jobs
+kill met kill %NUMMER
+resume in background via bg %NUMMER
+resume in foreground via fg %NUMMER
 
 
 MOUNT NAS
@@ -582,8 +582,8 @@ sudo apt-get install --yes cifs-utils samba
 Create login file
 -----------------
 sudo vi /etc/data.login
-username=<nas_username>
-password=<nas_password>
+username=NAS_USERNAME
+password=NAS_PASSWORD
 
 :x
 chmod --verbose '600' /etc/data.login
@@ -676,7 +676,7 @@ msginit --locale=nl --input=helloworld.pot --output-file=nl/LC_MESSAGES/hellowor
 
 Wijzig 1-malig .po
 ------------------
-# Content-Type: text/plain; charset=UTF-8\n" <== UTF-8
+# Content-Type: text/plain; charset=UTF-8\n"
 # PACKAGE -> helloworld
 # VERSION -> 0.1
 
@@ -829,7 +829,7 @@ Klik op Terugzetten starten/Start Restoring en vervolgens op Terugzetten/Restore
 
 GEBRUIKEN
 Herstart de computer vanaf de USB-stick en kies de optie 'Detect en show boot methods'.
-Selecteer het gewenste besturingssysteem om te booten en druk op <Enter>.
+Selecteer het gewenste besturingssysteem om te booten en druk op Enter.
 Herinstalleer de bootloader na
 lsblk
 als mountpoint / bij sda staat, met
@@ -912,7 +912,7 @@ CONVERTEER .PST naar .MBOX
 Van .pst naar .mbox converteren
 -------------------------------
 $ sudo apt install pst-utils
-$ readpst -o <output-directory> <pst-file>
+$ readpst -o OUTPUT-DIRECTORY PST-FILE
 
 Voeg 'ImportExportTools NG' extensie toe aan Thunderbird
 --------------------------------------------------------
@@ -922,8 +922,8 @@ selecteer 'ImportExportTools NG' en klik op '+ Toevoegen aan Thunderbird'.
 
 Importeer de MBOX-bestanden in Thunderbird
 ------------------------------------------
-Rechtsklik op Lokale mappen > Nieuwe map: <thunderbird-map>
-Rechtsklik op nieuwe <thunderbird-map> > ImportExportTools NG >
+Rechtsklik op Lokale mappen > Nieuwe map: THUNDERBIRD-MAP
+Rechtsklik op nieuwe THUNDERBIRD-MAP > ImportExportTools NG >
    Importeer mbox-bestanden > Alle mbox-bestanden uit directory: 0.Outlook
 Klik op Openen
 
@@ -1010,7 +1010,7 @@ Klaar.
 MAC ADDRESS SPOOFING
 ====================
 ip link show INTERFACE  INTERFACE zie iwlist scan
-   bijvoorbeeld: ...link/ether 00:1d:98:5a:d1:3a <== MAC address
+   bijvoorbeeld: ...link/ether 00:1d:98:5a:d1:3a
 ip link set dev INTERFACE down
 ip link set dev INTERFACE address XX:XX:XX:XX:XX:XX
 ip link set dev INTERFACE up
@@ -1102,10 +1102,10 @@ VVV
 421
 rwx
 000 --- 0
-001 --x 1 <==
-010 -w- 2 <==
+001 --x 1
+010 -w- 2
 011 -wx 3
-100 r-- 4 <==
+100 r-- 4
 101 r-x 5
 110 rw- 6
 111 rwx 7
@@ -1289,10 +1289,10 @@ Check op TLS1.1:
 openssl s_client -connect dwhb01ont.linux.rabobank.nl:8443 -tls1_1
 
 Certificaat uitlezen:
-openssl x509 -in <certname>.crt -texst
+openssl x509 -in CERTNAME.crt -texst
  
 Verbinding controleren/testen:
-openssl s_client -connect localhost:<PORT#>
+openssl s_client -connect localhost:PORT#
  (s_client = generic SSL/TLS client for testing purposes)
 
 
@@ -1632,9 +1632,9 @@ vr 17 dec 2021 19:53:25 CET
 COPY/MOVE HOME-DIRS INCLUDING HIDDEN (.) FILES
 ==============================================
 shopt -s dotglob
-cp /home/<user-old>/* /home/<user-new>/*
+cp /home/USER-OLD/* /home/USER-NEW/*
 -of-
-mv /home/<user-old>/* /home/<user-new>/*
+mv /home/USER-OLD/* /home/USER-NEW/*
 
 
 ANSIBLE
@@ -1692,7 +1692,7 @@ echo '---
 ansible-playbook -i inventory/localhost hello-world-root.yml -K
 BECOME password: (-k: SSH password)
 
-Geen -K (become <password> opgeven) meer nodig
+Geen -K (become PASSWORD opgeven) meer nodig
 ----------------------------------------------
 sudo visudo /etc/sudoers
 Allow members of group sudo to execute any command
@@ -1790,20 +1790,20 @@ gpg --export --output kz-key.gpg info@karelzimmer.nl
 gpg --export --output kz-key.asc --armor info@karelzimmer.nl
 
 # Encrypt a file (with public key).
-gpg --encrypt --recipient <e-mailaddress> <file>  # Output: <file>.gpg
+gpg --encrypt --recipient E-MAILADDRESS FILE # Output: FILE.gpg
 
 # Decrypt a file (with private key).
-gpg --decrypt <file>.gpg  # Output: <file>
+gpg --decrypt FILE.gpg                       # Output: FILE
 
 
 # Sign a file.
-gpg --sign <file>  # Output: <file>.gpg
+gpg --sign FILE  # Output: FILE.gpg
 
 # As any user:
 # Import public key.
-gpg --import /<path>/kz-key.gpg
-# Decrypt <file>.gpg
-gpg --decrypt <file>.gpg  # Output: <file>
+gpg --import /PATH/kz-key.gpg
+# Decrypt FILE.gpg
+gpg --decrypt FILE.gpg                       # Output: FILE
 
 ---
 gpg --output ~/kz-setup.sh.gpg.bash    --decrypt ~/kz-scripts/usr/bin/kz-setup.sh.gpg
@@ -1816,10 +1816,10 @@ gpg --output ~/kz-scripts/usr/bin/kz-setup.sh.gpg     --sign ~/kz-setup.sh.gpg.b
 Passphrase
 ----------
 # Encrypt a file.
-gpg --symmetric <file>  # Output: <file>.gpg
+gpg --symmetric FILE    # Output: FILE.gpg
 
 # Decrypt a file.
-gpg --decrypt <file>.gpg  # Output: <file>
+gpg --decrypt FILE.gpg  # Output: FILE
 
 
 Keyserver
@@ -1941,7 +1941,7 @@ $ script
 
 FIND HARD LINK
 ==============
-find -samefile <filename>
+find -samefile FILENAME
 
 
 CREATE OWN APPLICATION ICON

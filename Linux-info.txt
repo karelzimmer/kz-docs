@@ -445,10 +445,14 @@ From https://github.com/karelzimmer/kz-scripts
 
 Rewrite commits
 ---------------
-git rebase -i HEAD~4
+git rebase -i HEAD~4    # Ga 4 commits terug, of minder/meer als nodig...
 [follow instructions in file git-rebase-todo]
+pick     Include in rebased branch as-is.
+reword   Change the commit message.
 [follow instructions in file COMMIT_EDITMSG]
+Edit commit message.
 git push --force
+
 Op een andere machine in dezelfde branch:
 git pull
 hint: Diverging branches can't be fast-forwarded, you need to either:

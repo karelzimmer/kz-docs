@@ -381,7 +381,7 @@ Branch prefixes:
    feature/, feat/            new features, e.g. feature/PROJECTNAME
    hotfix/                    fix critical bug, e.g. hotfix/INCIDENTNUMBER
    junk/                      throwaway branch created to experiment
-   refactor/                  no fix/feat, rewrites/restructures your code
+   refactor/                  no fix/feat, rewrites/restructures your code [1]
    release/, rel/             new production version
    style/                     code formatting such as white-space, etc.
    users/USERNAME/DESC/       personal branche
@@ -553,6 +553,62 @@ git pull
 git config pull.ff only
 git config --global pull.ff only
 git clean -d  -f .
+
+
+REFACTORING/RESTRUCTURING [1]
+=============================
+Code refactoring is the process of cleaning and reorganizing existing computer
+code without changing its external behavior or visible features. 
+
+Why Developers Refactor Code
+----------------------------
+Improves Readability: Clean code is easier for other people (and yourself) to read and understand later.
+
+Reduces Technical Debt: It removes messy temporary fixes and shortcuts that pile up over time.
+
+Makes Updates Easier: Well-structured code lets teams add new features faster and with fewer errors. 
+
+Common Refactoring Techniques
+-----------------------------
+Extract Method: Taking a long block of code inside a function and turning it into a smaller, separate function.
+
+Rename Variables: Changing a vague name (like d) to a clear, descriptive name (like daysSinceLastLogin).
+
+Remove Dead Code: Deleting old functions or variables that the program no longer uses. 
+
+What Refactoring Is Not
+-----------------------
+Not Bug Fixing: Fixing a broken feature is not refactoring.
+
+Not Adding Features: Writing brand-new capabilities for an app is not refactoring.
+
+Refactoring only focuses on the internal health and design of code that already
+
+Refactoring is also applied to comply with certain style guides
+---------------------------------------------------------------
+Google Shell Style Guide:
+https://google.github.io/styleguide/shellguide.html
+
+Google Python Style Guide:
+https://google.github.io/styleguide/pyguide.html
+
+The Hitchhiker’s Guide to Python!:
+https://docs.python-guide.org/writing/style/
+
+GitLab Shell scripting standards and style guidelines:
+https://docs.gitlab.com/development/shell_scripting_guide/
+
+C Style: Standards and Guidelines:
+https://syque.com/cstyle/index.htm
+
+Google developer documentation style guide:
+https://developers.google.com/style/code-syntax
+
+For example in general:
+A method should contain less than 30 lines of code.
+A class should contain less than 30 methods.
+==>
+A function should contain less then 30 lines of code (Extract Method).
 
 
 PROCES SLAPEN MET CTRL-Z

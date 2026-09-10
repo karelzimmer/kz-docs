@@ -381,7 +381,8 @@ Branch prefixes:
    feature/, feat/            new features, e.g. feature/PROJECTNAME
    hotfix/                    fix critical bug, e.g. hotfix/INCIDENTNUMBER
    junk/                      throwaway branch created to experiment
-   refactor/                  no fix/feat, rewrites/restructures your code [1]
+   refactor/                  no fix/feat, rewrites/restructures your code
+                              See REFACTORING/RESTRUCTURING
    release/, rel/             new production version
    style/                     code formatting such as white-space, etc.
    users/USERNAME/DESC/       personal branche
@@ -555,8 +556,8 @@ git config --global pull.ff only
 git clean -d  -f .
 
 
-REFACTORING/RESTRUCTURING [1]
-=============================
+REFACTORING/RESTRUCTURING
+=========================
 Code refactoring is the process of cleaning and reorganizing existing computer
 code without changing its external behavior or visible features. 
 

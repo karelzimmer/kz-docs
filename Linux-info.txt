@@ -1290,6 +1290,20 @@ sudo visudo /etc/sudoers.d/student
 man sudoers
 
 
+MAN GUI/TUI/CLI
+===============
+GUI
+---
+yelp man:SCRIPT
+
+TUI
+---
+man --html SCRIPT
+CLI
+---
+man SCRIPT
+
+
 INTERNE USB-DEVICE UITSCHAKELEN
 ===============================
 Hier als voorbeeld een Bluetooth-module

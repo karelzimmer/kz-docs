@@ -143,10 +143,10 @@ LibreOffice moderniseren (Modernizing LibreOffice):
    Klik op Sluiten (Close).
 
 2. Pas de pictogrammen aan (Voor die échte Office-look)
-   Ga naar Opties (Options) en klik rechtsboven op het Tandwiel (Tools)-icoon.
-   Zoek op Pictogram (Icon).
+   Klik rechtsboven op het Tandwiel (Tools)-icoon.
+   Zoek op Pictogram (Icon) en kies Opties (Options).
    Onder Pictogramthema kies achter Thema voor Colibre.
-   Klik op Toepassen (Apply).
+   Klik op OK (Ok).
 
 
 UPGRADE DEBIAN TESTING NAAR DEBIAN TRIXIE (13)

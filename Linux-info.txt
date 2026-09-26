@@ -132,6 +132,23 @@ Distro:
 Boek The Debian (The *Universal* Operating System) Administrator's Handbook, Raphaël Hertzog and Roland Mas, Freexian
 
 
+LIBREOFFICE
+===========
+LibreOffice moderniseren (Modernizing LibreOffice):
+1. Microsoft Word-interface (Het Lint) (Microsoft Word interface (the Ribbon))
+   Start LibreOffice (Writer).
+   Ga naar Beeld > Gebruikersinterface... (View > User Interface...).
+   Kies optie Tabbladen (Tabbed).
+   Klik op Op alles toepassen (Apply to all).
+   Klik op Sluiten (Close).
+
+2. Pas de pictogrammen aan (Voor die échte Office-look)
+   Ga naar Opties (Options) en klik rechtsboven op het Tandwiel (Tools)-icoon.
+   Zoek op Pictogram (Icon).
+   Onder Pictogramthema kies achter Thema voor Colibre.
+   Klik op Toepassen (Apply).
+
+
 UPGRADE DEBIAN TESTING NAAR DEBIAN TRIXIE (13)
 ==============================================
 sudo apt update

@@ -339,7 +339,7 @@ Lokale git repo voor teksten of scripts
 sudo apt-get instal git
 git config --global user.name 'Karel Zimmer'
 git config --global user.email 'karel.zimmer@gmail.com'
-git config --global core.editor "code --wait"      # To make rebase -i possible
+git config --global core.editor "code --wait"
 git config --global pull.ff only
 git config --global credential.helper store
 
@@ -460,31 +460,6 @@ from the remote, but no such ref was fetched.
 $ git fetch -prune
 From https://github.com/karelzimmer/kz-scripts
  - [deleted]           (none)     -> origin/fix/qui
-
-Rewrite commits
----------------
-git rebase -i HEAD~4    # Ga 4 commits terug, of minder/meer als nodig...
-[follow instructions in file git-rebase-todo]
-pick     Include in rebased branch as-is.
-reword   Change the commit message.
-[follow instructions in file COMMIT_EDITMSG]
-Edit commit message.
-git push --force
-
-Op een andere machine in dezelfde branch:
-git pull
-hint: Diverging branches can't be fast-forwarded, you need to either:
-hint:
-hint: 	git merge --no-ff
-hint:
-hint: or:
-hint:
-hint: 	git rebase
-hint:
-hint: Disable this message with "git config advice.diverging false"
-fatal: Not possible to fast-forward, aborting.
-Voer dan uit:
-git rebase
 
 Revert commits
 --------------

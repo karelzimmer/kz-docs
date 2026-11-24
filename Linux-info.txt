@@ -201,6 +201,13 @@ mokutil --list-sbat-revocations
 Now nothing it's blocked, reboot, enable Secure Boot and all should be fine.
 
 
+MESSAGE VIA SSH SESSION TO GNOME USER
+=====================================
+sudo apt install llibnotify-bin
+# Replace [USERNAME] with the username of the recipient who uses GNOME.
+sudo -u [USERNAME] DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u [USERNAME])/bus notify-send "Title" "Your message here"
+
+
 BASH SHELL AND CONF FILES
 =========================
 Login shell start sourcing in te following order:
